@@ -1,0 +1,100 @@
+{
+  "categories": [
+    {
+      "id": "medical",
+      "name": "Medical Glasses",
+      "nameAr": "النظارات الطبية"
+    },
+    {
+      "id": "sunglasses",
+      "name": "Sunglasses",
+      "nameAr": "النظارات الشمسية"
+    },
+    {
+      "id": "lenses",
+      "name": "Contact Lenses",
+      "nameAr": "العدسات اللاصقة"
+    },
+    {
+      "id": "blue-light",
+      "name": "Blue Light Protection",
+      "nameAr": "حماية الضوء الأزرق"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Classic Gold",
+      "nameAr": "كلاسيك الذهبي",
+      "category": "medical",
+      "price": 245,
+      "oldPrice": 280,
+      "currency": "USD",
+      "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80",
+      "description": "Premium titanium frame with gold plating",
+      "descriptionAr": "إطار تيتانيوم فاخر مطلي بالذهب",
+      "features": ["Titanium frame", "Anti-scratch coating", "UV protection"],
+      "featuresAr": ["إطار تيتانيوم", "طلاء مضاد للخدوش", "حماية UV"],
+      "inStock": true,
+      "isNew": true,
+      "isBestseller": true,
+      "rating": 4.8,
+      "reviews": 124
+    },
+    {
+      "id": 2,
+      "name": "Titanium Premium",
+      "nameAr": "تيتانيوم بريميوم",
+      "category": "medical",
+      "price": 320,
+      "currency": "USD",
+      "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80",
+      "description": "Ultra-lightweight pure titanium frame",
+      "descriptionAr": "إطار تيتانيوم نقي خفيف الوزن",
+      "features": ["100% pure titanium", "Flexible and unbreakable", "Daily comfort"],
+      "featuresAr": ["تيتانيوم نقي 100%", "مرن وغير قابل للكسر", "راحة يومية"],
+      "inStock": true,
+      "isNew": false,
+      "isBestseller": true,
+      "rating": 4.9,
+      "reviews": 89
+    },
+    {
+      "id": 3,
+      "name": "Sport Pro",
+      "nameAr": "سبورت برو",
+      "category": "sunglasses",
+      "price": 189,
+      "oldPrice": 220,
+      "currency": "USD",
+      "image": "https://images.unsplash.com/photo-1577803645773-f96470509666?w=600&q=80",
+      "description": "Sports sunglasses with UV400 protection",
+      "descriptionAr": "نظارة رياضية مع حماية UV400",
+      "features": ["Polarized lenses", "Sweat resistant", "Anti-slip strap"],
+      "featuresAr": ["عدسات بولارايزد", "مقاومة للعرق", "رباط مضاد للانزلاق"],
+      "inStock": true,
+      "isNew": true,
+      "isBestseller": false,
+      "rating": 4.7,
+      "reviews": 56
+    },
+    {
+      "id": 4,
+      "name": "Digital Shield",
+      "nameAr": "درع رقمي",
+      "category": "blue-light",
+      "price": 195,
+      "currency": "USD",
+      "image": "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80",
+      "description": "Complete blue light protection for professionals",
+      "descriptionAr": "حماية كاملة من الضوء الأزرق للمحترفين",
+      "features": ["Blocks 40% blue light", "Reduces eye strain by 60%", "8+ hours comfort"],
+      "featuresAr": ["تصفية 40% من الضوء الأزرق", "تقليل إجهاد العين 60%", "راحة 8+ ساعات"],
+      "inStock": true,
+      "isNew": true,
+      "isBestseller": true,
+      "rating": 4.9,
+      "reviews": 203
+    }
+  ]
+}
