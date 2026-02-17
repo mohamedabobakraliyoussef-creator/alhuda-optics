@@ -2078,3 +2078,23 @@ if('IntersectionObserver' in window){
 </script>
 </body>
 </html>
+// تفعيل العدادات
+document.addEventListener('DOMContentLoaded', function() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const increment = target / 100;
+        
+        const updateCounter = () => {
+            const count = +counter.innerText;
+            if(count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCounter, 20);
+            } else {
+                counter.innerText = target + (target > 100 ? '+' : '');
+            }
+        };
+        updateCounter();
+    });
+});
