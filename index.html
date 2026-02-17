@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الهدى للبصريات | Al-Huda Optics - فيصل، الجيزة</title>
-    <meta name="description" content="الهدى للبصريات - خبرة 15 عاماً في فيصل، الجيزة. نظارات طبية وشمسية وعدسات لاصقة بأعلى جودة. مواعيد العمل من 12 ظهراً حتى 1 صباحاً">
+    <meta name="description" content="الهدى للبصريات - خبرة 15 عاماً في فيصل، الجيزة. نظارات طبية وشمسية وعدسات لاصقة. مواعيد العمل من 12 ظهراً حتى 1 صباحاً">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
@@ -15,9 +15,6 @@
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -33,23 +30,6 @@
                     colors: {
                         'optic-gold': '#D4AF37',
                         'optic-dark': '#0a0a0a',
-                        'optic-gray': '#1a1a1a',
-                        'optic-light': '#f5f5f5',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'shimmer': 'shimmer 2s linear infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        shimmer: {
-                            '0%': { backgroundPosition: '-200% 0' },
-                            '100%': { backgroundPosition: '200% 0' },
-                        }
                     }
                 }
             }
@@ -57,45 +37,15 @@
     </script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Cairo', sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
         
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: #0a0a0a;
-            color: #fff;
-            overflow-x: hidden;
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D4AF37;
-            border-radius: 4px;
-        }
-        
-        /* Glass Morphism */
         .glass {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .glass-strong {
-            background: rgba(20, 20, 20, 0.9);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        /* Text Gradient */
         .text-gradient {
             background: linear-gradient(135deg, #D4AF37 0%, #f4e5c2 50%, #D4AF37 100%);
             -webkit-background-clip: text;
@@ -103,24 +53,21 @@
             background-clip: text;
         }
         
-        /* Shimmer Effect */
-        .shimmer {
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
-            background-size: 200% 100%;
-            animation: shimmer 2s infinite;
+        .float-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
         }
         
-        /* 3D Card Effect */
-        .card-3d {
-            transform-style: preserve-3d;
-            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
         
-        .card-3d:hover {
-            transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
-        }
+        .counter { font-variant-numeric: tabular-nums; }
         
-        /* Image Overlay with Blur */
         .image-overlay {
             position: relative;
             overflow: hidden;
@@ -130,91 +77,26 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
             opacity: 0;
             transition: opacity 0.4s ease;
             z-index: 1;
         }
         
-        .image-overlay:hover::before {
-            opacity: 1;
-        }
+        .image-overlay:hover::before { opacity: 1; }
         
         .image-description {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 2rem;
+            padding: 1.5rem;
             transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: transform 0.4s ease;
             z-index: 2;
-            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-            backdrop-filter: blur(10px);
         }
         
-        .image-overlay:hover .image-description {
-            transform: translateY(0);
-        }
-        
-        /* Magnetic Button */
-        .magnetic-btn {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .magnetic-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(212, 175, 55, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .magnetic-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-        
-        /* WebGL Canvas */
-        #webgl-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Custom Cursor */
-        .custom-cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #D4AF37;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.2s, opacity 0.2s;
-            mix-blend-mode: difference;
-        }
-        
-        .custom-cursor.hover {
-            transform: scale(2);
-            background: rgba(212, 175, 55, 0.1);
-        }
+        .image-overlay:hover .image-description { transform: translateY(0); }
         
         /* Loading Screen */
         .loader {
@@ -225,197 +107,111 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: opacity 0.5s, visibility 0.5s;
+            transition: opacity 0.5s;
         }
         
-        .loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
+        .loader.hidden { opacity: 0; pointer-events: none; }
         
-        .loader-text {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #D4AF37, #fff, #D4AF37);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 2s linear infinite;
-        }
-        
-        /* Product Badge */
-        .badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            z-index: 10;
-        }
-        
-        .badge-sale {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            color: white;
-        }
-        
-        .badge-new {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-        }
-        
-        .badge-premium {
-            background: linear-gradient(135deg, #D4AF37, #b8941f);
-            color: #0a0a0a;
-        }
-        
-        /* Price Tag */
-        .price-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .old-price {
-            text-decoration: line-through;
-            color: #6b7280;
-            font-size: 0.875rem;
-        }
-        
-        .new-price {
-            color: #D4AF37;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-        
-        /* Working Hours Badge */
-        .hours-badge {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        /* Section Reveal */
-        .reveal-section {
-            opacity: 0;
-            transform: translateY(50px);
-        }
-        
-        /* Grid Pattern */
-        .grid-pattern {
-            background-image: 
-                linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
+        .loader-bar {
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #D4AF37, #f4e5c2);
+            transition: width 0.1s;
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
     <!-- Loading Screen -->
     <div class="loader" id="loader">
-        <div class="text-center">
-            <div class="loader-text mb-4">الهدى للبصريات</div>
-            <div class="w-48 h-1 bg-gray-800 rounded-full overflow-hidden mx-auto">
-                <div class="h-full bg-gradient-to-r from-yellow-600 to-yellow-400 w-0" id="loader-bar"></div>
+        <div class="text-center w-64">
+            <h2 class="text-2xl font-bold text-gradient mb-4">الهدى للبصريات</h2>
+            <div class="w-full h-1 bg-gray-800 rounded-full overflow-hidden">
+                <div class="loader-bar" id="loader-progress"></div>
             </div>
+            <p class="text-sm text-gray-500 mt-2" id="loader-text">جاري التحميل...</p>
         </div>
     </div>
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor hidden md:block" id="cursor"></div>
-
-    <!-- WebGL Background -->
-    <canvas id="webgl-canvas"></canvas>
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/201234567890" class="float-whatsapp w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform" target="_blank">
+        <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+    </a>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
-        <div class="glass-strong mx-4 mt-4 rounded-full px-6 py-4 flex justify-between items-center max-w-7xl mx-auto">
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="glass mx-4 mt-4 rounded-full px-6 py-3 flex justify-between items-center max-w-7xl mx-auto">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
                     <i data-lucide="eye" class="w-6 h-6 text-black"></i>
                 </div>
                 <div>
                     <h1 class="font-bold text-lg text-gradient">الهدى للبصريات</h1>
-                    <p class="text-xs text-gray-400">Al-Huda Optics</p>
+                    <p class="text-xs text-gray-400">فيصل، الجيزة</p>
                 </div>
             </div>
             
             <div class="hidden md:flex items-center gap-8">
-                <a href="#home" class="nav-link text-sm hover:text-yellow-400 transition-colors">الرئيسية</a>
-                <a href="#medical" class="nav-link text-sm hover:text-yellow-400 transition-colors">النظارات الطبية</a>
-                <a href="#sunglasses" class="nav-link text-sm hover:text-yellow-400 transition-colors">النظارات الشمسية</a>
-                <a href="#lenses" class="nav-link text-sm hover:text-yellow-400 transition-colors">العدسات</a>
-                <a href="#contact" class="nav-link text-sm hover:text-yellow-400 transition-colors">اتصل بنا</a>
+                <a href="#home" class="text-sm hover:text-yellow-400 transition-colors">الرئيسية</a>
+                <a href="#products" class="text-sm hover:text-yellow-400 transition-colors">منتجاتنا</a>
+                <a href="#features" class="text-sm hover:text-yellow-400 transition-colors">خدماتنا</a>
+                <a href="#contact" class="text-sm hover:text-yellow-400 transition-colors">اتصل بنا</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <div class="hours-badge px-4 py-2 rounded-full text-xs">
-                    <span class="text-yellow-400">⏰</span> 12 ظ - 1 ص
+                <div class="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/30">
+                    <i data-lucide="clock" class="w-4 h-4 text-yellow-400"></i>
+                    <span class="text-xs font-bold">12 ظ - 1 ص</span>
                 </div>
-                <button class="md:hidden" id="mobile-menu-btn">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
+                <a href="tel:+201234567890" class="md:hidden w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center">
+                    <i data-lucide="phone" class="w-5 h-5 text-black"></i>
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl transform translate-x-full transition-transform duration-500" id="mobile-menu">
-        <div class="flex flex-col items-center justify-center h-full gap-8 text-2xl">
-            <a href="#home" class="mobile-link hover:text-yellow-400 transition-colors">الرئيسية</a>
-            <a href="#medical" class="mobile-link hover:text-yellow-400 transition-colors">النظارات الطبية</a>
-            <a href="#sunglasses" class="mobile-link hover:text-yellow-400 transition-colors">النظارات الشمسية</a>
-            <a href="#lenses" class="mobile-link hover:text-yellow-400 transition-colors">العدسات</a>
-            <a href="#contact" class="mobile-link hover:text-yellow-400 transition-colors">اتصل بنا</a>
-            <button class="absolute top-8 left-8" id="close-menu">
-                <i data-lucide="x" class="w-8 h-8"></i>
-            </button>
-        </div>
-    </div>
-
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div class="absolute inset-0 grid-pattern opacity-50"></div>
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 50% 50%, #D4AF37 1px, transparent 1px); background-size: 50px 50px;"></div>
+        </div>
         
         <div class="container mx-auto px-4 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="text-center md:text-right space-y-6">
-                    <div class="inline-block px-4 py-2 rounded-full glass text-yellow-400 text-sm mb-4 reveal-text">
-                        خبرة 15 عاماً في فيصل، الجيزة
+                    <div class="inline-block px-4 py-2 rounded-full glass text-yellow-400 text-sm font-bold border border-yellow-500/30">
+                        🏆 خبرة 15 عاماً في فيصل، الجيزة
                     </div>
                     
-                    <h1 class="text-5xl md:text-7xl font-bold leading-tight reveal-text">
+                    <h1 class="text-5xl md:text-7xl font-bold leading-tight">
                         رؤية <span class="text-gradient">واضحة</span><br>
                         تستحق <span class="text-gradient">الثقة</span>
                     </h1>
                     
-                    <p class="text-gray-400 text-lg md:text-xl max-w-lg mx-auto md:mx-0 reveal-text">
-                        نقدم تشكيلة واسعة من النظارات الطبية والشمسية والعدسات اللاصقة بأعلى جودة وأفضل الأسعار
+                    <p class="text-gray-400 text-lg max-w-lg mx-auto md:mx-0 leading-relaxed">
+                        نقدم تشكيلة واسعة من النظارات الطبية والشمسية والعدسات اللاصقة بأعلى جودة وأفضل الأسعار في فيصل
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start reveal-text">
-                        <a href="#medical" class="magnetic-btn px-8 py-4 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-bold rounded-full hover:shadow-lg hover:shadow-yellow-500/25 transition-all">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#products" class="px-8 py-4 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-bold rounded-full hover:shadow-lg hover:shadow-yellow-500/25 transition-all text-center">
                             تصفح المنتجات
                         </a>
-                        <a href="tel:+201234567890" class="magnetic-btn px-8 py-4 glass text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-2">
-                            <i data-lucide="phone" class="w-5 h-5"></i>
-                            اتصل بنا الآن
+                        <a href="https://wa.me/201234567890" class="px-8 py-4 glass text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-2 border border-white/20">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            واتساب مباشر
                         </a>
                     </div>
 
-                    <!-- Working Hours Highlight -->
-                    <div class="mt-8 p-6 glass rounded-2xl border border-yellow-500/20 reveal-text">
+                    <!-- Working Hours Box -->
+                    <div class="mt-8 p-6 glass rounded-2xl border-2 border-yellow-500/30 bg-gradient-to-br from-yellow-500/10 to-transparent">
                         <div class="flex items-center gap-4 justify-center md:justify-start">
-                            <div class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center">
-                                <i data-lucide="clock" class="w-6 h-6 text-yellow-400"></i>
+                            <div class="w-14 h-14 rounded-full bg-yellow-500 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="clock" class="w-7 h-7 text-black"></i>
                             </div>
                             <div class="text-right">
-                                <p class="text-sm text-gray-400">مواعيد العمل اليوم</p>
-                                <p class="text-xl font-bold text-white">من 12:00 ظهراً حتى 1:00 صباحاً</p>
+                                <p class="text-yellow-400 font-bold text-lg">مواعيد العمل اليوم</p>
+                                <p class="text-2xl font-bold text-white">من 12:00 ظهراً حتى 1:00 صباحاً</p>
+                                <p class="text-sm text-gray-400 mt-1">نعمل طوال أيام الأسبوع</p>
                             </div>
                         </div>
                     </div>
@@ -423,27 +219,19 @@
                 
                 <div class="relative">
                     <div class="relative w-full aspect-square max-w-md mx-auto">
-                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-transparent rounded-full blur-3xl animate-pulse-slow"></div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/30 to-transparent rounded-full blur-3xl animate-pulse"></div>
                         <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800&auto=format&fit=crop&q=80" 
-                             alt="Premium Glasses Collection" 
-                             class="relative z-10 w-full h-full object-contain animate-float drop-shadow-2xl"
-                             id="hero-image">
+                             alt="نظارات طبية فاخرة" 
+                             class="relative z-10 w-full h-full object-contain drop-shadow-2xl rounded-3xl">
                         
-                        <!-- Floating Elements -->
-                        <div class="absolute -top-4 -right-4 w-24 h-24 glass rounded-full flex items-center justify-center animate-float" style="animation-delay: 1s;">
-                            <span class="text-2xl font-bold text-yellow-400">15+</span>
-                        </div>
-                        <div class="absolute -bottom-4 -left-4 w-32 h-32 glass rounded-full flex items-center justify-center animate-float" style="animation-delay: 2s;">
-                            <span class="text-sm text-center text-gray-300">سنوات<br>خبرة</span>
+                        <!-- Floating Badge -->
+                        <div class="absolute -top-4 -right-4 w-28 h-28 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex flex-col items-center justify-center text-black font-bold shadow-xl animate-bounce">
+                            <span class="text-3xl">15</span>
+                            <span class="text-xs">سنة خبرة</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i data-lucide="chevron-down" class="w-8 h-8 text-yellow-400"></i>
         </div>
     </section>
 
@@ -451,307 +239,189 @@
     <section class="py-20 relative">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="glass p-6 rounded-2xl text-center card-3d reveal-section">
-                    <div class="text-4xl font-bold text-gradient mb-2 counter" data-target="15">0</div>
-                    <p class="text-gray-400">سنة خبرة</p>
+                <div class="glass p-8 rounded-2xl text-center border border-yellow-500/20">
+                    <div class="text-5xl font-bold text-gradient mb-2 counter" data-target="15">0</div>
+                    <p class="text-gray-400 font-semibold">سنة خبرة</p>
                 </div>
-                <div class="glass p-6 rounded-2xl text-center card-3d reveal-section">
-                    <div class="text-4xl font-bold text-gradient mb-2 counter" data-target="5000">0</div>
-                    <p class="text-gray-400">عميل سعيد</p>
+                <div class="glass p-8 rounded-2xl text-center border border-yellow-500/20">
+                    <div class="text-5xl font-bold text-gradient mb-2 counter" data-target="5000">0</div>
+                    <p class="text-gray-400 font-semibold">عميل سعيد</p>
                 </div>
-                <div class="glass p-6 rounded-2xl text-center card-3d reveal-section">
-                    <div class="text-4xl font-bold text-gradient mb-2 counter" data-target="200">0</div>
-                    <p class="text-gray-400">موديل نظارة</p>
+                <div class="glass p-8 rounded-2xl text-center border border-yellow-500/20">
+                    <div class="text-5xl font-bold text-gradient mb-2 counter" data-target="300">0</div>
+                    <p class="text-gray-400 font-semibold">موديل نظارة</p>
                 </div>
-                <div class="glass p-6 rounded-2xl text-center card-3d reveal-section">
-                    <div class="text-4xl font-bold text-gradient mb-2">24/7</div>
-                    <p class="text-gray-400">دعم متواصل</p>
+                <div class="glass p-8 rounded-2xl text-center border border-yellow-500/20">
+                    <div class="text-5xl font-bold text-gradient mb-2">100%</div>
+                    <p class="text-gray-400 font-semibold">ضمان جودة</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Medical Glasses Section -->
-    <section id="medical" class="py-20 relative">
+    <!-- Products Section -->
+    <section id="products" class="py-20 relative bg-gradient-to-b from-transparent to-black/50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 reveal-section">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">النظارات <span class="text-gradient">الطبية</span></h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">اختر من مجموعتنا الواسعة من النظارات الطبية العصرية بأحدث التصاميم العالمية</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">منتجاتنا <span class="text-gradient">المميزة</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">اختر من مجموعتنا الواسعة من النظارات الطبية والشمسية بأحدث الموديلات العالمية</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Product 1: Premium Italian Titanium -->
-                <div class="group relative glass rounded-2xl overflow-hidden card-3d reveal-section">
-                    <div class="badge badge-premium">فاخر</div>
-                    <div class="image-overlay aspect-[4/3] cursor-pointer" onclick="openProductModal('titanium')">
-                        <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800&auto=format&fit=crop&q=80" 
-                             alt="نظارة تيتانيوم إيطالي فاخرة - خفيفة الوزن ومضادة للصدأ" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="image-description">
-                            <h4 class="text-xl font-bold text-yellow-400 mb-2">مواصفات فنية</h4>
-                            <ul class="text-sm text-gray-300 space-y-1">
-                                <li>• إطار تيتانيوم خالص 100%</li>
-                                <li>• وزن خفيف جداً (8 جرام فقط)</li>
+                <!-- Product 1 -->
+                <div class="group glass rounded-2xl overflow-hidden border border-white/10 hover:border-yellow-500/50 transition-all hover:transform hover:scale-105">
+                    <div class="relative image-overlay aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&auto=format&fit=crop&q=80" 
+                             alt="نظارة تيتانيوم إيطالي" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 px-3 py-1 bg-yellow-500 text-black text-xs font-bold rounded-full">فاخر</div>
+                        <div class="image-description bg-gradient-to-t from-black/90 to-transparent backdrop-blur-sm">
+                            <h4 class="text-lg font-bold text-yellow-400 mb-2">مواصفات المنتج</h4>
+                            <ul class="text-sm text-gray-300 space-y-1 text-right">
+                                <li>• إطار تيتانيوم خالص</li>
+                                <li>• وزن 8 جرام فقط</li>
                                 <li>• مضاد للصدأ والحساسية</li>
-                                <li>• عدسات CR39 مقاومة للخدش</li>
-                                <li>• ضمان 3 سنوات ضد التلف</li>
+                                <li>• ضمان 3 سنوات</li>
                             </ul>
                         </div>
                     </div>
                     <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <div>
-                                <h3 class="text-xl font-bold mb-1">تيتانيوم إيطالي</h3>
-                                <p class="text-sm text-gray-400">Italian Titanium</p>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-yellow-500/20 text-yellow-400">خفيف</span>
-                                <span class="text-xs px-2 py-1 rounded bg-yellow-500/20 text-yellow-400">مضاد للصدأ</span>
-                            </div>
-                        </div>
-                        <div class="price-tag">
-                            <span class="new-price">650 ج.م</span>
+                        <h3 class="text-xl font-bold mb-2">تيتانيوم إيطالي</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-yellow-400">650 ج.م</span>
+                            <button class="px-4 py-2 bg-yellow-500 text-black rounded-lg font-bold text-sm hover:bg-yellow-400 transition-colors">
+                                اطلب الآن
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 2: Classic Metal -->
-                <div class="group relative glass rounded-2xl overflow-hidden card-3d reveal-section">
-                    <div class="image-overlay aspect-[4/3] cursor-pointer" onclick="openProductModal('classic')">
-                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&auto=format&fit=crop&q=80" 
-                             alt="نظارة معدنية كلاسيكية - متينة مع ضمان سنة" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="image-description">
-                            <h4 class="text-xl font-bold text-yellow-400 mb-2">التفاصيل التقنية</h4>
-                            <ul class="text-sm text-gray-300 space-y-1">
-                                <li>• سبيكة معدنية عالية الجودة</li>
+                <!-- Product 2 -->
+                <div class="group glass rounded-2xl overflow-hidden border border-white/10 hover:border-yellow-500/50 transition-all hover:transform hover:scale-105">
+                    <div class="relative image-overlay aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&auto=format&fit=crop&q=80" 
+                             alt="نظارة شمسية بولارايزد" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 px-3 py-1 bg-blue-500 text-white text-xs font-bold rounded-full">جديد</div>
+                        <div class="image-description bg-gradient-to-t from-black/90 to-transparent backdrop-blur-sm">
+                            <h4 class="text-lg font-bold text-yellow-400 mb-2">مواصفات المنتج</h4>
+                            <ul class="text-sm text-gray-300 space-y-1 text-right">
+                                <li>• عدسات بولارايزد</li>
+                                <li>• حماية UV400</li>
+                                <li>• إطار معدني مرن</li>
+                                <li>• مناسب للقيادة</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">شمسية بولارايزد</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-yellow-400">850 ج.م</span>
+                            <button class="px-4 py-2 bg-yellow-500 text-black rounded-lg font-bold text-sm hover:bg-yellow-400 transition-colors">
+                                اطلب الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group glass rounded-2xl overflow-hidden border border-white/10 hover:border-yellow-500/50 transition-all hover:transform hover:scale-105">
+                    <div class="relative image-overlay aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&auto=format&fit=crop&q=80" 
+                             alt="نظارة طبية كلاسيكية" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-full">خصم 20%</div>
+                        <div class="image-description bg-gradient-to-t from-black/90 to-transparent backdrop-blur-sm">
+                            <h4 class="text-lg font-bold text-yellow-400 mb-2">مواصفات المنتج</h4>
+                            <ul class="text-sm text-gray-300 space-y-1 text-right">
                                 <li>• تصميم كلاسيكي أبدي</li>
-                                <li>• مقاوم للتآكل اليومي</li>
-                                <li>• مفصلات مرنة وقوية</li>
-                                <li>• ضمان سنة شامل</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <div>
-                                <h3 class="text-xl font-bold mb-1">معدني كلاسيك</h3>
-                                <p class="text-sm text-gray-400">Metal Classic</p>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-blue-500/20 text-blue-400">متين</span>
-                                <span class="text-xs px-2 py-1 rounded bg-blue-500/20 text-blue-400">ضمان سنة</span>
-                            </div>
-                        </div>
-                        <div class="price-tag">
-                            <span class="new-price">350 ج.م</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 3: Elegant Rectangular (Sale) -->
-                <div class="group relative glass rounded-2xl overflow-hidden card-3d reveal-section">
-                    <div class="badge badge-sale">خصم 15%</div>
-                    <div class="image-overlay aspect-[4/3] cursor-pointer" onclick="openProductModal('rectangular')">
-                        <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=800&auto=format&fit=crop&q=80" 
-                             alt="نظارة مستطيلة أنيقة - مثالية للوجه الطويل" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="image-description">
-                            <h4 class="text-xl font-bold text-yellow-400 mb-2">مميزات التصميم</h4>
-                            <ul class="text-sm text-gray-300 space-y-1">
-                                <li>• شكل مستطيل يناسب الوجه الطويل</li>
                                 <li>• إطار أسيتات عالي الجودة</li>
-                                <li>• ألوان متعددة (أسود، بني، سلحفاة)</li>
-                                <li>• عدسات مضادة للانعكاس</li>
-                                <li>• تصميم عملي للاستخدام اليومي</li>
+                                <li>• متوفر بألوان متعددة</li>
+                                <li>• ضمان سنة</li>
                             </ul>
                         </div>
                     </div>
                     <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-xl font-bold mb-2">كلاسيكي أنيق</h3>
+                        <div class="flex justify-between items-center">
                             <div>
-                                <h3 class="text-xl font-bold mb-1">مستطيل أنيق</h3>
-                                <p class="text-sm text-gray-400">Elegant Rectangular</p>
+                                <span class="text-lg text-gray-500 line-through ml-2">450 ج.م</span>
+                                <span class="text-2xl font-bold text-yellow-400">360 ج.م</span>
                             </div>
-                            <div class="flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-purple-500/20 text-purple-400">للوجه الطويل</span>
-                                <span class="text-xs px-2 py-1 rounded bg-purple-500/20 text-purple-400">عملي</span>
-                            </div>
-                        </div>
-                        <div class="price-tag">
-                            <span class="old-price">450 ج.م</span>
-                            <span class="new-price">380 ج.م</span>
+                            <button class="px-4 py-2 bg-yellow-500 text-black rounded-lg font-bold text-sm hover:bg-yellow-400 transition-colors">
+                                اطلب الآن
+                            </button>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Product 4: Traditional Round -->
-                <div class="group relative glass rounded-2xl overflow-hidden card-3d reveal-section">
-                    <div class="image-overlay aspect-[4/3] cursor-pointer" onclick="openProductModal('round')">
-                        <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?w=800&auto=format&fit=crop&q=80" 
-                             alt="نظارة دائرية تقليدية - تصميم تراثي للكبار" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="image-description">
-                            <h4 class="text-xl font-bold text-yellow-400 mb-2">الطابع الكلاسيكي</h4>
-                            <ul class="text-sm text-gray-300 space-y-1">
-                                <li>• تصميم دائري تقليدي أصيل</li>
-                                <li>• مثالي للنظرات الطبية العالية</li>
-                                <li>• إطار معدني ذهبي أو فضي</li>
-                                <li>• راحة فائقة في الارتداء</li>
-                                <li>• مناسب للأعمار الكبيرة</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <div>
-                                <h3 class="text-xl font-bold mb-1">دائري تقليدي</h3>
-                                <p class="text-sm text-gray-400">Traditional Round</p>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-amber-500/20 text-amber-400">تراثي</span>
-                                <span class="text-xs px-2 py-1 rounded bg-amber-500/20 text-amber-400">للكبار</span>
-                            </div>
-                        </div>
-                        <div class="price-tag">
-                            <span class="new-price">400 ج.م</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 5: Slim Modern (New) -->
-                <div class="group relative glass rounded-2xl overflow-hidden card-3d reveal-section">
-                    <div class="badge badge-new">جديد 2024</div>
-                    <div class="image-overlay aspect-[4/3] cursor-pointer" onclick="openProductModal('slim')">
-                        <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=800&auto=format&fit=crop&q=80" 
-                             alt="نظارة سليم مودرن - رفيعة وعصرية موضة 2024" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="image-description">
-                            <h4 class="text-xl font-bold text-yellow-400 mb-2">موضة 2024</h4>
-                            <ul class="text-sm text-gray-300 space-y-1">
-                                <li>• أحدث صيحات الموضة العالمية</li>
-                                <li>• إطار رفيع جداً (slim design)</li>
-                                <li>• ألوان معدنية فاخرة</li>
-                                <li>• مناسب للشباب والموظفين</li>
-                                <li>• خفيفة الوزن ومريحة</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <div>
-                                <h3 class="text-xl font-bold mb-1">سليم مودرن</h3>
-                                <p class="text-sm text-gray-400">Slim Modern</p>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-green-500/20 text-green-400">رفيع</span>
-                                <span class="text-xs px-2 py-1 rounded bg-green-500/20 text-green-400">2024</span>
-                            </div>
-                        </div>
-                        <div class="price-tag">
-                            <span class="new-price">550 ج.م</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 6: Geometric Innovative -->
-                <div class="group relative glass rounded-2xl overflow-hidden card-3d reveal-section">
-                    <div class="image-overlay aspect-[4/3] cursor-pointer" onclick="openProductModal('geometric')">
-                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&auto=format&fit=crop&q=80" 
-                             alt="نظارة هندسية مبتكرة - شكل فريد وشبابي" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="image-description">
-                            <h4 class="text-xl font-bold text-yellow-400 mb-2">تصميم مبتكر</h4>
-                            <ul class="text-sm text-gray-300 space-y-1">
-                                <li>• أشكال هندسية غير تقليدية</li>
-                                <li>• تصميم مخصص للشباب</li>
-                                <li>• خامات مبتكرة (خليط معدن/بلاستيك)</li>
-                                <li>• ألوان جريئة ومميزة</li>
-                                <li>• يعبر عن الشخصية الفريدة</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <div>
-                                <h3 class="text-xl font-bold mb-1">هندسي مبتكر</h3>
-                                <p class="text-sm text-gray-400">Geometric Innovative</p>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-pink-500/20 text-pink-400">فريد</span>
-                                <span class="text-xs px-2 py-1 rounded bg-pink-500/20 text-pink-400">شبابي</span>
-                            </div>
-                        </div>
-                        <div class="price-tag">
-                            <span class="new-price">480 ج.م</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center mt-12">
+                <a href="https://wa.me/201234567890" class="inline-flex items-center gap-2 px-8 py-4 glass rounded-full border border-yellow-500/30 hover:bg-yellow-500/10 transition-all">
+                    <span>شاهد المزيد من الموديلات على واتساب</span>
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Sunglasses Section -->
-    <section id="sunglasses" class="py-20 relative bg-gradient-to-b from-transparent to-black/50">
+    <!-- Features Section (Fixed Images) -->
+    <section id="features" class="py-20 relative">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 reveal-section">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">النظارات <span class="text-gradient">الشمسية</span></h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">حماية مثالية للعين مع أناقة لا تضاهى</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">لماذا <span class="text-gradient">الهدى للبصريات؟</span></h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="group relative glass rounded-2xl overflow-hidden card-3d reveal-section">
-                    <div class="image-overlay aspect-[4/3]">
-                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&auto=format&fit=crop&q=80" 
-                             alt="نظارة شمسية كلاسيكية - حماية UV400 كاملة" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="image-description">
-                            <h4 class="text-xl font-bold text-yellow-400 mb-2">حماية متكاملة</h4>
-                            <p class="text-sm text-gray-300">عدسات بولارايزد مع حماية UV400 100% ضد الأشعة فوق البنفسجية</p>
-                        </div>
+                <!-- Feature 1 -->
+                <div class="glass rounded-2xl overflow-hidden border border-white/10">
+                    <div class="aspect-video relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1582142839970-2b9e04b60f65?w=600&auto=format&fit=crop&q=80" 
+                             alt="فحص نظر دقيق بأحدث الأجهزة" 
+                             class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">كلاسيك بريميوم</h3>
-                        <div class="price-tag">
-                            <span class="new-price">750 ج.م</span>
+                    <div class="p-6 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                            <i data-lucide="scan-line" class="w-8 h-8 text-yellow-400"></i>
                         </div>
+                        <h3 class="text-xl font-bold mb-2">فحص نظر مجاني</h3>
+                        <p class="text-gray-400 text-sm">أحدث أجهزة قياس النظر بدقة عالية مع استشارة مجانية</p>
                     </div>
                 </div>
 
-                <div class="group relative glass rounded-2xl overflow-hidden card-3d reveal-section">
-                    <div class="badge badge-new">وصل حديثاً</div>
-                    <div class="image-overlay aspect-[4/3]">
-                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&auto=format&fit=crop&q=80" 
-                             alt="نظارة شمسية رياضية - تصميم ديناميكي للرياضيين" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="image-description">
-                            <h4 class="text-xl font-bold text-yellow-400 mb-2">أداء رياضي</h4>
-                            <p class="text-sm text-gray-300">إطار خفيف مرن مع عدسات مقاومة للكسر - مثالية للرياضة</p>
+                <!-- Feature 2 (Fixed: Night Driving) -->
+                <div class="glass rounded-2xl overflow-hidden border border-white/10">
+                    <div class="aspect-video relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=600&auto=format&fit=crop&q=80" 
+                             alt="عدسات مضادة للوهج ليلاً" 
+                             class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 right-4 text-right">
+                            <span class="text-yellow-400 font-bold text-sm">حماية ليلية</span>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">رياضي برو</h3>
-                        <div class="price-tag">
-                            <span class="new-price">890 ج.م</span>
+                    <div class="p-6 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-500/20 flex items-center justify-center">
+                            <i data-lucide="moon" class="w-8 h-8 text-blue-400"></i>
                         </div>
+                        <h3 class="text-xl font-bold mb-2">رؤية ليلية واضحة</h3>
+                        <p class="text-gray-400 text-sm">عدسات مضادة للوهج والانعكاسات لقيادة آمنة ليلاً</p>
                     </div>
                 </div>
 
-                <div class="group relative glass rounded-2xl overflow-hidden card-3d reveal-section">
-                    <div class="image-overlay aspect-[4/3]">
-                        <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?w=800&auto=format&fit=crop&q=80" 
-                             alt="نظارة شمسية فاخرة - تصميم إيطالي أصيل" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="image-description">
-                            <h4 class="text-xl font-bold text-yellow-400 mb-2">فخامة إيطالية</h4>
-                            <p class="text-sm text-gray-300">تصميم من بيت أزياء إيطالي شهير مع خامات فاخرة</p>
-                        </div>
+                <!-- Feature 3 (Fixed: Digital Protection) -->
+                <div class="glass rounded-2xl overflow-hidden border border-white/10">
+                    <div class="aspect-video relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=600&auto=format&fit=crop&q=80" 
+                             alt="حماية من الضوء الأزرق للأجهزة الرقمية" 
+                             class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">لوكسوري إيديشن</h3>
-                        <div class="price-tag">
-                            <span class="new-price">1,200 ج.م</span>
+                    <div class="p-6 text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/20 flex items-center justify-center">
+                            <i data-lucide="monitor" class="w-8 h-8 text-purple-400"></i>
                         </div>
+                        <h3 class="text-xl font-bold mb-2">حماية رقمية</h3>
+                        <p class="text-gray-400 text-sm">عدسات تصفي الضوء الأزرق الضار من الشاشات والموبايل</p>
                     </div>
                 </div>
             </div>
@@ -759,57 +429,79 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 relative">
+    <section id="contact" class="py-20 relative bg-gradient-to-b from-black/50 to-black">
         <div class="container mx-auto px-4">
-            <div class="glass-strong rounded-3xl p-8 md:p-12 max-w-4xl mx-auto reveal-section">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">زورونا <span class="text-gradient">اليوم</span></h2>
-                    <p class="text-gray-400">نحن في انتظاركم لتجربة خدمة متميزة ورؤية واضحة</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4 p-4 glass rounded-xl">
-                            <div class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="map-pin" class="w-6 h-6 text-yellow-400"></i>
+            <div class="glass rounded-3xl p-8 md:p-12 max-w-5xl mx-auto border border-yellow-500/20">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">زورنا <span class="text-gradient">اليوم</span></h2>
+                        <p class="text-gray-400 mb-8">نحن في انتظارك في فيصل، الجيزة لتجربة خدمة متميزة ورؤية واضحة</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4 p-4 glass rounded-xl border border-white/10">
+                                <div class="w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="map-pin" class="w-6 h-6 text-black"></i>
+                                </div>
+                                <div class="text-right">
+                                    <h4 class="font-bold">العنوان</h4>
+                                    <p class="text-sm text-gray-400">فيصل، الجيزة - شارع فيصل الرئيسي، بجوار مسجد التقوى</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-bold mb-1">العنوان</h4>
-                                <p class="text-sm text-gray-400">فيصل، الجيزة - بجوار محطة المترو</p>
+
+                            <div class="flex items-center gap-4 p-4 glass rounded-xl border border-white/10">
+                                <div class="w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="clock" class="w-6 h-6 text-black"></i>
+                                </div>
+                                <div class="text-right">
+                                    <h4 class="font-bold">مواعيد العمل</h4>
+                                    <p class="text-sm text-gray-400">يومياً من 12:00 ظهراً حتى 1:00 صباحاً</p>
+                                    <p class="text-xs text-yellow-400 mt-1">⏰ نعمل حتى وقت متأخر لراحتك</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 p-4 glass rounded-xl border border-white/10">
+                                <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="phone" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div class="text-right">
+                                    <h4 class="font-bold">اتصل بنا الآن</h4>
+                                    <p class="text-lg font-bold text-yellow-400" dir="ltr">+20 123 456 7890</p>
+                                    <p class="text-xs text-gray-400">واتساب متاح 24 ساعة</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-4 p-4 glass rounded-xl">
-                            <div class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="clock" class="w-6 h-6 text-yellow-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold mb-1">مواعيد العمل</h4>
-                                <p class="text-sm text-gray-400">يومياً من 12:00 ظهراً حتى 1:00 صباحاً</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-4 p-4 glass rounded-xl">
-                            <div class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="phone" class="w-6 h-6 text-yellow-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold mb-1">اتصل بنا</h4>
-                                <p class="text-sm text-gray-400" dir="ltr">+20 123 456 7890</p>
-                            </div>
+                        <!-- Social Links -->
+                        <div class="flex gap-4 mt-8 justify-center md:justify-start">
+                            <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-blue-600 transition-colors border border-white/10">
+                                <i data-lucide="facebook" class="w-6 h-6"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-pink-600 transition-colors border border-white/10">
+                                <i data-lucide="instagram" class="w-6 h-6"></i>
+                            </a>
+                            <a href="https://wa.me/201234567890" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-green-600 transition-colors border border-white/10">
+                                <i data-lucide="message-circle" class="w-6 h-6"></i>
+                            </a>
                         </div>
                     </div>
 
-                    <div class="glass rounded-xl p-6">
-                        <h4 class="font-bold mb-4">أو راسلنا مباشرة</h4>
-                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح!');">
-                            <input type="text" placeholder="الاسم" class="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-yellow-400 focus:outline-none transition-colors text-right">
-                            <input type="tel" placeholder="رقم الهاتف" class="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-yellow-400 focus:outline-none transition-colors text-right" dir="ltr">
-                            <textarea placeholder="رسالتك..." rows="4" class="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-yellow-400 focus:outline-none transition-colors text-right resize-none"></textarea>
-                            <button type="submit" class="w-full py-3 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-bold rounded-lg hover:shadow-lg hover:shadow-yellow-500/25 transition-all">
-                                إرسال الرسالة
+                    <!-- Map Placeholder -->
+                    <div class="glass rounded-2xl overflow-hidden border border-white/10 h-full min-h-[400px] relative">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.789!2d31.1234!3d29.9876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDU5JzE1LjQiTiAzMcKwMDcnMjQuMiJF!5e0!3m2!1sen!2seg!4v1234567890"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="absolute inset-0">
+                        </iframe>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm" id="map-overlay">
+                            <button onclick="document.getElementById('map-overlay').style.display='none'" class="px-6 py-3 bg-yellow-500 text-black font-bold rounded-lg hover:bg-yellow-400 transition-colors">
+                                تحميل الخريطة
                             </button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -817,7 +509,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-gray-800">
+    <footer class="py-12 border-t border-white/10 bg-black">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center items-center gap-3 mb-6">
                 <div class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
@@ -828,216 +520,73 @@
                     <p class="text-xs text-gray-500">Al-Huda Optics</p>
                 </div>
             </div>
-            <p class="text-gray-500 text-sm mb-4">خبرة 15 عاماً في خدمة أهل فيصل والجيزة</p>
-            <div class="flex justify-center gap-4 mb-6">
-                <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-yellow-500/20 transition-colors">
-                    <i data-lucide="facebook" class="w-5 h-5"></i>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-yellow-500/20 transition-colors">
-                    <i data-lucide="instagram" class="w-5 h-5"></i>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-yellow-500/20 transition-colors">
-                    <i data-lucide="whatsapp" class="w-5 h-5"></i>
-                </a>
-            </div>
+            <p class="text-gray-500 text-sm mb-2">خبرة 15 عاماً في خدمة أهل فيصل والجيزة</p>
+            <p class="text-yellow-400 font-bold mb-6">من 12 ظهراً حتى 1 صباحاً يومياً</p>
             <p class="text-gray-600 text-xs">© 2024 الهدى للبصريات. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
-
-    <!-- Product Modal -->
-    <div id="product-modal" class="fixed inset-0 z-50 hidden">
-        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeProductModal()"></div>
-        <div class="absolute inset-0 flex items-center justify-center p-4">
-            <div class="glass-strong rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
-                <div class="relative">
-                    <button onclick="closeProductModal()" class="absolute top-4 left-4 w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors z-10">
-                        <i data-lucide="x" class="w-6 h-6"></i>
-                    </button>
-                    <div id="modal-body" class="p-6">
-                        <!-- Content injected via JS -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Loader
+        // Loading Screen
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
-            const loaderBar = document.getElementById('loader-bar');
+            const progress = document.getElementById('loader-progress');
+            const text = document.getElementById('loader-text');
+            let width = 0;
             
-            gsap.to(loaderBar, {
-                width: '100%',
-                duration: 1.5,
-                ease: 'power2.inOut',
-                onComplete: () => {
-                    gsap.to(loader, {
-                        opacity: 0,
-                        duration: 0.5,
-                        onComplete: () => {
-                            loader.classList.add('hidden');
-                            initAnimations();
-                        }
-                    });
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    text.textContent = "جاهز!";
+                    setTimeout(() => {
+                        loader.classList.add('hidden');
+                        initCounters();
+                    }, 500);
+                } else {
+                    width += Math.random() * 30;
+                    if (width > 100) width = 100;
+                    progress.style.width = width + '%';
+                }
+            }, 200);
+        });
+
+        // Counter Animation
+        function initCounters() {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            gsap.utils.toArray('.counter').forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                
+                ScrollTrigger.create({
+                    trigger: counter,
+                    start: 'top 80%',
+                    onEnter: () => {
+                        gsap.to(counter, {
+                            innerHTML: target,
+                            duration: 2,
+                            snap: { innerHTML: 1 },
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Custom Cursor
-        const cursor = document.getElementById('cursor');
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        function animateCursor() {
-            cursorX += (mouseX - cursorX) * 0.1;
-            cursorY += (mouseY - cursorY) * 0.1;
-            cursor.style.left = cursorX - 10 + 'px';
-            cursor.style.top = cursorY - 10 + 'px';
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // Hover effect for cursor
-        document.querySelectorAll('a, button, .card-3d').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-        });
-
-        // WebGL Background
-        function initWebGL() {
-            const canvas = document.getElementById('webgl-canvas');
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-            
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-            // Create particles
-            const particlesGeometry = new THREE.BufferGeometry();
-            const particlesCount = 100;
-            const posArray = new Float32Array(particlesCount * 3);
-
-            for(let i = 0; i < particlesCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 10;
-            }
-
-            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-            const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.02,
-                color: 0xD4AF37,
-                transparent: true,
-                opacity: 0.6
-            });
-
-            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-            scene.add(particlesMesh);
-
-            camera.position.z = 3;
-
-            // Mouse interaction
-            let targetX = 0;
-            let targetY = 0;
-
-            document.addEventListener('mousemove', (e) => {
-                targetX = (e.clientX / window.innerWidth) * 2 - 1;
-                targetY = -(e.clientY / window.innerHeight) * 2 + 1;
-            });
-
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                particlesMesh.rotation.y += 0.001;
-                particlesMesh.rotation.x += 0.001;
-                
-                particlesMesh.rotation.y += (targetX - particlesMesh.rotation.y) * 0.05;
-                particlesMesh.rotation.x += (targetY - particlesMesh.rotation.x) * 0.05;
-
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        }
-        initWebGL();
-
-        // GSAP Animations
-        function initAnimations() {
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Hero text reveal
-            gsap.from('.reveal-text', {
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: 'power3.out'
-            });
-
-            // Section reveals
-            gsap.utils.toArray('.reveal-section').forEach(section => {
-                gsap.from(section, {
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top 80%',
-                        toggleActions: 'play none none reverse'
-                    },
-                    y: 50,
-                    opacity: 0,
-                    duration: 0.8,
-                    ease: 'power3.out'
-                });
-            });
-
-            // Counter animation
-            gsap.utils.toArray('.counter').forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                gsap.to(counter, {
-                    scrollTrigger: {
-                        trigger: counter,
-                        start: 'top 80%'
-                    },
-                    innerHTML: target,
-                    duration: 2,
-                    snap: { innerHTML: 1 },
-                    ease: 'power2.out'
-                });
-            });
-        }
-
-        // Mobile Menu
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const closeMenuBtn = document.getElementById('close-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('translate-x-full');
-        });
-
-        closeMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('translate-x-full');
-        });
-
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('translate-x-full');
-            });
-        });
-
-        // Navbar scroll effect
+        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -1047,122 +596,6 @@
                 navbar.classList.add('py-4');
                 navbar.classList.remove('py-2');
             }
-        });
-
-        // Product Modal
-        const productData = {
-            'titanium': {
-                title: 'تيتانيوم إيطالي فاخر',
-                image: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800&auto=format&fit=crop&q=80',
-                price: '650 ج.م',
-                description: 'إطار تيتانيوم خالص 100% من إيطاليا، خفيف الوزن جداً ومضاد للصدأ ومثالي للبشرة الحساسة.',
-                features: ['وزن 8 جرام فقط', 'مضاد للحساسية', 'ضمان 3 سنوات', 'عدسات CR39']
-            },
-            'classic': {
-                title: 'معدني كلاسيك',
-                image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&auto=format&fit=crop&q=80',
-                price: '350 ج.م',
-                description: 'تصميم كلاسيكي أبدي بإطار معدني عالي الجودة، متين ومثالي للاستخدام اليومي.',
-                features: ['سبيكة معدنية قوية', 'مقاوم للتآكل', 'ضمان سنة', 'مفصلات مرنة']
-            },
-            'rectangular': {
-                title: 'مستطيل أنيق',
-                image: 'https://images.unsplash.com/photo-1508296695146-257a814070b4?w=800&auto=format&fit=crop&q=80',
-                price: '380 ج.م',
-                oldPrice: '450 ج.م',
-                description: 'تصميم مستطيل يناسب الوجوه الطويلة، أنيق وعملي مع خصم خاص 15%.',
-                features: ['يناسب الوجه الطويل', 'إطار أسيتات', 'ألوان متعددة', 'عدسات مضادة للانعكاس']
-            },
-            'round': {
-                title: 'دائري تقليدي',
-                image: 'https://images.unsplash.com/photo-1577803645773-f96470509666?w=800&auto=format&fit=crop&q=80',
-                price: '400 ج.م',
-                description: 'تصميم دائري تقليدي أصيل، مثالي للنظرات الطبية العالية وراحة فائقة.',
-                features: ['تصميم تراثي', 'مثالي للكبار', 'معدن ذهبي/فضي', 'راحة فائقة']
-            },
-            'slim': {
-                title: 'سليم مودرن 2024',
-                image: 'https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=800&auto=format&fit=crop&q=80',
-                price: '550 ج.م',
-                description: 'أحدث صيحات الموضة لعام 2024، إطار رفيع جداً بتصميم عصري شبابي.',
-                features: ['موضة 2024', 'تصميم رفيع', 'ألوان معدنية', 'خفيف الوزن']
-            },
-            'geometric': {
-                title: 'هندسي مبتكر',
-                image: 'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&auto=format&fit=crop&q=80',
-                price: '480 ج.م',
-                description: 'أشكال هندسية غير تقليدية للشباص الذين يبحثون عن التميز والشخصية الفريدة.',
-                features: ['شكل فريد', 'خليط معدن/بلاستيك', 'ألوان جريئة', 'يعبر عن الشخصية']
-            }
-        };
-
-        function openProductModal(productId) {
-            const modal = document.getElementById('product-modal');
-            const content = document.getElementById('modal-content');
-            const body = document.getElementById('modal-body');
-            const product = productData[productId];
-
-            if (!product) return;
-
-            body.innerHTML = `
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="rounded-2xl overflow-hidden">
-                        <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover">
-                    </div>
-                    <div class="text-right">
-                        <h3 class="text-2xl font-bold mb-2">${product.title}</h3>
-                        <div class="mb-4">
-                            ${product.oldPrice ? `<span class="line-through text-gray-500 ml-2">${product.oldPrice}</span>` : ''}
-                            <span class="text-3xl font-bold text-yellow-400">${product.price}</span>
-                        </div>
-                        <p class="text-gray-300 mb-6 leading-relaxed">${product.description}</p>
-                        <div class="space-y-2 mb-6">
-                            ${product.features.map(f => `
-                                <div class="flex items-center gap-2 justify-end">
-                                    <span class="text-sm text-gray-400">${f}</span>
-                                    <i data-lucide="check" class="w-4 h-4 text-yellow-400"></i>
-                                </div>
-                            `).join('')}
-                        </div>
-                        <a href="tel:+201234567890" class="block w-full py-3 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-bold rounded-lg text-center hover:shadow-lg hover:shadow-yellow-500/25 transition-all">
-                            اطلب الآن
-                        </a>
-                    </div>
-                </div>
-            `;
-            
-            lucide.createIcons();
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                content.classList.remove('scale-95', 'opacity-0');
-                content.classList.add('scale-100', 'opacity-100');
-            }, 10);
-        }
-
-        function closeProductModal() {
-            const modal = document.getElementById('product-modal');
-            const content = document.getElementById('modal-content');
-            
-            content.classList.remove('scale-100', 'opacity-100');
-            content.classList.add('scale-95', 'opacity-0');
-            
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-        }
-
-        // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
         });
     </script>
 </body>
