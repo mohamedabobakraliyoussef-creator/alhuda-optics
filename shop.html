@@ -1,398 +1,156 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop | المتجر - Al-Huda Optics</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            blue: '#2A7FFF',
-                            gold: '#D4AF37',
-                            dark: '#0a0a0a',
-                            darker: '#050505'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'Cairo', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --dir: ltr;
-        }
-        
-        [dir="rtl"] {
-            --dir: rtl;
-        }
-        
-        body {
-            font-family: 'Inter', 'Cairo', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            direction: var(--dir);
-        }
-        
-        [dir="rtl"] body {
-            font-family: 'Cairo', 'Inter', sans-serif;
-        }
-        
-        .lang-en { display: block; }
-        .lang-ar { display: none; }
-        
-        [dir="rtl"] .lang-en { display: none; }
-        [dir="rtl"] .lang-ar { display: block; }
-        
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .text-gradient-gold {
-            background: linear-gradient(135deg, #D4AF37, #F4E5C2, #D4AF37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #D4AF37, #B8960C);
-            color: #000;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: all 0.3s;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-        }
-        
-        .product-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s;
-        }
-        .product-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(212, 175, 55, 0.3);
-        }
-        
-        .category-btn {
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: transparent;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .category-btn.active, .category-btn:hover {
-            background: #D4AF37;
-            border-color: #D4AF37;
-            color: black;
-        }
-        
-        .lang-switch {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            z-index: 100;
-            background: rgba(212, 175, 55, 0.2);
-            border: 2px solid #D4AF37;
-            border-radius: 50px;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        [dir="rtl"] .lang-switch {
-            right: auto;
-            left: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Al Huda Optics - Shop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <button class="lang-switch" onclick="toggleLanguage()">
-        <span class="lang-en">🇪🇬 AR</span>
-        <span class="lang-ar">🇬🇧 EN</span>
-    </button>
 
-    <nav class="fixed top-0 w-full z-50 glass">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-gold to-brand-blue flex items-center justify-center">
-                        <span class="text-white font-bold">A</span>
-                    </div>
-                    <div class="text-xl font-bold text-gradient-gold">Al-Huda</div>
-                </a>
-                
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="index.html" class="text-gray-300 hover:text-brand-gold">
-                        <span class="lang-en">Home</span>
-                        <span class="lang-ar">الرئيسية</span>
-                    </a>
-                    <a href="shop.html" class="text-white font-semibold">
-                        <span class="lang-en">Shop</span>
-                        <span class="lang-ar">المتجر</span>
-                    </a>
-                    <a href="about.html" class="text-gray-300 hover:text-brand-gold">
-                        <span class="lang-en">About</span>
-                        <span class="lang-ar">من نحن</span>
-                    </a>
-                    <a href="contact.html" class="text-gray-300 hover:text-brand-gold">
-                        <span class="lang-en">Contact</span>
-                        <span class="lang-ar">اتصل بنا</span>
-                    </a>
-                </div>
-                
-                <button class="p-2 hover:text-brand-gold" onclick="toggleCart()">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-                    </svg>
-                </button>
-            </div>
+<body class="bg-gray-950 text-white">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center p-6 bg-black shadow-lg">
+  <h1 class="text-2xl font-bold text-yellow-400">Al Huda Optics</h1>
+  <div>
+    🛒 <span id="cart-count" class="bg-red-500 px-2 rounded-full">0</span>
+  </div>
+</nav>
+
+<!-- FILTERS -->
+<section class="p-6 text-center">
+  <button onclick="filterProducts('all')" class="filter-btn bg-yellow-500 px-4 py-2 rounded m-2 text-black">الكل</button>
+  <button onclick="filterProducts('medical')" class="filter-btn bg-gray-800 px-4 py-2 rounded m-2">طبية</button>
+  <button onclick="filterProducts('sunglasses')" class="filter-btn bg-gray-800 px-4 py-2 rounded m-2">شمسية</button>
+</section>
+
+<!-- PRODUCTS GRID -->
+<section id="products-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 p-8"></section>
+
+<!-- CART SUMMARY -->
+<section class="bg-black p-6">
+  <h2 class="text-xl font-bold mb-4">ملخص الطلب</h2>
+  <div id="cart-items"></div>
+  <h3 class="mt-4 text-yellow-400 font-bold">الإجمالي: <span id="total-price">0</span> ج.م</h3>
+  <button onclick="clearCart()" class="mt-4 bg-red-600 px-4 py-2 rounded">تفريغ السلة</button>
+</section>
+
+<script>
+
+// ================= PRODUCTS DATA =================
+const PRODUCTS = [
+  {
+    id: 1,
+    name: "نظارة طبية كلاسيك",
+    price: 850,
+    category: "medical",
+    image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083",
+    description: "إطار أسود فاخر - خفيف الوزن"
+  },
+  {
+    id: 2,
+    name: "نظارة شمسية فاخرة",
+    price: 1500,
+    category: "sunglasses",
+    image: "https://images.unsplash.com/photo-1577803645773-f96470509666",
+    description: "عدسات UV400 - مقاومة للخدش"
+  },
+  {
+    id: 3,
+    name: "إطار طبي تيتانيوم",
+    price: 1200,
+    category: "medical",
+    image: "https://images.unsplash.com/photo-1583394838336-acd977736f90",
+    description: "إطار خفيف جداً ومتين"
+  }
+];
+
+// ================= CART SYSTEM =================
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartUI();
+}
+
+function addToCart(id) {
+  const product = PRODUCTS.find(p => p.id === id);
+  const existing = cart.find(item => item.id === id);
+
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({...product, qty: 1});
+  }
+
+  saveCart();
+}
+
+function clearCart() {
+  cart = [];
+  saveCart();
+}
+
+function updateCartUI() {
+  document.getElementById("cart-count").innerText =
+    cart.reduce((sum, item) => sum + item.qty, 0);
+
+  const cartContainer = document.getElementById("cart-items");
+  const totalEl = document.getElementById("total-price");
+
+  cartContainer.innerHTML = "";
+  let total = 0;
+
+  cart.forEach(item => {
+    total += item.price * item.qty;
+    cartContainer.innerHTML += `
+      <div class="flex justify-between border-b border-gray-700 py-2">
+        <span>${item.name} × ${item.qty}</span>
+        <span>${item.price * item.qty} ج.م</span>
+      </div>
+    `;
+  });
+
+  totalEl.innerText = total;
+}
+
+// ================= RENDER PRODUCTS =================
+function renderProducts(products) {
+  const container = document.getElementById("products-container");
+  container.innerHTML = "";
+
+  products.forEach(product => {
+    container.innerHTML += `
+      <div class="bg-gray-900 rounded-xl p-4 shadow-lg hover:scale-105 transition">
+        <img src="${product.image}" class="rounded-lg mb-4 h-56 w-full object-cover">
+        <h3 class="text-lg font-bold">${product.name}</h3>
+        <p class="text-gray-400 mb-2">${product.description}</p>
+        <div class="flex justify-between items-center">
+          <span class="text-yellow-400 font-bold">${product.price} ج.م</span>
+          <button onclick="addToCart(${product.id})"
+            class="bg-yellow-500 text-black px-4 py-2 rounded-lg hover:bg-yellow-400 transition">
+            أضف
+          </button>
         </div>
-    </nav>
+      </div>
+    `;
+  });
+}
 
-    <section class="pt-32 pb-20">
-        <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-6xl font-bold text-center mb-4">
-                <span class="lang-en">Our Collection</span>
-                <span class="lang-ar">مجموعتنا</span>
-            </h1>
-            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-                <span class="lang-en">Premium eyewear crafted with precision and care</span>
-                <span class="lang-ar">نظارات فاخرة مصنوعة بدقة وعناية</span>
-            </p>
-            
-            <!-- Categories -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12" id="category-filters">
-                <button class="category-btn active" onclick="filterProducts('all')">
-                    <span class="lang-en">All</span>
-                    <span class="lang-ar">الكل</span>
-                </button>
-            </div>
-            
-            <!-- Products Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="products-grid">
-                <!-- Products loaded dynamically -->
-            </div>
-        </div>
-    </section>
+// ================= FILTER =================
+function filterProducts(category) {
+  if (category === "all") {
+    renderProducts(PRODUCTS);
+  } else {
+    const filtered = PRODUCTS.filter(p => p.category === category);
+    renderProducts(filtered);
+  }
+}
 
-    <!-- Cart Sidebar -->
-    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-full md:w-96 bg-brand-darker border-l border-white/10 transform translate-x-full transition-transform duration-300 z-50">
-        <div class="p-6 h-full flex flex-col">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-xl font-bold">
-                    <span class="lang-en">Your Cart</span>
-                    <span class="lang-ar">سلة التسوق</span>
-                </h3>
-                <button onclick="toggleCart()" class="p-2 hover:text-brand-gold">✕</button>
-            </div>
-            <div id="cart-items" class="flex-1 overflow-y-auto space-y-4">
-                <p class="text-gray-400 text-center py-8">
-                    <span class="lang-en">Your cart is empty</span>
-                    <span class="lang-ar">سلة التسوق فارغة</span>
-                </p>
-            </div>
-            <div class="border-t border-white/10 pt-4">
-                <div class="flex justify-between mb-4 text-lg font-bold">
-                    <span>Total</span>
-                    <span id="cart-total">0 EGP</span>
-                </div>
-                <button class="btn-primary w-full text-center">
-                    <span class="lang-en">Checkout</span>
-                    <span class="lang-ar">إتمام الشراء</span>
-                </button>
-            </div>
-        </div>
-    </div>
+// INIT
+renderProducts(PRODUCTS);
+updateCartUI();
 
-    <footer class="bg-brand-darker border-t border-white/10 py-12">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-500">&copy; 2024 Al-Huda Optics. 
-                <span class="lang-en">All rights reserved.</span>
-                <span class="lang-ar">جميع الحقوق محفوظة.</span>
-            </p>
-        </div>
-    </footer>
+</script>
 
-    <script>
-        let currentLang = localStorage.getItem('alhuda-lang') || 'en';
-        let products = [];
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.documentElement.lang = lang;
-            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            localStorage.setItem('alhuda-lang', lang);
-        }
-        
-        function toggleLanguage() {
-            setLanguage(currentLang === 'en' ? 'ar' : 'en');
-            renderProducts();
-        }
-        
-        setLanguage(currentLang);
-
-        async function loadProducts() {
-            try {
-                const response = await fetch('data/products.json');
-                const data = await response.json();
-                products = data.products;
-                renderCategories(data.categories);
-                renderProducts();
-            } catch (error) {
-                console.error('Error loading products:', error);
-            }
-        }
-
-        function renderCategories(categories) {
-            const container = document.getElementById('category-filters');
-            categories.forEach(cat => {
-                const btn = document.createElement('button');
-                btn.className = 'category-btn';
-                btn.onclick = () => filterProducts(cat.id);
-                btn.innerHTML = `
-                    <span class="lang-en">${cat.name}</span>
-                    <span class="lang-ar">${cat.nameAr}</span>
-                `;
-                container.appendChild(btn);
-            });
-        }
-
-        function renderProducts(filter = 'all') {
-            const container = document.getElementById('products-grid');
-            const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
-            
-            container.innerHTML = filtered.map(product => `
-                <div class="product-card group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="${product.image}" alt="${currentLang === 'ar' ? product.nameAr : product.name}" 
-                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        ${product.isNew ? '<span class="absolute top-4 left-4 bg-brand-blue text-white text-xs px-3 py-1 rounded-full">NEW</span>' : ''}
-                        ${product.oldPrice ? `<span class="absolute top-4 right-4 bg-red-500 text-white text-xs px-3 py-1 rounded-full">-${Math.round((1 - product.price/product.oldPrice) * 100)}%</span>` : ''}
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-bold mb-1">${currentLang === 'ar' ? product.nameAr : product.name}</h3>
-                        <p class="text-gray-400 text-sm mb-3 line-clamp-2">${currentLang === 'ar' ? product.descriptionAr : product.description}</p>
-                        <div class="flex justify-between items-center mb-4">
-                            <div>
-                                <span class="text-brand-gold font-bold text-lg">${product.price} ${currentLang === 'ar' ? product.currencyAr : product.currency}</span>
-                                ${product.oldPrice ? `<span class="text-gray-500 line-through text-sm ml-2">${product.oldPrice} ${currentLang === 'ar' ? product.currencyAr : product.currency}</span>` : ''}
-                            </div>
-                            <div class="text-brand-gold text-sm">★ ${product.rating}</div>
-                        </div>
-                        <button onclick="addToCart(${product.id})" class="btn-primary w-full text-center text-sm">
-                            <span class="lang-en">Add to Cart</span>
-                            <span class="lang-ar">أضف للسلة</span>
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function filterProducts(category) {
-            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.closest('.category-btn').classList.add('active');
-            renderProducts(category);
-        }
-
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-            
-            const existing = cart.find(item => item.id === productId);
-            if (existing) {
-                existing.quantity++;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-            
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartUI();
-            toggleCart();
-        }
-
-        function updateCartUI() {
-            const container = document.getElementById('cart-items');
-            const totalEl = document.getElementById('cart-total');
-            
-            if (cart.length === 0) {
-                container.innerHTML = `
-                    <p class="text-gray-400 text-center py-8">
-                        <span class="lang-en">Your cart is empty</span>
-                        <span class="lang-ar">سلة التسوق فارغة</span>
-                    </p>`;
-                totalEl.textContent = '$0.00';
-                return;
-            }
-            
-            container.innerHTML = cart.map(item => `
-                <div class="flex gap-4 bg-white/5 p-4 rounded-lg">
-                    <img src="${item.image}" class="w-20 h-20 object-cover rounded">
-                    <div class="flex-1">
-                        <h4 class="font-bold text-sm">${currentLang === 'ar' ? item.nameAr : item.name}</h4>
-                        <p class="text-brand-gold">$${item.price}</p>
-                        <div class="flex items-center gap-2 mt-2">
-                            <button onclick="updateQuantity(${item.id}, -1)" class="w-6 h-6 rounded bg-white/10">-</button>
-                            <span>${item.quantity}</span>
-                            <button onclick="updateQuantity(${item.id}, 1)" class="w-6 h-6 rounded bg-white/10">+</button>
-                        </div>
-                    </div>
-                    <button onclick="removeFromCart(${item.id})" class="text-red-400">×</button>
-                </div>
-            `).join('');
-            
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            totalEl.textContent = total.toFixed(0) + ' ' + (currentLang === 'ar' ? 'ج.م' : 'EGP');
-        }
-
-        function updateQuantity(id, change) {
-            const item = cart.find(i => i.id === id);
-            if (item) {
-                item.quantity += change;
-                if (item.quantity <= 0) removeFromCart(id);
-                else {
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    updateCartUI();
-                }
-            }
-        }
-
-        function removeFromCart(id) {
-            cart = cart.filter(i => i.id !== id);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartUI();
-        }
-
-        function toggleCart() {
-            const sidebar = document.getElementById('cart-sidebar');
-            sidebar.classList.toggle('translate-x-full');
-        }
-
-        loadProducts();
-        updateCartUI();
-    </script>
 </body>
 </html>
