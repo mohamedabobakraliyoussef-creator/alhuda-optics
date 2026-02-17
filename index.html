@@ -114,10 +114,10 @@
             font-size: 1.1rem;
         }
         
-        /* Product Cards - Professional Style */
+        /* Product Cards */
         .product-showcase {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             padding: 0 2rem;
         }
@@ -129,6 +129,7 @@
             position: relative;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
         }
         
         .product-card:hover {
@@ -139,7 +140,7 @@
         
         .product-image-container {
             position: relative;
-            height: 250px;
+            height: 220px;
             overflow: hidden;
             background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
         }
@@ -169,6 +170,7 @@
         .badge-new { background: #10B981; color: white; }
         .badge-sale { background: #EF4444; color: white; }
         .badge-premium { background: #D4AF37; color: black; }
+        .badge-hot { background: #F59E0B; color: black; }
         
         .product-info {
             padding: 1.5rem;
@@ -221,7 +223,7 @@
             font-size: 1rem;
             color: #666;
             text-decoration: line-through;
-            margin-right: 0.5rem;
+            margin-left: 0.5rem;
         }
         
         /* Collection Tabs */
@@ -263,6 +265,7 @@
             border-radius: 20px;
             padding: 2.5rem;
             transition: all 0.4s;
+            cursor: pointer;
         }
         
         .lens-card:hover {
@@ -305,6 +308,50 @@
             font-weight: 800;
             color: #D4AF37;
             margin-top: 1rem;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 3rem;
+            color: #D4AF37;
+            cursor: pointer;
+            z-index: 10000;
+        }
+        
+        .lightbox-caption {
+            color: #fff;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            text-align: center;
         }
         
         /* Contact Bar */
@@ -380,10 +427,18 @@
             .section-title { font-size: 2rem; }
             .contact-bar { flex-direction: column; padding: 0.5rem; }
             .contact-btn { justify-content: center; }
+            .lightbox-close { top: 10px; right: 20px; font-size: 2rem; }
         }
     </style>
 </head>
 <body class="pb-24">
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Product" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass">
@@ -464,7 +519,7 @@
                     <div class="stat-label lang-en">Happy Clients</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-target="200">0</div>
+                    <div class="stat-number" data-target="300">0</div>
                     <div class="stat-label lang-ar">موديل نظارة</div>
                     <div class="stat-label lang-en">Glass Models</div>
                 </div>
@@ -477,7 +532,7 @@
         </div>
     </section>
 
-    <!-- Medical Glasses -->
+    <!-- Medical Glasses - 16 Product -->
     <section id="medical" class="py-20 bg-brand-darker">
         <div class="container mx-auto px-6">
             <div class="section-header">
@@ -507,12 +562,15 @@
             </div>
             
             <div class="product-showcase" id="medical-grid">
-                <!-- Classic 1 -->
-                <div class="product-card" data-category="classic">
+                <!-- Classic 1: Titanium -->
+                <div class="product-card" data-category="classic" onclick="openLightbox(this)">
                     <div class="product-image-container">
                         <span class="product-badge badge-premium lang-ar">فاخر</span>
                         <span class="product-badge badge-premium lang-en">Premium</span>
-                        <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600&q=80" alt="Titanium" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80" 
+                             alt="تيتانيوم إيطالي - Italian Titanium" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category lang-ar">كلاسيكية</div>
@@ -526,18 +584,18 @@
                             <span class="feature-tag lang-en">Anti-Rust</span>
                         </div>
                         <div class="product-price">
-                            <div>
-                                <span class="price-current">650 EGP</span>
-                            </div>
-                            <span class="text-gray-400 text-sm">3 colors</span>
+                            <span class="price-current">650 EGP</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Classic 2 -->
-                <div class="product-card" data-category="classic">
+                <!-- Classic 2: Metal -->
+                <div class="product-card" data-category="classic" onclick="openLightbox(this)">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Metal Classic" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600&q=80" 
+                             alt="معدني كلاسيك - Metal Classic" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category lang-ar">كلاسيكية</div>
@@ -556,12 +614,15 @@
                     </div>
                 </div>
 
-                <!-- Classic 3 -->
-                <div class="product-card" data-category="classic">
+                <!-- Classic 3: Rectangular -->
+                <div class="product-card" data-category="classic" onclick="openLightbox(this)">
                     <div class="product-image-container">
                         <span class="product-badge badge-sale lang-ar">خصم</span>
                         <span class="product-badge badge-sale lang-en">Sale</span>
-                        <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80" alt="Rectangular" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" 
+                             alt="مستطيل أنيق - Elegant Rectangular" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category lang-ar">كلاسيكية</div>
@@ -575,18 +636,19 @@
                             <span class="feature-tag lang-en">Practical</span>
                         </div>
                         <div class="product-price">
-                            <div>
-                                <span class="price-old">450</span>
-                                <span class="price-current">380 EGP</span>
-                            </div>
+                            <span class="price-old">450</span>
+                            <span class="price-current">380 EGP</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Classic 4 -->
-                <div class="product-card" data-category="classic">
+                <!-- Classic 4: Round -->
+                <div class="product-card" data-category="classic" onclick="openLightbox(this)">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?w=600&q=80" alt="Round Classic" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?w=600&q=80" 
+                             alt="دائري تقليدي - Traditional Round" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category lang-ar">كلاسيكية</div>
@@ -605,12 +667,15 @@
                     </div>
                 </div>
 
-                <!-- Modern 1 -->
-                <div class="product-card" data-category="modern">
+                <!-- Modern 1: Slim -->
+                <div class="product-card" data-category="modern" onclick="openLightbox(this)">
                     <div class="product-image-container">
                         <span class="product-badge badge-new lang-ar">جديد</span>
                         <span class="product-badge badge-new lang-en">New</span>
-                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Modern Slim" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" 
+                             alt="سليم مودرن - Slim Modern" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category lang-ar">عصرية</div>
@@ -629,10 +694,13 @@
                     </div>
                 </div>
 
-                <!-- Modern 2 -->
-                <div class="product-card" data-category="modern">
+                <!-- Modern 2: Geometric -->
+                <div class="product-card" data-category="modern" onclick="openLightbox(this)">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600&q=80" alt="Geometric" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600&q=80" 
+                             alt="هندسي مبتكر - Geometric Innovative" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category lang-ar">عصرية</div>
@@ -651,10 +719,13 @@
                     </div>
                 </div>
 
-                <!-- Modern 3 -->
-                <div class="product-card" data-category="modern">
+                <!-- Modern 3: Transparent -->
+                <div class="product-card" data-category="modern" onclick="openLightbox(this)">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" alt="Transparent" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" 
+                             alt="شفاف عصري - Modern Transparent" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category lang-ar">عصرية</div>
@@ -673,12 +744,15 @@
                     </div>
                 </div>
 
-                <!-- Modern 4 -->
-                <div class="product-card" data-category="modern">
+                <!-- Modern 4: Designer -->
+                <div class="product-card" data-category="modern" onclick="openLightbox(this)">
                     <div class="product-image-container">
-                        <span class="product-badge badge-premium lang-ar">بريميوم</span>
-                        <span class="product-badge badge-premium lang-en">Premium</span>
-                        <img src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?w=600&q=80" alt="Designer" class="product-image">
+                        <span class="product-badge badge-hot lang-ar">مميز</span>
+                        <span class="product-badge badge-hot lang-en">Hot</span>
+                        <img src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?w=600&q=80" 
+                             alt="تصميم حصري - Exclusive Design" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category lang-ar">عصرية</div>
@@ -697,10 +771,13 @@
                     </div>
                 </div>
 
-                <!-- Kids 1 -->
-                <div class="product-card" data-category="kids">
+                <!-- Kids 1: Flexible -->
+                <div class="product-card" data-category="kids" onclick="openLightbox(this)">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" alt="Kids Flex" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" 
+                             alt="مرن للأطفال - Flexible Kids" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category lang-ar">أطفال</div>
@@ -719,12 +796,15 @@
                     </div>
                 </div>
 
-                <!-- Kids 2 -->
-                <div class="product-card" data-category="kids">
+                <!-- Kids 2: Colorful -->
+                <div class="product-card" data-category="kids" onclick="openLightbox(this)">
                     <div class="product-image-container">
                         <span class="product-badge badge-new lang-ar">جديد</span>
                         <span class="product-badge badge-new lang-en">New</span>
-                        <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600&q=80" alt="Kids Colorful" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" 
+                             alt="ألوان زاهية - Colorful Kids" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category lang-ar">أطفال</div>
@@ -743,10 +823,13 @@
                     </div>
                 </div>
 
-                <!-- Kids 3 -->
-                <div class="product-card" data-category="kids">
+                <!-- Kids 3: Sport -->
+                <div class="product-card" data-category="kids" onclick="openLightbox(this)">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Kids Sport" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80" 
+                             alt="رياضي نشط - Active Sport" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category lang-ar">أطفال</div>
@@ -765,10 +848,13 @@
                     </div>
                 </div>
 
-                <!-- Kids 4 -->
-                <div class="product-card" data-category="kids">
+                <!-- Kids 4: Cartoon -->
+                <div class="product-card" data-category="kids" onclick="openLightbox(this)">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Kids Cartoon" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600&q=80" 
+                             alt="كرتوني مرح - Cartoon Fun" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <div class="product-category lang-ar">أطفال</div>
@@ -786,11 +872,115 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Extra 1: Semi-Rimless -->
+                <div class="product-card" data-category="classic" onclick="openLightbox(this)">
+                    <div class="product-image-container">
+                        <span class="product-badge badge-premium lang-ar">نصف إطار</span>
+                        <span class="product-badge badge-premium lang-en">Semi-Rimless</span>
+                        <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?w=600&q=80" 
+                             alt="نصف إطار أنيق - Semi-Rimless Elegant" 
+                             class="product-image" 
+                             loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category lang-ar">كلاسيكية</div>
+                        <div class="product-category lang-en">Classic</div>
+                        <h3 class="product-name lang-ar">نصف إطار أنيق</h3>
+                        <h3 class="product-name lang-en">Semi-Rimless Elegant</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">خفيف جداً</span>
+                            <span class="feature-tag lang-en">Ultra Light</span>
+                            <span class="feature-tag lang-ar">للعمل</span>
+                            <span class="feature-tag lang-en">For Work</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">520 EGP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Extra 2: Rimless -->
+                <div class="product-card" data-category="modern" onclick="openLightbox(this)">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" 
+                             alt="بدون إطار - Rimless" 
+                             class="product-image" 
+                             loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category lang-ar">عصرية</div>
+                        <div class="product-category lang-en">Modern</div>
+                        <h3 class="product-name lang-ar">بدون إطار</h3>
+                        <h3 class="product-name lang-en">Rimless Design</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">غير مرئي</span>
+                            <span class="feature-tag lang-en">Invisible</span>
+                            <span class="feature-tag lang-ar">فاخر</span>
+                            <span class="feature-tag lang-en">Luxury</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">680 EGP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Extra 3: Cat Eye Medical -->
+                <div class="product-card" data-category="modern" onclick="openLightbox(this)">
+                    <div class="product-image-container">
+                        <span class="product-badge badge-hot lang-ar">رائج</span>
+                        <span class="product-badge badge-hot lang-en">Trending</span>
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" 
+                             alt">كات آي طبي - Cat Eye Medical" 
+                             class="product-image" 
+                             loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category lang-ar">عصرية</div>
+                        <div class="product-category lang-en">Modern</div>
+                        <h3 class="product-name lang-ar">كات آي طبي</h3>
+                        <h3 class="product-name lang-en">Cat Eye Medical</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">أنثوي</span>
+                            <span class="feature-tag lang-en">Feminine</span>
+                            <span class="feature-tag lang-ar">موضة</span>
+                            <span class="feature-tag lang-en">Fashion</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">490 EGP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Extra 4: Oversized -->
+                <div class="product-card" data-category="modern" onclick="openLightbox(this)">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?w=600&q=80" 
+                             alt="واسع كبير - Oversized" 
+                             class="product-image" 
+                             loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category lang-ar">عصرية</div>
+                        <div class="product-category lang-en">Modern</div>
+                        <h3 class="product-name lang-ar">واسع كبير</h3>
+                        <h3 class="product-name lang-en">Oversized</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">حماية كاملة</span>
+                            <span class="feature-tag lang-en">Full Coverage</span>
+                            <span class="feature-tag lang-ar">موضة</span>
+                            <span class="feature-tag lang-en">Trendy</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">580 EGP</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Sunglasses -->
+    <!-- Sunglasses - 8 Products -->
     <section id="sunglasses" class="py-20 bg-brand-dark">
         <div class="container mx-auto px-6">
             <div class="section-header">
@@ -801,12 +991,15 @@
             </div>
             
             <div class="product-showcase">
-                <!-- Sunglass 1 -->
-                <div class="product-card">
+                <!-- Sunglass 1: Aviator -->
+                <div class="product-card" onclick="openLightbox(this)">
                     <div class="product-image-container">
                         <span class="product-badge badge-premium lang-ar">بولارايزد</span>
                         <span class="product-badge badge-premium lang-en">Polarized</span>
-                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Aviator" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" 
+                             alt="أفياتور كلاسيك - Classic Aviator" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <h3 class="product-name lang-ar">أفياتور كلاسيك</h3>
@@ -822,10 +1015,13 @@
                     </div>
                 </div>
 
-                <!-- Sunglass 2 -->
-                <div class="product-card">
+                <!-- Sunglass 2: Wayfarer -->
+                <div class="product-card" onclick="openLightbox(this)">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Wayfarer" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" 
+                             alt="وايفارر عصري - Modern Wayfarer" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <h3 class="product-name lang-ar">وايفارر عصري</h3>
@@ -841,12 +1037,15 @@
                     </div>
                 </div>
 
-                <!-- Sunglass 3 -->
-                <div class="product-card">
+                <!-- Sunglass 3: Cat Eye -->
+                <div class="product-card" onclick="openLightbox(this)">
                     <div class="product-image-container">
                         <span class="product-badge badge-sale lang-ar">عرض</span>
                         <span class="product-badge badge-sale lang-en">Offer</span>
-                        <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" alt="Cat Eye" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" 
+                             alt="كات آي أنثوي - Feminine Cat Eye" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <h3 class="product-name lang-ar">كات آي أنثوي</h3>
@@ -857,18 +1056,19 @@
                             <span class="feature-tag lang-en">Elegant</span>
                         </div>
                         <div class="product-price">
-                            <div>
-                                <span class="price-old">500</span>
-                                <span class="price-current">380 EGP</span>
-                            </div>
+                            <span class="price-old">500</span>
+                            <span class="price-current">380 EGP</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sunglass 4 -->
-                <div class="product-card">
+                <!-- Sunglass 4: Round -->
+                <div class="product-card" onclick="openLightbox(this)">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600&q=80" alt="Round" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600&q=80" 
+                             alt="راوند ريترو - Round Retro" 
+                             class="product-image" 
+                             loading="lazy">
                     </div>
                     <div class="product-info">
                         <h3 class="product-name lang-ar">راوند ريترو</h3>
@@ -883,11 +1083,103 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Sunglass 5: Sport -->
+                <div class="product-card" onclick="openLightbox(this)">
+                    <div class="product-image-container">
+                        <span class="product-badge badge-new lang-ar">جديد</span>
+                        <span class="product-badge badge-new lang-en">New</span>
+                        <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80" 
+                             alt="رياضي احترافي - Professional Sport" 
+                             class="product-image" 
+                             loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name lang-ar">رياضي احترافي</h3>
+                        <h3 class="product-name lang-en">Professional Sport</h3>
+                        <div class="product-features">
+                            <span class="feature-tag>UV400</span>
+                            <span class="feature-tag lang-ar">مقاوم للصدمات</span>
+                            <span class="feature-tag lang-en">Impact Resistant</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">550 EGP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunglass 6: Oversized -->
+                <div class="product-card" onclick="openLightbox(this)">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?w=600&q=80" 
+                             alt="واسع فاخر - Oversized Luxury" 
+                             class="product-image" 
+                             loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name lang-ar">واسع فاخر</h3>
+                        <h3 class="product-name lang-en">Oversized Luxury</h3>
+                        <div class="product-features">
+                            <span class="feature-tag>UV400</span>
+                            <span class="feature-tag lang-ar">حماية كاملة</span>
+                            <span class="feature-tag lang-en">Full Coverage</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">620 EGP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunglass 7: Clubmaster -->
+                <div class="product-card" onclick="openLightbox(this)">
+                    <div class="product-image-container">
+                        <span class="product-badge badge-hot lang-ar">كلاسيك</span>
+                        <span class="product-badge badge-hot lang-en">Classic</span>
+                        <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?w=600&q=80" 
+                             alt="كلوب ماستر - Clubmaster" 
+                             class="product-image" 
+                             loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name lang-ar">كلوب ماستر</h3>
+                        <h3 class="product-name lang-en">Clubmaster</h3>
+                        <div class="product-features">
+                            <span class="feature-tag>UV400</span>
+                            <span class="feature-tag lang-ar"> retro</span>
+                            <span class="feature-tag lang-en">Vintage</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">490 EGP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunglass 8: Square -->
+                <div class="product-card" onclick="openLightbox(this)">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" 
+                             alt="مربع حديث - Modern Square" 
+                             class="product-image" 
+                             loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name lang-ar">مربع حديث</h3>
+                        <h3 class="product-name lang-en">Modern Square</h3>
+                        <div class="product-features">
+                            <span class="feature-tag>UV400</span>
+                            <span class="feature-tag lang-ar">رجالي</span>
+                            <span class="feature-tag lang-en">Men's</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">460 EGP</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Lenses -->
+    <!-- Contact Lenses - 6 Products -->
     <section id="lenses" class="py-20 bg-brand-darker">
         <div class="container mx-auto px-6">
             <div class="section-header">
@@ -899,7 +1191,7 @@
             
             <div class="lens-grid">
                 <!-- Monthly -->
-                <div class="lens-card">
+                <div class="lens-card" onclick="openLightbox(this)">
                     <div class="lens-header">
                         <div class="lens-icon">👁️</div>
                         <div>
@@ -921,7 +1213,7 @@
                 </div>
 
                 <!-- Daily -->
-                <div class="lens-card">
+                <div class="lens-card" onclick="openLightbox(this)">
                     <div class="lens-header">
                         <div class="lens-icon" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">💧</div>
                         <div>
@@ -942,7 +1234,7 @@
                 </div>
 
                 <!-- Colored -->
-                <div class="lens-card">
+                <div class="lens-card" onclick="openLightbox(this)">
                     <div class="lens-header">
                         <div class="lens-icon" style="background: linear-gradient(135deg, #EC4899, #BE185D);">🎨</div>
                         <div>
@@ -963,7 +1255,7 @@
                 </div>
 
                 <!-- Toric -->
-                <div class="lens-card">
+                <div class="lens-card" onclick="openLightbox(this)">
                     <div class="lens-header">
                         <div class="lens-icon" style="background: linear-gradient(135deg, #10B981, #047857);">🎯</div>
                         <div>
@@ -983,8 +1275,8 @@
                     <div class="text-gray-400 text-sm mt-2 lang-en">per pair</div>
                 </div>
 
-                <!-- Two-Weekly -->
-                <div class="lens-card">
+                <!-- Bi-Weekly -->
+                <div class="lens-card" onclick="openLightbox(this)">
                     <div class="lens-header">
                         <div class="lens-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706);">📅</div>
                         <div>
@@ -1005,7 +1297,7 @@
                 </div>
 
                 <!-- Multifocal -->
-                <div class="lens-card">
+                <div class="lens-card" onclick="openLightbox(this)">
                     <div class="lens-header">
                         <div class="lens-icon" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">👓</div>
                         <div>
@@ -1069,6 +1361,32 @@
     </div>
 
     <script>
+        // Lightbox Functions
+        function openLightbox(element) {
+            const img = element.querySelector('.product-image');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+        
         // Language Toggle
         function toggleLanguage() {
             const html = document.documentElement;
@@ -1147,7 +1465,7 @@
         gsap.utils.toArray('.product-card').forEach((card, i) => {
             gsap.from(card, {
                 scrollTrigger: { trigger: card, start: "top 90%" },
-                y: 30, opacity: 0, duration: 0.5, delay: i * 0.05
+                y: 30, opacity: 0, duration: 0.5, delay: i * 0.03
             });
         });
         
