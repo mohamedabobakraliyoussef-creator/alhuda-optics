@@ -1,1155 +1,681 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="الهدى للبصريات — فيصل، الجيزة. نظارات طبية وشمسية، عدسات لاصقة، فحص نظر مجاني. خبرة 15 عاماً. اتصل: 01111171350"/>
+<meta name="keywords" content="بصريات فيصل، نظارات الجيزة، عدسات لاصقة، فحص نظر، الهدى بصريات، نظارات طبية، نظارات شمسية"/>
+<meta property="og:title" content="الهدى للبصريات | Al-Huda Optics"/>
+<meta property="og:description" content="نظارات طبية وشمسية، عدسات لاصقة، فحص نظر مجاني. خبرة 15 عاماً في فيصل الجيزة."/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#0b0f1a"/>
+<title>الهدى للبصريات | Al-Huda Optics — فيصل، الجيزة</title>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Optician","name":"الهدى للبصريات","alternateName":"Al-Huda Optics","address":{"@type":"PostalAddress","streetAddress":"شارع فيصل","addressLocality":"فيصل","addressRegion":"الجيزة","addressCountry":"EG"},"telephone":"+201111171350","openingHours":"Mo-Su 12:00-01:00","priceRange":"$$","description":"نظارات طبية وشمسية، عدسات لاصقة، فحص نظر مجاني"}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0b0f1a;--ink2:#111827;--ink3:#1a2540;
+  --gold:#d4a843;--gold2:#f0c96b;--gold3:#b8891f;
+  --teal:#00c9b1;--teal2:#00a896;
+  --white:#ffffff;--dim:#6b7a99;--dim2:#8896b0;
+  --border:rgba(212,168,67,0.18);--border2:rgba(255,255,255,0.07);
+  --r:18px;--r2:12px;
+  --glow:0 0 60px rgba(212,168,67,0.12);
+  --shadow:0 24px 80px rgba(0,0,0,0.5);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;background:var(--ink);color:var(--white);overflow-x:hidden;line-height:1.7}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--gold);color:var(--ink)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--gold3);border-radius:99px}
 
-  <!-- ✅ FIX: Complete SEO meta tags -->
-  <title>الهدى للبصريات | Al-Huda Optics — فيصل، الجيزة</title>
-  <meta name="description" content="الهدى للبصريات في فيصل، الجيزة — نظارات طبية وشمسية، عدسات لاصقة، فحص نظر مجاني. خبرة 15 عاماً. اتصل: 01111171350" />
-  <meta name="keywords" content="بصريات فيصل، نظارات الجيزة، عدسات لاصقة، فحص نظر، الهدى بصريات، نظارات طبية" />
-  <meta property="og:title" content="الهدى للبصريات | فيصل، الجيزة" />
-  <meta property="og:description" content="نظارات طبية وشمسية، عدسات لاصقة، فحص نظر مجاني. خبرة 15 عاماً في خدمتك." />
-  <meta property="og:type" content="business.business" />
-  <meta name="theme-color" content="#0a1628" />
+/* CURSOR GLOW */
+.cursor-glow{position:fixed;width:320px;height:320px;background:radial-gradient(circle,rgba(212,168,67,0.04),transparent 70%);pointer-events:none;transform:translate(-50%,-50%);z-index:0;transition:opacity .3s;will-change:transform}
 
-  <!-- ✅ FIX: Schema.org Local Business structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Optician",
-    "name": "الهدى للبصريات",
-    "alternateName": "Al-Huda Optics",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "شارع فيصل",
-      "addressLocality": "فيصل",
-      "addressRegion": "الجيزة",
-      "addressCountry": "EG"
-    },
-    "telephone": "+201111171350",
-    "openingHours": "Mo-Su 12:00-01:00",
-    "priceRange": "$$"
-  }
-  </script>
+/* WHATSAPP FLOAT */
+.wa-float{position:fixed;bottom:28px;left:28px;z-index:9999;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#25d366,#1fad56);display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#fff;box-shadow:0 8px 28px rgba(37,211,102,0.45);transition:transform .3s,box-shadow .3s;animation:wa-pulse 3s ease infinite}
+.wa-float:hover{transform:scale(1.12);box-shadow:0 12px 36px rgba(37,211,102,0.6)}
+@keyframes wa-pulse{0%,100%{box-shadow:0 8px 28px rgba(37,211,102,0.45)}50%{box-shadow:0 8px 48px rgba(37,211,102,0.7)}}
+.wa-tip{position:fixed;bottom:38px;left:94px;z-index:9998;background:var(--ink3);border:1px solid var(--border);border-radius:50px;padding:7px 16px;font-size:.8rem;font-weight:700;color:var(--white);opacity:0;pointer-events:none;white-space:nowrap;transition:opacity .3s}
+.wa-float:hover~.wa-tip{opacity:1}
 
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+/* NAV */
+nav{position:fixed;top:0;right:0;left:0;z-index:1000;background:rgba(11,15,26,0.9);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:background .3s}
+.nav-wrap{max-width:1200px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:76px}
+.nav-logo{display:flex;align-items:center;gap:14px}
+.nav-logo-icon{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--gold3),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 16px rgba(212,168,67,0.3)}
+.nav-logo-text em{display:block;font-style:normal;font-size:1.05rem;font-weight:900;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-logo-text small{display:block;font-size:.7rem;color:var(--dim);letter-spacing:.08em}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{padding:8px 20px;border-radius:50px;font-size:.88rem;font-weight:700;color:var(--dim2);transition:all .25s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:var(--border2)}
+.nav-links a.active{color:var(--gold)}
+.nav-cta{background:linear-gradient(135deg,var(--gold3),var(--gold2)) !important;color:var(--ink) !important;font-weight:800 !important;box-shadow:0 4px 16px rgba(212,168,67,0.25)}
+.nav-cta:hover{transform:translateY(-1px) !important;box-shadow:0 8px 24px rgba(212,168,67,0.4) !important;background:linear-gradient(135deg,var(--gold3),var(--gold2)) !important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:none}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-drawer{display:none;flex-direction:column;background:rgba(7,11,20,0.98);border-top:1px solid var(--border);padding:16px 28px 24px;gap:4px}
+.mobile-drawer.open{display:flex}
+.mobile-drawer a{padding:13px 18px;border-radius:12px;font-size:1rem;font-weight:700;color:var(--dim2);transition:all .2s}
+.mobile-drawer a:hover{color:var(--white);background:var(--border2)}
 
-  <style>
-    /* ===== RESET ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* HERO */
+.hero{min-height:100vh;padding:140px 28px 100px;position:relative;overflow:hidden;display:flex;align-items:center}
+.hero-canvas{position:absolute;inset:0;overflow:hidden}
+.hero-canvas::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 80% at 20% 60%,rgba(212,168,67,0.07) 0%,transparent 65%),radial-gradient(ellipse 60% 60% at 80% 20%,rgba(0,201,177,0.05) 0%,transparent 60%),linear-gradient(160deg,var(--ink) 0%,var(--ink2) 50%,#0d1520 100%)}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(212,168,67,0.15) 1px,transparent 1px);background-size:40px 40px;opacity:.4;mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent);-webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent)}
+.hero-line{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(212,168,67,0.15),transparent);animation:line-fade 8s ease-in-out infinite}
+.hero-line:nth-child(2){right:25%}.hero-line:nth-child(3){right:50%;animation-delay:2.5s}.hero-line:nth-child(4){right:75%;animation-delay:5s}
+@keyframes line-fade{0%,100%{opacity:.3}50%{opacity:.9}}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:2;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,67,0.1);border:1px solid var(--border);border-radius:50px;padding:6px 20px;font-size:.75rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold2);margin-bottom:24px;animation:fade-up .7s .1s ease both}
+.hero-tag i{color:var(--teal);font-size:.8rem}
+.hero-h1{font-family:'Tajawal',sans-serif;font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:900;line-height:1.1;margin-bottom:22px;animation:fade-up .7s .2s ease both}
+.hero-h1 .accent{display:block;background:linear-gradient(135deg,var(--gold2),var(--gold),var(--gold3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 12px rgba(212,168,67,0.3))}
+.hero-p{font-size:1.05rem;color:var(--dim2);max-width:460px;margin-bottom:38px;animation:fade-up .7s .3s ease both}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fade-up .7s .4s ease both}
+.btn-gold{background:linear-gradient(135deg,var(--gold3),var(--gold2));color:var(--ink);font-family:'Cairo',sans-serif;font-weight:800;font-size:.95rem;padding:15px 32px;border-radius:50px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:9px;box-shadow:0 8px 28px rgba(212,168,67,0.35);transition:all .3s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(212,168,67,0.5)}
+.btn-ghost{background:transparent;color:var(--white);font-family:'Cairo',sans-serif;font-weight:700;font-size:.95rem;padding:15px 32px;border-radius:50px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:all .3s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,168,67,0.07)}
+.hero-kpis{display:flex;gap:0;margin-top:52px;animation:fade-up .7s .5s ease both}
+.kpi{padding:0 28px;text-align:center;border-left:1px solid var(--border)}
+.kpi:first-child{padding-right:0;border-left:none}
+.kpi-n{font-family:'Tajawal',sans-serif;font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.kpi-l{font-size:.78rem;color:var(--dim);margin-top:4px;font-weight:600}
 
-    :root {
-      --navy:     #0a1628;
-      --navy-2:   #0f2040;
-      --navy-3:   #162d55;
-      --gold:     #c9922a;
-      --gold-lt:  #e8b84b;
-      --gold-dim: rgba(201,146,42,0.15);
-      --cream:    #f5f0e8;
-      --white:    #ffffff;
-      --text-dim: #8fa0b8;
-      --border:   rgba(201,146,42,0.2);
-      --radius:   16px;
-      --shadow-gold: 0 0 40px rgba(201,146,42,0.15);
-    }
+/* HERO VISUAL */
+.hero-visual{display:flex;align-items:center;justify-content:center;animation:fade-up .9s .3s ease both}
+.vis-wrap{position:relative;width:420px;height:420px;flex-shrink:0}
+.vis-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(212,168,67,0.15);animation:rot 25s linear infinite}
+.vis-ring::before,.vis-ring::after{content:'';position:absolute;width:10px;height:10px;background:var(--gold);border-radius:50%;box-shadow:0 0 12px var(--gold)}
+.vis-ring::before{top:-5px;left:50%;transform:translateX(-50%)}
+.vis-ring::after{bottom:-5px;right:30%;background:var(--teal);box-shadow:0 0 12px var(--teal)}
+.vis-ring2{position:absolute;inset:40px;border-radius:50%;border:1px dashed rgba(0,201,177,0.12);animation:rot 18s linear infinite reverse}
+.vis-ring3{position:absolute;inset:80px;border-radius:50%;border:1px solid rgba(212,168,67,0.08);animation:rot 12s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.vis-center{position:absolute;inset:110px;background:radial-gradient(circle at 35% 35%,var(--ink3),var(--ink2));border-radius:50%;border:1px solid rgba(212,168,67,0.2);display:flex;align-items:center;justify-content:center;box-shadow:0 0 80px rgba(212,168,67,0.12),inset 0 0 50px rgba(0,0,0,0.4)}
+.vis-center svg{width:80px;height:80px}
+.vis-badge{position:absolute;background:rgba(17,24,39,0.95);border:1px solid var(--border);border-radius:14px;padding:12px 18px;backdrop-filter:blur(12px);display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,0.4);animation:float-badge 4s ease-in-out infinite}
+.vis-badge:nth-child(5){top:40px;left:-20px;animation-delay:0s}
+.vis-badge:nth-child(6){bottom:60px;right:-30px;animation-delay:2s}
+.vis-badge-icon{font-size:1.3rem}
+.vis-badge-text strong{display:block;font-size:.82rem;font-weight:800}
+.vis-badge-text span{display:block;font-size:.7rem;color:var(--dim)}
+@keyframes float-badge{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-    html { scroll-behavior: smooth; }
+/* ANNOUNCE */
+.announce{background:linear-gradient(135deg,var(--gold3),var(--gold),var(--gold2));color:var(--ink);padding:13px 28px;display:flex;align-items:center;justify-content:center;gap:12px;font-weight:800;font-size:.9rem;text-align:center}
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: var(--navy);
-      color: var(--white);
-      overflow-x: hidden;
-      line-height: 1.75;
-    }
+/* SECTIONS */
+section{padding:110px 28px}
+.sec-wrap{max-width:1200px;margin:0 auto}
+.sec-head{margin-bottom:64px}
+.sec-tag{display:inline-flex;align-items:center;gap:7px;font-size:.7rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);background:rgba(212,168,67,0.07);border-radius:50px;padding:5px 18px;margin-bottom:16px}
+.sec-tag i{color:var(--teal);font-size:.75rem}
+h2.sec-title{font-family:'Tajawal',sans-serif;font-size:clamp(1.9rem,4vw,2.9rem);font-weight:900;line-height:1.15;margin-bottom:12px}
+h2.sec-title span{background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+p.sec-desc{color:var(--dim2);max-width:540px;font-size:1rem}
 
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
+/* SERVICES */
+#features{background:var(--ink2)}
+.srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.srv-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:var(--r);padding:36px 30px;position:relative;overflow:hidden;transition:all .35s;cursor:default}
+.srv-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,rgba(212,168,67,0.07),transparent 60%);opacity:0;transition:opacity .35s}
+.srv-card:hover{border-color:rgba(212,168,67,0.4);transform:translateY(-5px);box-shadow:var(--glow)}
+.srv-card:hover::before{opacity:1}
+.srv-icon{width:56px;height:56px;border-radius:16px;margin-bottom:22px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:linear-gradient(135deg,rgba(212,168,67,0.15),rgba(212,168,67,0.05));border:1px solid rgba(212,168,67,0.2);transition:all .35s}
+.srv-card:hover .srv-icon{background:linear-gradient(135deg,var(--gold3),var(--gold2));color:var(--ink);border-color:transparent;box-shadow:0 8px 24px rgba(212,168,67,0.3)}
+.srv-card h3{font-size:1.08rem;font-weight:800;margin-bottom:10px}
+.srv-card p{font-size:.9rem;color:var(--dim2);line-height:1.65}
+.srv-free-badge{position:absolute;top:20px;left:20px;background:linear-gradient(135deg,var(--teal2),var(--teal));color:var(--ink);font-size:.65rem;font-weight:800;padding:3px 10px;border-radius:50px;letter-spacing:.05em}
 
-    /* ===== WHATSAPP FLOAT ===== */
-    /* ✅ FIX: Added WhatsApp floating button — critical for Egyptian local businesses */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 28px;
-      left: 28px;
-      z-index: 9999;
-      background: #25d366;
-      color: white;
-      width: 60px; height: 60px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.8rem;
-      box-shadow: 0 6px 24px rgba(37,211,102,0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-      animation: pulse-wa 2.5s infinite;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 32px rgba(37,211,102,0.6);
-    }
-    @keyframes pulse-wa {
-      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
-      50%       { box-shadow: 0 6px 36px rgba(37,211,102,0.7); }
-    }
+/* NUMBERS */
+.numbers-sec{background:linear-gradient(135deg,var(--ink3),var(--ink2));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0}
+.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.num-item{padding:52px 24px;text-align:center;border-left:1px solid var(--border);transition:background .3s;position:relative;overflow:hidden}
+.num-item:last-child{border-left:none}
+.num-item::after{content:'';position:absolute;bottom:0;right:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold3),var(--gold2));transform:scaleX(0);transition:transform .3s;transform-origin:right}
+.num-item:hover::after{transform:scaleX(1)}
+.num-item:hover{background:rgba(212,168,67,0.04)}
+.num-n{font-family:'Tajawal',sans-serif;font-size:3rem;font-weight:900;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.num-l{font-size:.85rem;color:var(--dim);margin-top:8px;font-weight:600}
 
-    /* ===== NAVBAR ===== */
-    nav {
-      position: fixed; top: 0; right: 0; left: 0; z-index: 1000;
-      background: rgba(10,22,40,0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: 0;
-    }
-    .nav-inner {
-      max-width: 1140px; margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 72px;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 12px;
-    }
-    .nav-logo .logo-icon {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-    }
-    .nav-logo .logo-text strong {
-      display: block;
-      font-size: 1.05rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .nav-logo .logo-text span {
-      display: block;
-      font-size: 0.7rem;
-      color: var(--text-dim);
-      letter-spacing: 0.1em;
-    }
-    .nav-links {
-      display: flex; gap: 6px; list-style: none;
-    }
-    .nav-links a {
-      padding: 8px 18px;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-dim);
-      transition: all 0.25s;
-    }
-    .nav-links a:hover {
-      color: var(--white);
-      background: rgba(255,255,255,0.07);
-    }
-    .nav-cta {
-      background: linear-gradient(135deg, var(--gold), var(--gold-lt)) !important;
-      color: var(--navy) !important;
-      font-weight: 700 !important;
-      padding: 8px 22px !important;
-    }
-    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+/* PRODUCTS */
+#products{background:var(--ink)}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+.prod-card{background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .4s}
+.prod-card:hover{transform:translateY(-8px);box-shadow:var(--shadow),var(--glow);border-color:rgba(212,168,67,0.45)}
+.prod-img-wrap{height:230px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--ink3),#1c2d50);display:flex;align-items:center;justify-content:center}
+.prod-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.prod-card:hover .prod-img-wrap img{transform:scale(1.05)}
+.prod-img-placeholder{font-size:5.5rem;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.5))}
+.prod-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,15,26,0.5),transparent 50%)}
+.prod-badge{position:absolute;top:16px;right:16px;z-index:2;background:linear-gradient(135deg,var(--gold3),var(--gold2));color:var(--ink);font-size:.68rem;font-weight:800;padding:4px 13px;border-radius:50px;letter-spacing:.04em}
+.prod-badge.teal{background:linear-gradient(135deg,var(--teal2),var(--teal))}
+.prod-body{padding:26px}
+.prod-cat{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.prod-body h3{font-size:1.1rem;font-weight:800;margin-bottom:8px}
+.prod-body p{font-size:.88rem;color:var(--dim2);margin-bottom:22px;line-height:1.6}
+.prod-foot{display:flex;align-items:center;justify-content:space-between}
+.prod-price{font-family:'Tajawal',sans-serif;font-size:1.5rem;font-weight:900;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.prod-price small{font-size:.75rem;font-weight:500;-webkit-text-fill-color:var(--dim);font-family:'Cairo',sans-serif}
+.btn-prod{background:transparent;border:1.5px solid rgba(212,168,67,0.35);color:var(--gold);font-family:'Cairo',sans-serif;font-weight:700;font-size:.82rem;padding:9px 20px;border-radius:50px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all .3s}
+.btn-prod:hover{background:linear-gradient(135deg,var(--gold3),var(--gold2));color:var(--ink);border-color:transparent;box-shadow:0 6px 20px rgba(212,168,67,0.35)}
 
-    .nav-mobile-btn {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      color: var(--white); font-size: 1.5rem; padding: 8px;
-    }
+/* BRANDS */
+.brands-sec{background:var(--ink2);padding:60px 28px}
+.brands-title{text-align:center;font-size:.78rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:40px}
+.brands-row{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.brand-pill{padding:10px 28px;border:1px solid var(--border);border-radius:50px;font-size:.9rem;font-weight:800;color:var(--dim);background:rgba(255,255,255,0.03);transition:all .3s;letter-spacing:.04em}
+.brand-pill:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,168,67,0.07)}
 
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      position: relative; overflow: hidden;
-      padding: 120px 24px 80px;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 80% 80% at 30% 50%, rgba(201,146,42,0.07) 0%, transparent 70%),
-        linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 50%, #0c1e3a 100%);
-    }
-    .hero-grid-lines {
-      position: absolute; inset: 0; opacity: 0.04;
-      background-image:
-        linear-gradient(rgba(201,146,42,1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,146,42,1) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .hero-glasses {
-      position: absolute;
-      left: -40px; top: 50%;
-      transform: translateY(-50%);
-      font-size: 28rem;
-      opacity: 0.03;
-      line-height: 1;
-      user-select: none;
-    }
-    .hero-content {
-      max-width: 1140px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-      position: relative; z-index: 2;
-      width: 100%;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--gold-dim);
-      border: 1px solid var(--border);
-      border-radius: 50px;
-      padding: 6px 18px;
-      font-size: 0.8rem; font-weight: 700;
-      color: var(--gold-lt);
-      letter-spacing: 0.08em;
-      margin-bottom: 24px;
-      animation: fadeInDown 0.6s ease both;
-    }
-    .hero-badge i { font-size: 0.9rem; }
-    .hero-title {
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 20px;
-      animation: fadeInDown 0.6s 0.1s ease both;
-    }
-    .hero-title .gold-grad {
-      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero-sub {
-      font-size: 1.1rem;
-      color: var(--text-dim);
-      max-width: 440px;
-      margin-bottom: 36px;
-      animation: fadeInDown 0.6s 0.2s ease both;
-    }
-    .hero-buttons {
-      display: flex; gap: 14px; flex-wrap: wrap;
-      animation: fadeInDown 0.6s 0.3s ease both;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
-      color: var(--navy);
-      font-family: 'Cairo', sans-serif;
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 14px 30px;
-      border-radius: 50px;
-      border: none; cursor: pointer;
-      display: inline-flex; align-items: center; gap: 8px;
-      transition: all 0.25s;
-      box-shadow: 0 8px 24px rgba(201,146,42,0.3);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,146,42,0.45); }
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      font-family: 'Cairo', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 14px 30px;
-      border-radius: 50px;
-      border: 1px solid rgba(255,255,255,0.2);
-      cursor: pointer;
-      display: inline-flex; align-items: center; gap: 8px;
-      transition: all 0.25s;
-    }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+/* REVIEWS */
+#reviews{background:var(--ink)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.rev-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:var(--r);padding:30px;transition:all .35s}
+.rev-card:hover{border-color:rgba(212,168,67,0.35);transform:translateY(-3px);box-shadow:var(--glow)}
+.rev-stars{color:var(--gold2);font-size:.85rem;letter-spacing:3px;margin-bottom:14px}
+.rev-text{font-size:.93rem;color:var(--dim2);font-style:italic;line-height:1.75;margin-bottom:22px;position:relative;padding-right:20px}
+.rev-text::before{content:'"';position:absolute;right:0;top:-4px;font-size:2rem;color:rgba(212,168,67,0.2);font-style:normal;line-height:1}
+.rev-author{display:flex;align-items:center;gap:12px}
+.rev-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold3),var(--gold2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;color:var(--ink);flex-shrink:0}
+.rev-name{font-weight:800;font-size:.93rem}
+.rev-since{font-size:.75rem;color:var(--dim);margin-top:2px}
 
-    .hero-stats {
-      display: flex; gap: 32px; margin-top: 48px;
-      animation: fadeInDown 0.6s 0.4s ease both;
-    }
-    .stat { text-align: center; }
-    .stat .num {
-      font-size: 2rem; font-weight: 900;
-      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1;
-    }
-    .stat .lbl { font-size: 0.8rem; color: var(--text-dim); margin-top: 4px; }
+/* CONTACT */
+#contact{background:var(--ink2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-left h3{font-family:'Tajawal',sans-serif;font-size:1.9rem;font-weight:900;margin-bottom:10px}
+.contact-left p{color:var(--dim2);margin-bottom:36px;font-size:.97rem}
+.cinfo-list{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+.cinfo-item{display:flex;align-items:center;gap:16px;padding:18px 22px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:var(--r2);transition:all .3s}
+.cinfo-item:hover{border-color:var(--gold);background:rgba(212,168,67,0.06);transform:translateX(-3px)}
+.cinfo-icon{width:46px;height:46px;border-radius:13px;flex-shrink:0;background:linear-gradient(135deg,var(--gold3),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--ink)}
+.cinfo-label{font-size:.75rem;color:var(--dim);font-weight:700;margin-bottom:2px;letter-spacing:.05em}
+.cinfo-val{font-size:.97rem;font-weight:800}
+.contact-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-wa{background:linear-gradient(135deg,#1fad56,#25d366);color:var(--white);font-family:'Cairo',sans-serif;font-weight:800;font-size:.92rem;padding:14px 28px;border-radius:50px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(37,211,102,0.3);transition:all .3s}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,0.45)}
+.btn-call{background:transparent;color:var(--white);font-family:'Cairo',sans-serif;font-weight:700;font-size:.92rem;padding:14px 28px;border-radius:50px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .3s}
+.btn-call:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,168,67,0.07)}
+.map-box{border-radius:var(--r);overflow:hidden;border:1px solid var(--border)}
+.map-box iframe{width:100%;height:310px;border:none;display:block;filter:grayscale(30%) brightness(70%) contrast(110%)}
+.map-caption{padding:14px 20px;background:rgba(255,255,255,0.03);display:flex;align-items:center;gap:9px;font-size:.85rem;color:var(--dim2)}
+.map-caption i{color:var(--gold)}
 
-    /* Hero visual */
-    .hero-visual {
-      display: flex; align-items: center; justify-content: center;
-      animation: fadeInUp 0.8s 0.2s ease both;
-    }
-    .glasses-showcase {
-      width: 360px; height: 360px;
-      position: relative;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .glasses-ring {
-      position: absolute; inset: 0;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      animation: spin-slow 20s linear infinite;
-    }
-    .glasses-ring::before {
-      content: '';
-      position: absolute; top: -4px; left: 50%; transform: translateX(-50%);
-      width: 8px; height: 8px;
-      background: var(--gold);
-      border-radius: 50%;
-    }
-    .glasses-ring-2 {
-      position: absolute; inset: 30px;
-      border-radius: 50%;
-      border: 1px dashed rgba(201,146,42,0.2);
-      animation: spin-slow 15s linear infinite reverse;
-    }
-    .glasses-center {
-      width: 200px; height: 200px;
-      background: radial-gradient(circle at 30% 30%, var(--navy-3), var(--navy-2));
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 5rem;
-      box-shadow: 0 0 60px rgba(201,146,42,0.15), inset 0 0 40px rgba(0,0,0,0.3);
-    }
-    @keyframes spin-slow { to { transform: rotate(360deg); } }
+/* FOOTER */
+footer{background:#070b14;border-top:1px solid var(--border);padding:64px 28px 28px}
+.footer-wrap{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:48px;margin-bottom:52px}
+.footer-brand-name{font-family:'Tajawal',sans-serif;font-size:1.3rem;font-weight:900;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;margin-bottom:14px}
+.footer-about{font-size:.88rem;color:var(--dim);line-height:1.75;max-width:280px;margin-bottom:24px}
+.footer-socials{display:flex;gap:10px}
+.soc-btn{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--dim2);font-size:.9rem;transition:all .3s}
+.soc-btn:hover{background:rgba(212,168,67,0.1);border-color:var(--gold);color:var(--gold)}
+.footer-col h5{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{font-size:.88rem;color:var(--dim);transition:color .2s;display:flex;align-items:center;gap:6px}
+.footer-col ul a::before{content:'›';color:var(--gold3);font-size:1rem}
+.footer-col ul a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.8rem;color:var(--dim)}
+.footer-badge{display:flex;align-items:center;gap:8px}
+.footer-badge span{background:rgba(212,168,67,0.1);border:1px solid var(--border);border-radius:50px;padding:3px 12px;color:var(--gold);font-weight:700;font-size:.8rem}
 
-    /* ===== SECTION LAYOUT ===== */
-    section { padding: 100px 24px; }
-    .section-header { margin-bottom: 56px; }
-    .section-tag {
-      display: inline-block;
-      font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid var(--border);
-      border-radius: 50px;
-      padding: 5px 18px;
-      margin-bottom: 14px;
-      background: var(--gold-dim);
-    }
-    h2.section-title {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 900;
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-    p.section-desc { color: var(--text-dim); max-width: 520px; font-size: 1rem; }
+/* ANIMATIONS */
+@keyframes fade-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
 
-    .container { max-width: 1140px; margin: 0 auto; }
-
-    /* ===== SERVICES ===== */
-    #features { background: var(--navy-2); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-    }
-    .service-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 80px; height: 80px;
-      background: radial-gradient(circle, rgba(201,146,42,0.12), transparent);
-      border-radius: 50%;
-      transform: translate(20px,-20px);
-    }
-    .service-card:hover {
-      border-color: rgba(201,146,42,0.5);
-      background: rgba(201,146,42,0.06);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-gold);
-    }
-    .service-icon {
-      width: 52px; height: 52px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-      color: var(--navy);
-    }
-    .service-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
-    .service-card p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; }
-
-    /* ===== PRODUCTS ===== */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
-    }
-    .product-card {
-      background: var(--navy-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: all 0.35s;
-    }
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.4), var(--shadow-gold);
-      border-color: rgba(201,146,42,0.5);
-    }
-    .product-img {
-      height: 220px;
-      background: linear-gradient(135deg, var(--navy-3), #1a3a6e);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 5rem;
-      position: relative; overflow: hidden;
-    }
-    .product-img::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at center, rgba(201,146,42,0.08), transparent);
-    }
-    /* ✅ FIX: img inside product-img fills properly */
-    .product-img img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      position: absolute; inset: 0;
-    }
-    .product-badge {
-      position: absolute; top: 14px; right: 14px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
-      color: var(--navy);
-      font-size: 0.72rem; font-weight: 800;
-      padding: 4px 12px;
-      border-radius: 50px;
-      z-index: 2;
-    }
-    .product-body { padding: 24px; }
-    .product-body h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; }
-    .product-body p { font-size: 0.88rem; color: var(--text-dim); margin-bottom: 20px; }
-    .product-footer {
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    /* ✅ FIX: Changed "دينار" → "جنيه" (Egyptian Pound) */
-    .product-price {
-      font-size: 1.3rem; font-weight: 900;
-      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .product-price span { font-size: 0.8rem; font-weight: 400; opacity: 0.8; }
-    .btn-sm {
-      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
-      color: var(--navy);
-      font-family: 'Cairo', sans-serif;
-      font-weight: 800;
-      font-size: 0.85rem;
-      padding: 10px 20px;
-      border-radius: 50px;
-      border: none; cursor: pointer;
-      display: inline-flex; align-items: center; gap: 6px;
-      transition: all 0.25s;
-    }
-    .btn-sm:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201,146,42,0.35); }
-
-    /* ===== TRUST SECTION ===== */
-    .trust-section {
-      background: linear-gradient(135deg, var(--navy-2), var(--navy-3));
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0;
-    }
-    .trust-item {
-      padding: 40px 24px;
-      text-align: center;
-      border-left: 1px solid var(--border);
-      transition: background 0.25s;
-    }
-    .trust-item:last-child { border-left: none; }
-    .trust-item:hover { background: rgba(201,146,42,0.05); }
-    .trust-num {
-      font-size: 2.8rem; font-weight: 900;
-      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1;
-    }
-    .trust-lbl { font-size: 0.88rem; color: var(--text-dim); margin-top: 8px; }
-
-    /* ===== TESTIMONIALS ===== */
-    /* ✅ FIX: Added reviews/testimonials section that was missing */
-    #reviews { background: var(--navy-2); }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    .review-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: all 0.3s;
-    }
-    .review-card:hover {
-      border-color: rgba(201,146,42,0.4);
-      transform: translateY(-3px);
-    }
-    .stars { color: var(--gold-lt); font-size: 0.9rem; margin-bottom: 14px; letter-spacing: 2px; }
-    .review-text { font-size: 0.95rem; color: var(--text-dim); font-style: italic; margin-bottom: 20px; line-height: 1.7; }
-    .reviewer { display: flex; align-items: center; gap: 12px; }
-    .reviewer-avatar {
-      width: 42px; height: 42px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 1rem; color: var(--navy);
-    }
-    .reviewer-name { font-weight: 700; font-size: 0.95rem; }
-    .reviewer-date { font-size: 0.78rem; color: var(--text-dim); }
-
-    /* ===== CONTACT ===== */
-    #contact { background: var(--navy); }
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
-    }
-    .contact-info h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; }
-    .contact-info p { color: var(--text-dim); margin-bottom: 32px; }
-
-    .contact-items { display: flex; flex-direction: column; gap: 18px; }
-    .contact-item {
-      display: flex; align-items: center; gap: 16px;
-      padding: 18px 22px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      transition: all 0.25s;
-    }
-    .contact-item:hover { border-color: var(--gold); background: var(--gold-dim); }
-    .contact-item-icon {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-      color: var(--navy);
-      flex-shrink: 0;
-    }
-    .contact-item-text strong { display: block; font-size: 0.8rem; color: var(--text-dim); font-weight: 600; margin-bottom: 2px; }
-    .contact-item-text span { font-size: 1rem; font-weight: 700; }
-
-    .contact-actions { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
-    .btn-wa {
-      background: #25d366;
-      color: white;
-      font-family: 'Cairo', sans-serif;
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 14px 28px;
-      border-radius: 50px;
-      border: none; cursor: pointer;
-      display: inline-flex; align-items: center; gap: 8px;
-      transition: all 0.25s;
-      box-shadow: 0 8px 24px rgba(37,211,102,0.25);
-    }
-    .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,0.4); }
-    .btn-call {
-      background: transparent;
-      color: var(--white);
-      font-family: 'Cairo', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 14px 28px;
-      border-radius: 50px;
-      border: 1px solid rgba(255,255,255,0.2);
-      cursor: pointer;
-      display: inline-flex; align-items: center; gap: 8px;
-      transition: all 0.25s;
-    }
-    .btn-call:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
-
-    /* ✅ FIX: Google Maps embed */
-    .map-container {
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--navy-2);
-    }
-    .map-container iframe {
-      width: 100%; height: 320px;
-      border: none; display: block;
-      filter: hue-rotate(190deg) invert(92%) contrast(90%) brightness(85%) saturate(0.5);
-    }
-    .map-caption {
-      padding: 16px 20px;
-      background: rgba(255,255,255,0.04);
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.9rem; color: var(--text-dim);
-    }
-    .map-caption i { color: var(--gold); }
-
-    /* ===== HOURS BANNER ===== */
-    .hours-bar {
-      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
-      color: var(--navy);
-      text-align: center;
-      padding: 14px 24px;
-      font-weight: 800;
-      font-size: 0.95rem;
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #060e1c;
-      border-top: 1px solid var(--border);
-      padding: 48px 24px 24px;
-    }
-    .footer-inner {
-      max-width: 1140px; margin: 0 auto;
-    }
-    .footer-top {
-      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px;
-    }
-    .footer-brand strong {
-      font-size: 1.2rem; font-weight: 900;
-      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: block; margin-bottom: 12px;
-    }
-    .footer-brand p { font-size: 0.9rem; color: var(--text-dim); max-width: 280px; line-height: 1.7; }
-    .footer-col h4 { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 16px; text-transform: uppercase; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul a { font-size: 0.9rem; color: var(--text-dim); transition: color 0.2s; }
-    .footer-col ul a:hover { color: var(--white); }
-    .footer-bottom {
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: 0.82rem; color: var(--text-dim);
-      flex-wrap: wrap; gap: 12px;
-    }
-    .social-links { display: flex; gap: 10px; }
-    .social-link {
-      width: 36px; height: 36px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-dim);
-      transition: all 0.25s;
-    }
-    .social-link:hover { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===== MOBILE NAV ===== */
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background: rgba(10,22,40,0.98);
-      border-top: 1px solid var(--border);
-      padding: 16px 24px;
-      gap: 4px;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      padding: 12px 16px;
-      border-radius: 10px;
-      font-size: 1rem; font-weight: 600;
-      color: var(--text-dim);
-      transition: all 0.2s;
-    }
-    .mobile-menu a:hover { color: var(--white); background: rgba(255,255,255,0.07); }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-mobile-btn { display: block; }
-
-      .hero-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-      .hero-sub { margin: 0 auto 36px; }
-      .hero-buttons { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .hero-visual { order: -1; }
-      .glasses-showcase { width: 240px; height: 240px; }
-      .glasses-center { width: 140px; height: 140px; font-size: 3.5rem; }
-
-      .contact-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; gap: 32px; }
-      .trust-grid { grid-template-columns: 1fr 1fr; }
-      .trust-item:nth-child(2) { border-left: none; }
-      .trust-item:nth-child(odd) { border-left: 1px solid var(--border); }
-      .trust-item:first-child { border-left: none; }
-    }
-  </style>
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:48px;text-align:center}
+  .hero-p{margin:0 auto 38px}
+  .hero-btns{justify-content:center}
+  .hero-kpis{justify-content:center}
+  .hero-visual{order:-1}
+  .vis-wrap{width:280px;height:280px}
+  .vis-center{inset:70px}
+  .vis-center svg{width:56px;height:56px}
+  .vis-ring2{inset:28px}
+  .vis-ring3{inset:55px}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .numbers-grid{grid-template-columns:1fr 1fr}
+  .num-item:nth-child(2){border-left:none}
+  .num-item:nth-child(4){border-left:none}
+}
+@media(max-width:600px){
+  section{padding:80px 20px}
+  .hero{padding:120px 20px 80px}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .vis-wrap{width:220px;height:220px}
+  .vis-center{inset:56px}
+  .vis-badge{display:none}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
-  <!-- ✅ FIX: WhatsApp floating button -->
-  <a class="whatsapp-float" href="https://wa.me/201111171350?text=مرحباً، أريد الاستفسار عن منتجاتكم" target="_blank" rel="noopener" aria-label="واتساب">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+<div class="cursor-glow" id="cursorGlow"></div>
 
-  <!-- NAVBAR -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#home" class="nav-logo">
-        <div class="logo-icon">👓</div>
-        <div class="logo-text">
-          <strong>الهدى للبصريات</strong>
-          <span>Al-Huda Optics · فيصل، الجيزة</span>
-        </div>
-      </a>
+<a class="wa-float" href="https://wa.me/201111171350?text=مرحباً، أريد الاستفسار عن منتجاتكم" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<div class="wa-tip">تواصل معنا الآن 👋</div>
 
-      <ul class="nav-links">
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#features">خدماتنا</a></li>
-        <li><a href="#products">منتجاتنا</a></li>
-        <li><a href="#reviews">آراء العملاء</a></li>
-        <li><a href="#contact" class="nav-cta">اتصل بنا</a></li>
-      </ul>
-
-      <button class="nav-mobile-btn" id="menuBtn" aria-label="القائمة">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#home" onclick="closeMenu()">الرئيسية</a>
-      <a href="#features" onclick="closeMenu()">خدماتنا</a>
-      <a href="#products" onclick="closeMenu()">منتجاتنا</a>
-      <a href="#reviews" onclick="closeMenu()">آراء العملاء</a>
-      <a href="#contact" onclick="closeMenu()">اتصل بنا</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid-lines"></div>
-    <div class="hero-glasses">👓</div>
-
-    <div class="hero-content container">
-      <div class="hero-text">
-        <div class="hero-badge">
-          <i class="fas fa-star"></i>
-          خبرة 15 عاماً في خدمة أهل فيصل والجيزة
-        </div>
-        <h1 class="hero-title">
-          وضوح رؤيتك<br/>
-          <span class="gold-grad">مسؤوليتنا</span>
-        </h1>
-        <p class="hero-sub">
-          نظارات طبية وشمسية من أرقى الماركات العالمية، عدسات لاصقة، وفحص نظر مجاني. جودة لا تُقارن بأسعار تناسبك.
-        </p>
-        <div class="hero-buttons">
-          <a href="https://wa.me/201111171350?text=مرحباً، أريد الاستفسار عن منتجاتكم" target="_blank" class="btn-primary">
-            <i class="fab fa-whatsapp"></i> تواصل على واتساب
-          </a>
-          <a href="#products" class="btn-outline">
-            <i class="fas fa-glasses"></i> تصفح المنتجات
-          </a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="num">15+</div>
-            <div class="lbl">سنة خبرة</div>
-          </div>
-          <div class="stat">
-            <div class="num">5K+</div>
-            <div class="lbl">عميل راضٍ</div>
-          </div>
-          <div class="stat">
-            <div class="num">500+</div>
-            <div class="lbl">نموذج نظارة</div>
-          </div>
-        </div>
+<nav id="nav">
+  <div class="nav-wrap">
+    <a href="#home" class="nav-logo">
+      <div class="nav-logo-icon">👓</div>
+      <div class="nav-logo-text">
+        <em>الهدى للبصريات</em>
+        <small>Al-Huda Optics · فيصل، الجيزة</small>
       </div>
-
-      <div class="hero-visual">
-        <div class="glasses-showcase">
-          <div class="glasses-ring"></div>
-          <div class="glasses-ring-2"></div>
-          <div class="glasses-center">👓</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOURS BANNER -->
-  <!-- ✅ FIX: Clear working hours with emoji and proper format -->
-  <div class="hours-bar">
-    <i class="fas fa-clock"></i>
-    نفتح يومياً من الساعة 12 ظهراً حتى 1 بعد منتصف الليل
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">الرئيسية</a></li>
+      <li><a href="#features">خدماتنا</a></li>
+      <li><a href="#products">منتجاتنا</a></li>
+      <li><a href="#reviews">العملاء</a></li>
+      <li><a href="#contact" class="nav-cta">اتصل بنا</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+  <div class="mobile-drawer" id="drawer">
+    <a href="#home" onclick="closeDrawer()">🏠 الرئيسية</a>
+    <a href="#features" onclick="closeDrawer()">✨ خدماتنا</a>
+    <a href="#products" onclick="closeDrawer()">👓 منتجاتنا</a>
+    <a href="#reviews" onclick="closeDrawer()">⭐ آراء العملاء</a>
+    <a href="#contact" onclick="closeDrawer()">📞 اتصل بنا</a>
+  </div>
+</nav>
 
-  <!-- SERVICES -->
-  <section id="features">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">خدماتنا</span>
-        <h2 class="section-title">كل ما تحتاجه<br/>في مكان واحد</h2>
-        <p class="section-desc">نقدم خدمات متكاملة للعناية بالبصر وأحدث موديلات النظارات بأسعار تناسب الجميع</p>
+<section id="home" class="hero">
+  <div class="hero-canvas">
+    <div class="hero-dots"></div>
+    <div class="hero-line"></div>
+    <div class="hero-line"></div>
+    <div class="hero-line"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag"><i class="fas fa-map-marker-alt"></i> فيصل، الجيزة — خبرة ١٥ عاماً</div>
+      <h1 class="hero-h1">
+        رؤيتك الواضحة<br/>
+        <span class="accent">هدفنا الأول</span>
+      </h1>
+      <p class="hero-p">نظارات طبية وشمسية من أرقى الماركات العالمية، عدسات لاصقة، وفحص نظر مجاني — كل ما تحتاجه لعين صحية وإطلالة مميزة.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/201111171350?text=مرحباً، أريد الاستفسار عن منتجاتكم" target="_blank" rel="noopener" class="btn-gold">
+          <i class="fab fa-whatsapp"></i> تواصل على واتساب
+        </a>
+        <a href="#products" class="btn-ghost">
+          <i class="fas fa-glasses"></i> تصفح المنتجات
+        </a>
       </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🔬</div>
-          <h3>فحص نظر مجاني</h3>
-          <p>فحص شامل لحدة الإبصار وصحة العين بأجهزة حديثة ومتخصصين معتمدين.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">👓</div>
-          <h3>نظارات طبية</h3>
-          <p>مئات الإطارات العالمية بعدسات عالية الجودة، مخصصة لمقاسك بدقة.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">😎</div>
-          <h3>نظارات شمسية</h3>
-          <p>أحدث صيحات الموضة من ماركات عالمية مع حماية UV400 للعين.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">👁️</div>
-          <h3>عدسات لاصقة</h3>
-          <p>عدسات لاصقة يومية وشهرية وملونة من أفضل الماركات العالمية.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🔧</div>
-          <h3>صيانة وإصلاح</h3>
-          <p>إصلاح الإطارات، تغيير العدسات، وضبط النظارات على أشكال الوجه.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🎁</div>
-          <h3>هدايا مميزة</h3>
-          <p>اختر هدية لمن تحب من مجموعاتنا المختارة بعناية وبتغليف أنيق.</p>
-        </div>
+      <div class="hero-kpis">
+        <div class="kpi"><div class="kpi-n">15+</div><div class="kpi-l">سنة خبرة</div></div>
+        <div class="kpi"><div class="kpi-n">5K+</div><div class="kpi-l">عميل راضٍ</div></div>
+        <div class="kpi"><div class="kpi-n">500+</div><div class="kpi-l">موديل نظارة</div></div>
       </div>
     </div>
-  </section>
-
-  <!-- TRUST NUMBERS -->
-  <div class="trust-section">
-    <div class="container">
-      <div class="trust-grid">
-        <div class="trust-item">
-          <div class="trust-num">15+</div>
-          <div class="trust-lbl">سنة في السوق المصري</div>
+    <div class="hero-visual">
+      <div class="vis-wrap">
+        <div class="vis-ring"></div>
+        <div class="vis-ring2"></div>
+        <div class="vis-ring3"></div>
+        <div class="vis-center">
+          <svg viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 30 Q5 10 25 10 Q40 10 45 25 Q47 30 50 30 Q53 30 55 25 Q60 10 75 10 Q95 10 95 30 Q95 50 75 50 Q60 50 55 35 Q53 30 50 30 Q47 30 45 35 Q40 50 25 50 Q5 50 5 30Z" fill="none" stroke="url(#gG)" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="0" y1="30" x2="8" y2="30" stroke="url(#gG)" stroke-width="3" stroke-linecap="round"/>
+            <line x1="92" y1="30" x2="100" y2="30" stroke="url(#gG)" stroke-width="3" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="gG" x1="0" y1="0" x2="100" y2="60" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#f0c96b"/><stop offset="100%" stop-color="#b8891f"/>
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
-        <div class="trust-item">
-          <div class="trust-num">5000+</div>
-          <div class="trust-lbl">عميل سعيد</div>
+        <div class="vis-badge">
+          <div class="vis-badge-icon">🔬</div>
+          <div class="vis-badge-text"><strong>فحص مجاني</strong><span>يومياً</span></div>
         </div>
-        <div class="trust-item">
-          <div class="trust-num">500+</div>
-          <div class="trust-lbl">موديل نظارة</div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-num">100%</div>
-          <div class="trust-lbl">ضمان الجودة</div>
+        <div class="vis-badge">
+          <div class="vis-badge-icon">⭐</div>
+          <div class="vis-badge-text"><strong>4.9 / 5</strong><span>تقييم العملاء</span></div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- PRODUCTS -->
-  <section id="products">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">منتجاتنا</span>
-        <h2 class="section-title">أحدث مجموعاتنا</h2>
-        <!-- ✅ FIX: Replaced placeholder currency "دينار" with "جنيه" -->
-        <p class="section-desc">نظارات لكل مناسبة وكل ذوق — بأسعار بالجنيه المصري</p>
+<div class="announce">
+  <i class="fas fa-clock"></i>
+  نفتح يومياً من الساعة ١٢ ظهراً حتى ١ بعد منتصف الليل
+  <i class="fas fa-star"></i>
+</div>
+
+<section id="features">
+  <div class="sec-wrap">
+    <div class="sec-head">
+      <div class="sec-tag"><i class="fas fa-sparkles"></i> خدماتنا</div>
+      <h2 class="sec-title">كل ما تحتاجه<br/><span>في مكان واحد</span></h2>
+      <p class="sec-desc">نقدم خدمات متكاملة للعناية بصحة البصر وأحدث موديلات النظارات بأسعار تناسب الجميع</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card reveal">
+        <div class="srv-free-badge">مجاني</div>
+        <div class="srv-icon">🔬</div>
+        <h3>فحص نظر شامل</h3>
+        <p>فحص دقيق لحدة الإبصار وضغط العين بأجهزة حديثة، مع وصف طبي مجاني وبلا موعد مسبق.</p>
       </div>
-      <div class="products-grid">
-
-        <!-- Product 1 -->
-        <div class="product-card">
-          <div class="product-img">
-            <!-- ✅ FIX: emoji fallback when image is missing -->
-            <img src="images/products/product1.png" alt="نظارة شمسية كلاسيك" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:5rem;">😎</div>
-            <span class="product-badge">الأكثر مبيعاً</span>
-          </div>
-          <div class="product-body">
-            <h3>نظارة شمسية كلاسيك</h3>
-            <!-- ✅ FIX: Replaced "ماركة X" with real product description -->
-            <p>إطار أسيتات بعدسات مستقطبة UV400، مناسبة لجميع أشكال الوجه.</p>
-            <div class="product-footer">
-              <!-- ✅ FIX: Changed "دينار" to "جنيه" -->
-              <div class="product-price">٣٥٠ <span>جنيه</span></div>
-              <button class="btn-sm" onclick="window.open('https://wa.me/201111171350?text=أريد الاستفسار عن النظارة الشمسية الكلاسيك','_blank')">
-                <i class="fab fa-whatsapp"></i> استفسار
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="product-card">
-          <div class="product-img">
-            <img src="images/products/product2.png" alt="إطار طبي فضي" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:5rem;">👓</div>
-          </div>
-          <div class="product-body">
-            <h3>إطار طبي فضي خفيف</h3>
-            <p>إطار معدني خفيف الوزن، مثالي للاستخدام اليومي — متوفر بعدسات مضادة للإجهاد.</p>
-            <div class="product-footer">
-              <div class="product-price">٤٥٠ <span>جنيه</span></div>
-              <button class="btn-sm" onclick="window.open('https://wa.me/201111171350?text=أريد الاستفسار عن الإطار الطبي الفضي','_blank')">
-                <i class="fab fa-whatsapp"></i> استفسار
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="product-card">
-          <div class="product-img">
-            <img src="images/products/product3.png" alt="نظارة شمسية رياضية" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:5rem;">🕶️</div>
-            <span class="product-badge">جديد</span>
-          </div>
-          <div class="product-body">
-            <h3>نظارة رياضية احترافية</h3>
-            <p>إطار مقاوم للصدمات مع عدسات فوتوكروميك، تتغير مع الضوء تلقائياً.</p>
-            <div class="product-footer">
-              <div class="product-price">٥٥٠ <span>جنيه</span></div>
-              <button class="btn-sm" onclick="window.open('https://wa.me/201111171350?text=أريد الاستفسار عن النظارة الرياضية','_blank')">
-                <i class="fab fa-whatsapp"></i> استفسار
-              </button>
-            </div>
-          </div>
-        </div>
-
+      <div class="srv-card reveal">
+        <div class="srv-icon">👓</div>
+        <h3>نظارات طبية</h3>
+        <p>مئات الإطارات من ماركات عالمية وعدسات عالية الجودة مخصصة لمقاسك بدقة تامة.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">😎</div>
+        <h3>نظارات شمسية</h3>
+        <p>أحدث صيحات الموضة مع حماية UV400 الكاملة للعين من أشعة الشمس الضارة.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">👁️</div>
+        <h3>عدسات لاصقة</h3>
+        <p>عدسات يومية وشهرية وملونة من أفضل الماركات العالمية، مع تعليمات الاستخدام الصحيح.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">🔧</div>
+        <h3>صيانة وإصلاح</h3>
+        <p>إصلاح فوري للإطارات، تغيير العدسات، وضبط النظارة على شكل وجهك بشكل مريح.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon">🎁</div>
+        <h3>هدايا وتغليف أنيق</h3>
+        <p>اختر هدية مميزة لمن تحب من مجموعاتنا الحصرية مع تغليف فاخر بلا رسوم إضافية.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- REVIEWS -->
-  <!-- ✅ FIX: Added completely missing reviews/testimonials section -->
-  <section id="reviews">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">آراء عملائنا</span>
-        <h2 class="section-title">ماذا يقول<br/>عملاؤنا؟</h2>
-        <p class="section-desc">ثقة أكثر من 5000 عميل هي أكبر جائزة نحرص عليها كل يوم</p>
-      </div>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">"أفضل بصريات في فيصل! الدكتور خبرته عالية وشرحلي بالتفصيل، والنظارة جت بالظبط زي ما قالوا. أسعار معقولة جداً."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">م</div>
-            <div>
-              <div class="reviewer-name">محمد السيد</div>
-              <div class="reviewer-date">عميل منذ 3 سنوات</div>
-            </div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">"جبت لبنتي نظارة طبية وكانت خايفة، بس الدكتور تعامل معاها بأسلوب رائع. خلّصنا في وقت قصير والنظارة جميلة."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">ف</div>
-            <div>
-              <div class="reviewer-name">فاطمة عبدالله</div>
-              <div class="reviewer-date">عميلة منذ سنتين</div>
-            </div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">"باجي منهم من زمان، ماعدلتش — سواء نظارة شمسية أو طبية. أسعارهم أحسن من كتير محلات تاني وجودتهم عالية."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">أ</div>
-            <div>
-              <div class="reviewer-name">أحمد رضا</div>
-              <div class="reviewer-date">عميل منذ 5 سنوات</div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="numbers-sec">
+  <div class="numbers-grid">
+    <div class="num-item reveal"><div class="num-n">15+</div><div class="num-l">سنة في السوق المصري</div></div>
+    <div class="num-item reveal"><div class="num-n">5000+</div><div class="num-l">عميل سعيد</div></div>
+    <div class="num-item reveal"><div class="num-n">500+</div><div class="num-l">موديل نظارة</div></div>
+    <div class="num-item reveal"><div class="num-n">100%</div><div class="num-l">ضمان الجودة</div></div>
+  </div>
+</div>
+
+<section id="products">
+  <div class="sec-wrap">
+    <div class="sec-head">
+      <div class="sec-tag"><i class="fas fa-glasses"></i> منتجاتنا</div>
+      <h2 class="sec-title">أحدث مجموعاتنا<br/><span>لكل ذوق ومناسبة</span></h2>
+      <p class="sec-desc">اختر من بين مئات الموديلات بأسعار بالجنيه المصري — تسليم فوري داخل المحل</p>
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <span class="section-tag">اتصل بنا</span>
-          <h3>تواصل معنا<br/>نحن هنا لخدمتك</h3>
-          <p>لا تتردد في التواصل معنا لأي استفسار عن المنتجات أو المواعيد.</p>
-
-          <div class="contact-items">
-            <!-- ✅ FIX: Corrected phone format for Egypt -->
-            <a href="tel:+201111171350" class="contact-item">
-              <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
-              <div class="contact-item-text">
-                <strong>اتصل بنا</strong>
-                <span dir="ltr">01111171350</span>
-              </div>
-            </a>
-            <a href="https://wa.me/201111171350" target="_blank" class="contact-item">
-              <div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div>
-              <div class="contact-item-text">
-                <strong>واتساب</strong>
-                <span>راسلنا الآن على واتساب</span>
-              </div>
-            </a>
-            <div class="contact-item">
-              <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <div class="contact-item-text">
-                <strong>العنوان</strong>
-                <span>شارع فيصل، الجيزة، مصر</span>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
-              <div class="contact-item-text">
-                <strong>ساعات العمل</strong>
-                <!-- ✅ FIX: Clear working hours formatting -->
-                <span>يومياً: 12 ظهراً — 1 صباحاً</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-actions">
-            <a href="https://wa.me/201111171350?text=مرحباً، أريد الاستفسار عن منتجاتكم" target="_blank" rel="noopener" class="btn-wa">
-              <i class="fab fa-whatsapp"></i> واتساب
-            </a>
-            <a href="tel:+201111171350" class="btn-call">
-              <i class="fas fa-phone"></i> اتصل الآن
-            </a>
+    <div class="prod-grid">
+      <div class="prod-card reveal">
+        <div class="prod-img-wrap">
+          <img src="images/products/product1.png" alt="نظارة شمسية بولاريزد كلاسيك" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+          <div class="prod-img-placeholder" style="display:none">😎</div>
+          <div class="prod-img-overlay"></div>
+          <span class="prod-badge">الأكثر مبيعاً</span>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">نظارات شمسية</div>
+          <h3>نظارة شمسية بولاريزد كلاسيك</h3>
+          <p>إطار خفيف الوزن مع عدسات مستقطبة UV400، تناسب جميع أشكال الوجه وكل المناسبات.</p>
+          <div class="prod-foot">
+            <div class="prod-price">٣٥٠ <small>جنيه</small></div>
+            <button class="btn-prod" onclick="window.open('https://wa.me/201111171350?text=أريد الاستفسار عن النظارة الشمسية الكلاسيك','_blank')"><i class="fab fa-whatsapp"></i> استفسار</button>
           </div>
         </div>
-
-        <!-- ✅ FIX: Added Google Maps embed for the location -->
-        <div>
-          <div class="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55238.27786938885!2d31.13!3d29.99!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584b8c8b81c16b%3A0x12345678!2z2LTgr9mKINmB9YXYtNmKINmG2YrYtNmK!5e0!3m2!1sar!2seg!4v1"
-              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-            <div class="map-caption">
-              <i class="fas fa-map-marker-alt"></i>
-              شارع فيصل، الجيزة — انقر لفتح الخريطة الكاملة
-            </div>
+      </div>
+      <div class="prod-card reveal">
+        <div class="prod-img-wrap">
+          <img src="images/products/product2.png" alt="إطار طبي تيتانيوم" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+          <div class="prod-img-placeholder" style="display:none">👓</div>
+          <div class="prod-img-overlay"></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">نظارات طبية</div>
+          <h3>إطار تيتانيوم — Anti-Blue Light</h3>
+          <p>إطار معدني فائق الخفة للاستخدام اليومي والشاشات، مع عدسة مضادة للضوء الأزرق.</p>
+          <div class="prod-foot">
+            <div class="prod-price">٤٩٠ <small>جنيه</small></div>
+            <button class="btn-prod" onclick="window.open('https://wa.me/201111171350?text=أريد الاستفسار عن الإطار الطبي التيتانيوم','_blank')"><i class="fab fa-whatsapp"></i> استفسار</button>
+          </div>
+        </div>
+      </div>
+      <div class="prod-card reveal">
+        <div class="prod-img-wrap">
+          <img src="images/products/product3.png" alt="نظارة رياضية فوتوكروميك" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+          <div class="prod-img-placeholder" style="display:none">🕶️</div>
+          <div class="prod-img-overlay"></div>
+          <span class="prod-badge teal">جديد</span>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">نظارات رياضية</div>
+          <h3>نظارة رياضية فوتوكروميك</h3>
+          <p>عدسات تتغير تلقائياً مع الضوء، إطار مقاوم للصدمات — مثالية للرياضة والأماكن المفتوحة.</p>
+          <div class="prod-foot">
+            <div class="prod-price">٥٩٠ <small>جنيه</small></div>
+            <button class="btn-prod" onclick="window.open('https://wa.me/201111171350?text=أريد الاستفسار عن النظارة الرياضية الفوتوكروميك','_blank')"><i class="fab fa-whatsapp"></i> استفسار</button>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <strong>🥼 الهدى للبصريات</strong>
-          <p>خبرة 15 عاماً في تقديم أفضل خدمات العناية بالبصر في فيصل، الجيزة. رؤيتك الواضحة هدفنا.</p>
-          <div class="social-links" style="margin-top:20px;">
-            <a href="#" class="social-link" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/201111171350" class="social-link" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>روابط سريعة</h4>
-          <ul>
-            <li><a href="#home">الرئيسية</a></li>
-            <li><a href="#features">خدماتنا</a></li>
-            <li><a href="#products">المنتجات</a></li>
-            <li><a href="#reviews">آراء العملاء</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>خدماتنا</h4>
-          <ul>
-            <li><a href="#features">فحص نظر مجاني</a></li>
-            <li><a href="#features">نظارات طبية</a></li>
-            <li><a href="#features">نظارات شمسية</a></li>
-            <li><a href="#features">عدسات لاصقة</a></li>
-          </ul>
+<div class="brands-sec">
+  <div class="sec-wrap">
+    <div class="brands-title">ماركات عالمية نتعامل معها</div>
+    <div class="brands-row">
+      <div class="brand-pill">Ray-Ban</div>
+      <div class="brand-pill">Oakley</div>
+      <div class="brand-pill">Essilor</div>
+      <div class="brand-pill">Silhouette</div>
+      <div class="brand-pill">Zeiss</div>
+      <div class="brand-pill">Acuvue</div>
+    </div>
+  </div>
+</div>
+
+<section id="reviews">
+  <div class="sec-wrap">
+    <div class="sec-head">
+      <div class="sec-tag"><i class="fas fa-star"></i> آراء العملاء</div>
+      <h2 class="sec-title">ماذا يقول<br/><span>عملاؤنا؟</span></h2>
+      <p class="sec-desc">ثقة أكثر من 5,000 عميل في فيصل والجيزة هي أكبر جائزة نحرص عليها كل يوم</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">أفضل بصريات في فيصل بجد! الدكتور خبرته عالية جداً وشرحلي كل حاجة بالتفصيل. النظارة جت بالظبط على مقاسي وبأسعار معقولة ما كنتش متوقعها.</p>
+        <div class="rev-author">
+          <div class="rev-avatar">م</div>
+          <div><div class="rev-name">محمد السيد</div><div class="rev-since">عميل منذ 3 سنوات</div></div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>© 2024 الهدى للبصريات. جميع الحقوق محفوظة.</span>
-        <span>📍 فيصل، الجيزة، مصر</span>
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">جبت لبنتي الصغيرة نظارة طبية وكانت خايفة، بس طريقة تعامل صاحب المحل معاها كانت رائعة. خلّصنا بسرعة والنظارة جميلة وبسعر مناسب جداً.</p>
+        <div class="rev-author">
+          <div class="rev-avatar">ف</div>
+          <div><div class="rev-name">فاطمة عبدالله</div><div class="rev-since">عميلة منذ سنتين</div></div>
+        </div>
+      </div>
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">بروحلهم من زمان ومش هغير، سواء نظارة شمسية أو طبية أو عدسات لاصقة. أسعارهم أحسن من كتير محلات في المنطقة وجودة المنتجات عالية جداً.</p>
+        <div class="rev-author">
+          <div class="rev-avatar">أ</div>
+          <div><div class="rev-name">أحمد رضا</div><div class="rev-since">عميل منذ 5 سنوات</div></div>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      menuBtn.innerHTML = mobileMenu.classList.contains('open')
-        ? '<i class="fas fa-times"></i>'
-        : '<i class="fas fa-bars"></i>';
-    });
-    function closeMenu() {
-      mobileMenu.classList.remove('open');
-      menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+<section id="contact">
+  <div class="sec-wrap">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="sec-tag"><i class="fas fa-phone"></i> تواصل معنا</div>
+        <h3>نحن هنا<br/>لخدمتك دائماً</h3>
+        <p>لا تتردد في التواصل معنا لأي استفسار عن المنتجات، الأسعار، أو حجز موعد فحص مجاني.</p>
+        <div class="cinfo-list">
+          <a href="tel:+201111171350" class="cinfo-item">
+            <div class="cinfo-icon"><i class="fas fa-phone"></i></div>
+            <div><div class="cinfo-label">اتصل بنا</div><div class="cinfo-val" dir="ltr">01111171350</div></div>
+          </a>
+          <a href="https://wa.me/201111171350" target="_blank" rel="noopener" class="cinfo-item">
+            <div class="cinfo-icon"><i class="fab fa-whatsapp"></i></div>
+            <div><div class="cinfo-label">واتساب</div><div class="cinfo-val">راسلنا الآن على واتساب</div></div>
+          </a>
+          <div class="cinfo-item">
+            <div class="cinfo-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div><div class="cinfo-label">العنوان</div><div class="cinfo-val">شارع فيصل، الجيزة، مصر</div></div>
+          </div>
+          <div class="cinfo-item">
+            <div class="cinfo-icon"><i class="fas fa-clock"></i></div>
+            <div><div class="cinfo-label">ساعات العمل</div><div class="cinfo-val">يومياً — ١٢ ظهراً حتى ١ صباحاً</div></div>
+          </div>
+        </div>
+        <div class="contact-btns">
+          <a href="https://wa.me/201111171350?text=مرحباً، أريد الاستفسار عن منتجاتكم" target="_blank" rel="noopener" class="btn-wa"><i class="fab fa-whatsapp"></i> واتساب</a>
+          <a href="tel:+201111171350" class="btn-call"><i class="fas fa-phone"></i> اتصل الآن</a>
+        </div>
+      </div>
+      <div>
+        <div class="map-box">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.9!2d31.1177!3d29.9976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584b75ad0b9bc1%3A0x7c95c9e59acf3c07!2z2LTgr9mKINmB9YXYtNmKINmG2YrYtNmK!5e0!3m2!1sar!2seg!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="map-caption"><i class="fas fa-map-marker-alt"></i> شارع فيصل، الجيزة — انقر للفتح في خرائط جوجل</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-brand-name">👓 الهدى للبصريات</span>
+        <p class="footer-about">خبرة 15 عاماً في تقديم أفضل خدمات العناية بالبصر في فيصل، الجيزة. رؤيتك الواضحة هي هدفنا الأول والأخير.</p>
+        <div class="footer-socials">
+          <a href="#" class="soc-btn" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc-btn" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/201111171350" class="soc-btn" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="soc-btn" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>روابط سريعة</h5>
+        <ul>
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#features">خدماتنا</a></li>
+          <li><a href="#products">المنتجات</a></li>
+          <li><a href="#reviews">آراء العملاء</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>خدماتنا</h5>
+        <ul>
+          <li><a href="#features">فحص نظر مجاني</a></li>
+          <li><a href="#features">نظارات طبية</a></li>
+          <li><a href="#features">نظارات شمسية</a></li>
+          <li><a href="#features">عدسات لاصقة</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>تواصل معنا</h5>
+        <ul>
+          <li><a href="tel:+201111171350">01111171350</a></li>
+          <li><a href="https://wa.me/201111171350">واتساب</a></li>
+          <li><a href="#contact">الموقع على الخريطة</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 الهدى للبصريات. جميع الحقوق محفوظة.</span>
+      <div class="footer-badge"><span>📍 فيصل، الجيزة</span><span>🇪🇬 مصر</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Cursor glow
+const glow=document.getElementById('cursorGlow');
+document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+
+// Hamburger
+const ham=document.getElementById('hamburger'),drawer=document.getElementById('drawer');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');drawer.classList.toggle('open')});
+function closeDrawer(){ham.classList.remove('open');drawer.classList.remove('open')}
+
+// Nav scroll + active
+const navEl=document.getElementById('nav'),navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  navEl.style.background=window.scrollY>60?'rgba(7,11,20,0.98)':'rgba(11,15,26,0.9)';
+  const secs=['home','features','products','reviews','contact'];
+  let cur='';
+  secs.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)cur=id});
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-80,behavior:'smooth'})}
+  });
+});
+
+// Reveal on scroll
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*90);obs.unobserve(e.target)}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Counter animation
+function animCount(el,target,suffix){
+  let s=0;const dur=1800;
+  const step=ts=>{if(!s)s=ts;const p=Math.min((ts-s)/dur,1);const ease=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(ease*target).toLocaleString('ar-EG')+suffix;if(p<1)requestAnimationFrame(step)};
+  requestAnimationFrame(step);
+}
+const numObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target.querySelector('.num-n');if(!el)return;
+      const txt=el.textContent,suffix=txt.includes('+')?'+':txt.includes('%')?'%':'';
+      const num=parseInt(txt.replace(/[^0-9]/g,''));
+      if(!isNaN(num))animCount(el,num,suffix);
+      numObs.unobserve(e.target);
     }
-
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('navbar');
-      if (window.scrollY > 60) {
-        nav.style.background = 'rgba(6,14,28,0.98)';
-      } else {
-        nav.style.background = 'rgba(10,22,40,0.95)';
-      }
-    });
-
-    // ✅ FIX: Removed loading spinner dependency — content shows immediately
-    // Smooth anchor scrolling with nav offset
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          const offset = 80;
-          window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
-        }
-      });
-    });
-
-    // Fade-in on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.service-card, .product-card, .review-card, .trust-item').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(24px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      observer.observe(el);
-    });
-  </script>
+  });
+},{threshold:0.3});
+document.querySelectorAll('.num-item').forEach(el=>numObs.observe(el));
+</script>
 </body>
 </html>
