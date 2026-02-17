@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الهدى للبصريات | Al-Huda Optics - فيصل، الجيزة</title>
-    <meta name="description" content="الهدى للبصريات - محل نظارات فاخر في فيصل، الجيزة. ابدأ رحلتك نحو رؤية أوضح مع خبراء البصريات. أستاذ محمود أبو بكر">
+    <meta name="description" content="الهدى للبصريات - محل نظارات فاخر في فيصل، الجيزة. ابدأ رحلتك نحو رؤية أوضح مع خبراء البصريات.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -41,26 +41,11 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        :root {
-            --dir: rtl;
-            --align: right;
-        }
-        
-        [dir="ltr"] {
-            --dir: ltr;
-            --align: left;
-        }
-        
         body {
             font-family: 'Cairo', sans-serif;
             background: #050505;
             color: #ffffff;
             overflow-x: hidden;
-            direction: var(--dir);
-        }
-        
-        [dir="ltr"] body {
-            font-family: 'Inter', sans-serif;
         }
         
         .lang-ar { display: block; }
@@ -82,7 +67,7 @@
             border: 1px solid rgba(212, 175, 55, 0.1);
         }
         
-        /* Hero Section New Style */
+        /* Hero Section */
         .hero-new {
             min-height: 100vh;
             display: flex;
@@ -92,98 +77,69 @@
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
         }
         
-        .hero-content {
-            position: relative;
-            z-index: 10;
-        }
-        
-        .journey-badge {
+        .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 1rem;
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
             border: 2px solid #D4AF37;
-            padding: 1.5rem 2.5rem;
-            border-radius: 20px;
+            padding: 1rem 2rem;
+            border-radius: 50px;
             margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
         }
         
-        .journey-badge::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.3), transparent);
-            animation: shine 3s infinite;
+        /* Stats Counter */
+        .stats-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 4rem 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
         
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-        
-        .journey-icon {
-            font-size: 2.5rem;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        /* Product Categories */
-        .category-section {
-            padding: 5rem 0;
-        }
-        
-        .section-header {
+        .stat-item {
             text-align: center;
-            margin-bottom: 4rem;
+            padding: 2rem;
         }
         
-        .section-title {
-            font-size: 3rem;
+        .stat-number {
+            font-size: 4rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            color: #D4AF37;
+            line-height: 1;
         }
         
-        .section-subtitle {
+        .stat-label {
             color: #888;
-            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
         }
         
-        /* 3D Product Cards */
+        /* Product Cards - Professional Style */
         .product-showcase {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             padding: 0 2rem;
         }
         
-        .product-3d {
+        .product-card {
             background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
-            border-radius: 30px;
+            border-radius: 20px;
             overflow: hidden;
             position: relative;
-            transform-style: preserve-3d;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
         
-        .product-3d:hover {
-            transform: translateY(-15px) rotateX(5deg);
-            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.3);
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
             border-color: #D4AF37;
         }
         
         .product-image-container {
             position: relative;
-            height: 300px;
+            height: 250px;
             overflow: hidden;
             background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
         }
@@ -192,155 +148,80 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s;
+            transition: transform 0.5s;
         }
         
-        .product-3d:hover .product-image {
-            transform: scale(1.15) rotate(3deg);
+        .product-card:hover .product-image {
+            transform: scale(1.1);
         }
         
-        .product-overlay {
+        .product-badge {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 50%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 2rem;
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-        
-        .product-3d:hover .product-overlay {
-            opacity: 1;
-        }
-        
-        .quick-actions {
-            display: flex;
-            gap: 1rem;
-            transform: translateY(20px);
-            transition: transform 0.4s;
-        }
-        
-        .product-3d:hover .quick-actions {
-            transform: translateY(0);
-        }
-        
-        .action-btn {
-            flex: 1;
-            padding: 0.75rem;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
             font-weight: 700;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+            z-index: 10;
         }
         
-        .action-btn.primary {
-            background: #D4AF37;
-            color: #000;
-        }
-        
-        .action-btn.secondary {
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-        
-        .action-btn:hover {
-            transform: scale(1.05);
-        }
+        .badge-new { background: #10B981; color: white; }
+        .badge-sale { background: #EF4444; color: white; }
+        .badge-premium { background: #D4AF37; color: black; }
         
         .product-info {
-            padding: 2rem;
+            padding: 1.5rem;
         }
         
-        .product-category-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 20px;
+        .product-category {
             font-size: 0.875rem;
             color: #D4AF37;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .product-name {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
         
-        .product-description {
-            color: #888;
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        .product-features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature-item {
+        .product-features {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 0.5rem;
-            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-tag {
+            background: rgba(255,255,255,0.05);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
             color: #aaa;
         }
         
-        .feature-icon-small {
-            width: 20px;
-            height: 20px;
-            background: rgba(212, 175, 55, 0.2);
-            border-radius: 50%;
+        .product-price {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            color: #D4AF37;
-        }
-        
-        .product-price-row {
-            display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding-top: 1.5rem;
+            padding-top: 1rem;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
         
-        .price-box {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .price-label {
-            font-size: 0.75rem;
-            color: #666;
-            text-transform: uppercase;
-        }
-        
-        .price-value {
-            font-size: 2rem;
+        .price-current {
+            font-size: 1.75rem;
             font-weight: 800;
             color: #D4AF37;
         }
         
-        .price-currency {
+        .price-old {
             font-size: 1rem;
-            color: #888;
+            color: #666;
+            text-decoration: line-through;
+            margin-right: 0.5rem;
         }
         
         /* Collection Tabs */
@@ -353,7 +234,7 @@
         }
         
         .collection-tab {
-            padding: 1rem 2rem;
+            padding: 0.875rem 2rem;
             background: rgba(255,255,255,0.05);
             border: 2px solid transparent;
             border-radius: 50px;
@@ -361,9 +242,6 @@
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
         }
         
         .collection-tab:hover, .collection-tab.active {
@@ -372,48 +250,42 @@
             color: #D4AF37;
         }
         
-        .collection-tab i {
-            font-size: 1.25rem;
-        }
-        
-        /* Lens Products Special Design */
+        /* Lens Cards */
         .lens-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
         
         .lens-card {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.02));
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            border-radius: 25px;
-            padding: 3rem;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(212, 175, 55, 0.02));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
             transition: all 0.4s;
         }
         
         .lens-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+            border-color: #D4AF37;
+            transform: translateY(-5px);
+        }
+        
+        .lens-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
         
         .lens-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, #D4AF37, #B8960C);
-            border-radius: 20px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            transform: rotate(-10deg);
-            transition: transform 0.4s;
-        }
-        
-        .lens-card:hover .lens-icon {
-            transform: rotate(0deg) scale(1.1);
+            font-size: 2rem;
         }
         
         .lens-type {
@@ -421,147 +293,97 @@
             color: #D4AF37;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 0.5rem;
         }
         
         .lens-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .lens-specs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .spec-badge {
-            background: rgba(255,255,255,0.05);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .spec-badge i {
-            color: #D4AF37;
-        }
-        
-        /* Accessories Section */
-        .accessories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .accessory-item {
-            background: rgba(255,255,255,0.03);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.4s;
-        }
-        
-        .accessory-item:hover {
-            border-color: #D4AF37;
-            transform: translateY(-5px);
-        }
-        
-        .accessory-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
             font-size: 1.5rem;
-            color: #D4AF37;
-        }
-        
-        /* Rest of the styles remain similar */
-        .btn-primary {
-            background: linear-gradient(135deg, #D4AF37, #B8960C);
-            color: #000;
-            padding: 1rem 2rem;
-            border-radius: 50px;
             font-weight: 700;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
         
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+        .lens-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #D4AF37;
+            margin-top: 1rem;
         }
         
+        /* Contact Bar */
         .contact-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(5, 5, 5, 0.95);
+            background: rgba(5, 5, 5, 0.98);
             backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-top: 2px solid #D4AF37;
             padding: 1rem;
             z-index: 1000;
             display: flex;
             justify-content: center;
             gap: 1rem;
-            flex-wrap: wrap;
         }
         
-        .lang-switch {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            z-index: 999;
-            background: rgba(212, 175, 55, 0.2);
-            border: 2px solid #D4AF37;
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.5rem;
             border-radius: 50px;
-            padding: 0.75rem 1.5rem;
-            cursor: pointer;
             font-weight: 700;
             transition: all 0.3s;
+            text-decoration: none;
         }
         
-        [dir="ltr"] .lang-switch {
-            right: auto;
-            left: 20px;
+        .contact-btn.phone {
+            background: #D4AF37;
+            color: #000;
+        }
+        
+        .contact-btn.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .contact-btn.location {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            color: #888;
+            font-size: 1.1rem;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .product-showcase {
-                grid-template-columns: 1fr;
-                padding: 0 1rem;
-            }
-            
-            .lens-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
+            .product-showcase { grid-template-columns: 1fr; padding: 0 1rem; }
+            .lens-grid { grid-template-columns: 1fr; }
+            .stat-number { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .contact-bar { flex-direction: column; padding: 0.5rem; }
+            .contact-btn { justify-content: center; }
         }
     </style>
 </head>
 <body class="pb-24">
-    <!-- Language Switcher -->
-    <button class="lang-switch" onclick="toggleLanguage()">
-        <span class="lang-ar">🇬🇧 English</span>
-        <span class="lang-en">🇪🇬 العربية</span>
-    </button>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass">
@@ -569,7 +391,7 @@
             <div class="flex justify-between items-center">
                 <a href="#" class="flex items-center gap-3">
                     <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-gold to-brand-gold-dark flex items-center justify-center">
-                        <span class="text-black font-bold text-xl">A</span>
+                        <span class="text-black font-bold text-xl">H</span>
                     </div>
                     <div>
                         <div class="text-xl font-bold text-gradient-gold lang-ar">الهدى للبصريات</div>
@@ -578,424 +400,389 @@
                 </a>
                 
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#collections" class="text-gray-300 hover:text-brand-gold transition lang-ar">المجموعات</a>
-                    <a href="#collections" class="text-gray-300 hover:text-brand-gold transition lang-en">Collections</a>
-                    <a href="#lenses" class="text-gray-300 hover:text-brand-gold transition lang-ar">العدسات</a>
-                    <a href="#lenses" class="text-gray-300 hover:text-brand-gold transition lang-en">Lenses</a>
-                    <a href="#accessories" class="text-gray-300 hover:text-brand-gold transition lang-ar">الإكسسوارات</a>
-                    <a href="#accessories" class="text-gray-300 hover:text-brand-gold transition lang-en">Accessories</a>
+                    <a href="#medical" class="text-gray-300 hover:text-brand-gold transition lang-ar">النظارات الطبية</a>
+                    <a href="#medical" class="text-gray-300 hover:text-brand-gold transition lang-en">Medical Glasses</a>
+                    <a href="#sunglasses" class="text-gray-300 hover:text-brand-gold transition lang-ar">النظارات الشمسية</a>
+                    <a href="#sunglasses" class="text-gray-300 hover:text-brand-gold transition lang-en">Sunglasses</a>
+                    <a href="#lenses" class="text-gray-300 hover:text-brand-gold transition lang-ar">العدسات اللاصقة</a>
+                    <a href="#lenses" class="text-gray-300 hover:text-brand-gold transition lang-en">Contact Lenses</a>
                 </div>
+                
+                <button onclick="toggleLanguage()" class="px-4 py-2 border border-brand-gold text-brand-gold rounded-full hover:bg-brand-gold hover:text-black transition">
+                    <span class="lang-ar">EN</span>
+                    <span class="lang-en">عربي</span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section - New Design -->
+    <!-- Hero Section -->
     <section class="hero-new pt-20">
-        <div class="container mx-auto px-6 hero-content text-center">
-            <div class="journey-badge">
-                <span class="journey-icon">✨</span>
-                <div class="text-right lang-ar">
-                    <div class="text-sm text-brand-gold">اكتشف عالماً جديداً من الوضوح</div>
-                    <div class="text-2xl font-bold">ابدأ رحلتك نحو رؤية أوضح</div>
-                </div>
-                <div class="text-left lang-en">
-                    <div class="text-sm text-brand-gold">Discover a New World of Clarity</div>
-                    <div class="text-2xl font-bold">Start Your Journey to Clearer Vision</div>
-                </div>
+        <div class="container mx-auto px-6 text-center">
+            <div class="hero-badge">
+                <i class="fas fa-star text-brand-gold"></i>
+                <span class="font-bold lang-ar">خبرة 15 عاماً في فيصل، الجيزة</span>
+                <span class="font-bold lang-en">15 Years Experience in Faisal, Giza</span>
             </div>
             
             <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                <span class="text-gradient-gold lang-ar">رؤية استثنائية</span>
-                <span class="text-gradient-gold lang-en">Exceptional Vision</span>
+                <span class="text-gradient-gold lang-ar">رؤية واضحة</span>
+                <span class="text-gradient-gold lang-en">Clear Vision</span>
                 <br>
-                <span class="text-white lang-ar">تستحقها</span>
-                <span class="text-white lang-en">You Deserve</span>
+                <span class="text-white lang-ar">تستحق الثقة</span>
+                <span class="text-white lang-en">You Can Trust</span>
             </h1>
             
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-8 lang-ar">
-                منذ 2009، نقدم تجربة بصرية فريدة تجمع بين الخبرة والتقنية الحديثة في قلب فيصل، الجيزة
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8 lang-ar">
+                نقدم تشكيلة واسعة من النظارات الطبية والشمسية والعدسات اللاصقة بأعلى جودة وأفضل الأسعار
             </p>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-8 lang-en">
-                Since 2009, we've provided a unique visual experience combining expertise and modern technology in the heart of Faisal, Giza
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8 lang-en">
+                We offer a wide range of medical glasses, sunglasses, and contact lenses with highest quality and best prices
             </p>
             
             <div class="flex justify-center gap-4 flex-wrap">
-                <a href="#collections" class="btn-primary text-lg">
-                    <span class="lang-ar">استكشف المجموعات</span>
-                    <span class="lang-en">Explore Collections</span>
-                    <i class="fas fa-arrow-right"></i>
+                <a href="#medical" class="bg-brand-gold text-black px-8 py-4 rounded-full font-bold hover:shadow-lg hover:shadow-brand-gold/50 transition">
+                    <span class="lang-ar">تصفح المنتجات</span>
+                    <span class="lang-en">Browse Products</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Medical Glasses Collection -->
-    <section id="collections" class="category-section bg-brand-darker">
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label lang-ar">سنة خبرة</div>
+                    <div class="stat-label lang-en">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="5000">0</div>
+                    <div class="stat-label lang-ar">عميل سعيد</div>
+                    <div class="stat-label lang-en">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="200">0</div>
+                    <div class="stat-label lang-ar">موديل نظارة</div>
+                    <div class="stat-label lang-en">Glass Models</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label lang-ar">% ضمان جودة</div>
+                    <div class="stat-label lang-en">% Quality</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medical Glasses -->
+    <section id="medical" class="py-20 bg-brand-darker">
         <div class="container mx-auto px-6">
             <div class="section-header">
-                <h2 class="section-title text-gradient-gold lang-ar">مجموعة النظارات الطبية</h2>
-                <h2 class="section-title text-gradient-gold lang-en">Medical Glasses Collection</h2>
-                <p class="section-subtitle lang-ar">تصاميم عصرية تناسب كل الأذواق</p>
-                <p class="section-subtitle lang-en">Contemporary designs for every taste</p>
+                <h2 class="section-title text-gradient-gold lang-ar">النظارات الطبية</h2>
+                <h2 class="section-title text-gradient-gold lang-en">Medical Glasses</h2>
+                <p class="section-subtitle lang-ar">اختر من مجموعتنا الواسعة من النظارات الطبية العصرية</p>
+                <p class="section-subtitle lang-en">Choose from our wide range of modern medical glasses</p>
             </div>
             
             <div class="collection-tabs">
-                <button class="collection-tab active" onclick="filterCollection('all')">
-                    <i class="fas fa-th-large"></i>
+                <button class="collection-tab active" onclick="filterGlasses('all')">
                     <span class="lang-ar">الكل</span>
                     <span class="lang-en">All</span>
                 </button>
-                <button class="collection-tab" onclick="filterCollection('classic')">
-                    <i class="fas fa-glasses"></i>
+                <button class="collection-tab" onclick="filterGlasses('classic')">
                     <span class="lang-ar">كلاسيكية</span>
                     <span class="lang-en">Classic</span>
                 </button>
-                <button class="collection-tab" onclick="filterCollection('modern')">
-                    <i class="fas fa-star"></i>
+                <button class="collection-tab" onclick="filterGlasses('modern')">
                     <span class="lang-ar">عصرية</span>
                     <span class="lang-en">Modern</span>
                 </button>
-                <button class="collection-tab" onclick="filterCollection('kids')">
-                    <i class="fas fa-child"></i>
+                <button class="collection-tab" onclick="filterGlasses('kids')">
                     <span class="lang-ar">أطفال</span>
                     <span class="lang-en">Kids</span>
                 </button>
             </div>
             
             <div class="product-showcase" id="medical-grid">
-                <!-- Product 1: Classic Titanium -->
-                <div class="product-3d" data-collection="classic">
+                <!-- Classic 1 -->
+                <div class="product-card" data-category="classic">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600&q=80" alt="Titanium Classic" class="product-image">
-                        <div class="product-overlay">
-                            <div class="quick-actions">
-                                <button class="action-btn primary" onclick="showDetails('titanium-classic')">
-                                    <span class="lang-ar">التفاصيل</span>
-                                    <span class="lang-en">Details</span>
-                                </button>
-                                <button class="action-btn secondary">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
+                        <span class="product-badge badge-premium lang-ar">فاخر</span>
+                        <span class="product-badge badge-premium lang-en">Premium</span>
+                        <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600&q=80" alt="Titanium" class="product-image">
                     </div>
                     <div class="product-info">
-                        <span class="product-category-tag lang-ar">كلاسيكية فاخرة</span>
-                        <span class="product-category-tag lang-en">Luxury Classic</span>
-                        <h3 class="product-name lang-ar">تيتانيوم كلاسيك</h3>
-                        <h3 class="product-name lang-en">Titanium Classic</h3>
-                        <p class="product-description lang-ar">إطار تيتانيوم خالص خفيف الوزن مع عدسات مضادة للانعكاس والخدش</p>
-                        <p class="product-description lang-en">Pure titanium lightweight frame with anti-reflective and scratch-resistant lenses</p>
-                        <div class="product-features-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon-small"><i class="fas fa-feather"></i></div>
-                                <span class="lang-ar">خفيف جداً</span>
-                                <span class="lang-en">Ultra Light</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small"><i class="fas fa-shield-alt"></i></div>
-                                <span class="lang-ar">مضاد للصدأ</span>
-                                <span class="lang-en">Anti-Rust</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small"><i class="fas fa-eye"></i></div>
-                                <span class="lang-ar">حماية UV</span>
-                                <span class="lang-en">UV Protection</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small"><i class="fas fa-gem"></i></div>
-                                <span class="lang-ar">ضمان 5 سنوات</span>
-                                <span class="lang-en">5Y Warranty</span>
-                            </div>
+                        <div class="product-category lang-ar">كلاسيكية</div>
+                        <div class="product-category lang-en">Classic</div>
+                        <h3 class="product-name lang-ar">تيتانيوم إيطالي</h3>
+                        <h3 class="product-name lang-en">Italian Titanium</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">خفيف الوزن</span>
+                            <span class="feature-tag lang-en">Lightweight</span>
+                            <span class="feature-tag lang-ar">مضاد للصدأ</span>
+                            <span class="feature-tag lang-en">Anti-Rust</span>
                         </div>
-                        <div class="product-price-row">
-                            <div class="price-box">
-                                <span class="price-label lang-ar">السعر</span>
-                                <span class="price-label lang-en">Price</span>
-                                <span class="price-value">450 <span class="price-currency">EGP</span></span>
+                        <div class="product-price">
+                            <div>
+                                <span class="price-current">650 EGP</span>
                             </div>
-                            <span class="text-gray-400 text-sm lang-ar">متاح بـ 3 ألوان</span>
-                            <span class="text-gray-400 text-sm lang-en">3 colors available</span>
+                            <span class="text-gray-400 text-sm">3 colors</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 2: Modern Blue Light -->
-                <div class="product-3d" data-collection="modern">
+                <!-- Classic 2 -->
+                <div class="product-card" data-category="classic">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Blue Light Pro" class="product-image">
-                        <div class="product-overlay">
-                            <div class="quick-actions">
-                                <button class="action-btn primary" onclick="showDetails('blue-light-pro')">
-                                    <span class="lang-ar">التفاصيل</span>
-                                    <span class="lang-en">Details</span>
-                                </button>
-                                <button class="action-btn secondary">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Metal Classic" class="product-image">
                     </div>
                     <div class="product-info">
-                        <span class="product-category-tag" style="background: rgba(59, 130, 246, 0.2); border-color: #3B82F6; color: #3B82F6;">Blue Light Pro</span>
-                        <h3 class="product-name lang-ar">حماية العين الرقمية</h3>
-                        <h3 class="product-name lang-en">Digital Eye Protection</h3>
-                        <p class="product-description lang-ar">تصميم عصري مع عدسات متطورة تصفي 85% من الضوء الأزرق الضار</p>
-                        <p class="product-description lang-en">Modern design with advanced lenses filtering 85% of harmful blue light</p>
-                        <div class="product-features-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(59, 130, 246, 0.2); color: #3B82F6;"><i class="fas fa-laptop"></i></div>
-                                <span class="lang-ar">للكمبيوتر</span>
-                                <span class="lang-en">For Computer</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(59, 130, 246, 0.2); color: #3B82F6;"><i class="fas fa-mobile-alt"></i></div>
-                                <span class="lang-ar">للموبايل</span>
-                                <span class="lang-en">For Mobile</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(59, 130, 246, 0.2); color: #3B82F6;"><i class="fas fa-moon"></i></div>
-                                <span class="lang-ar">راحة ليلية</span>
-                                <span class="lang-en">Night Comfort</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(59, 130, 246, 0.2); color: #3B82F6;"><i class="fas fa-clock"></i></div>
-                                <span class="lang-ar">استخدام طويل</span>
-                                <span class="lang-en">Long Use</span>
-                            </div>
+                        <div class="product-category lang-ar">كلاسيكية</div>
+                        <div class="product-category lang-en">Classic</div>
+                        <h3 class="product-name lang-ar">معدني كلاسيك</h3>
+                        <h3 class="product-name lang-en">Metal Classic</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">متين</span>
+                            <span class="feature-tag lang-en">Durable</span>
+                            <span class="feature-tag lang-ar">ضمان سنة</span>
+                            <span class="feature-tag lang-en">1Y Warranty</span>
                         </div>
-                        <div class="product-price-row">
-                            <div class="price-box">
-                                <span class="price-label lang-ar">السعر</span>
-                                <span class="price-label lang-en">Price</span>
-                                <span class="price-value">550 <span class="price-currency">EGP</span></span>
-                            </div>
-                            <span class="text-gray-400 text-sm lang-ar">مثالي للطلاب والموظفين</span>
-                            <span class="text-gray-400 text-sm lang-en">Perfect for students & professionals</span>
+                        <div class="product-price">
+                            <span class="price-current">350 EGP</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 3: Kids Flexible -->
-                <div class="product-3d" data-collection="kids">
+                <!-- Classic 3 -->
+                <div class="product-card" data-category="classic">
+                    <div class="product-image-container">
+                        <span class="product-badge badge-sale lang-ar">خصم</span>
+                        <span class="product-badge badge-sale lang-en">Sale</span>
+                        <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80" alt="Rectangular" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category lang-ar">كلاسيكية</div>
+                        <div class="product-category lang-en">Classic</div>
+                        <h3 class="product-name lang-ar">مستطيل أنيق</h3>
+                        <h3 class="product-name lang-en">Elegant Rectangular</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">للوجه الطويل</span>
+                            <span class="feature-tag lang-en">Long Face</span>
+                            <span class="feature-tag lang-ar">عملي</span>
+                            <span class="feature-tag lang-en">Practical</span>
+                        </div>
+                        <div class="product-price">
+                            <div>
+                                <span class="price-old">450</span>
+                                <span class="price-current">380 EGP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Classic 4 -->
+                <div class="product-card" data-category="classic">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?w=600&q=80" alt="Round Classic" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category lang-ar">كلاسيكية</div>
+                        <div class="product-category lang-en">Classic</div>
+                        <h3 class="product-name lang-ar">دائري تقليدي</h3>
+                        <h3 class="product-name lang-en">Traditional Round</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">تراثي</span>
+                            <span class="feature-tag lang-en">Heritage</span>
+                            <span class="feature-tag lang-ar">للكبار</span>
+                            <span class="feature-tag lang-en">Seniors</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">400 EGP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modern 1 -->
+                <div class="product-card" data-category="modern">
+                    <div class="product-image-container">
+                        <span class="product-badge badge-new lang-ar">جديد</span>
+                        <span class="product-badge badge-new lang-en">New</span>
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Modern Slim" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category lang-ar">عصرية</div>
+                        <div class="product-category lang-en">Modern</div>
+                        <h3 class="product-name lang-ar">سليم مودرن</h3>
+                        <h3 class="product-name lang-en">Slim Modern</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">رفيع</span>
+                            <span class="feature-tag lang-en">Slim</span>
+                            <span class="feature-tag lang-ar">موضة 2024</span>
+                            <span class="feature-tag lang-en">2024 Trend</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">550 EGP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modern 2 -->
+                <div class="product-card" data-category="modern">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600&q=80" alt="Geometric" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category lang-ar">عصرية</div>
+                        <div class="product-category lang-en">Modern</div>
+                        <h3 class="product-name lang-ar">هندسي مبتكر</h3>
+                        <h3 class="product-name lang-en">Geometric Innovative</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">شكل فريد</span>
+                            <span class="feature-tag lang-en">Unique Shape</span>
+                            <span class="feature-tag lang-ar">شبابي</span>
+                            <span class="feature-tag lang-en">Youthful</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">480 EGP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modern 3 -->
+                <div class="product-card" data-category="modern">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" alt="Transparent" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category lang-ar">عصرية</div>
+                        <div class="product-category lang-en">Modern</div>
+                        <h3 class="product-name lang-ar">شفاف عصري</h3>
+                        <h3 class="product-name lang-en">Modern Transparent</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">شفاف</span>
+                            <span class="feature-tag lang-en">Clear</span>
+                            <span class="feature-tag lang-ar">خفيف</span>
+                            <span class="feature-tag lang-en">Light</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">420 EGP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modern 4 -->
+                <div class="product-card" data-category="modern">
+                    <div class="product-image-container">
+                        <span class="product-badge badge-premium lang-ar">بريميوم</span>
+                        <span class="product-badge badge-premium lang-en">Premium</span>
+                        <img src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?w=600&q=80" alt="Designer" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category lang-ar">عصرية</div>
+                        <div class="product-category lang-en">Modern</div>
+                        <h3 class="product-name lang-ar">تصميم حصري</h3>
+                        <h3 class="product-name lang-en">Exclusive Design</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">محدود</span>
+                            <span class="feature-tag lang-en">Limited</span>
+                            <span class="feature-tag lang-ar">فاخر</span>
+                            <span class="feature-tag lang-en">Luxury</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">750 EGP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kids 1 -->
+                <div class="product-card" data-category="kids">
                     <div class="product-image-container">
                         <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" alt="Kids Flex" class="product-image">
-                        <div class="product-overlay">
-                            <div class="quick-actions">
-                                <button class="action-btn primary" onclick="showDetails('kids-flex')">
-                                    <span class="lang-ar">التفاصيل</span>
-                                    <span class="lang-en">Details</span>
-                                </button>
-                                <button class="action-btn secondary">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
                     </div>
                     <div class="product-info">
-                        <span class="product-category-tag" style="background: rgba(34, 197, 94, 0.2); border-color: #22C55E; color: #22C55E;">Kids Safe</span>
-                        <h3 class="product-name lang-ar">مرنة آمنة للأطفال</h3>
-                        <h3 class="product-name lang-en">Safe Flexible Kids</h3>
-                        <p class="product-description lang-ar">إطار مرن 360° مقاوم للكسر مع أربطة مطاطية قابلة للتعديل</p>
-                        <p class="product-description lang-en">360° flexible break-resistant frame with adjustable elastic straps</p>
-                        <div class="product-features-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(34, 197, 94, 0.2); color: #22C55E;"><i class="fas fa-shield-alt"></i></div>
-                                <span class="lang-ar">مقاوم للكسر</span>
-                                <span class="lang-en">Break Resistant</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(34, 197, 94, 0.2); color: #22C55E;"><i class="fas fa-palette"></i></div>
-                                <span class="lang-ar">ألوان زاهية</span>
-                                <span class="lang-en">Vibrant Colors</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(34, 197, 94, 0.2); color: #22C55E;"><i class="fas fa-adjust"></i></div>
-                                <span class="lang-ar">قابل للتعديل</span>
-                                <span class="lang-en">Adjustable</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(34, 197, 94, 0.2); color: #22C55E;"><i class="fas fa-smile"></i></div>
-                                <span class="lang-ar">مريحة</span>
-                                <span class="lang-en">Comfortable</span>
-                            </div>
+                        <div class="product-category lang-ar">أطفال</div>
+                        <div class="product-category lang-en">Kids</div>
+                        <h3 class="product-name lang-ar">مرن للأطفال</h3>
+                        <h3 class="product-name lang-en">Flexible Kids</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">مقاوم للكسر</span>
+                            <span class="feature-tag lang-en">Break Resistant</span>
+                            <span class="feature-tag lang-ar">آمن</span>
+                            <span class="feature-tag lang-en">Safe</span>
                         </div>
-                        <div class="product-price-row">
-                            <div class="price-box">
-                                <span class="price-label lang-ar">السعر</span>
-                                <span class="price-label lang-en">Price</span>
-                                <span class="price-value">320 <span class="price-currency">EGP</span></span>
-                            </div>
-                            <span class="text-gray-400 text-sm lang-ar">للأعمار 3-12 سنة</span>
-                            <span class="text-gray-400 text-sm lang-en">Ages 3-12 years</span>
+                        <div class="product-price">
+                            <span class="price-current">280 EGP</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 4: Progressive Multifocal -->
-                <div class="product-3d" data-collection="classic">
+                <!-- Kids 2 -->
+                <div class="product-card" data-category="kids">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Progressive Elite" class="product-image">
-                        <div class="product-overlay">
-                            <div class="quick-actions">
-                                <button class="action-btn primary" onclick="showDetails('progressive-elite')">
-                                    <span class="lang-ar">التفاصيل</span>
-                                    <span class="lang-en">Details</span>
-                                </button>
-                                <button class="action-btn secondary">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
+                        <span class="product-badge badge-new lang-ar">جديد</span>
+                        <span class="product-badge badge-new lang-en">New</span>
+                        <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600&q=80" alt="Kids Colorful" class="product-image">
                     </div>
                     <div class="product-info">
-                        <span class="product-category-tag" style="background: rgba(147, 51, 234, 0.2); border-color: #9333EA; color: #9333EA;">Premium</span>
-                        <h3 class="product-name lang-ar">متعددة البؤر Elite</h3>
-                        <h3 class="product-name lang-en">Progressive Elite</h3>
-                        <p class="product-description lang-ar">عدسات متقدمة للقراءة والبعد والوسط بدون خطوط فاصلة</p>
-                        <p class="product-description lang-en">Advanced lenses for reading, distance & mid-range without visible lines</p>
-                        <div class="product-features-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(147, 51, 234, 0.2); color: #9333EA;"><i class="fas fa-book"></i></div>
-                                <span class="lang-ar">للقراءة</span>
-                                <span class="lang-en">Reading</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(147, 51, 234, 0.2); color: #9333EA;"><i class="fas fa-road"></i></div>
-                                <span class="lang-ar">للبعد</span>
-                                <span class="lang-en">Distance</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(147, 51, 234, 0.2); color: #9333EA;"><i class="fas fa-laptop"></i></div>
-                                <span class="lang-ar">للكمبيوتر</span>
-                                <span class="lang-en">Computer</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(147, 51, 234, 0.2); color: #9333EA;"><i class="fas fa-magic"></i></div>
-                                <span class="lang-ar">بدون خطوط</span>
-                                <span class="lang-en">No Lines</span>
-                            </div>
+                        <div class="product-category lang-ar">أطفال</div>
+                        <div class="product-category lang-en">Kids</div>
+                        <h3 class="product-name lang-ar">ألوان زاهية</h3>
+                        <h3 class="product-name lang-en">Colorful Kids</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">ألوان متعددة</span>
+                            <span class="feature-tag lang-en">Multi Colors</span>
+                            <span class="feature-tag lang-ar">ممتع</span>
+                            <span class="feature-tag lang-en">Fun</span>
                         </div>
-                        <div class="product-price-row">
-                            <div class="price-box">
-                                <span class="price-label lang-ar">السعر</span>
-                                <span class="price-label lang-en">Price</span>
-                                <span class="price-value">850 <span class="price-currency">EGP</span></span>
-                            </div>
-                            <span class="text-gray-400 text-sm lang-ar">تقنية ألمانية</span>
-                            <span class="text-gray-400 text-sm lang-en">German Technology</span>
+                        <div class="product-price">
+                            <span class="price-current">250 EGP</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 5: Sports Active -->
-                <div class="product-3d" data-collection="modern">
+                <!-- Kids 3 -->
+                <div class="product-card" data-category="kids">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600&q=80" alt="Sports Pro" class="product-image">
-                        <div class="product-overlay">
-                            <div class="quick-actions">
-                                <button class="action-btn primary" onclick="showDetails('sports-pro')">
-                                    <span class="lang-ar">التفاصيل</span>
-                                    <span class="lang-en">Details</span>
-                                </button>
-                                <button class="action-btn secondary">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Kids Sport" class="product-image">
                     </div>
                     <div class="product-info">
-                        <span class="product-category-tag" style="background: rgba(239, 68, 68, 0.2); border-color: #EF4444; color: #EF4444;">Sports</span>
-                        <h3 class="product-name lang-ar">رياضية برو</h3>
-                        <h3 class="product-name lang-en">Sports Pro</h3>
-                        <p class="product-description lang-ar">تصميم رياضي مع عدسات مقاومة للصدمات ومضادة للانزلاق والعرق</p>
-                        <p class="product-description lang-en">Sports design with impact-resistant, anti-slip & sweat-proof lenses</p>
-                        <div class="product-features-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(239, 68, 68, 0.2); color: #EF4444;"><i class="fas fa-running"></i></div>
-                                <span class="lang-ar">للجري</span>
-                                <span class="lang-en">Running</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(239, 68, 68, 0.2); color: #EF4444;"><i class="fas fa-biking"></i></div>
-                                <span class="lang-ar">للدراجات</span>
-                                <span class="lang-en">Cycling</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(239, 68, 68, 0.2); color: #EF4444;"><i class="fas fa-water"></i></div>
-                                <span class="lang-ar">مضادة للعرق</span>
-                                <span class="lang-en">Sweat Proof</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(239, 68, 68, 0.2); color: #EF4444;"><i class="fas fa-grip-lines"></i></div>
-                                <span class="lang-ar">ثبات تام</span>
-                                <span class="lang-en">Perfect Grip</span>
-                            </div>
+                        <div class="product-category lang-ar">أطفال</div>
+                        <div class="product-category lang-en">Kids</div>
+                        <h3 class="product-name lang-ar">رياضي نشط</h3>
+                        <h3 class="product-name lang-en">Active Sport</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">رياضي</span>
+                            <span class="feature-tag lang-en">Sporty</span>
+                            <span class="feature-tag lang-ar">مطاطي</span>
+                            <span class="feature-tag lang-en">Rubber</span>
                         </div>
-                        <div class="product-price-row">
-                            <div class="price-box">
-                                <span class="price-label lang-ar">السعر</span>
-                                <span class="price-label lang-en">Price</span>
-                                <span class="price-value">580 <span class="price-currency">EGP</span></span>
-                            </div>
-                            <span class="text-gray-400 text-sm lang-ar">للرياضيين المحترفين</span>
-                            <span class="text-gray-400 text-sm lang-en">For professional athletes</span>
+                        <div class="product-price">
+                            <span class="price-current">320 EGP</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 6: Vintage Retro -->
-                <div class="product-3d" data-collection="classic">
+                <!-- Kids 4 -->
+                <div class="product-card" data-category="kids">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?w=600&q=80" alt="Vintage Gold" class="product-image">
-                        <div class="product-overlay">
-                            <div class="quick-actions">
-                                <button class="action-btn primary" onclick="showDetails('vintage-gold')">
-                                    <span class="lang-ar">التفاصيل</span>
-                                    <span class="lang-en">Details</span>
-                                </button>
-                                <button class="action-btn secondary">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Kids Cartoon" class="product-image">
                     </div>
                     <div class="product-info">
-                        <span class="product-category-tag" style="background: rgba(245, 158, 11, 0.2); border-color: #F59E0B; color: #F59E0B;">Vintage</span>
-                        <h3 class="product-name lang-ar">فينتاج ذهبي</h3>
-                        <h3 class="product-name lang-en">Vintage Gold</h3>
-                        <p class="product-description lang-ar">تصميم كلاسيكي من الخمسينيات مع طلاء ذهبي عيار 18 وعدسات عالية الوضوح</p>
-                        <p class="product-description lang-en">1950s classic design with 18k gold plating and high-definition lenses</p>
-                        <div class="product-features-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B;"><i class="fas fa-crown"></i></div>
-                                <span class="lang-ar">طلاء ذهبي</span>
-                                <span class="lang-en">Gold Plated</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B;"><i class="fas fa-history"></i></div>
-                                <span class="lang-ar">تراثي</span>
-                                <span class="lang-en">Heritage</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B;"><i class="fas fa-gem"></i></div>
-                                <span class="lang-ar">فاخر</span>
-                                <span class="lang-en">Luxury</span>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon-small" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B;"><i class="fas fa-award"></i></div>
-                                <span class="lang-ar">محدودة</span>
-                                <span class="lang-en">Limited</span>
-                            </div>
+                        <div class="product-category lang-ar">أطفال</div>
+                        <div class="product-category lang-en">Kids</div>
+                        <h3 class="product-name lang-ar">كرتوني مرح</h3>
+                        <h3 class="product-name lang-en">Cartoon Fun</h3>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">شخصيات</span>
+                            <span class="feature-tag lang-en">Characters</span>
+                            <span class="feature-tag lang-ar">3-8 سنوات</span>
+                            <span class="feature-tag lang-en">Ages 3-8</span>
                         </div>
-                        <div class="product-price-row">
-                            <div class="price-box">
-                                <span class="price-label lang-ar">السعر</span>
-                                <span class="price-label lang-en">Price</span>
-                                <span class="price-value">680 <span class="price-currency">EGP</span></span>
-                            </div>
-                            <span class="text-gray-400 text-sm lang-ar">إصدار محدود</span>
-                            <span class="text-gray-400 text-sm lang-en">Limited Edition</span>
+                        <div class="product-price">
+                            <span class="price-current">220 EGP</span>
                         </div>
                     </div>
                 </div>
@@ -1003,121 +790,96 @@
         </div>
     </section>
 
-    <!-- Sunglasses Collection -->
-    <section class="category-section" style="background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);">
+    <!-- Sunglasses -->
+    <section id="sunglasses" class="py-20 bg-brand-dark">
         <div class="container mx-auto px-6">
             <div class="section-header">
-                <h2 class="section-title text-gradient-gold lang-ar">مجموعة النظارات الشمسية</h2>
-                <h2 class="section-title text-gradient-gold lang-en">Sunglasses Collection</h2>
-                <p class="section-subtitle lang-ar">حماية وأناقة في آن واحد</p>
-                <p class="section-subtitle lang-en">Protection and style combined</p>
+                <h2 class="section-title text-gradient-gold lang-ar">النظارات الشمسية</h2>
+                <h2 class="section-title text-gradient-gold lang-en">Sunglasses</h2>
+                <p class="section-subtitle lang-ar">حماية كاملة من الأشعة فوق البنفسجية بأناقة</p>
+                <p class="section-subtitle lang-en">Complete UV protection with elegance</p>
             </div>
             
             <div class="product-showcase">
-                <!-- Sunglasses 1: Aviator Pro -->
-                <div class="product-3d">
+                <!-- Sunglass 1 -->
+                <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Aviator Pro" class="product-image">
-                        <div class="product-overlay">
-                            <div class="quick-actions">
-                                <button class="action-btn primary">
-                                    <span class="lang-ar">التفاصيل</span>
-                                    <span class="lang-en">Details</span>
-                                </button>
-                            </div>
-                        </div>
+                        <span class="product-badge badge-premium lang-ar">بولارايزد</span>
+                        <span class="product-badge badge-premium lang-en">Polarized</span>
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Aviator" class="product-image">
                     </div>
                     <div class="product-info">
-                        <span class="product-category-tag">Aviator Pro</span>
-                        <h3 class="product-name lang-ar">أفياتور برو</h3>
-                        <h3 class="product-name lang-en">Aviator Pro</h3>
-                        <p class="product-description lang-ar">تصميم أفياتور كلاسيكي مع عدسات Polarized وUV400</p>
-                        <p class="product-description lang-en">Classic aviator with Polarized lenses and UV400 protection</p>
-                        <div class="product-price-row">
-                            <span class="price-value">480 <span class="price-currency">EGP</span></span>
-                            <span class="text-gray-400 lang-ar">للطيارين والسائقين</span>
-                            <span class="text-gray-400 lang-en">For pilots & drivers</span>
+                        <h3 class="product-name lang-ar">أفياتور كلاسيك</h3>
+                        <h3 class="product-name lang-en">Classic Aviator</h3>
+                        <div class="product-features">
+                            <span class="feature-tag>UV400</span>
+                            <span class="feature-tag lang-ar">مضاد للوهج</span>
+                            <span class="feature-tag lang-en">Anti-Glare</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">480 EGP</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sunglasses 2: Wayfarer Style -->
-                <div class="product-3d">
+                <!-- Sunglass 2 -->
+                <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Wayfarer Modern" class="product-image">
-                        <div class="product-overlay">
-                            <div class="quick-actions">
-                                <button class="action-btn primary">
-                                    <span class="lang-ar">التفاصيل</span>
-                                    <span class="lang-en">Details</span>
-                                </button>
-                            </div>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Wayfarer" class="product-image">
                     </div>
                     <div class="product-info">
-                        <span class="product-category-tag" style="background: rgba(59, 130, 246, 0.2); border-color: #3B82F6; color: #3B82F6;">Wayfarer</span>
-                        <h3 class="product-name lang-ar">وايفارر مودرن</h3>
-                        <h3 class="product-name lang-en">Wayfarer Modern</h3>
-                        <p class="product-description lang-ar">تصميم عصري مع عدسات متدرجة وحماية كاملة من الشمس</p>
-                        <p class="product-description lang-en">Modern design with gradient lenses and full sun protection</p>
-                        <div class="product-price-row">
-                            <span class="price-value">420 <span class="price-currency">EGP</span></span>
-                            <span class="text-gray-400 lang-ar">للشاطئ والخروجات</span>
-                            <span class="text-gray-400 lang-en">For beach & outings</span>
+                        <h3 class="product-name lang-ar">وايفارر عصري</h3>
+                        <h3 class="product-name lang-en">Modern Wayfarer</h3>
+                        <div class="product-features">
+                            <span class="feature-tag>UV400</span>
+                            <span class="feature-tag lang-ar">متين</span>
+                            <span class="feature-tag lang-en">Durable</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">420 EGP</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sunglasses 3: Cat Eye Elegant -->
-                <div class="product-3d">
+                <!-- Sunglass 3 -->
+                <div class="product-card">
                     <div class="product-image-container">
+                        <span class="product-badge badge-sale lang-ar">عرض</span>
+                        <span class="product-badge badge-sale lang-en">Offer</span>
                         <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" alt="Cat Eye" class="product-image">
-                        <div class="product-overlay">
-                            <div class="quick-actions">
-                                <button class="action-btn primary">
-                                    <span class="lang-ar">التفاصيل</span>
-                                    <span class="lang-en">Details</span>
-                                </button>
-                            </div>
-                        </div>
                     </div>
                     <div class="product-info">
-                        <span class="product-category-tag" style="background: rgba(236, 72, 153, 0.2); border-color: #EC4899; color: #EC4899;">Feminine</span>
-                        <h3 class="product-name lang-ar">كات آي أنيقة</h3>
-                        <h3 class="product-name lang-en">Cat Eye Elegant</h3>
-                        <p class="product-description lang-ar">تصميم أنثوي على شكل عين القطة مع زخارف كريستالية</p>
-                        <p class="product-description lang-en">Feminine cat-eye design with crystal decorations</p>
-                        <div class="product-price-row">
-                            <span class="price-value">450 <span class="price-currency">EGP</span></span>
-                            <span class="text-gray-400 lang-ar">أناقة فاخرة</span>
-                            <span class="text-gray-400 lang-en">Luxury elegance</span>
+                        <h3 class="product-name lang-ar">كات آي أنثوي</h3>
+                        <h3 class="product-name lang-en">Feminine Cat Eye</h3>
+                        <div class="product-features">
+                            <span class="feature-tag>UV400</span>
+                            <span class="feature-tag lang-ar">أنيق</span>
+                            <span class="feature-tag lang-en">Elegant</span>
+                        </div>
+                        <div class="product-price">
+                            <div>
+                                <span class="price-old">500</span>
+                                <span class="price-current">380 EGP</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sunglasses 4: Round Vintage -->
-                <div class="product-3d">
+                <!-- Sunglass 4 -->
+                <div class="product-card">
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600&q=80" alt="Round Retro" class="product-image">
-                        <div class="product-overlay">
-                            <div class="quick-actions">
-                                <button class="action-btn primary">
-                                    <span class="lang-ar">التفاصيل</span>
-                                    <span class="lang-en">Details</span>
-                                </button>
-                            </div>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600&q=80" alt="Round" class="product-image">
                     </div>
                     <div class="product-info">
-                        <span class="product-category-tag" style="background: rgba(139, 92, 246, 0.2); border-color: #8B5CF6; color: #8B5CF6;">Retro</span>
                         <h3 class="product-name lang-ar">راوند ريترو</h3>
                         <h3 class="product-name lang-en">Round Retro</h3>
-                        <p class="product-description lang-ar">تصميم دائري مستوحى من الستينيات مع عدسات عاكسة</p>
-                        <p class="product-description lang-en">Round design inspired by the 60s with mirrored lenses</p>
-                        <div class="product-price-row">
-                            <span class="price-value">400 <span class="price-currency">EGP</span></span>
-                            <span class="text-gray-400 lang-ar">لعشاق الكلاسيكية</span>
-                            <span class="text-gray-400 lang-en">For classic lovers</span>
+                        <div class="product-features">
+                            <span class="feature-tag>UV400</span>
+                            <span class="feature-tag lang-ar">عاكس</span>
+                            <span class="feature-tag lang-en">Mirrored</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">450 EGP</span>
                         </div>
                     </div>
                 </div>
@@ -1125,185 +887,142 @@
         </div>
     </section>
 
-    <!-- Contact Lenses Section -->
-    <section id="lenses" class="category-section bg-brand-darker">
+    <!-- Contact Lenses -->
+    <section id="lenses" class="py-20 bg-brand-darker">
         <div class="container mx-auto px-6">
             <div class="section-header">
                 <h2 class="section-title text-gradient-gold lang-ar">العدسات اللاصقة</h2>
                 <h2 class="section-title text-gradient-gold lang-en">Contact Lenses</h2>
-                <p class="section-subtitle lang-ar">حرية ووضوح بدون إطار</p>
-                <p class="section-subtitle lang-en">Freedom and clarity without frames</p>
+                <p class="section-subtitle lang-ar">راحة وأمان لعينيك مع أفضل الماركات العالمية</p>
+                <p class="section-subtitle lang-en">Comfort and safety for your eyes with top global brands</p>
             </div>
             
             <div class="lens-grid">
-                <!-- Monthly Lenses -->
+                <!-- Monthly -->
                 <div class="lens-card">
-                    <div class="lens-icon">👁️</div>
-                    <div class="lens-type lang-ar">شهرية</div>
-                    <div class="lens-type lang-en">Monthly</div>
-                    <h3 class="lens-title lang-ar">أكوا كومفورت بلس</h3>
-                    <h3 class="lens-title lang-en">Aqua Comfort Plus</h3>
-                    <p class="text-gray-400 mb-4 lang-ar">عدسات شهرية عالية التنفس مع تقنية HydraClear للرطوبة المستمرة</p>
+                    <div class="lens-header">
+                        <div class="lens-icon">👁️</div>
+                        <div>
+                            <div class="lens-type lang-ar">شهرية</div>
+                            <div class="lens-type lang-en">Monthly</div>
+                            <h3 class="lens-title">Aqua Comfort Plus</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4 lang-ar">عدسات شهرية عالية التنفس مع تقنية HydraClear للترطيب المستمر</p>
                     <p class="text-gray-400 mb-4 lang-en">Monthly high-oxygen lenses with HydraClear technology for continuous moisture</p>
-                    
-                    <div class="lens-specs">
-                        <span class="spec-badge"><i class="fas fa-tint"></i> <span class="lang-ar">ترطيب 24 ساعة</span><span class="lang-en">24H Moisture</span></span>
-                        <span class="spec-badge"><i class="fas fa-wind"></i> <span class="lang-ar">تنفس عالي</span><span class="lang-en">High Oxygen</span></span>
-                        <span class="spec-badge"><i class="fas fa-shield-alt"></i> <span class="lang-ar">UV Protection</span><span class="lang-en">UV Block</span></span>
-                        <span class="spec-badge"><i class="fas fa-eye"></i> <span class="lang-ar">رؤية واضحة</span><span class="lang-en">Clear Vision</span></span>
+                    <div class="product-features mb-4">
+                        <span class="feature-tag>24H Moisture</span>
+                        <span class="feature-tag>UV Block</span>
+                        <span class="feature-tag>High Oxygen</span>
                     </div>
-                    
-                    <div class="flex justify-between items-center mt-6">
-                        <span class="price-value">150 <span class="price-currency">EGP</span></span>
-                        <span class="text-gray-400 lang-ar">زوج واحد</span>
-                        <span class="text-gray-400 lang-en">per pair</span>
-                    </div>
+                    <div class="lens-price">150 EGP</div>
+                    <div class="text-gray-400 text-sm mt-2 lang-ar">زوج واحد</div>
+                    <div class="text-gray-400 text-sm mt-2 lang-en">per pair</div>
                 </div>
 
-                <!-- Daily Lenses -->
+                <!-- Daily -->
                 <div class="lens-card">
-                    <div class="lens-icon" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">💧</div>
-                    <div class="lens-type lang-ar" style="color: #3B82F6;">يومية</div>
-                    <div class="lens-type lang-en" style="color: #3B82F6;">Daily</div>
-                    <h3 class="lens-title lang-ar">دايليز توتال وان</h3>
-                    <h3 class="lens-title lang-en">Dailies Total 1</h3>
-                    <p class="text-gray-400 mb-4 lang-ar">عدسات يومية للاستعمال مرة واحدة - أعلى مستوى من الراحة والصحة</p>
-                    <p class="text-gray-400 mb-4 lang-en">Daily disposable lenses - highest level of comfort and hygiene</p>
-                    
-                    <div class="lens-specs">
-                        <span class="spec-badge"><i class="fas fa-magic" style="color: #3B82F6;"></i> <span class="lang-ar">استعمال يومي</span><span class="lang-en">Daily Use</span></span>
-                        <span class="spec-badge"><i class="fas fa-ban" style="color: #3B82F6;"></i> <span class="lang-ar">لا محلول مطلوب</span><span class="lang-en">No Solution</span></span>
-                        <span class="spec-badge"><i class="fas fa-heart" style="color: #3B82F6;"></i> <span class="lang-ar">مريحة جداً</span><span class="lang-en">Super Comfy</span></span>
-                        <span class="spec-badge"><i class="fas fa-clock" style="color: #3B82F6;"></i> <span class="lang-ar">16 ساعة ارتداء</span><span class="lang-en">16H Wear</span></span>
+                    <div class="lens-header">
+                        <div class="lens-icon" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">💧</div>
+                        <div>
+                            <div class="lens-type" style="color: #3B82F6;">Daily</div>
+                            <h3 class="lens-title">Dailies Total 1</h3>
+                        </div>
                     </div>
-                    
-                    <div class="flex justify-between items-center mt-6">
-                        <span class="price-value">200 <span class="price-currency">EGP</span></span>
-                        <span class="text-gray-400 lang-ar">30 زوج</span>
-                        <span class="text-gray-400 lang-en">30 pairs</span>
+                    <p class="text-gray-400 mb-4 lang-ar">عدسات يومية للاستعمال مرة واحدة - أعلى مستوى من الصحة والراحة</p>
+                    <p class="text-gray-400 mb-4 lang-en">Daily disposable lenses - highest level of hygiene and comfort</p>
+                    <div class="product-features mb-4">
+                        <span class="feature-tag>Daily Use</span>
+                        <span class="feature-tag>No Solution</span>
+                        <span class="feature-tag>16H Wear</span>
                     </div>
+                    <div class="lens-price">200 EGP</div>
+                    <div class="text-gray-400 text-sm mt-2 lang-ar">30 زوج</div>
+                    <div class="text-gray-400 text-sm mt-2 lang-en">30 pairs</div>
                 </div>
 
-                <!-- Colored Lenses -->
+                <!-- Colored -->
                 <div class="lens-card">
-                    <div class="lens-icon" style="background: linear-gradient(135deg, #EC4899, #BE185D);">🎨</div>
-                    <div class="lens-type lang-ar" style="color: #EC4899;">تجميلية</div>
-                    <div class="lens-type lang-en" style="color: #EC4899;">Cosmetic</div>
-                    <h3 class="lens-title lang-ar">أير أوبتيكس كلرز</h3>
-                    <h3 class="lens-title lang-en">Air Optix Colors</h3>
+                    <div class="lens-header">
+                        <div class="lens-icon" style="background: linear-gradient(135deg, #EC4899, #BE185D);">🎨</div>
+                        <div>
+                            <div class="lens-type" style="color: #EC4899;">Cosmetic</div>
+                            <h3 class="lens-title">Air Optix Colors</h3>
+                        </div>
+                    </div>
                     <p class="text-gray-400 mb-4 lang-ar">عدسات ملونة طبية بتقنية 3-in-1 للون طبيعي مذهل</p>
                     <p class="text-gray-400 mb-4 lang-en">Colored medical lenses with 3-in-1 technology for stunning natural color</p>
-                    
-                    <div class="lens-specs">
-                        <span class="spec-badge"><i class="fas fa-palette" style="color: #EC4899;"></i> <span class="lang-ar">9 ألوان</span><span class="lang-en">9 Colors</span></span>
-                        <span class="spec-badge"><i class="fas fa-star" style="color: #EC4899;"></i> <span class="lang-ar">لون طبيعي</span><span class="lang-en">Natural Look</span></span>
-                        <span class="spec-badge"><i class="fas fa-eye" style="color: #EC4899;"></i> <span class="lang-ar">رؤية واضحة</span><span class="lang-en">Clear Vision</span></span>
-                        <span class="spec-badge"><i class="fas fa-moon" style="color: #EC4899;"></i> <span class="lang-ar">شهرية</span><span class="lang-en">Monthly</span></span>
+                    <div class="product-features mb-4">
+                        <span class="feature-tag>9 Colors</span>
+                        <span class="feature-tag>Natural Look</span>
+                        <span class="feature-tag>Monthly</span>
                     </div>
-                    
-                    <div class="flex justify-between items-center mt-6">
-                        <span class="price-value">180 <span class="price-currency">EGP</span></span>
-                        <span class="text-gray-400 lang-ar">زوج واحد</span>
-                        <span class="text-gray-400 lang-en">per pair</span>
-                    </div>
+                    <div class="lens-price">180 EGP</div>
+                    <div class="text-gray-400 text-sm mt-2 lang-ar">زوج واحد</div>
+                    <div class="text-gray-400 text-sm mt-2 lang-en">per pair</div>
                 </div>
 
-                <!-- Toric Lenses -->
+                <!-- Toric -->
                 <div class="lens-card">
-                    <div class="lens-icon" style="background: linear-gradient(135deg, #10B981, #047857);">🎯</div>
-                    <div class="lens-type lang-ar" style="color: #10B981;">طورية</div>
-                    <div class="lens-type lang-en" style="color: #10B981;">Toric</div>
-                    <h3 class="lens-title lang-ar">بيوفينيتي توريك</h3>
-                    <h3 class="lens-title lang-en">Biofinity Toric</h3>
+                    <div class="lens-header">
+                        <div class="lens-icon" style="background: linear-gradient(135deg, #10B981, #047857);">🎯</div>
+                        <div>
+                            <div class="lens-type" style="color: #10B981;">Toric</div>
+                            <h3 class="lens-title">Biofinity Toric</h3>
+                        </div>
+                    </div>
                     <p class="text-gray-400 mb-4 lang-ar">عدسات طورية خاصة للأستجماتيزم مع استقرار ممتاز</p>
                     <p class="text-gray-400 mb-4 lang-en">Toric lenses for astigmatism with excellent stability</p>
-                    
-                    <div class="lens-specs">
-                        <span class="spec-badge"><i class="fas fa-bullseye" style="color: #10B981;"></i> <span class="lang-ar">للأستجماتيزم</span><span class="lang-en">For Astigmatism</span></span>
-                        <span class="spec-badge"><i class="fas fa-anchor" style="color: #10B981;"></i> <span class="lang-ar">ثبات تام</span><span class="lang-en">Perfect Stability</span></span>
-                        <span class="spec-badge"><i class="fas fa-water" style="color: #10B981;"></i> <span class="lang-ar">رطوبة عالية</span><span class="lang-en">High Moisture</span></span>
-                        <span class="spec-badge"><i class="fas fa-calendar" style="color: #10B981;"></i> <span class="lang-ar">شهرية</span><span class="lang-en">Monthly</span></span>
+                    <div class="product-features mb-4">
+                        <span class="feature-tag>For Astigmatism</span>
+                        <span class="feature-tag>Perfect Stability</span>
+                        <span class="feature-tag>Monthly</span>
                     </div>
-                    
-                    <div class="flex justify-between items-center mt-6">
-                        <span class="price-value">220 <span class="price-currency">EGP</span></span>
-                        <span class="text-gray-400 lang-ar">زوج واحد</span>
-                        <span class="text-gray-400 lang-en">per pair</span>
+                    <div class="lens-price">220 EGP</div>
+                    <div class="text-gray-400 text-sm mt-2 lang-ar">زوج واحد</div>
+                    <div class="text-gray-400 text-sm mt-2 lang-en">per pair</div>
+                </div>
+
+                <!-- Two-Weekly -->
+                <div class="lens-card">
+                    <div class="lens-header">
+                        <div class="lens-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706);">📅</div>
+                        <div>
+                            <div class="lens-type" style="color: #F59E0B;">Bi-Weekly</div>
+                            <h3 class="lens-title">Acuvue Oasys</h3>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Accessories Section -->
-    <section id="accessories" class="category-section" style="background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);">
-        <div class="container mx-auto px-6">
-            <div class="section-header">
-                <h2 class="section-title text-gradient-gold lang-ar">إكسسوارات العناية</h2>
-                <h2 class="section-title text-gradient-gold lang-en">Care Accessories</h2>
-                <p class="section-subtitle lang-ar">كل ما تحتاجه للعناية بنظاراتك</p>
-                <p class="section-subtitle lang-en">Everything you need to care for your glasses</p>
-            </div>
-            
-            <div class="accessories-grid">
-                <!-- Accessory 1 -->
-                <div class="accessory-item">
-                    <div class="accessory-icon"><i class="fas fa-spray-can"></i></div>
-                    <h3 class="text-xl font-bold mb-2 lang-ar">محلول التنظيف</h3>
-                    <h3 class="text-xl font-bold mb-2 lang-en">Cleaning Solution</h3>
-                    <p class="text-gray-400 text-sm mb-4 lang-ar">محلول خاص للعدسات مع مضاد للبكتيريا</p>
-                    <p class="text-gray-400 text-sm mb-4 lang-en">Special lens solution with antibacterial</p>
-                    <span class="price-value text-xl">45 <span class="price-currency">EGP</span></span>
+                    <p class="text-gray-400 mb-4 lang-ar">عدسات أسبوعية مريحة للاستخدام المطول مع تقنية Hydraclear Plus</p>
+                    <p class="text-gray-400 mb-4 lang-en">Bi-weekly comfortable lenses for extended wear with Hydraclear Plus technology</p>
+                    <div class="product-features mb-4">
+                        <span class="feature-tag>2 Weeks</span>
+                        <span class="feature-tag>Extended Wear</span>
+                        <span class="feature-tag>UV Block</span>
+                    </div>
+                    <div class="lens-price">170 EGP</div>
+                    <div class="text-gray-400 text-sm mt-2 lang-ar">6 أزواج</div>
+                    <div class="text-gray-400 text-sm mt-2 lang-en">6 pairs</div>
                 </div>
 
-                <!-- Accessory 2 -->
-                <div class="accessory-item">
-                    <div class="accessory-icon"><i class="fas fa-box"></i></div>
-                    <h3 class="text-xl font-bold mb-2 lang-ar">علبة فاخرة</h3>
-                    <h3 class="text-xl font-bold mb-2 lang-en">Premium Case</h3>
-                    <p class="text-gray-400 text-sm mb-4 lang-ar">علبة جلدية صلبة للحماية القصوى</p>
-                    <p class="text-gray-400 text-sm mb-4 lang-en">Hard leather case for maximum protection</p>
-                    <span class="price-value text-xl">65 <span class="price-currency">EGP</span></span>
-                </div>
-
-                <!-- Accessory 3 -->
-                <div class="accessory-item">
-                    <div class="accessory-icon"><i class="fas fa-tshirt"></i></div>
-                    <h3 class="text-xl font-bold mb-2 lang-ar">قماش مايكروفايبر</h3>
-                    <h3 class="text-xl font-bold mb-2 lang-en">Microfiber Cloth</h3>
-                    <p class="text-gray-400 text-sm mb-4 lang-ar">قماش ناعم خاص بعدم ترك آثار</p>
-                    <p class="text-gray-400 text-sm mb-4 lang-en">Special soft cloth with no streaks</p>
-                    <span class="price-value text-xl">25 <span class="price-currency">EGP</span></span>
-                </div>
-
-                <!-- Accessory 4 -->
-                <div class="accessory-item">
-                    <div class="accessory-icon"><i class="fas fa-tools"></i></div>
-                    <h3 class="text-xl font-bold mb-2 lang-ar">طقم إصلاح</h3>
-                    <h3 class="text-xl font-bold mb-2 lang-en">Repair Kit</h3>
-                    <p class="text-gray-400 text-sm mb-4 lang-ar">براغي، مسامير، وقطع غيار صغيرة</p>
-                    <p class="text-gray-400 text-sm mb-4 lang-en">Screws, nuts, and small spare parts</p>
-                    <span class="price-value text-xl">35 <span class="price-currency">EGP</span></span>
-                </div>
-
-                <!-- Accessory 5 -->
-                <div class="accessory-item">
-                    <div class="accessory-icon"><i class="fas fa-sun"></i></div>
-                    <h3 class="text-xl font-bold mb-2 lang-ar">سلسلة نظارات</h3>
-                    <h3 class="text-xl font-bold mb-2 lang-en">Glasses Chain</h3>
-                    <p class="text-gray-400 text-sm mb-4 lang-ar">سلسلة أنيقة لحمل النظارات</p>
-                    <p class="text-gray-400 text-sm mb-4 lang-en">Elegant chain for carrying glasses</p>
-                    <span class="price-value text-xl">55 <span class="price-currency">EGP</span></span>
-                </div>
-
-                <!-- Accessory 6 -->
-                <div class="accessory-item">
-                    <div class="accessory-icon"><i class="fas fa-eye-dropper"></i></div>
-                    <h3 class="text-xl font-bold mb-2 lang-ar">قطرات مرطبة</h3>
-                    <h3 class="text-xl font-bold mb-2 lang-en">Moisturizing Drops</h3>
-                    <p class="text-gray-400 text-sm mb-4 lang-ar">قطرات طبيعية للعين الجافة</p>
-                    <p class="text-gray-400 text-sm mb-4 lang-en">Natural drops for dry eyes</p>
-                    <span class="price-value text-xl">40 <span class="price-currency">EGP</span></span>
+                <!-- Multifocal -->
+                <div class="lens-card">
+                    <div class="lens-header">
+                        <div class="lens-icon" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">👓</div>
+                        <div>
+                            <div class="lens-type" style="color: #8B5CF6;">Multifocal</div>
+                            <h3 class="lens-title">Proclear Multifocal</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4 lang-ar">عدسات متعددة البؤر للقراءة والبعد بدون الحاجة لنظارة</p>
+                    <p class="text-gray-400 mb-4 lang-en">Multifocal lenses for reading and distance without glasses</p>
+                    <div class="product-features mb-4">
+                        <span class="feature-tag>Near & Far</span>
+                        <span class="feature-tag>No Glasses</span>
+                        <span class="feature-tag>Monthly</span>
+                    </div>
+                    <div class="lens-price">250 EGP</div>
+                    <div class="text-gray-400 text-sm mt-2 lang-ar">زوج واحد</div>
+                    <div class="text-gray-400 text-sm mt-2 lang-en">per pair</div>
                 </div>
             </div>
         </div>
@@ -1314,7 +1033,7 @@
         <div class="container mx-auto px-6 text-center">
             <div class="flex justify-center items-center gap-3 mb-6">
                 <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-gold to-brand-gold-dark flex items-center justify-center">
-                    <span class="text-black font-bold text-xl">A</span>
+                    <span class="text-black font-bold text-xl">H</span>
                 </div>
                 <div>
                     <div class="text-2xl font-bold text-gradient-gold lang-ar">الهدى للبصريات</div>
@@ -1322,18 +1041,17 @@
                 </div>
             </div>
             
-            <p class="text-gray-400 mb-2 lang-ar">شارع المطبعة، فيصل، الجيزة</p>
-            <p class="text-gray-400 mb-2 lang-en">El-Matbaa Street, Faisal, Giza</p>
-            <p class="text-2xl font-bold text-brand-gold mb-6">01111171350</p>
+            <p class="text-gray-400 mb-2">📍 <span class="lang-ar">شارع المطبعة، فيصل، الجيزة</span><span class="lang-en">El-Matbaa Street, Faisal, Giza</span></p>
+            <p class="text-gray-400 mb-2">🕐 <span class="lang-ar">مفتوح يومياً 10 ص - 10 م</span><span class="lang-en">Open Daily 10 AM - 10 PM</span></p>
+            <p class="text-2xl font-bold text-brand-gold mb-6">📞 01111171350</p>
             
-            <p class="text-gray-600 text-sm lang-ar">© 2024 الهدى للبصريات. جميع الحقوق محفوظة.</p>
-            <p class="text-gray-600 text-sm lang-en">© 2024 Al-Huda Optics. All rights reserved.</p>
+            <p class="text-gray-600 text-sm">© 2024 <span class="lang-ar">الهدى للبصريات. جميع الحقوق محفوظة.</span><span class="lang-en">Al-Huda Optics. All rights reserved.</span></p>
         </div>
     </footer>
 
     <!-- Fixed Contact Bar -->
     <div class="contact-bar">
-        <a href="tel:00201111171350" class="contact-btn phone">
+        <a href="tel:01111171350" class="contact-btn phone">
             <i class="fas fa-phone"></i>
             <span class="lang-ar">اتصل الآن</span>
             <span class="lang-en">Call Now</span>
@@ -1360,7 +1078,6 @@
             
             html.setAttribute('lang', newLang);
             html.setAttribute('dir', newDir);
-            
             localStorage.setItem('preferred-lang', newLang);
         }
         
@@ -1368,68 +1085,76 @@
         document.addEventListener('DOMContentLoaded', function() {
             const savedLang = localStorage.getItem('preferred-lang');
             if (savedLang && savedLang !== 'ar') {
-                toggleLanguage();
+                document.documentElement.setAttribute('lang', 'en');
+                document.documentElement.setAttribute('dir', 'ltr');
             }
+            
+            // Animate counters
+            animateCounters();
         });
         
-        // Filter Collection
-        function filterCollection(type) {
+        // Filter Glasses
+        function filterGlasses(category) {
             const tabs = document.querySelectorAll('.collection-tab');
-            const products = document.querySelectorAll('.product-3d[data-collection]');
+            const cards = document.querySelectorAll('.product-card[data-category]');
             
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
-                if (tab.getAttribute('onclick').includes(type)) {
-                    tab.classList.add('active');
-                }
-            });
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
             
-            products.forEach(product => {
-                if (type === 'all' || product.getAttribute('data-collection') === type) {
-                    product.style.display = 'block';
-                    gsap.fromTo(product, 
-                        { opacity: 0, y: 30 },
-                        { opacity: 1, y: 0, duration: 0.5 }
-                    );
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                    gsap.fromTo(card, {opacity: 0, y: 20}, {opacity: 1, y: 0, duration: 0.4});
                 } else {
-                    product.style.display = 'none';
+                    card.style.display = 'none';
                 }
             });
         }
         
-        // Show Details (placeholder)
-        function showDetails(product) {
-            alert('Product details coming soon!');
+        // Animate Counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = parseInt(entry.target.getAttribute('data-target'));
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                entry.target.textContent = target + (target === 100 ? '%' : '+');
+                                clearInterval(timer);
+                            } else {
+                                entry.target.textContent = Math.floor(current);
+                            }
+                        }, 16);
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {threshold: 0.5});
+            
+            counters.forEach(counter => observer.observe(counter));
         }
         
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
         
-        // Animate products on scroll
-        gsap.utils.toArray('.product-3d').forEach((product, i) => {
-            gsap.from(product, {
-                scrollTrigger: {
-                    trigger: product,
-                    start: "top 85%",
-                },
-                y: 50,
-                opacity: 0,
-                duration: 0.6,
-                delay: i * 0.1
+        gsap.utils.toArray('.product-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: { trigger: card, start: "top 90%" },
+                y: 30, opacity: 0, duration: 0.5, delay: i * 0.05
             });
         });
         
-        // Animate lens cards
         gsap.utils.toArray('.lens-card').forEach((card, i) => {
             gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: "top 85%",
-                },
-                x: i % 2 === 0 ? -50 : 50,
-                opacity: 0,
-                duration: 0.8,
-                delay: i * 0.2
+                scrollTrigger: { trigger: card, start: "top 90%" },
+                y: 30, opacity: 0, duration: 0.5, delay: i * 0.1
             });
         });
     </script>
