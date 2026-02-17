@@ -12,352 +12,1154 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #c9a227;
+            --light: #f8fafc;
+            --text: #334155;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fff;
+            color: var(--text);
+            background: var(--light);
+            overflow-x: hidden;
         }
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
+        /* Navigation */
         nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.3);
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: -1px;
         }
 
         .nav-links {
             display: flex;
+            gap: 2.5rem;
             list-style: none;
-            gap: 2rem;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            transition: opacity 0.3s;
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            opacity: 0.8;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            margin-top: 60px;
-            background: linear-gradient(rgba(30,60,114,0.8), rgba(42,82,152,0.8)), url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1200');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
             text-align: center;
+            color: white;
+            z-index: 2;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, white, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            font-weight: 300;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 15px 40px;
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+            display: inline-block;
         }
 
-        .cta-button:hover {
+        .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(201, 162, 39, 0.3);
         }
 
-        /* Stats Section */
-        .stats {
-            background: #f8f9fa;
-            padding: 60px 0;
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s;
+            display: inline-block;
         }
 
-        .stats-grid {
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: white;
+            padding: 3rem 5%;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            text-align: center;
+            max-width: 1200px;
+            margin: -4rem auto 0;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
         }
 
         .stat-item {
-            padding: 20px;
+            text-align: center;
+            padding: 1rem;
         }
 
         .stat-number {
             font-size: 3rem;
-            font-weight: bold;
-            color: #1e3c72;
+            font-weight: 800;
+            color: var(--primary);
             display: block;
+            line-height: 1;
         }
 
         .stat-label {
-            color: #666;
-            font-size: 1.1rem;
+            color: var(--text);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Products Gallery Section */
+        .products {
+            padding: 8rem 5%;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-tag {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+            group: true;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 10;
+        }
+
+        .product-badge.sale {
+            background: #ef4444;
+            color: white;
+        }
+
+        .product-image-container {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem 1.5rem 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .quick-view {
+            background: white;
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .product-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .current-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .old-price {
+            font-size: 1rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .add-to-cart {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-to-cart:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: scale(1.1);
         }
 
         /* Features Section */
         .features {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1e3c72;
+            padding: 8rem 5%;
+            background: var(--light);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .feature-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
         }
 
         .feature-image {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .feature-card:hover .feature-image {
+            transform: scale(1.05);
         }
 
         .feature-content {
-            padding: 30px;
+            padding: 2rem;
+            position: relative;
         }
 
         .feature-number {
-            display: inline-block;
-            background: #1e3c72;
-            color: white;
-            width: 40px;
-            height: 40px;
+            position: absolute;
+            top: -30px;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: var(--primary);
             border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            margin-bottom: 15px;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
         }
 
         .feature-card h3 {
-            color: #1e3c72;
-            margin-bottom: 10px;
+            color: var(--primary);
             font-size: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            font-weight: 700;
         }
 
         .feature-card p {
-            color: #666;
+            color: var(--text);
             line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .feature-tech {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background: rgba(201, 162, 39, 0.1);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Services Strip */
+        .services-strip {
+            background: var(--primary);
+            padding: 4rem 5%;
+            color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(201, 162, 39, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .service-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .service-content p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* Contact Section */
         .contact {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
+            padding: 8rem 5%;
+            background: linear-gradient(to bottom, var(--light), white);
         }
 
-        .contact h2 {
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
         }
 
-        .contact-info {
-            margin-top: 30px;
+        .contact-info > p {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .contact-details {
             display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(-5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(201, 162, 39, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .contact-text h4 {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-text p {
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .contact-action {
+            margin-top: 3rem;
+        }
+
+        .map-container {
+            background: var(--secondary);
+            border-radius: 24px;
+            height: 100%;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .map-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
         }
 
         /* Footer */
         footer {
-            background: #1a1a1a;
+            background: var(--primary);
             color: white;
+            padding: 3rem 5%;
             text-align: center;
-            padding: 30px 0;
+            border-top: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            opacity: 0.6;
+            font-size: 0.9rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
+        @media (max-width: 968px) {
             .nav-links {
                 display: none;
             }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                min-height: 300px;
+            }
+
+            .stats-bar {
+                margin: -2rem 5% 0;
+            }
+
+            .features-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">الهدى للبصريات</div>
-                <ul class="nav-links">
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#features">خدماتنا</a></li>
-                    <li><a href="#contact">تواصل معنا</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">الهدى للبصريات</div>
+        <ul class="nav-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#products">المعروضات</a></li>
+            <li><a href="#features">خدماتنا</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+        <button class="mobile-menu-btn">☰</button>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">منذ 2009 • فيصل، الجيزة</div>
             <h1>الرؤية ليست رفاهية</h1>
-            <p>إنها حقك في رؤية العالم بوضوح ودقة</p>
-            <p style="font-size: 0.9rem; margin-top: 10px;">منذ 2009 • فيصل، الجيزة</p>
-            <a href="#contact" class="cta-button">احجز موعدك الآن</a>
+            <p class="hero-subtitle">إنها حقك في رؤية العالم بوضوح وتفاصيل دقيقة تليق بك</p>
+            <div class="cta-group">
+                <a href="#products" class="btn-primary">تصفح المعروضات</a>
+                <a href="#contact" class="btn-secondary">احجز فحصاً مجانياً</a>
+            </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">15+</span>
-                    <span class="stat-label">سنة خبرة</span>
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-number">15+</span>
+            <div class="stat-label">سنة خبرة</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">5000+</span>
+            <div class="stat-label">عميل سعيد</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <div class="stat-label">ضمان الجودة</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">24</span>
+            <div class="stat-label">ساعة خدمة</div>
+        </div>
+    </div>
+
+    <!-- Products Gallery Section -->
+    <section class="products" id="products">
+        <div class="section-header fade-in">
+            <span class="section-tag">المعروضات</span>
+            <h2 class="section-title">تشكيلتنا المميزة</h2>
+        </div>
+
+        <div class="products-filter fade-in">
+            <button class="filter-btn active">الكل</button>
+            <button class="filter-btn">نظارات طبية</button>
+            <button class="filter-btn">نظارات شمسية</button>
+            <button class="filter-btn">عدسات لاصقة</button>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card fade-in">
+                <div class="product-badge">جديد</div>
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80" alt="نظارة طبية فاخرة" class="product-image">
+                    <div class="product-overlay">
+                        <a href="#" class="quick-view">عرض سريع</a>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">5000+</span>
-                    <span class="stat-label">عميل سعيد</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">ضمان الجودة</span>
+                <div class="product-content">
+                    <div class="product-category">نظارات طبية</div>
+                    <h3 class="product-title">رايبان كلاسيك</h3>
+                    <p class="product-description">إطار كلاسيكي من الأسيتات مع عدسات عالية الوضوح مضادة للانعكاس</p>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="current-price">1,250 ج.م</span>
+                        </div>
+                        <button class="add-to-cart">+</button>
+                    </div>
                 </div>
             </div>
+
+            <!-- Product 2 -->
+            <div class="product-card fade-in">
+                <div class="product-badge sale">خصم 20%</div>
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="نظارة شمسية" class="product-image">
+                    <div class="product-overlay">
+                        <a href="#" class="quick-view">عرض سريع</a>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">نظارات شمسية</div>
+                    <h3 class="product-title">أوكلي سبورت</h3>
+                    <p class="product-description">نظارة رياضية مع عدسات بولارايزد للحماية من الأشعة فوق البنفسجية</p>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="current-price">1,800 ج.م</span>
+                            <span class="old-price">2,250 ج.م</span>
+                        </div>
+                        <button class="add-to-cart">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card fade-in">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600&q=80" alt="عدسات لاصقة" class="product-image">
+                    <div class="product-overlay">
+                        <a href="#" class="quick-view">عرض سريع</a>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">عدسات لاصقة</div>
+                    <h3 class="product-title">أكيوفيو مويست</h3>
+                    <p class="product-description">عدسات يومية مع تقنية ترطيب متقدمة للراحة طوال اليوم</p>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="current-price">450 ج.م</span>
+                        </div>
+                        <button class="add-to-cart">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card fade-in">
+                <div class="product-badge">الأكثر مبيعاً</div>
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?w=600&q=80" alt="نظارة طبية" class="product-image">
+                    <div class="product-overlay">
+                        <a href="#" class="quick-view">عرض سريع</a>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">نظارات طبية</div>
+                    <h3 class="product-title">توم فورد تيتانيوم</h3>
+                    <p class="product-description">إطار خفيف الوزن من التيتانيوم مع تصميم عصري أنيق</p>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="current-price">3,200 ج.م</span>
+                        </div>
+                        <button class="add-to-cart">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card fade-in">
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="نظارة شمسية" class="product-image">
+                    <div class="product-overlay">
+                        <a href="#" class="quick-view">عرض سريع</a>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">نظارات شمسية</div>
+                    <h3 class="product-title">برادا فيم</h3>
+                    <p class="product-description">تصميم إيطالي فاخر مع عدسات عالية الجودة وحماية كاملة</p>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="current-price">4,500 ج.م</span>
+                        </div>
+                        <button class="add-to-cart">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card fade-in">
+                <div class="product-badge sale">خصم 15%</div>
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" alt="عدسات طبية" class="product-image">
+                    <div class="product-overlay">
+                        <a href="#" class="quick-view">عرض سريع</a>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">نظارات طبية</div>
+                    <h3 class="product-title">جورجيو أرماني</h3>
+                    <p class="product-description">إطار نصف إطار كلاسيكي مناسب للاستخدام اليومي والرسمي</p>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="current-price">2,100 ج.م</span>
+                            <span class="old-price">2,470 ج.م</span>
+                        </div>
+                        <button class="add-to-cart">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="#" class="btn-secondary" style="border-color: var(--primary); color: var(--primary);">عرض جميع المنتجات</a>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
-        <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-tag">خبراتنا</span>
             <h2 class="section-title">ثلاثة أعمدة للرؤية المثالية</h2>
-            <div class="features-grid">
-                
-                <!-- Feature 1 -->
-                <div class="feature-card">
-                    <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600" alt="نظارات طبية" class="feature-image">
-                    <div class="feature-content">
-                        <span class="feature-number">01</span>
-                        <h3>الدقة المتناهية</h3>
-                        <p>عدسات محفورة بالليزر بدقة النانومتر لرؤيتك الفريدة. نستخدم أحدث التقنيات لضمان وضوح مثالي.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="دقة متناهية" class="feature-image">
+                <div class="feature-content">
+                    <div class="feature-number">01</div>
+                    <h3>الدقة المتناهية</h3>
+                    <p>عدسات محفورة بالليزر بدقة النانومتر لرؤيتك الفريدة. نستخدم أحدث تقنيات القياس الرقمي.</p>
+                    <div class="feature-tech">
+                        <span class="tech-tag">ليزر</span>
+                        <span class="tech-tag">نانومتر</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- Feature 2 -->
-                <div class="feature-card">
-                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600" alt="قيادة ليلية" class="feature-image">
-                    <div class="feature-content">
-                        <span class="feature-number">02</span>
-                        <h3>وضوح الليل</h3>
-                        <p>تقنية مكافحة الوهج تزيل 85% من وهج الأنوار. قيادة آمنة في جميع الظروف.</p>
+            <div class="feature-card fade-in">
+                <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80" alt="وضوح ليلي" class="feature-image">
+                <div class="feature-content">
+                    <div class="feature-number">02</div>
+                    <h3>وضوح الليل</h3>
+                    <p>تقنية مكافحة الوهج تزيل 85% من وهج المصابيح. قيادة آمنة في جميع الظروف.</p>
+                    <div class="feature-tech">
+                        <span class="tech-tag">Anti-Glare</span>
+                        <span class="tech-tag">UV400</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- Feature 3 -->
-                <div class="feature-card">
-                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600" alt="حماية من الشاشات" class="feature-image">
-                    <div class="feature-content">
-                        <span class="feature-number">03</span>
-                        <h3>الحماية الرقمية</h3>
-                        <p>تصفية 40% من الضوء الأزرق الضار، تقليل إجهاد العين 60%. حماية كاملة للعين في عالم رقمي.</p>
+            <div class="feature-card fade-in">
+                <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=800&q=80" alt="حماية رقمية" class="feature-image">
+                <div class="feature-content">
+                    <div class="feature-number">03</div>
+                    <h3>الحماية الرقمية</h3>
+                    <p>تصفية 40% من الضوء الأزرق الضار، تقليل إجهاد العين 60%.</p>
+                    <div class="feature-tech">
+                        <span class="tech-tag">Blue Light</span>
+                        <span class="tech-tag">Digital</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Services Strip -->
+    <section class="services-strip">
+        <div class="services-grid">
+            <div class="service-item">
+                <div class="service-icon">👁️</div>
+                <div class="service-content">
+                    <h4>فحص نظر شامل</h4>
+                    <p>أحدث أجهزة الفحص الطبية مع استشاريين متخصصين</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🕶️</div>
+                <div class="service-content">
+                    <h4>نظارات شمسية</h4>
+                    <p>تشكيلة واسعة من الماركات العالمية الأصلية</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🔧</div>
+                <div class="service-content">
+                    <h4>صيانة فورية</h4>
+                    <p>تصليح وضبط النظارات في نفس اليوم</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">💎</div>
+                <div class="service-content">
+                    <h4>عدسات لاصقة</h4>
+                    <p>جميع الأنواع الطبية والتجميلية مع المحاليل</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="container">
-            <h2>زور محلنا في فيصل، الجيزة</h2>
-            <p>احصل على فحص نظر مجاني واستشارة احترافية. نساعدك في اختيار النظارة المثالية لاحتياجاتك.</p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>📍</span>
-                    <span>فيصل، الجيزة، مصر</span>
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h2>زورنا في فيصل</h2>
+                <p>احصل على فحص نظر مجاني واستشارة احترافية. نساعدك في اختيار النظارة المثالية.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h4>العنوان</h4>
+                            <p>فيصل، الجيزة، مصر</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <h4>الهاتف</h4>
+                            <p>01234567890</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div class="contact-text">
+                            <h4>المواعيد</h4>
+                            <p>10 صباحاً - 10 مساءً</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <span>📞</span>
-                    <span>01234567890</span>
-                </div>
-                <div class="contact-item">
-                    <span>🕐</span>
-                    <span>10 ص - 10 م</span>
+
+                <div class="contact-action">
+                    <a href="tel:01234567890" class="btn-primary">اتصل بنا الآن</a>
                 </div>
             </div>
-            
-            <a href="tel:01234567890" class="cta-button" style="margin-top: 30px;">اتصل بنا الآن</a>
+
+            <div class="map-container fade-in">
+                <div class="map-placeholder">
+                    <div class="map-icon">🗺️</div>
+                    <h3>موقع المحل</h3>
+                    <p>يمكنك إضافة خريطة Google Maps هنا</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2024 الهدى للبصريات. جميع الحقوق محفوظة.</p>
+        <div class="footer-content">
+            <div class="footer-logo">الهدى للبصريات</div>
+            <p class="footer-text">نقدم لك رؤية واضحة منذ 2009</p>
+            <div class="social-links">
+                <a href="#">📘</a>
+                <a href="#">📸</a>
+                <a href="#">🐦</a>
+                <a href="#">📱</a>
+            </div>
+            <div class="copyright">© 2024 الهدى للبصريات. جميع الحقوق محفوظة.</div>
         </div>
     </footer>
+
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
