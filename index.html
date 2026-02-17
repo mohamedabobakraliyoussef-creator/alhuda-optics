@@ -665,16 +665,13 @@
             justify-content: center;
         }
 
-        .map-placeholder {
-            text-align: center;
-            color: var(--white);
-            padding: 2rem;
-        }
-
-        .map-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         /* Footer */
@@ -865,7 +862,7 @@
                     <p class="product-description">Classic acetate frame with high-clarity anti-reflective lenses</p>
                     <div class="product-footer">
                         <div class="product-price">
-                            <span class="current-price">$80</span>
+                            <span class="current-price">2,500 EGP</span>
                         </div>
                         <button class="add-to-cart">+</button>
                     </div>
@@ -887,8 +884,8 @@
                     <p class="product-description">Sports sunglasses with polarized lenses for UV protection</p>
                     <div class="product-footer">
                         <div class="product-price">
-                            <span class="current-price">$120</span>
-                            <span class="old-price">$150</span>
+                            <span class="current-price">3,600 EGP</span>
+                            <span class="old-price">4,500 EGP</span>
                         </div>
                         <button class="add-to-cart">+</button>
                     </div>
@@ -909,7 +906,7 @@
                     <p class="product-description">Daily lenses with advanced hydration technology for all-day comfort</p>
                     <div class="product-footer">
                         <div class="product-price">
-                            <span class="current-price">$30</span>
+                            <span class="current-price">450 EGP</span>
                         </div>
                         <button class="add-to-cart">+</button>
                     </div>
@@ -931,7 +928,7 @@
                     <p class="product-description">Lightweight titanium frame with modern elegant design</p>
                     <div class="product-footer">
                         <div class="product-price">
-                            <span class="current-price">$200</span>
+                            <span class="current-price">6,000 EGP</span>
                         </div>
                         <button class="add-to-cart">+</button>
                     </div>
@@ -952,7 +949,7 @@
                     <p class="product-description">Italian luxury design with premium quality lenses</p>
                     <div class="product-footer">
                         <div class="product-price">
-                            <span class="current-price">$280</span>
+                            <span class="current-price">8,500 EGP</span>
                         </div>
                         <button class="add-to-cart">+</button>
                     </div>
@@ -974,8 +971,8 @@
                     <p class="product-description">Semi-rimless classic frame suitable for daily and formal use</p>
                     <div class="product-footer">
                         <div class="product-price">
-                            <span class="current-price">$140</span>
-                            <span class="old-price">$165</span>
+                            <span class="current-price">4,200 EGP</span>
+                            <span class="old-price">4,950 EGP</span>
                         </div>
                         <button class="add-to-cart">+</button>
                     </div>
@@ -1090,29 +1087,33 @@
                         <div class="contact-icon">📞</div>
                         <div class="contact-text">
                             <h4>Phone</h4>
-                            <p>+20 123 456 7890</p>
+                            <p>01111171350</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">🕐</div>
                         <div class="contact-text">
                             <h4>Working Hours</h4>
-                            <p>10 AM - 10 PM</p>
+                            <p>12:00 PM - 1:00 AM</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="contact-action">
-                    <a href="tel:+201234567890" class="btn-primary">Call Us Now</a>
+                    <a href="tel:01111171350" class="btn-primary">Call Us Now</a>
                 </div>
             </div>
 
             <div class="map-container fade-in">
-                <div class="map-placeholder">
-                    <div class="map-icon">🗺️</div>
-                    <h3>Our Location</h3>
-                    <p>Google Maps can be embedded here</p>
-                </div>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.789012345678!2d31.1234567890123!3d30.1234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDA3JzI0LjQiTiAzMcKwMDcnMjQuNCJF!5e0!3m2!1sen!2seg!4v1234567890123!5m2!1sen!2seg" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; border-radius: 24px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </section>
