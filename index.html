@@ -53,6 +53,7 @@
             background-clip: text;
         }
         
+        /* Floating WhatsApp */
         .float-whatsapp {
             position: fixed;
             bottom: 30px;
@@ -66,8 +67,41 @@
             50% { transform: scale(1.1); }
         }
         
+        /* Counter Animation */
         .counter { font-variant-numeric: tabular-nums; }
         
+        /* Loading Screen */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: #0a0a0a;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s;
+        }
+        
+        .loader.hidden { opacity: 0; pointer-events: none; }
+        
+        .loader-bar {
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #D4AF37, #f4e5c2);
+            transition: width 0.1s;
+        }
+        
+        /* Product Card Hover */
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+        
+        /* Image Overlay */
         .image-overlay {
             position: relative;
             overflow: hidden;
@@ -97,27 +131,6 @@
         }
         
         .image-overlay:hover .image-description { transform: translateY(0); }
-        
-        /* Loading Screen */
-        .loader {
-            position: fixed;
-            inset: 0;
-            background: #0a0a0a;
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s;
-        }
-        
-        .loader.hidden { opacity: 0; pointer-events: none; }
-        
-        .loader-bar {
-            width: 0%;
-            height: 4px;
-            background: linear-gradient(90deg, #D4AF37, #f4e5c2);
-            transition: width 0.1s;
-        }
     </style>
 </head>
 <body>
@@ -133,7 +146,7 @@
         </div>
     </div>
 
-    <!-- Floating WhatsApp -->
+    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/201234567890" class="float-whatsapp w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform" target="_blank">
         <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
     </a>
@@ -159,10 +172,12 @@
             </div>
 
             <div class="flex items-center gap-4">
+                <!-- Working Hours Badge -->
                 <div class="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/30">
                     <i data-lucide="clock" class="w-4 h-4 text-yellow-400"></i>
-                    <span class="text-xs font-bold">12 ظ - 1 ص</span>
+                    <span class="text-xs font-bold text-yellow-400">12 ظ - 1 ص</span>
                 </div>
+                <!-- Mobile Phone Button -->
                 <a href="tel:+201234567890" class="md:hidden w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center">
                     <i data-lucide="phone" class="w-5 h-5 text-black"></i>
                 </a>
@@ -202,7 +217,7 @@
                         </a>
                     </div>
 
-                    <!-- Working Hours Box -->
+                    <!-- Working Hours Box - بارزة جداً -->
                     <div class="mt-8 p-6 glass rounded-2xl border-2 border-yellow-500/30 bg-gradient-to-br from-yellow-500/10 to-transparent">
                         <div class="flex items-center gap-4 justify-center md:justify-start">
                             <div class="w-14 h-14 rounded-full bg-yellow-500 flex items-center justify-center flex-shrink-0">
@@ -226,7 +241,7 @@
                         
                         <!-- Floating Badge -->
                         <div class="absolute -top-4 -right-4 w-28 h-28 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex flex-col items-center justify-center text-black font-bold shadow-xl animate-bounce">
-                            <span class="text-3xl">15</span>
+                            <span class="text-3xl counter" data-target="15">0</span>
                             <span class="text-xs">سنة خبرة</span>
                         </div>
                     </div>
@@ -235,7 +250,7 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats Section - العدادات شغالة -->
     <section class="py-20 relative">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -259,7 +274,7 @@
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- Products Section - منتجات حقيقية -->
     <section id="products" class="py-20 relative bg-gradient-to-b from-transparent to-black/50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -269,7 +284,7 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Product 1 -->
-                <div class="group glass rounded-2xl overflow-hidden border border-white/10 hover:border-yellow-500/50 transition-all hover:transform hover:scale-105">
+                <div class="product-card glass rounded-2xl overflow-hidden border border-white/10">
                     <div class="relative image-overlay aspect-[4/3]">
                         <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&auto=format&fit=crop&q=80" 
                              alt="نظارة تيتانيوم إيطالي" 
@@ -289,15 +304,15 @@
                         <h3 class="text-xl font-bold mb-2">تيتانيوم إيطالي</h3>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-yellow-400">650 ج.م</span>
-                            <button class="px-4 py-2 bg-yellow-500 text-black rounded-lg font-bold text-sm hover:bg-yellow-400 transition-colors">
+                            <a href="https://wa.me/201234567890?text=أرغب في طلب نظارة تيتانيوم إيطالي" class="px-4 py-2 bg-yellow-500 text-black rounded-lg font-bold text-sm hover:bg-yellow-400 transition-colors">
                                 اطلب الآن
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
-                <div class="group glass rounded-2xl overflow-hidden border border-white/10 hover:border-yellow-500/50 transition-all hover:transform hover:scale-105">
+                <div class="product-card glass rounded-2xl overflow-hidden border border-white/10">
                     <div class="relative image-overlay aspect-[4/3]">
                         <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&auto=format&fit=crop&q=80" 
                              alt="نظارة شمسية بولارايزد" 
@@ -317,15 +332,15 @@
                         <h3 class="text-xl font-bold mb-2">شمسية بولارايزد</h3>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-yellow-400">850 ج.م</span>
-                            <button class="px-4 py-2 bg-yellow-500 text-black rounded-lg font-bold text-sm hover:bg-yellow-400 transition-colors">
+                            <a href="https://wa.me/201234567890?text=أرغب في طلب نظارة شمسية بولارايزد" class="px-4 py-2 bg-yellow-500 text-black rounded-lg font-bold text-sm hover:bg-yellow-400 transition-colors">
                                 اطلب الآن
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
-                <div class="group glass rounded-2xl overflow-hidden border border-white/10 hover:border-yellow-500/50 transition-all hover:transform hover:scale-105">
+                <div class="product-card glass rounded-2xl overflow-hidden border border-white/10">
                     <div class="relative image-overlay aspect-[4/3]">
                         <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&auto=format&fit=crop&q=80" 
                              alt="نظارة طبية كلاسيكية" 
@@ -348,9 +363,9 @@
                                 <span class="text-lg text-gray-500 line-through ml-2">450 ج.م</span>
                                 <span class="text-2xl font-bold text-yellow-400">360 ج.م</span>
                             </div>
-                            <button class="px-4 py-2 bg-yellow-500 text-black rounded-lg font-bold text-sm hover:bg-yellow-400 transition-colors">
+                            <a href="https://wa.me/201234567890?text=أرغب في طلب نظارة كلاسيكي أنيق" class="px-4 py-2 bg-yellow-500 text-black rounded-lg font-bold text-sm hover:bg-yellow-400 transition-colors">
                                 اطلب الآن
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -365,7 +380,7 @@
         </div>
     </section>
 
-    <!-- Features Section (Fixed Images) -->
+    <!-- Features Section - صور مصححة -->
     <section id="features" class="py-20 relative">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -373,7 +388,7 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
+                <!-- Feature 1: Precision -->
                 <div class="glass rounded-2xl overflow-hidden border border-white/10">
                     <div class="aspect-video relative overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1582142839970-2b9e04b60f65?w=600&auto=format&fit=crop&q=80" 
@@ -389,9 +404,10 @@
                     </div>
                 </div>
 
-                <!-- Feature 2 (Fixed: Night Driving) -->
+                <!-- Feature 2: Night Clarity - صورة مصححة -->
                 <div class="glass rounded-2xl overflow-hidden border border-white/10">
                     <div class="aspect-video relative overflow-hidden">
+                        <!-- صورة قيادة ليلية بدل الصحراء -->
                         <img src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=600&auto=format&fit=crop&q=80" 
                              alt="عدسات مضادة للوهج ليلاً" 
                              class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
@@ -409,9 +425,10 @@
                     </div>
                 </div>
 
-                <!-- Feature 3 (Fixed: Digital Protection) -->
+                <!-- Feature 3: Digital Protection - صورة مصححة -->
                 <div class="glass rounded-2xl overflow-hidden border border-white/10">
                     <div class="aspect-video relative overflow-hidden">
+                        <!-- صورة حماية من الشاشات بدل الراجل الأجنبي -->
                         <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=600&auto=format&fit=crop&q=80" 
                              alt="حماية من الضوء الأزرق للأجهزة الرقمية" 
                              class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
@@ -428,7 +445,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section - معلومات كاملة -->
     <section id="contact" class="py-20 relative bg-gradient-to-b from-black/50 to-black">
         <div class="container mx-auto px-4">
             <div class="glass rounded-3xl p-8 md:p-12 max-w-5xl mx-auto border border-yellow-500/20">
@@ -485,7 +502,7 @@
                         </div>
                     </div>
 
-                    <!-- Map Placeholder -->
+                    <!-- Map -->
                     <div class="glass rounded-2xl overflow-hidden border border-white/10 h-full min-h-[400px] relative">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.789!2d31.1234!3d29.9876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDU5JzE1LjQiTiAzMcKwMDcnMjQuMiJF!5e0!3m2!1sen!2seg!4v1234567890"
@@ -530,7 +547,7 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Loading Screen
+        // Loading Screen Animation
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             const progress = document.getElementById('loader-progress');
@@ -543,7 +560,7 @@
                     text.textContent = "جاهز!";
                     setTimeout(() => {
                         loader.classList.add('hidden');
-                        initCounters();
+                        initCounters(); // تشغيل العدادات بعد التحميل
                     }, 500);
                 } else {
                     width += Math.random() * 30;
@@ -553,7 +570,7 @@
             }, 200);
         });
 
-        // Counter Animation
+        // Counter Animation - الكود المهم اللي كان ناقص!
         function initCounters() {
             gsap.registerPlugin(ScrollTrigger);
             
