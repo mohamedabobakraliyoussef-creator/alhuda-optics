@@ -3,249 +3,1585 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الهدى للبصريات | Al-Huda Optics</title>
+    <title>الهدى للبصريات | Al-Huda Optics - فيصل، الجيزة</title>
+    <meta name="description" content="الهدى للبصريات - محل نظارات فاخر في فيصل، الجيزة. نظارات طبية، شمسية، عدسات لاصقة. لا حاجة لموعد مسبق. أستاذ محمود أبو بكر">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            'gold-light': '#F4E5C2',
+                            'gold-dark': '#B8960C',
+                            dark: '#0a0a0a',
+                            darker: '#050505',
+                            gray: '#1a1a1a',
+                            'gray-light': '#2a2a2a'
+                        }
+                    },
+                    fontFamily: {
+                        ar: ['Cairo', 'sans-serif'],
+                        en: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            color: #fff;
-            line-height: 1.6;
+        :root {
+            --dir: rtl;
+            --align: right;
         }
         
+        [dir="ltr"] {
+            --dir: ltr;
+            --align: left;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+            direction: var(--dir);
+        }
+        
+        [dir="ltr"] body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .lang-ar { display: block; }
         .lang-en { display: none; }
         
         [dir="ltr"] .lang-ar { display: none; }
         [dir="ltr"] .lang-en { display: block; }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #F4E5C2 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         
-        /* Language Switcher */
-        .lang-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .glass-hover:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #D4AF37, #B8960C);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+        }
+        
+        .btn-outline {
+            border: 2px solid #D4AF37;
+            color: #D4AF37;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-outline:hover {
             background: #D4AF37;
             color: #000;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            z-index: 1000;
+            transform: translateY(-3px);
         }
         
-        [dir="ltr"] .lang-switch { right: auto; left: 20px; }
+        .counter {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+        }
         
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
-            padding: 100px 0 50px;
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .open-badge {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .no-appointment {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+            border: 2px solid #D4AF37;
+            border-radius: 20px;
+            padding: 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .logo {
-            width: 100px;
-            height: 100px;
+        .no-appointment::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        /* Product Cards */
+        .product-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #D4AF37;
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
             background: linear-gradient(135deg, #D4AF37, #B8960C);
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            z-index: 10;
+        }
+        
+        [dir="ltr"] .product-badge {
+            left: auto;
+            right: 15px;
+        }
+        
+        .product-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .feature-tag {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #D4AF37;
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #D4AF37, #B8960C);
+            color: #000;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.25rem;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        /* Category Filter */
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #D4AF37;
+            border-color: #D4AF37;
+            color: #000;
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #D4AF37;
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+        
+        .owner-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.02));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 30px;
+            padding: 3rem;
+            position: relative;
+        }
+        
+        .owner-avatar {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
+            background: linear-gradient(135deg, #D4AF37, #B8960C);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-            font-weight: bold;
+            font-size: 2.5rem;
+            font-weight: 800;
             color: #000;
+            margin: 0 auto 2rem;
+            border: 4px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
         
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #D4AF37, #F4E5C2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .subtitle { font-size: 1.2rem; color: #888; margin-bottom: 30px; }
-        
-        /* No Appointment Badge */
-        .no-appointment {
-            background: rgba(212, 175, 55, 0.1);
-            border: 2px solid #D4AF37;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 30px auto;
-            max-width: 500px;
-        }
-        
-        .no-appointment h2 {
-            color: #D4AF37;
-            margin-bottom: 10px;
-        }
-        
-        /* Hours */
-        .hours {
-            background: rgba(255,255,255,0.05);
-            padding: 15px 30px;
-            border-radius: 10px;
-            display: inline-block;
-            margin: 20px 0;
-        }
-        
-        .hours strong {
-            color: #D4AF37;
-            font-size: 1.3rem;
-        }
-        
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 50px 0;
-        }
-        
-        .stat {
-            background: rgba(255,255,255,0.03);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #D4AF37;
-        }
-        
-        /* Contact Bar */
         .contact-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: #1a1a1a;
-            padding: 15px;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 1rem;
+            z-index: 1000;
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 1rem;
             flex-wrap: wrap;
-            border-top: 2px solid #D4AF37;
         }
         
         .contact-btn {
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
         }
         
-        .contact-btn:hover { transform: translateY(-3px); }
-        
-        .btn-phone { background: #D4AF37; color: #000; }
-        .btn-whatsapp { background: #25d366; color: #fff; }
-        .btn-location { background: transparent; color: #D4AF37; border: 2px solid #D4AF37; }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 50px 20px 100px;
-            color: #666;
+        .contact-btn.phone {
+            background: #D4AF37;
+            color: #000;
         }
         
-        .phone-big {
-            font-size: 2rem;
+        .contact-btn.whatsapp {
+            background: #25d366;
+            color: white;
+        }
+        
+        .contact-btn.location {
+            background: transparent;
+            border: 2px solid #D4AF37;
             color: #D4AF37;
-            margin: 20px 0;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .working-hours {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .lang-switch {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 999;
+            background: rgba(212, 175, 55, 0.2);
+            border: 2px solid #D4AF37;
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        [dir="ltr"] .lang-switch {
+            right: auto;
+            left: 20px;
+        }
+        
+        .lang-switch:hover {
+            background: #D4AF37;
+            color: #000;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #D4AF37;
+            opacity: 0.3;
+        }
+        
+        [dir="ltr"] .testimonial-card::before {
+            left: auto;
+            right: 20px;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #D4AF37;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: particle-float 10s infinite;
+        }
+        
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: #D4AF37;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        
+        [dir="ltr"] .scroll-top {
+            right: auto;
+            left: 20px;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+            border: 2px solid #D4AF37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+            transition: all 0.3s;
+        }
+        
+        .feature-icon:hover {
+            transform: rotate(360deg) scale(1.1);
+            background: #D4AF37;
+        }
+        
+        /* Quick View Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: #1a1a1a;
+            border-radius: 24px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 2px solid #D4AF37;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #D4AF37;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #000;
+            z-index: 10;
+        }
+        
+        [dir="ltr"] .modal-close {
+            right: auto;
+            left: 20px;
         }
     </style>
 </head>
-<body>
-    <button class="lang-switch" onclick="toggleLang()">
-        <span class="lang-ar">English 🇬🇧</span>
-        <span class="lang-en">العربية 🇪🇬</span>
+<body class="pb-24">
+    <!-- Language Switcher -->
+    <button class="lang-switch" onclick="toggleLanguage()">
+        <span class="lang-ar">🇬🇧 English</span>
+        <span class="lang-en">🇪🇬 العربية</span>
     </button>
+    
+    <!-- Scroll to Top -->
+    <div class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
-    <header>
-        <div class="container">
-            <div class="logo">A</div>
-            <h1 class="lang-ar">الهدى للبصريات</h1>
-            <h1 class="lang-en">Al-Huda Optics</h1>
-            
-            <p class="subtitle lang-ar">منذ 2009 • فيصل، الجيزة</p>
-            <p class="subtitle lang-en">Since 2009 • Faisal, Giza</p>
-            
-            <div class="no-appointment">
-                <h2 class="lang-ar">🚪 تعال مباشرة!</h2>
-                <h2 class="lang-en">🚪 Walk Right In!</h2>
-                <p class="lang-ar">لا حاجة لموعد مسبق - نستقبلك فور وصولك</p>
-                <p class="lang-en">No appointment needed - we'll serve you immediately</p>
-            </div>
-            
-            <div class="hours">
-                <p class="lang-ar">ساعات العمل: <strong>12 ظهراً - 1 صباحاً</strong> (يومياً)</p>
-                <p class="lang-en">Working Hours: <strong>12 PM - 1 AM</strong> (Daily)</p>
+    <!-- Background Effects -->
+    <div class="hero-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-gold to-brand-gold-dark flex items-center justify-center">
+                        <span class="text-black font-bold text-xl">A</span>
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold text-gradient-gold lang-ar">الهدى للبصريات</div>
+                        <div class="text-xl font-bold text-gradient-gold lang-en">Al-Huda Optics</div>
+                        <div class="text-xs text-gray-400 lang-ar">Al-Huda Optics</div>
+                        <div class="text-xs text-gray-400 lang-en">الهدى للبصريات</div>
+                    </div>
+                </a>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#products" class="text-gray-300 hover:text-brand-gold transition lang-ar">المنتجات</a>
+                    <a href="#products" class="text-gray-300 hover:text-brand-gold transition lang-en">Products</a>
+                    <a href="#services" class="text-gray-300 hover:text-brand-gold transition lang-ar">خدماتنا</a>
+                    <a href="#services" class="text-gray-300 hover:text-brand-gold transition lang-en">Services</a>
+                    <a href="#about" class="text-gray-300 hover:text-brand-gold transition lang-ar">من نحن</a>
+                    <a href="#about" class="text-gray-300 hover:text-brand-gold transition lang-en">About</a>
+                    <a href="#contact" class="text-gray-300 hover:text-brand-gold transition lang-ar">اتصل بنا</a>
+                    <a href="#contact" class="text-gray-300 hover:text-brand-gold transition lang-en">Contact</a>
+                </div>
+                
+                <div class="open-badge">
+                    <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                    <span class="lang-ar">مفتوح الآن</span>
+                    <span class="lang-en">Open Now</span>
+                </div>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="container">
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-number">15+</div>
-                <p class="lang-ar">سنة خبرة</p>
-                <p class="lang-en">Years Experience</p>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="floating mb-8">
+                <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80" 
+                     alt="Premium Glasses" 
+                     class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full mx-auto shadow-2xl border-4 border-brand-gold/30">
             </div>
-            <div class="stat">
-                <div class="stat-number">50K+</div>
-                <p class="lang-ar">عميل سعيد</p>
-                <p class="lang-en">Happy Clients</p>
+            
+            <div class="mb-6">
+                <span class="text-brand-gold text-lg font-semibold tracking-wider lang-ar">منذ 2009 • فيصل، الجيزة</span>
+                <span class="text-brand-gold text-lg font-semibold tracking-wider lang-en">Since 2009 • Faisal, Giza</span>
             </div>
-            <div class="stat">
-                <div class="stat-number">100%</div>
-                <p class="lang-ar">ضمان الجودة</p>
-                <p class="lang-en">Quality Guarantee</p>
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <span class="text-gradient-gold lang-ar">الرؤية ليست رفاهية</span>
+                <span class="text-gradient-gold lang-en">Vision Is Not</span>
+                <br>
+                <span class="text-white lang-ar">إنها حقك</span>
+                <span class="text-white lang-en">A Luxury</span>
+            </h1>
+            
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8 lang-ar">
+                نقدم لك نظارات طبية وشمسية فاخرة بأعلى جودة وأفضل الأسعار في فيصل، الجيزة
+            </p>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8 lang-en">
+                We offer premium medical and sunglasses with the highest quality and best prices in Faisal, Giza
+            </p>
+            
+            <div class="no-appointment max-w-md mx-auto mb-8">
+                <div class="text-3xl mb-2">🚶‍♂️</div>
+                <h3 class="text-2xl font-bold text-brand-gold mb-2 lang-ar">تعال مباشرة!</h3>
+                <h3 class="text-2xl font-bold text-brand-gold mb-2 lang-en">Walk Right In!</h3>
+                <p class="text-white lang-ar">لا حاجة لموعد مسبق - نستقبلك فور وصولك</p>
+                <p class="text-white lang-en">No appointment needed - we'll serve you immediately</p>
+            </div>
+            
+            <div class="working-hours">
+                <i class="far fa-clock text-3xl text-brand-gold"></i>
+                <div class="text-right lang-ar">
+                    <div class="text-sm text-gray-400">ساعات العمل</div>
+                    <div class="text-lg font-bold text-white">12:00 ظهراً - 1:00 صباحاً</div>
+                    <div class="text-sm text-brand-gold">يومياً</div>
+                </div>
+                <div class="text-left lang-en">
+                    <div class="text-sm text-gray-400">Working Hours</div>
+                    <div class="text-lg font-bold text-white">12:00 PM - 1:00 AM</div>
+                    <div class="text-sm text-brand-gold">Daily</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <h3 class="lang-ar">الأستاذ محمود أبو بكر</h3>
-        <h3 class="lang-en">Mr. Mahmoud Abu Bakr</h3>
-        <p class="lang-ar">شارع المطبعة، فيصل، الجيزة</p>
-        <p class="lang-en">El-Matbaa Street, Faisal, Giza</p>
-        <div class="phone-big">01111171350</div>
+    <!-- Stats Section -->
+    <section id="about" class="py-20 bg-brand-gray/30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="text-gradient-gold lang-ar">إحصائياتنا</span>
+                    <span class="text-gradient-gold lang-en">Our Statistics</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass glass-hover p-8 rounded-3xl text-center transition-all duration-300">
+                    <div class="counter text-gradient-gold" data-target="15">0</div>
+                    <div class="text-xl text-gray-300 mt-2 lang-ar">+ سنة خبرة</div>
+                    <div class="text-xl text-gray-300 mt-2 lang-en">+ Years Experience</div>
+                </div>
+                <div class="glass glass-hover p-8 rounded-3xl text-center transition-all duration-300">
+                    <div class="counter text-gradient-gold" data-target="50000">0</div>
+                    <div class="text-xl text-gray-300 mt-2 lang-ar">+ عميل سعيد</div>
+                    <div class="text-xl text-gray-300 mt-2 lang-en">+ Happy Clients</div>
+                </div>
+                <div class="glass glass-hover p-8 rounded-3xl text-center transition-all duration-300">
+                    <div class="counter text-gradient-gold" data-target="100">0</div>
+                    <div class="text-xl text-gray-300 mt-2 lang-ar">% ضمان الجودة</div>
+                    <div class="text-xl text-gray-300 mt-2 lang-en">% Quality Guarantee</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="text-gradient-gold lang-ar">منتجاتنا الفاخرة</span>
+                    <span class="text-gradient-gold lang-en">Our Premium Products</span>
+                </h2>
+                <p class="text-gray-400 text-lg lang-ar">تشكيلة واسعة من النظارات والعدسات بأفضل الأسعار</p>
+                <p class="text-gray-400 text-lg lang-en">Wide collection of glasses and lenses at best prices</p>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="flex justify-center gap-4 mb-12 flex-wrap">
+                <button class="filter-btn active" onclick="filterProducts('all')">
+                    <span class="lang-ar">الكل</span>
+                    <span class="lang-en">All</span>
+                </button>
+                <button class="filter-btn" onclick="filterProducts('medical')">
+                    <span class="lang-ar">نظارات طبية</span>
+                    <span class="lang-en">Medical</span>
+                </button>
+                <button class="filter-btn" onclick="filterProducts('sunglasses')">
+                    <span class="lang-ar">نظارات شمسية</span>
+                    <span class="lang-en">Sunglasses</span>
+                </button>
+                <button class="filter-btn" onclick="filterProducts('lenses')">
+                    <span class="lang-ar">عدسات لاصقة</span>
+                    <span class="lang-en">Contact Lenses</span>
+                </button>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
+                
+                <!-- Medical Glasses 1 -->
+                <div class="product-card" data-category="medical">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600&q=80" alt="Classic Medical Frame" class="product-image">
+                        <span class="product-badge lang-ar">الأكثر مبيعاً</span>
+                        <span class="product-badge lang-en">Best Seller</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 lang-ar">نظارة كلاسيكية أنيقة</h3>
+                        <h3 class="text-xl font-bold mb-2 lang-en">Classic Elegant Frame</h3>
+                        <p class="text-gray-400 text-sm mb-3 lang-ar">إطار معدني خفيف الوزن مع عدسات مضادة للانعكاس</p>
+                        <p class="text-gray-400 text-sm mb-3 lang-en">Lightweight metal frame with anti-reflective lenses</p>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">معدن تيتانيوم</span>
+                            <span class="feature-tag lang-en">Titanium</span>
+                            <span class="feature-tag lang-ar">مضاد للانعكاس</span>
+                            <span class="feature-tag lang-en">Anti-Glare</span>
+                            <span class="feature-tag lang-ar">خفيفة الوزن</span>
+                            <span class="feature-tag lang-en">Lightweight</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="price-tag">350 ج.م</span>
+                            <button class="btn-outline text-sm py-2 px-4" onclick="quickView('classic')">
+                                <span class="lang-ar">عرض سريع</span>
+                                <span class="lang-en">Quick View</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Glasses 2 -->
+                <div class="product-card" data-category="medical">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Modern Medical Frame" class="product-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 lang-ar">نظارة مودرن عصرية</h3>
+                        <h3 class="text-xl font-bold mb-2 lang-en">Modern Contemporary Frame</h3>
+                        <p class="text-gray-400 text-sm mb-3 lang-ar">تصميم عصري بلاستيكي عالي المتانة مع حماية من الأشعة الزرقاء</p>
+                        <p class="text-gray-400 text-sm mb-3 lang-en">Modern plastic design with blue light protection</p>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">بلاستيك عالي الجودة</span>
+                            <span class="feature-tag lang-en">Premium Plastic</span>
+                            <span class="feature-tag lang-ar">حماية من الضوء الأزرق</span>
+                            <span class="feature-tag lang-en">Blue Light Filter</span>
+                            <span class="feature-tag lang-ar">مريحة للاستخدام الطويل</span>
+                            <span class="feature-tag lang-en">Comfort Fit</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="price-tag">450 ج.م</span>
+                            <button class="btn-outline text-sm py-2 px-4" onclick="quickView('modern')">
+                                <span class="lang-ar">عرض سريع</span>
+                                <span class="lang-en">Quick View</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Glasses 3 -->
+                <div class="product-card" data-category="medical">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Premium Medical Frame" class="product-image">
+                        <span class="product-badge lang-ar">فاخر</span>
+                        <span class="product-badge lang-en">Premium</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 lang-ar">نظارة فاخرة ذهبية</h3>
+                        <h3 class="text-xl font-bold mb-2 lang-en">Luxury Gold Frame</h3>
+                        <p class="text-gray-400 text-sm mb-3 lang-ar">إطار ذهبي اللون مع عدسات متعددة البؤر للقراءة والبعد</p>
+                        <p class="text-gray-400 text-sm mb-3 lang-en">Gold-colored frame with progressive multifocal lenses</p>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">طلاء ذهبي</span>
+                            <span class="feature-tag lang-en">Gold Plated</span>
+                            <span class="feature-tag lang-ar">عدسات متعددة البؤر</span>
+                            <span class="feature-tag lang-en">Progressive</span>
+                            <span class="feature-tag lang-ar">ضد الخدوش</span>
+                            <span class="feature-tag lang-en">Scratch Resistant</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="price-tag">750 ج.م</span>
+                            <button class="btn-outline text-sm py-2 px-4" onclick="quickView('luxury')">
+                                <span class="lang-ar">عرض سريع</span>
+                                <span class="lang-en">Quick View</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Glasses 4 -->
+                <div class="product-card" data-category="medical">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" alt="Kids Medical Frame" class="product-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 lang-ar">نظارة أطفال مرنة</h3>
+                        <h3 class="text-xl font-bold mb-2 lang-en">Flexible Kids Frame</h3>
+                        <p class="text-gray-400 text-sm mb-3 lang-ar">إطار مرن مقاوم للكسر مع أربطة مطاطية آمنة للأطفال</p>
+                        <p class="text-gray-400 text-sm mb-3 lang-en">Flexible break-resistant frame with safe elastic straps</p>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">مرن ومقاوم للكسر</span>
+                            <span class="feature-tag lang-en">Flexible & Durable</span>
+                            <span class="feature-tag lang-ar">آمن للأطفال</span>
+                            <span class="feature-tag lang-en">Child Safe</span>
+                            <span class="feature-tag lang-ar">ألوان متعددة</span>
+                            <span class="feature-tag lang-en">Multiple Colors</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="price-tag">280 ج.م</span>
+                            <button class="btn-outline text-sm py-2 px-4" onclick="quickView('kids')">
+                                <span class="lang-ar">عرض سريع</span>
+                                <span class="lang-en">Quick View</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Glasses 5 -->
+                <div class="product-card" data-category="medical">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600&q=80" alt="Sports Medical Frame" class="product-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 lang-ar">نظارة رياضية نشطة</h3>
+                        <h3 class="text-xl font-bold mb-2 lang-en">Active Sports Frame</h3>
+                        <p class="text-gray-400 text-sm mb-3 lang-ar">تصميم رياضي مع عدسات مقاومة للصدمات ومضادة للانزلاق</p>
+                        <p class="text-gray-400 text-sm mb-3 lang-en">Sports design with impact-resistant lenses and anti-slip</p>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">مقاوم للصدمات</span>
+                            <span class="feature-tag lang-en">Impact Resistant</span>
+                            <span class="feature-tag lang-ar">مضاد للانزلاق</span>
+                            <span class="feature-tag lang-en">Anti-Slip</span>
+                            <span class="feature-tag lang-ar">مناسب للرياضة</span>
+                            <span class="feature-tag lang-en">Sports Ready</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="price-tag">550 ج.م</span>
+                            <button class="btn-outline text-sm py-2 px-4" onclick="quickView('sports')">
+                                <span class="lang-ar">عرض سريع</span>
+                                <span class="lang-en">Quick View</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Glasses 6 -->
+                <div class="product-card" data-category="medical">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1598512752271-33f913a5af13?w=600&q=80" alt="Vintage Medical Frame" class="product-image">
+                        <span class="product-badge lang-ar">جديد</span>
+                        <span class="product-badge lang-en">New</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 lang-ar">نظارة فينتاج ريترو</h3>
+                        <h3 class="text-xl font-bold mb-2 lang-en">Vintage Retro Frame</h3>
+                        <p class="text-gray-400 text-sm mb-3 lang-ar">تصميم كلاسيكي ريترو مع عدسات عالية الوضوح وطبقة UV</p>
+                        <p class="text-gray-400 text-sm mb-3 lang-en">Classic retro design with HD lenses and UV coating</p>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">تصميم ريترو</span>
+                            <span class="feature-tag lang-en">Retro Design</span>
+                            <span class="feature-tag lang-ar">حماية UV</span>
+                            <span class="feature-tag lang-en">UV Protection</span>
+                            <span class="feature-tag lang-ar">عدسات عالية الوضوح</span>
+                            <span class="feature-tag lang-en">HD Lenses</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="price-tag">480 ج.م</span>
+                            <button class="btn-outline text-sm py-2 px-4" onclick="quickView('vintage')">
+                                <span class="lang-ar">عرض سريع</span>
+                                <span class="lang-en">Quick View</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunglasses 1 -->
+                <div class="product-card" data-category="sunglasses">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Aviator Sunglasses" class="product-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 lang-ar">نظارة شمسية أفياتور</h3>
+                        <h3 class="text-xl font-bold mb-2 lang-en">Aviator Sunglasses</h3>
+                        <p class="text-gray-400 text-sm mb-3 lang-ar">تصميم أفياتور كلاسيكي مع عدسات polarized للحماية من الوهج</p>
+                        <p class="text-gray-400 text-sm mb-3 lang-en">Classic aviator design with polarized anti-glare lenses</p>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">عدسات Polarized</span>
+                            <span class="feature-tag lang-en">Polarized</span>
+                            <span class="feature-tag lang-ar">حماية UV400</span>
+                            <span class="feature-tag lang-en">UV400</span>
+                            <span class="feature-tag lang-ar">إطار معدني</span>
+                            <span class="feature-tag lang-en">Metal Frame</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="price-tag">450 ج.م</span>
+                            <button class="btn-outline text-sm py-2 px-4" onclick="quickView('aviator')">
+                                <span class="lang-ar">عرض سريع</span>
+                                <span class="lang-en">Quick View</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunglasses 2 -->
+                <div class="product-card" data-category="sunglasses">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Wayfarer Sunglasses" class="product-image">
+                        <span class="product-badge lang-ar">مميز</span>
+                        <span class="product-badge lang-en">Featured</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 lang-ar">نظارة شمسية وايفارر</h3>
+                        <h3 class="text-xl font-bold mb-2 lang-en">Wayfarer Sunglasses</h3>
+                        <p class="text-gray-400 text-sm mb-3 lang-ar">تصميم وايفارر العصري مع عدسات متدرجة وحماية كاملة</p>
+                        <p class="text-gray-400 text-sm mb-3 lang-en">Modern wayfarer with gradient lenses and full protection</p>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">عدسات متدرجة</span>
+                            <span class="feature-tag lang-en">Gradient Lenses</span>
+                            <span class="feature-tag lang-ar">بلاستيك عالي الجودة</span>
+                            <span class="feature-tag lang-en">Premium Plastic</span>
+                            <span class="feature-tag lang-ar">خفيفة الوزن</span>
+                            <span class="feature-tag lang-en">Lightweight</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="price-tag">380 ج.م</span>
+                            <button class="btn-outline text-sm py-2 px-4" onclick="quickView('wayfarer')">
+                                <span class="lang-ar">عرض سريع</span>
+                                <span class="lang-en">Quick View</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunglasses 3 -->
+                <div class="product-card" data-category="sunglasses">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" alt="Cat Eye Sunglasses" class="product-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 lang-ar">نظارة شمسية كات آي</h3>
+                        <h3 class="text-xl font-bold mb-2 lang-en">Cat Eye Sunglasses</h3>
+                        <p class="text-gray-400 text-sm mb-3 lang-ar">تصميم أنثوي أنيق على شكل عين القطة مع زخارف جانبية</p>
+                        <p class="text-gray-400 text-sm mb-3 lang-en">Elegant feminine cat-eye design with side decorations</p>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">تصميم أنثوي</span>
+                            <span class="feature-tag lang-en">Feminine Design</span>
+                            <span class="feature-tag lang-ar">زخارف أنيقة</span>
+                            <span class="feature-tag lang-en">Elegant Details</span>
+                            <span class="feature-tag lang-ar">ألوان متعددة</span>
+                            <span class="feature-tag lang-en">Multiple Colors</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="price-tag">420 ج.م</span>
+                            <button class="btn-outline text-sm py-2 px-4" onclick="quickView('cateye')">
+                                <span class="lang-ar">عرض سريع</span>
+                                <span class="lang-en">Quick View</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunglasses 4 -->
+                <div class="product-card" data-category="sunglasses">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600&q=80" alt="Round Sunglasses" class="product-image">
+                        <span class="product-badge lang-ar">عصري</span>
+                        <span class="product-badge lang-en">Trendy</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 lang-ar">نظارة شمسية دائرية</h3>
+                        <h3 class="text-xl font-bold mb-2 lang-en">Round Sunglasses</h3>
+                        <p class="text-gray-400 text-sm mb-3 lang-ar">تصميم دائري عصري مستوحى من الخمسينيات مع عدسات عاكسة</p>
+                        <p class="text-gray-400 text-sm mb-3 lang-en">Modern round design inspired by the 50s with mirrored lenses</p>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">عدسات عاكسة</span>
+                            <span class="feature-tag lang-en">Mirrored Lenses</span>
+                            <span class="feature-tag lang-ar">تصميم عصري</span>
+                            <span class="feature-tag lang-en">Modern Style</span>
+                            <span class="feature-tag lang-ar">حماية كاملة</span>
+                            <span class="feature-tag lang-en">Full Protection</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="price-tag">400 ج.م</span>
+                            <button class="btn-outline text-sm py-2 px-4" onclick="quickView('round')">
+                                <span class="lang-ar">عرض سريع</span>
+                                <span class="lang-en">Quick View</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Lenses 1 -->
+                <div class="product-card" data-category="lenses">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1582142839970-2b9e04b60f65?w=600&q=80" alt="Monthly Contact Lenses" class="product-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 lang-ar">عدسات شهرية طبية</h3>
+                        <h3 class="text-xl font-bold mb-2 lang-en">Monthly Medical Lenses</h3>
+                        <p class="text-gray-400 text-sm mb-3 lang-ar">عدسات لاصقة شهرية عالية التنفس مع حماية من الأشعة UV</p>
+                        <p class="text-gray-400 text-sm mb-3 lang-en">High-oxygen monthly lenses with UV protection</p>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">تنفس عالي</span>
+                            <span class="feature-tag lang-en">High Oxygen</span>
+                            <span class="feature-tag lang-ar">رطوبة طويلة</span>
+                            <span class="feature-tag lang-en">Long Moisture</span>
+                            <span class="feature-tag lang-ar">حماية UV</span>
+                            <span class="feature-tag lang-en">UV Protection</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="price-tag">150 ج.م</span>
+                            <span class="text-gray-400 text-sm lang-ar">(زوج واحد)</span>
+                            <span class="text-gray-400 text-sm lang-en">(per pair)</span>
+                            <button class="btn-outline text-sm py-2 px-4" onclick="quickView('monthly')">
+                                <span class="lang-ar">عرض سريع</span>
+                                <span class="lang-en">Quick View</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Lenses 2 -->
+                <div class="product-card" data-category="lenses">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80" alt="Daily Contact Lenses" class="product-image">
+                        <span class="product-badge lang-ar">يومية</span>
+                        <span class="product-badge lang-en">Daily</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 lang-ar">عدسات يومية طبية</h3>
+                        <h3 class="text-xl font-bold mb-2 lang-en">Daily Disposable Lenses</h3>
+                        <p class="text-gray-400 text-sm mb-3 lang-ar">عدسات يومية للاستعمال مرة واحدة - مريحة وصحية</p>
+                        <p class="text-gray-400 text-sm mb-3 lang-en">Daily disposable lenses - comfortable and hygienic</p>
+                        <div class="product-features">
+                            <span class="feature-tag lang-ar">استعمال يومي</span>
+                            <span class="feature-tag lang-en">Daily Use</span>
+                            <span class="feature-tag lang-ar">لا تحتاج لمحلول</span>
+                            <span class="feature-tag lang-en">No Solution Needed</span>
+                            <span class="feature-tag lang-ar">مريحة جداً</span>
+                            <span class="feature-tag lang-en">Super Comfortable</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="price-tag">200 ج.م</span>
+                            <span class="text-gray-400 text-sm lang-ar">(30 زوج)</span>
+                            <span class="text-gray-400 text-sm lang-en">(30 pairs)</span>
+                            <button class="btn-outline text-sm py-2 px-4" onclick="quickView('daily')">
+                                <span class="lang-ar">عرض سريع</span>
+                                <span class="lang-en">Quick View</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-brand-gray/30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="text-gradient-gold lang-ar">خدماتنا المتميزة</span>
+                    <span class="text-gradient-gold lang-en">Our Premium Services</span>
+                </h2>
+                <p class="text-gray-400 text-lg lang-ar">نقدم لك أفضل الخدمات بأحدث التقنات</p>
+                <p class="text-gray-400 text-lg lang-en">We offer the best services with latest technology</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye text-brand-gold"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 lang-ar">فحص نظر شامل</h3>
+                    <h3 class="text-2xl font-bold mb-4 lang-en">Comprehensive Eye Exam</h3>
+                    <p class="text-gray-400 leading-relaxed lang-ar">
+                        فحص دقيق بأحدث الأجهزة لتحديد درجة النظر بدقة عالية
+                    </p>
+                    <p class="text-gray-400 leading-relaxed lang-en">
+                        Precise examination with latest devices to determine your exact vision degree
+                    </p>
+                </div>
+                
+                <div class="service-card text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-glasses text-brand-gold"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 lang-ar">عدسات طبية</h3>
+                    <h3 class="text-2xl font-bold mb-4 lang-en">Medical Lenses</h3>
+                    <p class="text-gray-400 leading-relaxed lang-ar">
+                        عدسات عالية الجودة مضادة للخدش والأتربة مع ضمان سنة
+                    </p>
+                    <p class="text-gray-400 leading-relaxed lang-en">
+                        High-quality scratch-resistant lenses with 1-year warranty
+                    </p>
+                </div>
+                
+                <div class="service-card text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-sun text-brand-gold"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 lang-ar">نظارات شمسية</h3>
+                    <h3 class="text-2xl font-bold mb-4 lang-en">Sunglasses</h3>
+                    <p class="text-gray-400 leading-relaxed lang-ar">
+                        تشكيلة واسعة من أشهر الماركات العالمية بأسعار مميزة
+                    </p>
+                    <p class="text-gray-400 leading-relaxed lang-en">
+                        Wide collection of famous international brands at special prices
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Owner Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="owner-card text-center">
+                    <div class="owner-avatar">
+                        <span class="lang-ar">م أ</span>
+                        <span class="lang-en">MB</span>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-2 lang-ar">الأستاذ محمود أبو بكر</h2>
+                    <h2 class="text-3xl font-bold mb-2 lang-en">Mr. Mahmoud Abu Bakr</h2>
+                    <p class="text-brand-gold text-xl mb-6 lang-ar">المؤسس والمالك</p>
+                    <p class="text-brand-gold text-xl mb-6 lang-en">Founder & Owner</p>
+                    
+                    <blockquote class="text-xl text-gray-300 italic leading-relaxed mb-6 lang-ar">
+                        "رؤيتك ليست رفاهية، إنها حقك. هذا الإيمان قاد الهدى للبصريات منذ عام 2009، 
+                        ونحن مستمرون في تقديم أفضل خدمة لأهالي فيصل والجيزة."
+                    </blockquote>
+                    <blockquote class="text-xl text-gray-300 italic leading-relaxed mb-6 lang-en">
+                        "Your vision is not a luxury, it's your right. This belief has guided Al-Huda Optics since 2009, 
+                        and we continue to provide the best service to Faisal and Giza residents."
+                    </blockquote>
+                    
+                    <div class="flex justify-center gap-4 flex-wrap">
+                        <div class="glass px-6 py-3 rounded-full">
+                            <span class="text-brand-gold font-bold">15+</span>
+                            <span class="text-gray-400 mr-2 lang-ar">سنة خبرة</span>
+                            <span class="text-gray-400 ml-2 lang-en">Years Exp.</span>
+                        </div>
+                        <div class="glass px-6 py-3 rounded-full">
+                            <span class="text-brand-gold font-bold">50,000+</span>
+                            <span class="text-gray-400 mr-2 lang-ar">عميل سعيد</span>
+                            <span class="text-gray-400 ml-2 lang-en">Happy Clients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-brand-gray/30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="text-gradient-gold lang-ar">آراء عملائنا</span>
+                    <span class="text-gradient-gold lang-en">Customer Reviews</span>
+                </h2>
+                <p class="text-gray-400 text-lg lang-ar">ما يقوله عملاؤنا عنا</p>
+                <p class="text-gray-400 text-lg lang-en">What our customers say about us</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <p class="text-gray-300 mb-4 lang-ar">"خدمة ممتازة وأسعار منافسة. الأستاذ محمود محترف جداً ويساعدك في اختيار النظارة المناسبة."</p>
+                    <p class="text-gray-300 mb-4 lang-en">"Excellent service and competitive prices. Mr. Mahmoud is very professional and helps you choose the right glasses."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold font-bold">أ</div>
+                        <div>
+                            <div class="font-bold lang-ar">أحمد محمد</div>
+                            <div class="font-bold lang-en">Ahmed Mohamed</div>
+                            <div class="text-sm text-gray-500 lang-ar">عميل منذ 2015</div>
+                            <div class="text-sm text-gray-500 lang-en">Customer since 2015</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="text-gray-300 mb-4 lang-ar">"أفضل محل نظارات في فيصل. جودة عالية وسرعة في التنفيذ. أنصح الجميع بزيارته."</p>
+                    <p class="text-gray-300 mb-4 lang-en">"Best optics store in Faisal. High quality and fast service. I recommend everyone to visit."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold font-bold">س</div>
+                        <div>
+                            <div class="font-bold lang-ar">سارة علي</div>
+                            <div class="font-bold lang-en">Sara Ali</div>
+                            <div class="text-sm text-gray-500 lang-ar">عميلة منذ 2018</div>
+                            <div class="text-sm text-gray-500 lang-en">Customer since 2018</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="text-gray-300 mb-4 lang-ar">"تعامل راقي وصدق في المواعيد. النظارة جاهزة في نفس اليوم. شكراً الهدى للبصريات."</p>
+                    <p class="text-gray-300 mb-4 lang-en">"Professional dealing and honesty. Glasses ready same day. Thank you Al-Huda Optics."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold font-bold">م</div>
+                        <div>
+                            <div class="font-bold lang-ar">محمد حسن</div>
+                            <div class="font-bold lang-en">Mohamed Hassan</div>
+                            <div class="text-sm text-gray-500 lang-ar">عميل منذ 2020</div>
+                            <div class="text-sm text-gray-500 lang-en">Customer since 2020</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Us Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="text-gradient-gold lang-ar">زورنا اليوم</span>
+                    <span class="text-gradient-gold lang-en">Visit Us Today</span>
+                </h2>
+                
+                <div class="no-appointment max-w-2xl mx-auto mb-8">
+                    <div class="text-4xl mb-4">🚪</div>
+                    <h3 class="text-3xl font-bold text-brand-gold mb-3 lang-ar">افتح الباب وادخل!</h3>
+                    <h3 class="text-3xl font-bold text-brand-gold mb-3 lang-en">Just Open the Door!</h3>
+                    <p class="text-xl text-white mb-4 lang-ar">لا حاجة لموعد مسبق - نستقبلك فوراً</p>
+                    <p class="text-xl text-white mb-4 lang-en">No appointment needed - we'll serve you immediately</p>
+                    <div class="text-gray-300">
+                        <p class="lang-ar">شارع المطبعة، فيصل، الجيزة</p>
+                        <p class="lang-en">El-Matbaa Street, Faisal, Giza</p>
+                        <p class="text-2xl font-bold text-white mt-2 lang-ar">12:00 ظهراً - 1:00 صباحاً</p>
+                        <p class="text-2xl font-bold text-white mt-2 lang-en">12:00 PM - 1:00 AM</p>
+                        <p class="text-brand-gold lang-ar">يومياً بدون إجازات</p>
+                        <p class="text-brand-gold lang-en">Daily - No days off</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map -->
+            <div class="map-container mb-12">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.789!2d31.1234!3d29.9876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDU5JzE1LjQiTiAzMcKwMDcnMjQuMiJF!5e0!3m2!1sen!2seg!4v1234567890"
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; filter: invert(90%) hue-rotate(180deg);" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="tel:00201111171350" class="btn-primary">
+                    <i class="fas fa-phone"></i>
+                    <span class="lang-ar">اتصل بنا الآن</span>
+                    <span class="lang-en">Call Us Now</span>
+                </a>
+                <a href="https://wa.me/201111171350" target="_blank" class="btn-outline">
+                    <i class="fab fa-whatsapp"></i>
+                    <span class="lang-ar">واتساب</span>
+                    <span class="lang-en">WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darker border-t border-brand-gold/20 py-12 mb-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center items-center gap-3 mb-6">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-gold to-brand-gold-dark flex items-center justify-center">
+                    <span class="text-black font-bold text-xl">A</span>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-gradient-gold lang-ar">الهدى للبصريات</div>
+                    <div class="text-2xl font-bold text-gradient-gold lang-en">Al-Huda Optics</div>
+                </div>
+            </div>
+            
+            <p class="text-gray-400 mb-2 lang-ar">شارع المطبعة، فيصل، الجيزة</p>
+            <p class="text-gray-400 mb-2 lang-en">El-Matbaa Street, Faisal, Giza</p>
+            <p class="text-2xl font-bold text-brand-gold mb-6">01111171350</p>
+            
+            <div class="flex justify-center gap-4 mb-6">
+                <span class="px-4 py-2 rounded-full bg-green-500/20 text-green-400 text-sm lang-ar">مفتوح الآن</span>
+                <span class="px-4 py-2 rounded-full bg-green-500/20 text-green-400 text-sm lang-en">Open Now</span>
+                <span class="px-4 py-2 rounded-full bg-brand-gold/20 text-brand-gold text-sm">12 PM - 1 AM</span>
+            </div>
+            
+            <div class="flex justify-center gap-6 mb-6">
+                <a href="#" class="text-gray-400 hover:text-brand-gold transition"><i class="fab fa-facebook text-2xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-brand-gold transition"><i class="fab fa-instagram text-2xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-brand-gold transition"><i class="fab fa-whatsapp text-2xl"></i></a>
+            </div>
+            
+            <p class="text-gray-600 text-sm lang-ar">© 2024 الهدى للبصريات. جميع الحقوق محفوظة.</p>
+            <p class="text-gray-600 text-sm lang-en">© 2024 Al-Huda Optics. All rights reserved.</p>
+        </div>
     </footer>
 
+    <!-- Fixed Contact Bar -->
     <div class="contact-bar">
-        <a href="tel:01111171350" class="contact-btn btn-phone">
-            <span class="lang-ar">📞 اتصل الآن</span>
-            <span class="lang-en">📞 Call Now</span>
+        <a href="tel:00201111171350" class="contact-btn phone">
+            <i class="fas fa-phone"></i>
+            <span class="lang-ar">اتصل الآن</span>
+            <span class="lang-en">Call Now</span>
         </a>
-        <a href="https://wa.me/201111171350" class="contact-btn btn-whatsapp">
-            <span class="lang-ar">💬 واتساب</span>
-            <span class="lang-en">💬 WhatsApp</span>
+        <a href="https://wa.me/201111171350" target="_blank" class="contact-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+            <span class="lang-ar">واتساب</span>
+            <span class="lang-en">WhatsApp</span>
         </a>
-        <a href="#" class="contact-btn btn-location">
-            <span class="lang-ar">📍 الموقع</span>
-            <span class="lang-en">📍 Location</span>
+        <a href="https://maps.google.com/?q=شارع+المطبعة+فيصل+الجيزة" target="_blank" class="contact-btn location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span class="lang-ar">الموقع</span>
+            <span class="lang-en">Location</span>
         </a>
     </div>
 
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeQuickView()">&times;</button>
+            <div id="modalContent" class="p-8">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
     <script>
-        function toggleLang() {
+        // Language Toggle
+        function toggleLanguage() {
             const html = document.documentElement;
-            if (html.getAttribute('lang') === 'ar') {
-                html.setAttribute('lang', 'en');
-                html.setAttribute('dir', 'ltr');
-            } else {
-                html.setAttribute('lang', 'ar');
-                html.setAttribute('dir', 'rtl');
-            }
+            const currentLang = html.getAttribute('lang');
+            const newLang = currentLang === 'ar' ? 'en' : 'ar';
+            const newDir = currentLang === 'ar' ? 'ltr' : 'rtl';
+            
+            html.setAttribute('lang', newLang);
+            html.setAttribute('dir', newDir);
+            
+            // Update title
+            const title = document.querySelector('title');
+            const newTitle = newLang === 'ar' ? 'الهدى للبصريات | Al-Huda Optics' : 'Al-Huda Optics | الهدى للبصريات';
+            title.textContent = newTitle;
+            
+            // Store preference
+            localStorage.setItem('preferred-lang', newLang);
         }
+        
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-lang');
+            if (savedLang && savedLang !== 'ar') {
+                toggleLanguage();
+            }
+        });
+        
+        // Product Filter
+        function filterProducts(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.product-card');
+            
+            // Update active button
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(category)) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Filter cards with animation
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                    gsap.fromTo(card, 
+                        { opacity: 0, y: 30 },
+                        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+                    );
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        // Quick View Modal
+        function quickView(product) {
+            const modal = document.getElementById('quickViewModal');
+            const content = document.getElementById('modalContent');
+            
+            const products = {
+                'classic': {
+                    ar: { name: 'نظارة كلاسيكية أنيقة', desc: 'إطار معدني خفيف الوزن مع عدسات مضادة للانعكاس. مثالية للاستخدام اليومي والعمل.', price: '350 ج.م' },
+                    en: { name: 'Classic Elegant Frame', desc: 'Lightweight metal frame with anti-reflective lenses. Perfect for daily use and work.', price: '350 EGP' }
+                },
+                'modern': {
+                    ar: { name: 'نظارة مودرن عصرية', desc: 'تصميم عصري بلاستيكي عالي المتانة مع حماية من الأشعة الزرقاء. مثالية لاستخدام الكمبيوتر.', price: '450 ج.م' },
+                    en: { name: 'Modern Contemporary Frame', desc: 'Modern durable plastic design with blue light protection. Perfect for computer use.', price: '450 EGP' }
+                },
+                'luxury': {
+                    ar: { name: 'نظارة فاخرة ذهبية', desc: 'إطار ذهبي اللون مع عدسات متعددة البؤر للقراءة والبعد. فخامة وأناقة في آن واحد.', price: '750 ج.م' },
+                    en: { name: 'Luxury Gold Frame', desc: 'Gold-colored frame with progressive multifocal lenses for reading and distance. Luxury and elegance combined.', price: '750 EGP' }
+                },
+                'kids': {
+                    ar: { name: 'نظارة أطفال مرنة', desc: 'إطار مرن مقاوم للكسر مع أربطة مطاطية آمنة للأطفال. متوفر بألوان متعددة.', price: '280 ج.م' },
+                    en: { name: 'Flexible Kids Frame', desc: 'Flexible break-resistant frame with safe elastic straps for children. Available in multiple colors.', price: '280 EGP' }
+                },
+                'sports': {
+                    ar: { name: 'نظارة رياضية نشطة', desc: 'تصميم رياضي مع عدسات مقاومة للصدمات ومضادة للانزلاق. مثالية للرياضيين.', price: '550 ج.م' },
+                    en: { name: 'Active Sports Frame', desc: 'Sports design with impact-resistant lenses and anti-slip. Perfect for athletes.', price: '550 EGP' }
+                },
+                'vintage': {
+                    ar: { name: 'نظارة فينتاج ريترو', desc: 'تصميم كلاسيكي ريترو مع عدسات عالية الوضوح وطبقة UV. أناقة خالدة.', price: '480 ج.م' },
+                    en: { name: 'Vintage Retro Frame', desc: 'Classic retro design with HD lenses and UV coating. Timeless elegance.', price: '480 EGP' }
+                },
+                'aviator': {
+                    ar: { name: 'نظارة شمسية أفياتور', desc: 'تصميم أفياتور كلاسيكي مع عدسات polarized للحماية من الوهج. حماية كاملة من الشمس.', price: '450 ج.م' },
+                    en: { name: 'Aviator Sunglasses', desc: 'Classic aviator design with polarized lenses for glare protection. Full sun protection.', price: '450 EGP' }
+                },
+                'wayfarer': {
+                    ar: { name: 'نظارة شمسية وايفارر', desc: 'تصميم وايفارر العصري مع عدسات متدرجة وحماية كاملة. أناقة عصرية.', price: '380 ج.م' },
+                    en: { name: 'Wayfarer Sunglasses', desc: 'Modern wayfarer design with gradient lenses and full protection. Modern elegance.', price: '380 EGP' }
+                },
+                'cateye': {
+                    ar: { name: 'نظارة شمسية كات آي', desc: 'تصميم أنثوي أنيق على شكل عين القطة مع زخارف جانبية. أناقة فريدة.', price: '420 ج.م' },
+                    en: { name: 'Cat Eye Sunglasses', desc: 'Elegant feminine cat-eye design with side decorations. Unique elegance.', price: '420 EGP' }
+                },
+                'round': {
+                    ar: { name: 'نظارة شمسية دائرية', desc: 'تصميم دائري عصري مستوحى من الخمسينيات مع عدسات عاكسة. عودة للكلاسيكية.', price: '400 ج.م' },
+                    en: { name: 'Round Sunglasses', desc: 'Modern round design inspired by the 50s with mirrored lenses. Return to classic.', price: '400 EGP' }
+                },
+                'monthly': {
+                    ar: { name: 'عدسات شهرية طبية', desc: 'عدسات لاصقة شهرية عالية التنفس مع حماية من الأشعة UV. راحة طوال اليوم.', price: '150 ج.م (زوج واحد)' },
+                    en: { name: 'Monthly Medical Lenses', desc: 'High-oxygen monthly lenses with UV protection. Comfort all day long.', price: '150 EGP (per pair)' }
+                },
+                'daily': {
+                    ar: { name: 'عدسات يومية طبية', desc: 'عدسات يومية للاستعمال مرة واحدة - مريحة وصحية. لا تحتاج لمحلول.', price: '200 ج.م (30 زوج)' },
+                    en: { name: 'Daily Disposable Lenses', desc: 'Daily disposable lenses - comfortable and hygienic. No solution needed.', price: '200 EGP (30 pairs)' }
+                }
+            };
+            
+            const lang = document.documentElement.getAttribute('lang');
+            const productData = products[product][lang];
+            
+            content.innerHTML = `
+                <h2 class="text-3xl font-bold mb-4 text-gradient-gold">${productData.name}</h2>
+                <p class="text-gray-300 text-lg mb-6">${productData.desc}</p>
+                <div class="text-3xl font-bold text-brand-gold mb-6">${productData.price}</div>
+                <div class="flex gap-4">
+                    <a href="tel:01111171350" class="btn-primary flex-1 justify-center">
+                        <i class="fas fa-phone"></i>
+                        <span>${lang === 'ar' ? 'اطلب الآن' : 'Order Now'}</span>
+                    </a>
+                    <a href="https://wa.me/201111171350" target="_blank" class="btn-outline flex-1 justify-center">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            gsap.from('.modal-content', { scale: 0.8, opacity: 0, duration: 0.3, ease: "back.out(1.7)" });
+        }
+        
+        function closeQuickView() {
+            const modal = document.getElementById('quickViewModal');
+            modal.classList.remove('active');
+        }
+        
+        // Close modal on outside click
+        document.getElementById('quickViewModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQuickView();
+            }
+        });
+        
+        // Counter Animation
+        gsap.registerPlugin(ScrollTrigger);
+        
+        const counters = document.querySelectorAll('.counter');
+        
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            
+            ScrollTrigger.create({
+                trigger: counter,
+                start: "top 80%",
+                onEnter: () => {
+                    gsap.to(counter, {
+                        innerHTML: target,
+                        duration: 2,
+                        snap: { innerHTML: 1 },
+                        ease: "power2.out",
+                        onUpdate: function() {
+                            const current = Math.ceil(this.targets()[0].innerHTML);
+                            if (target >= 1000) {
+                                counter.innerHTML = current.toLocaleString() + '+';
+                            } else if (target === 100) {
+                                counter.innerHTML = current + '%';
+                            } else {
+                                counter.innerHTML = current + '+';
+                            }
+                        }
+                    });
+                },
+                once: true
+            });
+        });
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Scroll to Top Button
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.addEventListener('scroll', () => {
+            const scrollBtn = document.querySelector('.scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+        
+        // Add particles
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+            document.body.appendChild(particle);
+        }
+        
+        // Check if open
+        function checkIfOpen() {
+            const now = new Date();
+            const hour = now.getHours();
+            const isOpen = hour >= 12 || hour < 1;
+            
+            const badges = document.querySelectorAll('.open-badge');
+            badges.forEach(badge => {
+                if (!isOpen) {
+                    badge.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+                    badge.querySelector('span:last-child').textContent = 
+                        document.documentElement.getAttribute('lang') === 'ar' ? 'مغلق الآن' : 'Closed Now';
+                }
+            });
+        }
+        
+        checkIfOpen();
+        setInterval(checkIfOpen, 60000);
     </script>
 </body>
 </html>
