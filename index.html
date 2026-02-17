@@ -45,10 +45,23 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent);
-            letter-spacing: -1px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
         }
 
         .nav-links {
@@ -81,10 +94,15 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        /* Hero Section - خلفية احترافية */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: 
+                linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -95,17 +113,18 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(201, 162, 39, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(201, 162, 39, 0.1) 0%, transparent 40%);
+            animation: pulse 6s ease-in-out infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
         }
 
         .hero-content {
@@ -117,11 +136,13 @@
         }
 
         .hero-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background: rgba(201, 162, 39, 0.2);
             border: 1px solid var(--accent);
             color: var(--accent);
-            padding: 0.5rem 1.5rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 50px;
             font-size: 0.9rem;
             margin-bottom: 2rem;
@@ -133,9 +154,11 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--white), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 span {
+            color: var(--accent);
         }
 
         .hero-subtitle {
@@ -143,6 +166,9 @@
             opacity: 0.9;
             margin-bottom: 3rem;
             font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-group {
@@ -161,12 +187,14 @@
             font-weight: 700;
             transition: all 0.3s;
             border: 2px solid var(--accent);
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(201, 162, 39, 0.3);
+            box-shadow: 0 20px 40px rgba(201, 162, 39, 0.4);
         }
 
         .btn-secondary {
@@ -178,7 +206,9 @@
             font-weight: 600;
             border: 2px solid rgba(255,255,255,0.3);
             transition: all 0.3s;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn-secondary:hover {
@@ -221,7 +251,7 @@
             font-weight: 500;
         }
 
-        /* Products Gallery Section */
+        /* Products Section */
         .products {
             padding: 8rem 5%;
             background: var(--white);
@@ -248,31 +278,6 @@
             color: var(--primary);
             font-weight: 800;
             margin-bottom: 1rem;
-        }
-
-        .products-filter {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.8rem 2rem;
-            border: 2px solid var(--primary);
-            background: transparent;
-            color: var(--primary);
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--primary);
-            color: var(--white);
         }
 
         .products-grid {
@@ -398,11 +403,6 @@
             border-top: 1px solid rgba(0,0,0,0.05);
         }
 
-        .product-price {
-            display: flex;
-            flex-direction: column;
-        }
-
         .current-price {
             font-size: 1.5rem;
             font-weight: 800;
@@ -413,27 +413,7 @@
             font-size: 1rem;
             color: #999;
             text-decoration: line-through;
-        }
-
-        .add-to-cart {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .add-to-cart:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: scale(1.1);
+            margin-left: 0.5rem;
         }
 
         /* Features Section */
@@ -456,8 +436,6 @@
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             transition: all 0.4s;
-            position: relative;
-            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .feature-card:hover {
@@ -469,11 +447,6 @@
             width: 100%;
             height: 280px;
             object-fit: cover;
-            transition: transform 0.6s;
-        }
-
-        .feature-card:hover .feature-image {
-            transform: scale(1.05);
         }
 
         .feature-content {
@@ -503,13 +476,6 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
             margin-top: 1rem;
-            font-weight: 700;
-        }
-
-        .feature-card p {
-            color: var(--text);
-            line-height: 1.8;
-            font-size: 1rem;
         }
 
         .feature-tech {
@@ -564,13 +530,11 @@
         .service-content h4 {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            font-weight: 600;
         }
 
         .service-content p {
             opacity: 0.8;
             font-size: 0.95rem;
-            line-height: 1.6;
         }
 
         /* Contact Section */
@@ -592,20 +556,13 @@
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
-
-        .contact-info > p {
-            font-size: 1.1rem;
-            color: var(--text);
-            margin-bottom: 3rem;
-            line-height: 1.8;
         }
 
         .contact-details {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .contact-item {
@@ -616,11 +573,6 @@
             background: var(--white);
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .contact-item:hover {
-            transform: translateX(5px);
         }
 
         .contact-icon {
@@ -649,10 +601,6 @@
             font-size: 1.1rem;
         }
 
-        .contact-action {
-            margin-top: 3rem;
-        }
-
         .map-container {
             background: var(--secondary);
             border-radius: 24px;
@@ -660,9 +608,6 @@
             min-height: 500px;
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .map-container iframe {
@@ -672,6 +617,7 @@
             position: absolute;
             top: 0;
             left: 0;
+            border-radius: 24px;
         }
 
         /* Footer */
@@ -680,12 +626,6 @@
             color: var(--white);
             padding: 3rem 5%;
             text-align: center;
-            border-top: 1px solid rgba(201, 162, 39, 0.2);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .footer-logo {
@@ -695,16 +635,11 @@
             margin-bottom: 1rem;
         }
 
-        .footer-text {
-            opacity: 0.8;
-            margin-bottom: 2rem;
-        }
-
         .social-links {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            margin-bottom: 2rem;
+            margin: 2rem 0;
         }
 
         .social-links a {
@@ -718,13 +653,11 @@
             color: var(--white);
             text-decoration: none;
             transition: all 0.3s;
-            font-size: 1.2rem;
         }
 
         .social-links a:hover {
             background: var(--accent);
             color: var(--primary);
-            transform: translateY(-3px);
         }
 
         .copyright {
@@ -761,15 +694,6 @@
             .map-container {
                 min-height: 300px;
             }
-
-            .stats-bar {
-                margin: -2rem 5% 0;
-            }
-
-            .features-grid,
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         /* Scroll Animation */
@@ -783,13 +707,98 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Booking Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">Al-Huda Optics</div>
+        <div class="logo">
+            <div class="logo-icon">👁️</div>
+            <span>Al-Huda Optics</span>
+        </div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#products">Products</a></li>
@@ -799,15 +808,24 @@
         <button class="mobile-menu-btn">☰</button>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - خلفية احترافية -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-badge">Est. 2009 • Faisal, Giza</div>
-            <h1>Vision Is Not A Luxury</h1>
+            <div class="hero-badge">
+                <span>✨</span>
+                <span>Est. 2009 • Faisal, Giza</span>
+            </div>
+            <h1>Vision Is Not A <span>Luxury</span></h1>
             <p class="hero-subtitle">It is your right to see the world with clarity and precision that suits you</p>
             <div class="cta-group">
-                <a href="#products" class="btn-primary">Browse Collection</a>
-                <a href="#contact" class="btn-secondary">Book Free Eye Test</a>
+                <a href="#products" class="btn-primary">
+                    <span>🛍️</span>
+                    <span>Browse Collection</span>
+                </a>
+                <button class="btn-secondary" onclick="openModal()">
+                    <span>📅</span>
+                    <span>Book Free Eye Test</span>
+                </button>
             </div>
         </div>
     </section>
@@ -827,23 +845,16 @@
             <div class="stat-label">Quality Guarantee</div>
         </div>
         <div class="stat-item">
-            <span class="stat-number">24</span>
-            <div class="stat-label">Hour Service</div>
+            <span class="stat-number">24/7</span>
+            <div class="stat-label">Support</div>
         </div>
     </div>
 
-    <!-- Products Gallery Section -->
+    <!-- Products Section -->
     <section class="products" id="products">
         <div class="section-header fade-in">
             <span class="section-tag">Our Collection</span>
             <h2 class="section-title">Featured Products</h2>
-        </div>
-
-        <div class="products-filter fade-in">
-            <button class="filter-btn active">All</button>
-            <button class="filter-btn">Prescription</button>
-            <button class="filter-btn">Sunglasses</button>
-            <button class="filter-btn">Contact Lenses</button>
         </div>
 
         <div class="products-grid">
@@ -861,17 +872,17 @@
                     <h3 class="product-title">Ray-Ban Classic</h3>
                     <p class="product-description">Classic acetate frame with high-clarity anti-reflective lenses</p>
                     <div class="product-footer">
-                        <div class="product-price">
+                        <div>
                             <span class="current-price">2,500 EGP</span>
                         </div>
-                        <button class="add-to-cart">+</button>
+                        <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <!-- Product 2 -->
             <div class="product-card fade-in">
-                <div class="product-badge sale">20% OFF</div>
+                <div class="product-badge sale">-20%</div>
                 <div class="product-image-container">
                     <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Oakley Sport" class="product-image">
                     <div class="product-overlay">
@@ -883,11 +894,11 @@
                     <h3 class="product-title">Oakley Sport</h3>
                     <p class="product-description">Sports sunglasses with polarized lenses for UV protection</p>
                     <div class="product-footer">
-                        <div class="product-price">
+                        <div>
                             <span class="current-price">3,600 EGP</span>
                             <span class="old-price">4,500 EGP</span>
                         </div>
-                        <button class="add-to-cart">+</button>
+                        <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -903,12 +914,12 @@
                 <div class="product-content">
                     <div class="product-category">Contact Lenses</div>
                     <h3 class="product-title">Acuvue Moist</h3>
-                    <p class="product-description">Daily lenses with advanced hydration technology for all-day comfort</p>
+                    <p class="product-description">Daily lenses with advanced hydration technology</p>
                     <div class="product-footer">
-                        <div class="product-price">
+                        <div>
                             <span class="current-price">450 EGP</span>
                         </div>
-                        <button class="add-to-cart">+</button>
+                        <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -917,7 +928,7 @@
             <div class="product-card fade-in">
                 <div class="product-badge">Best Seller</div>
                 <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?w=600&q=80" alt="Tom Ford Titanium" class="product-image">
+                    <img src="https://images.unsplash.com/photo-1577803645773-f96470509666?w=600&q=80" alt="Tom Ford" class="product-image">
                     <div class="product-overlay">
                         <a href="#" class="quick-view">Quick View</a>
                     </div>
@@ -927,10 +938,10 @@
                     <h3 class="product-title">Tom Ford Titanium</h3>
                     <p class="product-description">Lightweight titanium frame with modern elegant design</p>
                     <div class="product-footer">
-                        <div class="product-price">
+                        <div>
                             <span class="current-price">6,000 EGP</span>
                         </div>
-                        <button class="add-to-cart">+</button>
+                        <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -938,7 +949,7 @@
             <!-- Product 5 -->
             <div class="product-card fade-in">
                 <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Prada Linea Rossa" class="product-image">
+                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80" alt="Prada" class="product-image">
                     <div class="product-overlay">
                         <a href="#" class="quick-view">Quick View</a>
                     </div>
@@ -948,17 +959,17 @@
                     <h3 class="product-title">Prada Linea Rossa</h3>
                     <p class="product-description">Italian luxury design with premium quality lenses</p>
                     <div class="product-footer">
-                        <div class="product-price">
+                        <div>
                             <span class="current-price">8,500 EGP</span>
                         </div>
-                        <button class="add-to-cart">+</button>
+                        <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <!-- Product 6 -->
             <div class="product-card fade-in">
-                <div class="product-badge sale">15% OFF</div>
+                <div class="product-badge sale">-15%</div>
                 <div class="product-image-container">
                     <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80" alt="Giorgio Armani" class="product-image">
                     <div class="product-overlay">
@@ -968,13 +979,13 @@
                 <div class="product-content">
                     <div class="product-category">Prescription Glasses</div>
                     <h3 class="product-title">Giorgio Armani</h3>
-                    <p class="product-description">Semi-rimless classic frame suitable for daily and formal use</p>
+                    <p class="product-description">Semi-rimless classic frame for daily and formal use</p>
                     <div class="product-footer">
-                        <div class="product-price">
+                        <div>
                             <span class="current-price">4,200 EGP</span>
                             <span class="old-price">4,950 EGP</span>
                         </div>
-                        <button class="add-to-cart">+</button>
+                        <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -994,11 +1005,11 @@
 
         <div class="features-grid">
             <div class="feature-card fade-in">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Macro Precision" class="feature-image">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Precision" class="feature-image">
                 <div class="feature-content">
                     <div class="feature-number">01</div>
                     <h3>Macro Precision</h3>
-                    <p>Laser-etched lenses with nanometer accuracy for your unique vision. We use the latest digital measurement technologies.</p>
+                    <p>Laser-etched lenses with nanometer accuracy for your unique vision.</p>
                     <div class="feature-tech">
                         <span class="tech-tag">Laser</span>
                         <span class="tech-tag">Nanometer</span>
@@ -1011,7 +1022,7 @@
                 <div class="feature-content">
                     <div class="feature-number">02</div>
                     <h3>Night Clarity</h3>
-                    <p>Advanced anti-glare technology eliminates 85% of headlight glare. Safe driving in all conditions.</p>
+                    <p>Advanced anti-glare technology eliminates 85% of headlight glare.</p>
                     <div class="feature-tech">
                         <span class="tech-tag">Anti-Glare</span>
                         <span class="tech-tag">UV400</span>
@@ -1040,15 +1051,15 @@
             <div class="service-item">
                 <div class="service-icon">👁️</div>
                 <div class="service-content">
-                    <h4>Comprehensive Eye Exam</h4>
-                    <p>Latest medical examination equipment with specialist consultants</p>
+                    <h4>Eye Exam</h4>
+                    <p>Latest medical equipment with specialist consultants</p>
                 </div>
             </div>
             <div class="service-item">
                 <div class="service-icon">🕶️</div>
                 <div class="service-content">
                     <h4>Sunglasses</h4>
-                    <p>Wide collection of original international brands</p>
+                    <p>Original international brands collection</p>
                 </div>
             </div>
             <div class="service-item">
@@ -1062,7 +1073,7 @@
                 <div class="service-icon">💎</div>
                 <div class="service-content">
                     <h4>Contact Lenses</h4>
-                    <p>All types of medical and cosmetic lenses with solutions</p>
+                    <p>All types with solutions and accessories</p>
                 </div>
             </div>
         </div>
@@ -1072,8 +1083,9 @@
     <section class="contact" id="contact">
         <div class="contact-container">
             <div class="contact-info fade-in">
-                <h2>Visit Us in Faisal</h2>
-                <p>Get a free eye test and professional consultation. We help you choose the perfect eyewear for your needs.</p>
+                <span class="section-tag">Visit Us</span>
+                <h2>Come to Faisal</h2>
+                <p>Get a free eye test and professional consultation. We help you choose the perfect eyewear.</p>
                 
                 <div class="contact-details">
                     <div class="contact-item">
@@ -1100,19 +1112,15 @@
                 </div>
 
                 <div class="contact-action">
-                    <a href="tel:01111171350" class="btn-primary">Call Us Now</a>
+                    <a href="tel:01111171350" class="btn-primary">Call Now</a>
                 </div>
             </div>
 
             <div class="map-container fade-in">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.789012345678!2d31.1234567890123!3d30.1234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDA3JzI0LjQiTiAzMcKwMDcnMjQuNCJF!5e0!3m2!1sen!2seg!4v1234567890123!5m2!1sen!2seg" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0; border-radius: 24px;" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.456!2d31.123!3d30.123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDA3JzI0LjQiTiAzMcKwMDcnMjQuNCJF!5e0!3m2!1sen!2seg!4v1234567890!5m2!1sen!2seg" 
                     allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
+                    loading="lazy">
                 </iframe>
             </div>
         </div>
@@ -1121,7 +1129,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">Al-Huda Optics</div>
+            <div class="footer-logo">👁️ Al-Huda Optics</div>
             <p class="footer-text">Providing clear vision since 2009</p>
             <div class="social-links">
                 <a href="#">📘</a>
@@ -1132,6 +1140,39 @@
             <div class="copyright">© 2024 Al-Huda Optics. All rights reserved.</div>
         </div>
     </footer>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Book Free Eye Test</h2>
+            <form onsubmit="event.preventDefault(); alert('Booking submitted! We will contact you soon.'); closeModal();">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="01xxxxxxxxx" required>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Date</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Time</label>
+                    <select required>
+                        <option value="">Select time</option>
+                        <option>12:00 PM - 3:00 PM</option>
+                        <option>3:00 PM - 6:00 PM</option>
+                        <option>6:00 PM - 9:00 PM</option>
+                        <option>9:00 PM - 12:00 AM</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
 
     <script>
         // Scroll Animation
@@ -1154,10 +1195,27 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
+        });
+
+        // Modal Functions
+        function openModal() {
+            document.getElementById('bookingModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+        }
+
+        // Close modal on outside click
+        document.getElementById('bookingModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
         });
     </script>
 
