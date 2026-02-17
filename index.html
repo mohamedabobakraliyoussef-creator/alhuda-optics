@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Huda Optics | الهدى للبصريات</title>
-    <meta name="description" content="Premium eyewear and optical services | نظارات فاخرة وخدمات بصرية">
+    <title>الهدى للبصريات | Al-Huda Optics - فيصل، الجيزة</title>
+    <meta name="description" content="الهدى للبصريات - محل نظارات في فيصل، الجيزة. خدمة ممتازة بدون موعد مسبق. أستاذ محمود أبو بكر">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Playfair+Display:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            blue: '#2A7FFF',
                             gold: '#D4AF37',
+                            'gold-light': '#F4E5C2',
+                            'gold-dark': '#B8960C',
                             dark: '#0a0a0a',
-                            darker: '#050505'
+                            darker: '#050505',
+                            gray: '#1a1a1a'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'Cairo', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                        arabic: ['Cairo', 'sans-serif']
+                        sans: ['Cairo', 'sans-serif']
                     }
                 }
             }
@@ -38,40 +38,11 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        :root {
-            --dir: ltr;
-            --align: left;
-        }
-        
-        [dir="rtl"] {
-            --dir: rtl;
-            --align: right;
-        }
-        
         body {
-            font-family: 'Inter', 'Cairo', sans-serif;
-            background: #0a0a0a;
+            font-family: 'Cairo', sans-serif;
+            background: #050505;
             color: #ffffff;
             overflow-x: hidden;
-            direction: var(--dir);
-            text-align: var(--align);
-        }
-        
-        [dir="rtl"] body {
-            font-family: 'Cairo', 'Inter', sans-serif;
-        }
-        
-        .lang-en { display: block; }
-        .lang-ar { display: none; }
-        
-        [dir="rtl"] .lang-en { display: none; }
-        [dir="rtl"] .lang-ar { display: block; }
-        
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a0a; }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #D4AF37, #2A7FFF);
-            border-radius: 4px;
         }
         
         .text-gradient-gold {
@@ -81,13 +52,16 @@
             background-clip: text;
         }
         
-        .font-serif { font-family: 'Playfair Display', serif; }
-        [dir="rtl"] .font-serif { font-family: 'Cairo', serif; }
-        
         .glass {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .glass-hover:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
         }
         
         .btn-primary {
@@ -100,433 +74,521 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
         
-        .btn-secondary {
-            border: 2px solid #2A7FFF;
-            color: #2A7FFF;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+        }
+        
+        .btn-outline {
+            border: 2px solid #D4AF37;
+            color: #D4AF37;
             padding: 1rem 2rem;
             border-radius: 50px;
             font-weight: 700;
             transition: all 0.3s;
-        }
-        .btn-secondary:hover {
-            background: #2A7FFF;
-            color: white;
-        }
-        
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .reveal-up.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .lang-switch {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            z-index: 100;
-            background: rgba(212, 175, 55, 0.2);
-            border: 2px solid #D4AF37;
-            border-radius: 50px;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-        [dir="rtl"] .lang-switch {
-            right: auto;
-            left: 20px;
-        }
-        .lang-switch:hover {
-            background: #D4AF37;
-            transform: scale(1.1);
-        }
-        
-        .loader {
-            position: fixed;
-            inset: 0;
-            background: #0a0a0a;
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
+            display: inline-flex;
             align-items: center;
-            flex-direction: column;
+            gap: 0.5rem;
         }
-        .loader-bar {
-            width: 200px;
-            height: 2px;
-            background: rgba(255,255,255,0.1);
-            margin-top: 20px;
+        
+        .btn-outline:hover {
+            background: #D4AF37;
+            color: #000;
+            transform: translateY(-3px);
+        }
+        
+        .counter {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-gold {
+            animation: pulse-gold 2s infinite;
+        }
+        
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+        }
+        
+        .open-badge {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .no-appointment {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+            border: 2px solid #D4AF37;
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
-        .loader-progress {
+        
+        .no-appointment::before {
+            content: '';
             position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #D4AF37;
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+        
+        .owner-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.02));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 30px;
+            padding: 3rem;
+            position: relative;
+        }
+        
+        .owner-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D4AF37, #B8960C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #000;
+            margin: 0 auto 2rem;
+            border: 4px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .contact-bar {
+            position: fixed;
+            bottom: 0;
             left: 0;
+            right: 0;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 1rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .contact-btn.phone {
+            background: #D4AF37;
+            color: #000;
+        }
+        
+        .contact-btn.whatsapp {
+            background: #25d366;
+            color: white;
+        }
+        
+        .contact-btn.location {
+            background: transparent;
+            border: 2px solid #D4AF37;
+            color: #D4AF37;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .working-hours {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .hero-bg {
+            position: absolute;
             top: 0;
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #D4AF37, #2A7FFF);
-            transition: width 0.3s;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #D4AF37;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: particle-float 10s infinite;
+        }
+        
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
         }
     </style>
 </head>
-<body>
-    <button class="lang-switch" onclick="toggleLanguage()">
-        <span class="lang-en">🇪🇬 AR</span>
-        <span class="lang-ar">🇬🇧 EN</span>
-    </button>
-
-    <div class="loader" id="loader">
-        <div class="text-4xl font-serif font-bold text-gradient-gold mb-4">
-            <span class="lang-en">Al-Huda Optics</span>
-            <span class="lang-ar">الهدى للبصريات</span>
-        </div>
-        <div class="text-gray-400 text-sm tracking-widest uppercase">
-            <span class="lang-en">Loading Experience</span>
-            <span class="lang-ar">جاري التحميل</span>
-        </div>
-        <div class="loader-bar">
-            <div class="loader-progress" id="loader-progress"></div>
-        </div>
-    </div>
-
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+<body class="pb-24">
+    <!-- Background Effects -->
+    <div class="hero-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-gold to-brand-blue flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">A</span>
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-gold to-brand-gold-dark flex items-center justify-center">
+                        <span class="text-black font-bold text-xl">هـ</span>
                     </div>
                     <div>
-                        <div class="text-xl font-serif font-bold text-gradient-gold">Al-Huda</div>
-                        <div class="text-xs text-gray-400 tracking-widest uppercase">
-                            <span class="lang-en">Optics</span>
-                            <span class="lang-ar">للبصريات</span>
-                        </div>
+                        <div class="text-xl font-bold text-gradient-gold">الهدى للبصريات</div>
+                        <div class="text-xs text-gray-400">Al-Huda Optics</div>
                     </div>
                 </a>
-
+                
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="index.html" class="text-sm uppercase tracking-wider text-white hover:text-brand-gold transition-colors">
-                        <span class="lang-en">Home</span>
-                        <span class="lang-ar">الرئيسية</span>
-                    </a>
-                    <a href="shop.html" class="text-sm uppercase tracking-wider text-gray-300 hover:text-brand-gold transition-colors">
-                        <span class="lang-en">Shop</span>
-                        <span class="lang-ar">المتجر</span>
-                    </a>
-                    <a href="about.html" class="text-sm uppercase tracking-wider text-gray-300 hover:text-brand-gold transition-colors">
-                        <span class="lang-en">About</span>
-                        <span class="lang-ar">من نحن</span>
-                    </a>
-                    <a href="contact.html" class="text-sm uppercase tracking-wider text-gray-300 hover:text-brand-gold transition-colors">
-                        <span class="lang-en">Contact</span>
-                        <span class="lang-ar">اتصل بنا</span>
-                    </a>
+                    <a href="#about" class="text-gray-300 hover:text-brand-gold transition">من نحن</a>
+                    <a href="#services" class="text-gray-300 hover:text-brand-gold transition">خدماتنا</a>
+                    <a href="#owner" class="text-gray-300 hover:text-brand-gold transition">المالك</a>
+                    <a href="#contact" class="text-gray-300 hover:text-brand-gold transition">اتصل بنا</a>
                 </div>
-
-                <div class="flex items-center gap-4">
-                    <button class="relative p-2 hover:text-brand-gold transition-colors">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-                        </svg>
-                    </button>
+                
+                <div class="open-badge">
+                    <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                    مفتوح الآن
                 </div>
             </div>
         </div>
     </nav>
 
-    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-dark/50 to-brand-dark"></div>
-            <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1920&q=80" 
-                 alt="Luxury Eyewear" 
-                 class="w-full h-full object-cover opacity-40 scale-110" 
-                 id="hero-bg">
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10 text-center">
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="floating mb-8">
+                <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80" 
+                     alt="نظارات فاخرة" 
+                     class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full mx-auto shadow-2xl border-4 border-brand-gold/30">
+            </div>
+            
             <div class="mb-6">
-                <span class="inline-block px-4 py-2 rounded-full glass text-brand-gold text-sm tracking-widest uppercase mb-6 reveal-up">
-                    <span class="lang-en">Est. 2009 • Faisal, Giza</span>
-                    <span class="lang-ar">منذ 2009 • فيصل، الجيزة</span>
-                </span>
-                
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight mb-6" id="hero-title">
-                    <span class="block text-white lang-en">Vision Is Not</span>
-                    <span class="block text-white lang-ar">الرؤية ليست</span>
-                    <span class="block text-gradient-gold lang-en">A Luxury</span>
-                    <span class="block text-gradient-gold lang-ar">رفاهية</span>
-                </h1>
+                <span class="text-brand-gold text-lg font-semibold tracking-wider">منذ 2009 • فيصل، الجيزة</span>
             </div>
-
-            <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto font-light reveal-up" id="hero-subtitle">
-                <span class="lang-en">It is your <span class="text-brand-blue font-semibold">right</span> to see the world with clarity and precision</span>
-                <span class="lang-ar">إنها <span class="text-brand-blue font-semibold">حقك</span> في رؤية العالم بوضوح ودقة</span>
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <span class="text-gradient-gold">الرؤية ليست رفاهية</span><br>
+                <span class="text-white">إنها حقك</span>
+            </h1>
+            
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+                نقدم لك نظارات طبية وشمسية فاخرة بأعلى جودة وأفضل الأسعار في فيصل، الجيزة
             </p>
-
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center reveal-up" id="hero-cta">
-                <a href="shop.html" class="btn-primary text-lg">
-                    <span class="lang-en">Explore Collection</span>
-                    <span class="lang-ar">استكشف المجموعة</span>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                </a>
-                <button class="btn-secondary flex items-center gap-2">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
-                    </svg>
-                    <span class="lang-en">Watch Film</span>
-                    <span class="lang-ar">شاهد الفيديو</span>
-                </button>
+            
+            <!-- No Appointment Badge -->
+            <div class="no-appointment max-w-md mx-auto mb-8">
+                <div class="text-3xl mb-2">🚶‍♂️</div>
+                <h3 class="text-2xl font-bold text-brand-gold mb-2">تعال مباشرة!</h3>
+                <p class="text-white">لا حاجة لموعد مسبق - نستقبلك فور وصولك</p>
             </div>
-
-            <div class="mt-20 grid grid-cols-3 gap-8 max-w-3xl mx-auto reveal-up" id="hero-stats">
-                <div class="text-center">
-                    <div class="text-4xl font-serif font-bold text-brand-gold mb-2 counter" data-target="15">0</div>
-                    <div class="text-sm text-gray-400 uppercase tracking-wider">
-                        <span class="lang-en">Years Experience</span>
-                        <span class="lang-ar">سنة خبرة</span>
-                    </div>
-                </div>
-                <div class="text-center border-x border-gray-800">
-                    <div class="text-4xl font-serif font-bold text-brand-blue mb-2 counter" data-target="50000">0</div>
-                    <div class="text-sm text-gray-400 uppercase tracking-wider">
-                        <span class="lang-en">Happy Clients</span>
-                        <span class="lang-ar">عميل سعيد</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl font-serif font-bold text-brand-gold mb-2">100%</div>
-                    <div class="text-sm text-gray-400 uppercase tracking-wider">
-                        <span class="lang-en">Quality Guarantee</span>
-                        <span class="lang-ar">ضمان الجودة</span>
-                    </div>
+            
+            <div class="working-hours">
+                <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div class="text-right">
+                    <div class="text-sm text-gray-400">ساعات العمل</div>
+                    <div class="text-lg font-bold text-white">12:00 ظهراً - 1:00 صباحاً</div>
+                    <div class="text-sm text-brand-gold">يومياً</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="py-32 relative">
+    <!-- Stats Section -->
+    <section class="py-20 bg-brand-gray/30">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-20">
-                <span class="text-brand-blue text-sm uppercase tracking-widest reveal-up">
-                    <span class="lang-en">Our Expertise</span>
-                    <span class="lang-ar">خبراتنا</span>
-                </span>
-                <h2 class="text-4xl md:text-6xl font-serif font-bold mt-4 mb-6 reveal-up">
-                    <span class="lang-en">Three Pillars of </span>
-                    <span class="lang-ar">ثلاثة أعمدة </span>
-                    <span class="text-gradient-gold lang-en">Perfect Vision</span>
-                    <span class="text-gradient-gold lang-ar">للرؤية المثالية</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass glass-hover p-8 rounded-3xl text-center transition-all duration-300">
+                    <div class="counter text-gradient-gold" data-target="15">0</div>
+                    <div class="text-xl text-gray-300 mt-2">+ سنة خبرة</div>
+                </div>
+                <div class="glass glass-hover p-8 rounded-3xl text-center transition-all duration-300">
+                    <div class="counter text-gradient-gold" data-target="50000">0</div>
+                    <div class="text-xl text-gray-300 mt-2">+ عميل سعيد</div>
+                </div>
+                <div class="glass glass-hover p-8 rounded-3xl text-center transition-all duration-300">
+                    <div class="counter text-gradient-gold" data-target="100">0</div>
+                    <div class="text-xl text-gray-300 mt-2">% ضمان الجودة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="text-gradient-gold">خدماتنا المتميزة</span>
                 </h2>
+                <p class="text-gray-400 text-lg">نقدم لك أفضل الخدمات بأحدث التقنات</p>
             </div>
-
+            
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="group relative reveal-up">
-                    <div class="relative h-96 rounded-2xl overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&q=80" 
-                             alt="Precision" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                        <div class="absolute top-4 right-4 glass px-4 py-2 rounded-full text-brand-gold text-sm font-semibold">01</div>
-                    </div>
-                    <h3 class="text-2xl font-serif font-bold mb-3 group-hover:text-brand-gold transition-colors">
-                        <span class="lang-en">Macro Precision</span>
-                        <span class="lang-ar">الدقة المتناهية</span>
-                    </h3>
+                <div class="service-card">
+                    <div class="w-16 h-16 rounded-2xl bg-brand-gold/20 flex items-center justify-center text-3xl mb-6">👁️</div>
+                    <h3 class="text-2xl font-bold mb-4">فحص نظر شامل</h3>
                     <p class="text-gray-400 leading-relaxed">
-                        <span class="lang-en">Laser-etched lenses with nanometer accuracy for your unique vision.</span>
-                        <span class="lang-ar">عدسات محفورة بالليزر بدقة النانومتر لرؤيتك الفريدة.</span>
+                        فحص دقيق بأحدث الأجهزة لتحديد درجة النظر بدقة عالية
                     </p>
                 </div>
-
-                <div class="group relative reveal-up" style="transition-delay: 0.1s;">
-                    <div class="relative h-96 rounded-2xl overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=800&q=80" 
-                             alt="Clarity" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                        <div class="absolute top-4 right-4 glass px-4 py-2 rounded-full text-brand-blue text-sm font-semibold">02</div>
-                    </div>
-                    <h3 class="text-2xl font-serif font-bold mb-3 group-hover:text-brand-blue transition-colors">
-                        <span class="lang-en">Night Clarity</span>
-                        <span class="lang-ar">وضوح الليل</span>
-                    </h3>
+                
+                <div class="service-card">
+                    <div class="w-16 h-16 rounded-2xl bg-brand-gold/20 flex items-center justify-center text-3xl mb-6">✨</div>
+                    <h3 class="text-2xl font-bold mb-4">عدسات طبية</h3>
                     <p class="text-gray-400 leading-relaxed">
-                        <span class="lang-en">Anti-glare technology eliminating 85% of headlight glare.</span>
-                        <span class="lang-ar">تقنية مكافحة الوهج تزيل 85% من وهج الأنوار.</span>
+                        عدسات عالية الجودة مضادة للخدش والأتربة مع ضمان سنة
                     </p>
                 </div>
-
-                <div class="group relative reveal-up" style="transition-delay: 0.2s;">
-                    <div class="relative h-96 rounded-2xl overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" 
-                             alt="Protection" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                        <div class="absolute top-4 right-4 glass px-4 py-2 rounded-full text-brand-gold text-sm font-semibold">03</div>
-                    </div>
-                    <h3 class="text-2xl font-serif font-bold mb-3 group-hover:text-brand-gold transition-colors">
-                        <span class="lang-en">Digital Protection</span>
-                        <span class="lang-ar">الحماية الرقمية</span>
-                    </h3>
+                
+                <div class="service-card">
+                    <div class="w-16 h-16 rounded-2xl bg-brand-gold/20 flex items-center justify-center text-3xl mb-6">🕶️</div>
+                    <h3 class="text-2xl font-bold mb-4">نظارات شمسية</h3>
                     <p class="text-gray-400 leading-relaxed">
-                        <span class="lang-en">Block 40% of harmful blue light, reducing eye strain by 60%.</span>
-                        <span class="lang-ar">تصفية 40% من الضوء الأزرق الضار، تقليل إجهاد العين 60%.</span>
+                        تشكيلة واسعة من أشهر الماركات العالمية بأسعار مميزة
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-32 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-blue/20 to-brand-gold/20"></div>
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <h2 class="text-4xl md:text-6xl font-serif font-bold mb-6 reveal-up">
-                <span class="lang-en">Visit Our Store in </span>
-                <span class="lang-ar">زور محلنا في </span>
-                <br>
-                <span class="text-gradient-gold lang-en">Faisal, Giza</span>
-                <span class="text-gradient-gold lang-ar">فيصل، الجيزة</span>
-            </h2>
-            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto reveal-up">
-                <span class="lang-en">Get a free vision check and professional consultation. We'll help you choose the perfect eyewear for your needs.</span>
-                <span class="lang-ar">احصل على فحص نظر مجاني واستشارة احترافية. نساعدك في اختيار النظارة المثالية لاحتياجاتك.</span>
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center reveal-up">
-                <a href="contact.html" class="btn-primary text-lg">
-                    <span class="lang-en">Visit Our Store</span>
-                    <span class="lang-ar">زور محلنا</span>
-                </a>
-                <a href="tel:00201111171350" class="btn-secondary flex items-center justify-center gap-2">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                    </svg>
-                    <span class="lang-en">Call 00201111171350</span>
-                    <span class="lang-ar">اتصل 00201111171350</span>
-                </a>
+    <!-- Owner Section -->
+    <section id="owner" class="py-20 bg-brand-gray/30">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="owner-card text-center">
+                    <div class="owner-avatar">م أ</div>
+                    <h2 class="text-3xl font-bold mb-2">الأستاذ محمود أبو بكر</h2>
+                    <p class="text-brand-gold text-xl mb-6">المؤسس والمالك</p>
+                    
+                    <blockquote class="text-xl text-gray-300 italic leading-relaxed mb-6">
+                        "رؤيتك ليست رفاهية، إنها حقك. هذا الإيمان قاد الهدى للبصريات منذ عام 2009، 
+                        ونحن مستمرون في تقديم أفضل خدمة لأهالي فيصل والجيزة."
+                    </blockquote>
+                    
+                    <div class="flex justify-center gap-4 flex-wrap">
+                        <div class="glass px-6 py-3 rounded-full">
+                            <span class="text-brand-gold font-bold">15+</span>
+                            <span class="text-gray-400 mr-2">سنة خبرة</span>
+                        </div>
+                        <div class="glass px-6 py-3 rounded-full">
+                            <span class="text-brand-gold font-bold">50,000+</span>
+                            <span class="text-gray-400 mr-2">عميل سعيد</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-brand-darker border-t border-white/10 py-16">
+    <!-- Visit Us Section -->
+    <section id="contact" class="py-20">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-serif font-bold mb-4">Al-Huda <span class="lang-ar">الهدى</span></h2>
-            <p class="text-gray-400 mb-4">
-                <span class="lang-en">Vision is not a luxury—it's your right.</span>
-                <span class="lang-ar">الرؤية ليست رفاهية، إنها حقك.</span>
-            </p>
-            <div class="mt-4 text-brand-gold font-bold text-lg">
-                Mr. Mahmoud Abu Bakr | محمود أبو بكر
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                <span class="text-gradient-gold">زورنا اليوم</span>
+            </h2>
+            
+            <div class="no-appointment max-w-2xl mx-auto mb-8">
+                <div class="text-4xl mb-4">🚪</div>
+                <h3 class="text-3xl font-bold text-brand-gold mb-3">افتح الباب وادخل!</h3>
+                <p class="text-xl text-white mb-4">لا حاجة لموعد مسبق - نستقبلك فوراً</p>
+                <div class="text-gray-300">
+                    <p>شارع المطبعة، فيصل، الجيزة</p>
+                    <p class="text-2xl font-bold text-white mt-2">12:00 ظهراً - 1:00 صباحاً</p>
+                    <p class="text-brand-gold">يومياً بدون إجازات</p>
+                </div>
             </div>
-            <div class="text-gray-400 text-sm mt-2">
-                📞 00201111171350
-            </div>
-            <div class="text-gray-500 text-sm mt-1">
-                📍 El-Matbaa Street, Faisal, Giza | شارع المطبعة، فيصل، الجيزة
-            </div>
-            <div class="flex justify-center gap-4 mt-8">
-                <a href="shop.html" class="btn-primary">
-                    <span class="lang-en">Explore Shop</span>
-                    <span class="lang-ar">تصفح المتجر</span>
+            
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="tel:00201111171350" class="btn-primary">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    اتصل بنا الآن
                 </a>
-                <a href="contact.html" class="btn-secondary">
-                    <span class="lang-en">Contact Us</span>
-                    <span class="lang-ar">اتصل بنا</span>
+                <a href="https://wa.me/201111171350" target="_blank" class="btn-outline">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    واتساب
                 </a>
             </div>
-            <p class="text-gray-600 mt-8 text-sm">&copy; 2024 Al-Huda Optics. <span class="lang-ar">الهدى للبصريات</span></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darker border-t border-brand-gold/20 py-12 mb-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center items-center gap-3 mb-6">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-gold to-brand-gold-dark flex items-center justify-center">
+                    <span class="text-black font-bold text-xl">هـ</span>
+                </div>
+                <div class="text-left">
+                    <div class="text-2xl font-bold text-gradient-gold">الهدى للبصريات</div>
+                    <div class="text-sm text-gray-400">Al-Huda Optics</div>
+                </div>
+            </div>
+            
+            <p class="text-gray-400 mb-2">شارع المطبعة، فيصل، الجيزة</p>
+            <p class="text-2xl font-bold text-brand-gold mb-6">01111171350</p>
+            
+            <div class="flex justify-center gap-4 mb-6">
+                <span class="px-4 py-2 rounded-full bg-green-500/20 text-green-400 text-sm">مفتوح الآن</span>
+                <span class="px-4 py-2 rounded-full bg-brand-gold/20 text-brand-gold text-sm">12 ظ - 1 ص</span>
+            </div>
+            
+            <p class="text-gray-600 text-sm">© 2024 الهدى للبصريات. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
+    <!-- Fixed Contact Bar -->
+    <div class="contact-bar">
+        <a href="tel:00201111171350" class="contact-btn phone">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            اتصل الآن
+        </a>
+        <a href="https://wa.me/201111171350" target="_blank" class="contact-btn whatsapp">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            واتساب
+        </a>
+        <a href="https://maps.google.com/?q=شارع+المطبعة+فيصل+الجيزة" target="_blank" class="contact-btn location">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            الموقع
+        </a>
+    </div>
+
     <script>
-        let currentLang = localStorage.getItem('alhuda-lang') || 'en';
-        
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.documentElement.lang = lang;
-            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            localStorage.setItem('alhuda-lang', lang);
-            ScrollTrigger.refresh();
-        }
-        
-        function toggleLanguage() {
-            setLanguage(currentLang === 'en' ? 'ar' : 'en');
-        }
-        
-        setLanguage(currentLang);
-
+        // Counter Animation
         gsap.registerPlugin(ScrollTrigger);
-
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            const progress = document.getElementById('loader-progress');
+        
+        const counters = document.querySelectorAll('.counter');
+        
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2;
             
-            let width = 0;
-            const interval = setInterval(() => {
-                width += Math.random() * 30;
-                if (width >= 100) {
-                    width = 100;
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        gsap.to(loader, {
-                            opacity: 0,
-                            duration: 0.5,
-                            onComplete: () => loader.style.display = 'none'
-                        });
-                    }, 300);
-                }
-                progress.style.width = width + '%';
-            }, 100);
-        });
-
-        gsap.from('#hero-title', { y: 100, opacity: 0, duration: 1.2, ease: 'power4.out' });
-        gsap.from('#hero-subtitle', { y: 50, opacity: 0, duration: 1, delay: 0.3 });
-        gsap.from('#hero-cta', { y: 50, opacity: 0, duration: 1, delay: 0.5 });
-        gsap.from('#hero-stats', { y: 30, opacity: 0, duration: 1, delay: 0.7 });
-
-        gsap.to('#hero-bg', {
-            yPercent: 30,
-            ease: 'none',
-            scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
-        });
-
-        document.querySelectorAll('.reveal-up').forEach(el => {
             ScrollTrigger.create({
-                trigger: el,
-                start: 'top 85%',
-                onEnter: () => el.classList.add('active'),
+                trigger: counter,
+                start: "top 80%",
+                onEnter: () => {
+                    gsap.to(counter, {
+                        innerHTML: target,
+                        duration: duration,
+                        snap: { innerHTML: 1 },
+                        ease: "power2.out",
+                        onUpdate: function() {
+                            if (target >= 1000) {
+                                counter.innerHTML = Math.ceil(this.targets()[0].innerHTML).toLocaleString() + '+';
+                            } else if (target === 100) {
+                                counter.innerHTML = Math.ceil(this.targets()[0].innerHTML) + '%';
+                            } else {
+                                counter.innerHTML = Math.ceil(this.targets()[0].innerHTML) + '+';
+                            }
+                        }
+                    });
+                },
                 once: true
             });
         });
-
-        document.querySelectorAll('.counter').forEach(counter => {
-            const target = parseInt(counter.dataset.target);
-            gsap.to(counter, {
-                innerHTML: target,
-                duration: 2,
-                snap: { innerHTML: 1 },
-                scrollTrigger: { trigger: counter, start: 'top 80%' }
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
         });
-
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 100) nav.classList.add('glass');
-            else nav.classList.remove('glass');
-        });
+        
+        // Add particles
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+            document.body.appendChild(particle);
+        }
     </script>
 </body>
 </html>
