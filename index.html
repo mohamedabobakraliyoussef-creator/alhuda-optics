@@ -3,926 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-ar="الهدى للبصريات | Al-Huda Optics" data-en="Al-Huda Optics | الهدى للبصريات">الهدى للبصريات | Al-Huda Optics</title>
-    <meta name="description" data-ar="الهدى للبصريات - محل نظارات في فيصل، الجيزة. خدمة ممتازة بدون موعد مسبق. أستاذ محمود أبو بكر" data-en="Al-Huda Optics - Premium eyewear in Faisal, Giza. No appointment needed. Mr. Mahmoud Abu Bakr" content="الهدى للبصريات - محل نظارات في فيصل، الجيزة">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#D4AF37',
-                            'gold-light': '#F4E5C2',
-                            'gold-dark': '#B8960C',
-                            dark: '#0a0a0a',
-                            darker: '#050505',
-                            gray: '#1a1a1a'
-                        }
-                    },
-                    fontFamily: {
-                        ar: ['Cairo', 'sans-serif'],
-                        en: ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
+    <title>الهدى للبصريات | Al-Huda Optics</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        :root {
-            --dir: rtl;
-            --align: right;
-        }
-        
-        [dir="ltr"] {
-            --dir: ltr;
-            --align: left;
-        }
-        
         body {
-            font-family: 'Cairo', sans-serif;
-            background: #050505;
-            color: #ffffff;
-            overflow-x: hidden;
-            direction: var(--dir);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
         }
         
-        [dir="ltr"] body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .lang-ar { display: block; }
         .lang-en { display: none; }
         
         [dir="ltr"] .lang-ar { display: none; }
         [dir="ltr"] .lang-en { display: block; }
         
-        .text-gradient-gold {
-            background: linear-gradient(135deg, #D4AF37 0%, #F4E5C2 50%, #D4AF37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-        }
-        
-        .glass-hover:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateY(-5px);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #D4AF37, #B8960C);
-            color: #000;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
-        }
-        
-        .btn-outline {
-            border: 2px solid #D4AF37;
-            color: #D4AF37;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .btn-outline:hover {
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
             background: #D4AF37;
             color: #000;
-            transform: translateY(-3px);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 1000;
         }
         
-        .counter {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1;
-        }
+        [dir="ltr"] .lang-switch { right: auto; left: 20px; }
         
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .open-badge {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-        
-        .no-appointment {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
-            border: 2px solid #D4AF37;
-            border-radius: 20px;
-            padding: 1.5rem;
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            padding: 100px 0 50px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
         
-        .no-appointment::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-            animation: shine 3s infinite;
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-        
-        .service-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 24px;
-            padding: 2rem;
-            transition: all 0.4s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: #D4AF37;
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
-        }
-        
-        .owner-card {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.02));
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            border-radius: 30px;
-            padding: 3rem;
-            position: relative;
-        }
-        
-        .owner-avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+        .logo {
+            width: 100px;
+            height: 100px;
             background: linear-gradient(135deg, #D4AF37, #B8960C);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 800;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            font-weight: bold;
             color: #000;
-            margin: 0 auto 2rem;
-            border: 4px solid rgba(212, 175, 55, 0.5);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
         
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #D4AF37, #F4E5C2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle { font-size: 1.2rem; color: #888; margin-bottom: 30px; }
+        
+        /* No Appointment Badge */
+        .no-appointment {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #D4AF37;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 500px;
+        }
+        
+        .no-appointment h2 {
+            color: #D4AF37;
+            margin-bottom: 10px;
+        }
+        
+        /* Hours */
+        .hours {
+            background: rgba(255,255,255,0.05);
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        
+        .hours strong {
+            color: #D4AF37;
+            font-size: 1.3rem;
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 50px 0;
+        }
+        
+        .stat {
+            background: rgba(255,255,255,0.03);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #D4AF37;
+        }
+        
+        /* Contact Bar */
         .contact-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(5, 5, 5, 0.95);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 1rem;
-            z-index: 1000;
+            background: #1a1a1a;
+            padding: 15px;
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 15px;
             flex-wrap: wrap;
+            border-top: 2px solid #D4AF37;
         }
         
         .contact-btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
         }
         
-        .contact-btn.phone {
-            background: #D4AF37;
-            color: #000;
+        .contact-btn:hover { transform: translateY(-3px); }
+        
+        .btn-phone { background: #D4AF37; color: #000; }
+        .btn-whatsapp { background: #25d366; color: #fff; }
+        .btn-location { background: transparent; color: #D4AF37; border: 2px solid #D4AF37; }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 20px 100px;
+            color: #666;
         }
         
-        .contact-btn.whatsapp {
-            background: #25d366;
-            color: white;
-        }
-        
-        .contact-btn.location {
-            background: transparent;
-            border: 2px solid #D4AF37;
-            color: #D4AF37;
-        }
-        
-        .contact-btn:hover {
-            transform: scale(1.05);
-        }
-        
-        .working-hours {
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 16px;
-            padding: 1.5rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .lang-switch {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            z-index: 999;
-            background: rgba(212, 175, 55, 0.2);
-            border: 2px solid #D4AF37;
-            border-radius: 50px;
-            padding: 0.75rem 1.5rem;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-        }
-        
-        [dir="ltr"] .lang-switch {
-            right: auto;
-            left: 20px;
-        }
-        
-        .lang-switch:hover {
-            background: #D4AF37;
-            color: #000;
-        }
-        
-        .testimonial-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            position: relative;
-        }
-        
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 4rem;
-            color: #D4AF37;
-            opacity: 0.3;
-        }
-        
-        [dir="ltr"] .testimonial-card::before {
-            left: auto;
-            right: 20px;
-        }
-        
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #D4AF37;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: particle-float 10s infinite;
-        }
-        
-        @keyframes particle-float {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 0.5; }
-            90% { opacity: 0.5; }
-            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
-        }
-        
-        .scroll-top {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: #D4AF37;
-            color: #000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: all 0.3s;
-            z-index: 999;
-        }
-        
-        [dir="ltr"] .scroll-top {
-            right: auto;
-            left: 20px;
-        }
-        
-        .scroll-top.visible {
-            opacity: 1;
-        }
-        
-        .scroll-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
-        }
-        
-        .map-container {
-            width: 100%;
-            height: 400px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-        }
-        
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
-            border: 2px solid #D4AF37;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .phone-big {
             font-size: 2rem;
-            margin: 0 auto 1rem;
-            transition: all 0.3s;
-        }
-        
-        .feature-icon:hover {
-            transform: rotate(360deg) scale(1.1);
-            background: #D4AF37;
+            color: #D4AF37;
+            margin: 20px 0;
         }
     </style>
 </head>
-<body class="pb-24">
-    <!-- Language Switcher -->
-    <button class="lang-switch" onclick="toggleLanguage()">
-        <span class="lang-ar">🇬🇧 English</span>
-        <span class="lang-en">🇪🇬 العربية</span>
+<body>
+    <button class="lang-switch" onclick="toggleLang()">
+        <span class="lang-ar">English 🇬🇧</span>
+        <span class="lang-en">العربية 🇪🇬</span>
     </button>
-    
-    <!-- Scroll to Top -->
-    <div class="scroll-top" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-    </div>
 
-    <!-- Background Effects -->
-    <div class="hero-bg"></div>
-
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="#" class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-gold to-brand-gold-dark flex items-center justify-center">
-                        <span class="text-black font-bold text-xl">A</span>
-                    </div>
-                    <div>
-                        <div class="text-xl font-bold text-gradient-gold lang-ar">الهدى للبصريات</div>
-                        <div class="text-xl font-bold text-gradient-gold lang-en">Al-Huda Optics</div>
-                        <div class="text-xs text-gray-400 lang-ar">Al-Huda Optics</div>
-                        <div class="text-xs text-gray-400 lang-en">الهدى للبصريات</div>
-                    </div>
-                </a>
-                
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#about" class="text-gray-300 hover:text-brand-gold transition lang-ar">من نحن</a>
-                    <a href="#about" class="text-gray-300 hover:text-brand-gold transition lang-en">About</a>
-                    <a href="#services" class="text-gray-300 hover:text-brand-gold transition lang-ar">خدماتنا</a>
-                    <a href="#services" class="text-gray-300 hover:text-brand-gold transition lang-en">Services</a>
-                    <a href="#testimonials" class="text-gray-300 hover:text-brand-gold transition lang-ar">آراء العملاء</a>
-                    <a href="#testimonials" class="text-gray-300 hover:text-brand-gold transition lang-en">Reviews</a>
-                    <a href="#contact" class="text-gray-300 hover:text-brand-gold transition lang-ar">اتصل بنا</a>
-                    <a href="#contact" class="text-gray-300 hover:text-brand-gold transition lang-en">Contact</a>
-                </div>
-                
-                <div class="open-badge">
-                    <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-                    <span class="lang-ar">مفتوح الآن</span>
-                    <span class="lang-en">Open Now</span>
-                </div>
+    <header>
+        <div class="container">
+            <div class="logo">A</div>
+            <h1 class="lang-ar">الهدى للبصريات</h1>
+            <h1 class="lang-en">Al-Huda Optics</h1>
+            
+            <p class="subtitle lang-ar">منذ 2009 • فيصل، الجيزة</p>
+            <p class="subtitle lang-en">Since 2009 • Faisal, Giza</p>
+            
+            <div class="no-appointment">
+                <h2 class="lang-ar">🚪 تعال مباشرة!</h2>
+                <h2 class="lang-en">🚪 Walk Right In!</h2>
+                <p class="lang-ar">لا حاجة لموعد مسبق - نستقبلك فور وصولك</p>
+                <p class="lang-en">No appointment needed - we'll serve you immediately</p>
+            </div>
+            
+            <div class="hours">
+                <p class="lang-ar">ساعات العمل: <strong>12 ظهراً - 1 صباحاً</strong> (يومياً)</p>
+                <p class="lang-en">Working Hours: <strong>12 PM - 1 AM</strong> (Daily)</p>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <div class="floating mb-8">
-                <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80" 
-                     alt="Premium Glasses" 
-                     class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full mx-auto shadow-2xl border-4 border-brand-gold/30">
+    <section class="container">
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">15+</div>
+                <p class="lang-ar">سنة خبرة</p>
+                <p class="lang-en">Years Experience</p>
             </div>
-            
-            <div class="mb-6">
-                <span class="text-brand-gold text-lg font-semibold tracking-wider lang-ar">منذ 2009 • فيصل، الجيزة</span>
-                <span class="text-brand-gold text-lg font-semibold tracking-wider lang-en">Since 2009 • Faisal, Giza</span>
+            <div class="stat">
+                <div class="stat-number">50K+</div>
+                <p class="lang-ar">عميل سعيد</p>
+                <p class="lang-en">Happy Clients</p>
             </div>
-            
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                <span class="text-gradient-gold lang-ar">الرؤية ليست رفاهية</span>
-                <span class="text-gradient-gold lang-en">Vision Is Not</span>
-                <br>
-                <span class="text-white lang-ar">إنها حقك</span>
-                <span class="text-white lang-en">A Luxury</span>
-            </h1>
-            
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8 lang-ar">
-                نقدم لك نظارات طبية وشمسية فاخرة بأعلى جودة وأفضل الأسعار في فيصل، الجيزة
-            </p>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8 lang-en">
-                We offer premium medical and sunglasses with the highest quality and best prices in Faisal, Giza
-            </p>
-            
-            <!-- No Appointment Badge -->
-            <div class="no-appointment max-w-md mx-auto mb-8">
-                <div class="text-3xl mb-2">🚶‍♂️</div>
-                <h3 class="text-2xl font-bold text-brand-gold mb-2 lang-ar">تعال مباشرة!</h3>
-                <h3 class="text-2xl font-bold text-brand-gold mb-2 lang-en">Walk Right In!</h3>
-                <p class="text-white lang-ar">لا حاجة لموعد مسبق - نستقبلك فور وصولك</p>
-                <p class="text-white lang-en">No appointment needed - we'll serve you immediately</p>
-            </div>
-            
-            <div class="working-hours">
-                <i class="far fa-clock text-3xl text-brand-gold"></i>
-                <div class="text-right lang-ar">
-                    <div class="text-sm text-gray-400">ساعات العمل</div>
-                    <div class="text-lg font-bold text-white">12:00 ظهراً - 1:00 صباحاً</div>
-                    <div class="text-sm text-brand-gold">يومياً</div>
-                </div>
-                <div class="text-left lang-en">
-                    <div class="text-sm text-gray-400">Working Hours</div>
-                    <div class="text-lg font-bold text-white">12:00 PM - 1:00 AM</div>
-                    <div class="text-sm text-brand-gold">Daily</div>
-                </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <p class="lang-ar">ضمان الجودة</p>
+                <p class="lang-en">Quality Guarantee</p>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section id="about" class="py-20 bg-brand-gray/30">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    <span class="text-gradient-gold lang-ar">إحصائياتنا</span>
-                    <span class="text-gradient-gold lang-en">Our Statistics</span>
-                </h2>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass glass-hover p-8 rounded-3xl text-center transition-all duration-300">
-                    <div class="counter text-gradient-gold" data-target="15">0</div>
-                    <div class="text-xl text-gray-300 mt-2 lang-ar">+ سنة خبرة</div>
-                    <div class="text-xl text-gray-300 mt-2 lang-en">+ Years Experience</div>
-                </div>
-                <div class="glass glass-hover p-8 rounded-3xl text-center transition-all duration-300">
-                    <div class="counter text-gradient-gold" data-target="50000">0</div>
-                    <div class="text-xl text-gray-300 mt-2 lang-ar">+ عميل سعيد</div>
-                    <div class="text-xl text-gray-300 mt-2 lang-en">+ Happy Clients</div>
-                </div>
-                <div class="glass glass-hover p-8 rounded-3xl text-center transition-all duration-300">
-                    <div class="counter text-gradient-gold" data-target="100">0</div>
-                    <div class="text-xl text-gray-300 mt-2 lang-ar">% ضمان الجودة</div>
-                    <div class="text-xl text-gray-300 mt-2 lang-en">% Quality Guarantee</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    <span class="text-gradient-gold lang-ar">خدماتنا المتميزة</span>
-                    <span class="text-gradient-gold lang-en">Our Premium Services</span>
-                </h2>
-                <p class="text-gray-400 text-lg lang-ar">نقدم لك أفضل الخدمات بأحدث التقنات</p>
-                <p class="text-gray-400 text-lg lang-en">We offer the best services with latest technology</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="service-card text-center">
-                    <div class="feature-icon">
-                        <i class="fas fa-eye text-brand-gold"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 lang-ar">فحص نظر شامل</h3>
-                    <h3 class="text-2xl font-bold mb-4 lang-en">Comprehensive Eye Exam</h3>
-                    <p class="text-gray-400 leading-relaxed lang-ar">
-                        فحص دقيق بأحدث الأجهزة لتحديد درجة النظر بدقة عالية
-                    </p>
-                    <p class="text-gray-400 leading-relaxed lang-en">
-                        Precise examination with latest devices to determine your exact vision degree
-                    </p>
-                </div>
-                
-                <div class="service-card text-center">
-                    <div class="feature-icon">
-                        <i class="fas fa-glasses text-brand-gold"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 lang-ar">عدسات طبية</h3>
-                    <h3 class="text-2xl font-bold mb-4 lang-en">Medical Lenses</h3>
-                    <p class="text-gray-400 leading-relaxed lang-ar">
-                        عدسات عالية الجودة مضادة للخدش والأتربة مع ضمان سنة
-                    </p>
-                    <p class="text-gray-400 leading-relaxed lang-en">
-                        High-quality scratch-resistant lenses with 1-year warranty
-                    </p>
-                </div>
-                
-                <div class="service-card text-center">
-                    <div class="feature-icon">
-                        <i class="fas fa-sun text-brand-gold"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 lang-ar">نظارات شمسية</h3>
-                    <h3 class="text-2xl font-bold mb-4 lang-en">Sunglasses</h3>
-                    <p class="text-gray-400 leading-relaxed lang-ar">
-                        تشكيلة واسعة من أشهر الماركات العالمية بأسعار مميزة
-                    </p>
-                    <p class="text-gray-400 leading-relaxed lang-en">
-                        Wide collection of famous international brands at special prices
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Owner Section -->
-    <section class="py-20 bg-brand-gray/30">
-        <div class="container mx-auto px-6">
-            <div class="max-w-3xl mx-auto">
-                <div class="owner-card text-center">
-                    <div class="owner-avatar">
-                        <span class="lang-ar">م أ</span>
-                        <span class="lang-en">MB</span>
-                    </div>
-                    <h2 class="text-3xl font-bold mb-2 lang-ar">الأستاذ محمود أبو بكر</h2>
-                    <h2 class="text-3xl font-bold mb-2 lang-en">Mr. Mahmoud Abu Bakr</h2>
-                    <p class="text-brand-gold text-xl mb-6 lang-ar">المؤسس والمالك</p>
-                    <p class="text-brand-gold text-xl mb-6 lang-en">Founder & Owner</p>
-                    
-                    <blockquote class="text-xl text-gray-300 italic leading-relaxed mb-6 lang-ar">
-                        "رؤيتك ليست رفاهية، إنها حقك. هذا الإيمان قاد الهدى للبصريات منذ عام 2009، 
-                        ونحن مستمرون في تقديم أفضل خدمة لأهالي فيصل والجيزة."
-                    </blockquote>
-                    <blockquote class="text-xl text-gray-300 italic leading-relaxed mb-6 lang-en">
-                        "Your vision is not a luxury, it's your right. This belief has guided Al-Huda Optics since 2009, 
-                        and we continue to provide the best service to Faisal and Giza residents."
-                    </blockquote>
-                    
-                    <div class="flex justify-center gap-4 flex-wrap">
-                        <div class="glass px-6 py-3 rounded-full">
-                            <span class="text-brand-gold font-bold">15+</span>
-                            <span class="text-gray-400 mr-2 lang-ar">سنة خبرة</span>
-                            <span class="text-gray-400 ml-2 lang-en">Years Exp.</span>
-                        </div>
-                        <div class="glass px-6 py-3 rounded-full">
-                            <span class="text-brand-gold font-bold">50,000+</span>
-                            <span class="text-gray-400 mr-2 lang-ar">عميل سعيد</span>
-                            <span class="text-gray-400 ml-2 lang-en">Happy Clients</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    <span class="text-gradient-gold lang-ar">آراء عملائنا</span>
-                    <span class="text-gradient-gold lang-en">Customer Reviews</span>
-                </h2>
-                <p class="text-gray-400 text-lg lang-ar">ما يقوله عملاؤنا عنا</p>
-                <p class="text-gray-400 text-lg lang-en">What our customers say about us</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="testimonial-card">
-                    <p class="text-gray-300 mb-4 lang-ar">"خدمة ممتازة وأسعار منافسة. الأستاذ محمود محترف جداً ويساعدك في اختيار النظارة المناسبة."</p>
-                    <p class="text-gray-300 mb-4 lang-en">"Excellent service and competitive prices. Mr. Mahmoud is very professional and helps you choose the right glasses."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold font-bold">أ</div>
-                        <div>
-                            <div class="font-bold lang-ar">أحمد محمد</div>
-                            <div class="font-bold lang-en">Ahmed Mohamed</div>
-                            <div class="text-sm text-gray-500 lang-ar">عميل منذ 2015</div>
-                            <div class="text-sm text-gray-500 lang-en">Customer since 2015</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="text-gray-300 mb-4 lang-ar">"أفضل محل نظارات في فيصل. جودة عالية وسرعة في التنفيذ. أنصح الجميع بزيارته."</p>
-                    <p class="text-gray-300 mb-4 lang-en">"Best optics store in Faisal. High quality and fast service. I recommend everyone to visit."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold font-bold">س</div>
-                        <div>
-                            <div class="font-bold lang-ar">سارة علي</div>
-                            <div class="font-bold lang-en">Sara Ali</div>
-                            <div class="text-sm text-gray-500 lang-ar">عميلة منذ 2018</div>
-                            <div class="text-sm text-gray-500 lang-en">Customer since 2018</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="text-gray-300 mb-4 lang-ar">"تعامل راقي وصدق في المواعيد. النظارة جاهزة في نفس اليوم. شكراً الهدى للبصريات."</p>
-                    <p class="text-gray-300 mb-4 lang-en">"Professional dealing and honesty. Glasses ready same day. Thank you Al-Huda Optics."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold font-bold">م</div>
-                        <div>
-                            <div class="font-bold lang-ar">محمد حسن</div>
-                            <div class="font-bold lang-en">Mohamed Hassan</div>
-                            <div class="text-sm text-gray-500 lang-ar">عميل منذ 2020</div>
-                            <div class="text-sm text-gray-500 lang-en">Customer since 2020</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Visit Us Section -->
-    <section id="contact" class="py-20 bg-brand-gray/30">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="text-gradient-gold lang-ar">زورنا اليوم</span>
-                    <span class="text-gradient-gold lang-en">Visit Us Today</span>
-                </h2>
-                
-                <div class="no-appointment max-w-2xl mx-auto mb-8">
-                    <div class="text-4xl mb-4">🚪</div>
-                    <h3 class="text-3xl font-bold text-brand-gold mb-3 lang-ar">افتح الباب وادخل!</h3>
-                    <h3 class="text-3xl font-bold text-brand-gold mb-3 lang-en">Just Open the Door!</h3>
-                    <p class="text-xl text-white mb-4 lang-ar">لا حاجة لموعد مسبق - نستقبلك فوراً</p>
-                    <p class="text-xl text-white mb-4 lang-en">No appointment needed - we'll serve you immediately</p>
-                    <div class="text-gray-300">
-                        <p class="lang-ar">شارع المطبعة، فيصل، الجيزة</p>
-                        <p class="lang-en">El-Matbaa Street, Faisal, Giza</p>
-                        <p class="text-2xl font-bold text-white mt-2 lang-ar">12:00 ظهراً - 1:00 صباحاً</p>
-                        <p class="text-2xl font-bold text-white mt-2 lang-en">12:00 PM - 1:00 AM</p>
-                        <p class="text-brand-gold lang-ar">يومياً بدون إجازات</p>
-                        <p class="text-brand-gold lang-en">Daily - No days off</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Map -->
-            <div class="map-container mb-12">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.789!2d31.1234!3d29.9876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDU5JzE1LjQiTiAzMcKwMDcnMjQuMiJF!5e0!3m2!1sen!2seg!4v1234567890"
-                    width="100%" 
-                    height="100%" 
-                    style="border:0; filter: invert(90%) hue-rotate(180deg);" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-            
-            <div class="flex justify-center gap-4 flex-wrap">
-                <a href="tel:00201111171350" class="btn-primary">
-                    <i class="fas fa-phone"></i>
-                    <span class="lang-ar">اتصل بنا الآن</span>
-                    <span class="lang-en">Call Us Now</span>
-                </a>
-                <a href="https://wa.me/201111171350" target="_blank" class="btn-outline">
-                    <i class="fab fa-whatsapp"></i>
-                    <span class="lang-ar">واتساب</span>
-                    <span class="lang-en">WhatsApp</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-brand-darker border-t border-brand-gold/20 py-12 mb-20">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex justify-center items-center gap-3 mb-6">
-                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-gold to-brand-gold-dark flex items-center justify-center">
-                    <span class="text-black font-bold text-xl">A</span>
-                </div>
-                <div>
-                    <div class="text-2xl font-bold text-gradient-gold lang-ar">الهدى للبصريات</div>
-                    <div class="text-2xl font-bold text-gradient-gold lang-en">Al-Huda Optics</div>
-                </div>
-            </div>
-            
-            <p class="text-gray-400 mb-2 lang-ar">شارع المطبعة، فيصل، الجيزة</p>
-            <p class="text-gray-400 mb-2 lang-en">El-Matbaa Street, Faisal, Giza</p>
-            <p class="text-2xl font-bold text-brand-gold mb-6">01111171350</p>
-            
-            <div class="flex justify-center gap-4 mb-6">
-                <span class="px-4 py-2 rounded-full bg-green-500/20 text-green-400 text-sm lang-ar">مفتوح الآن</span>
-                <span class="px-4 py-2 rounded-full bg-green-500/20 text-green-400 text-sm lang-en">Open Now</span>
-                <span class="px-4 py-2 rounded-full bg-brand-gold/20 text-brand-gold text-sm">12 PM - 1 AM</span>
-            </div>
-            
-            <div class="flex justify-center gap-6 mb-6">
-                <a href="#" class="text-gray-400 hover:text-brand-gold transition"><i class="fab fa-facebook text-2xl"></i></a>
-                <a href="#" class="text-gray-400 hover:text-brand-gold transition"><i class="fab fa-instagram text-2xl"></i></a>
-                <a href="#" class="text-gray-400 hover:text-brand-gold transition"><i class="fab fa-whatsapp text-2xl"></i></a>
-            </div>
-            
-            <p class="text-gray-600 text-sm lang-ar">© 2024 الهدى للبصريات. جميع الحقوق محفوظة.</p>
-            <p class="text-gray-600 text-sm lang-en">© 2024 Al-Huda Optics. All rights reserved.</p>
-        </div>
+    <footer>
+        <h3 class="lang-ar">الأستاذ محمود أبو بكر</h3>
+        <h3 class="lang-en">Mr. Mahmoud Abu Bakr</h3>
+        <p class="lang-ar">شارع المطبعة، فيصل، الجيزة</p>
+        <p class="lang-en">El-Matbaa Street, Faisal, Giza</p>
+        <div class="phone-big">01111171350</div>
     </footer>
 
-    <!-- Fixed Contact Bar -->
     <div class="contact-bar">
-        <a href="tel:00201111171350" class="contact-btn phone">
-            <i class="fas fa-phone"></i>
-            <span class="lang-ar">اتصل الآن</span>
-            <span class="lang-en">Call Now</span>
+        <a href="tel:01111171350" class="contact-btn btn-phone">
+            <span class="lang-ar">📞 اتصل الآن</span>
+            <span class="lang-en">📞 Call Now</span>
         </a>
-        <a href="https://wa.me/201111171350" target="_blank" class="contact-btn whatsapp">
-            <i class="fab fa-whatsapp"></i>
-            <span class="lang-ar">واتساب</span>
-            <span class="lang-en">WhatsApp</span>
+        <a href="https://wa.me/201111171350" class="contact-btn btn-whatsapp">
+            <span class="lang-ar">💬 واتساب</span>
+            <span class="lang-en">💬 WhatsApp</span>
         </a>
-        <a href="https://maps.google.com/?q=شارع+المطبعة+فيصل+الجيزة" target="_blank" class="contact-btn location">
-            <i class="fas fa-map-marker-alt"></i>
-            <span class="lang-ar">الموقع</span>
-            <span class="lang-en">Location</span>
+        <a href="#" class="contact-btn btn-location">
+            <span class="lang-ar">📍 الموقع</span>
+            <span class="lang-en">📍 Location</span>
         </a>
     </div>
 
     <script>
-        // Language Toggle
-        function toggleLanguage() {
+        function toggleLang() {
             const html = document.documentElement;
-            const currentLang = html.getAttribute('lang');
-            const newLang = currentLang === 'ar' ? 'en' : 'ar';
-            const newDir = currentLang === 'ar' ? 'ltr' : 'rtl';
-            
-            html.setAttribute('lang', newLang);
-            html.setAttribute('dir', newDir);
-            
-            // Update title
-            const title = document.querySelector('title');
-            const newTitle = newLang === 'ar' ? title.getAttribute('data-ar') : title.getAttribute('data-en');
-            title.textContent = newTitle;
-            
-            // Store preference
-            localStorage.setItem('preferred-lang', newLang);
-        }
-        
-        // Load saved language preference
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedLang = localStorage.getItem('preferred-lang');
-            if (savedLang && savedLang !== 'ar') {
-                toggleLanguage();
-            }
-        });
-        
-        // Counter Animation
-        gsap.registerPlugin(ScrollTrigger);
-        
-        const counters = document.querySelectorAll('.counter');
-        
-        counters.forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-target'));
-            
-            ScrollTrigger.create({
-                trigger: counter,
-                start: "top 80%",
-                onEnter: () => {
-                    gsap.to(counter, {
-                        innerHTML: target,
-                        duration: 2,
-                        snap: { innerHTML: 1 },
-                        ease: "power2.out",
-                        onUpdate: function() {
-                            const current = Math.ceil(this.targets()[0].innerHTML);
-                            if (target >= 1000) {
-                                counter.innerHTML = current.toLocaleString() + '+';
-                            } else if (target === 100) {
-                                counter.innerHTML = current + '%';
-                            } else {
-                                counter.innerHTML = current + '+';
-                            }
-                        }
-                    });
-                },
-                once: true
-            });
-        });
-        
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-        
-        // Scroll to Top Button
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        window.addEventListener('scroll', () => {
-            const scrollBtn = document.querySelector('.scroll-top');
-            if (window.pageYOffset > 300) {
-                scrollBtn.classList.add('visible');
+            if (html.getAttribute('lang') === 'ar') {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
             } else {
-                scrollBtn.classList.remove('visible');
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
             }
-        });
-        
-        // Add particles
-        for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 10 + 's';
-            particle.style.animationDuration = (10 + Math.random() * 10) + 's';
-            document.body.appendChild(particle);
         }
-        
-        // Check if open
-        function checkIfOpen() {
-            const now = new Date();
-            const hour = now.getHours();
-            const isOpen = hour >= 12 || hour < 1; // 12 PM to 1 AM
-            
-            const badges = document.querySelectorAll('.open-badge');
-            badges.forEach(badge => {
-                if (!isOpen) {
-                    badge.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
-                    badge.querySelector('span:last-child').textContent = 
-                        document.documentElement.getAttribute('lang') === 'ar' ? 'مغلق الآن' : 'Closed Now';
-                }
-            });
-        }
-        
-        checkIfOpen();
-        setInterval(checkIfOpen, 60000); // Check every minute
     </script>
 </body>
 </html>
