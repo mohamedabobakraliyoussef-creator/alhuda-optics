@@ -1,1 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Huda Optics | Professional Eyewear Since 2009</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #c9a961;
+            --accent-dark: #a88b4a;
+            --white: #ffffff;
+            --gray: #888888;
+            --light-gray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-eye {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--accent);
+            border-radius: 50% 0;
+            transform: rotate(45deg);
+            animation: eyeBlink 3s infinite;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .loader-eye::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pupilMove 2s infinite;
+        }
+
+        @keyframes eyeBlink {
+            0%, 90%, 100% { transform: rotate(45deg) scaleY(1); }
+            95% { transform: rotate(45deg) scaleY(0.1); }
+        }
+
+        @keyframes pupilMove {
+            0%, 100% { transform: translate(-50%, -50%); }
+            25% { transform: translate(-70%, -50%); }
+            75% { transform: translate(-30%, -50%); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 18px 60px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,10,10,0.85), rgba(26,26,26,0.9)), 
+                        url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1920') center/cover;
+            filter: brightness(0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 20px;
+            max-width: 1000px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(201, 169, 97, 0.15);
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 40px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: -1px;
+        }
+
+        h1 span {
+            color: var(--accent);
+            display: block;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 50px;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 60px;
+            background: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(201, 169, 97, 0.3);
+            border: 2px solid var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(201, 169, 97, 0.4);
+            background: transparent;
+            color: var(--accent);
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 80px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 50px;
+            background: rgba(201, 169, 97, 0.3);
+        }
+
+        .stat-item:last-child::after {
+            display: none;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+            line-height: 1;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 60px;
+            background: var(--secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 97, 0.15);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .service-image-container {
+            overflow: hidden;
+            height: 280px;
+            position: relative;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.1);
+        }
+
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10,10,10,0.4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card:hover .service-overlay {
+            opacity: 1;
+        }
+
+        .view-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .view-icon {
+            transform: scale(1);
+        }
+
+        .service-content {
+            padding: 40px 30px;
+            position: relative;
+        }
+
+        .service-number {
+            position: absolute;
+            top: -25px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            box-shadow: 0 5px 20px rgba(201, 169, 97, 0.3);
+        }
+
+        .service-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--white);
+            margin-top: 10px;
+        }
+
+        .service-content p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Products Gallery - 60+ Products */
+        .products {
+            padding: 120px 60px;
+            background: var(--primary);
+        }
+
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 30px;
+            background: transparent;
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            color: var(--white);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 97, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .product-image-container {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 15px;
+            background: var(--accent);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-category {
+            color: var(--accent);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            color: var(--accent);
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Location Section */
+        .location {
+            padding: 120px 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: rgba(201, 169, 97, 0.03);
+            border-radius: 50%;
+        }
+
+        .location-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .location-info h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .location-info > p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+        }
+
+        .location-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .location-item i {
+            color: var(--accent);
+            font-size: 1.4rem;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-container {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(201, 169, 97, 0.2);
+            height: 500px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(100%) invert(92%) contrast(83%);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.98);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            font-size: 3rem;
+            color: var(--white);
+            cursor: pointer;
+            transition: color 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: -60px;
+            left: 0;
+            width: 100%;
+            color: var(--white);
+            font-size: 1.3rem;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.8);
+            border-radius: 10px;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(201, 169, 97, 0.2);
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .lightbox-prev { left: 30px; }
+        .lightbox-next { right: 30px; }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            padding: 80px 60px 30px;
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-section p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            display: block;
+            line-height: 2.2;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4);
+            font-size: 0.9rem;
+        }
+
+        /* Scroll Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 55px;
+            height: 55px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 999;
+            font-size: 1.3rem;
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+            border: none;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(201, 169, 97, 0.4);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--accent);
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            h1 span { font-size: 2rem; }
+            
+            nav { padding: 20px 30px; }
+            
+            .nav-links { 
+                display: none; 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 30px;
+                gap: 25px;
+                border-top: 1px solid rgba(201, 169, 97, 0.2);
+            }
+            
+            .nav-links.active { display: flex; }
+            
+            .mobile-menu { display: block; }
+            
+            .services-grid,
+            .products-grid { grid-template-columns: 1fr; }
+            
+            .location-container { grid-template-columns: 1fr; }
+            
+            .stats { gap: 40px; }
+            .stat-item::after { display: none; }
+            .stat-number { font-size: 2.5rem; }
+            
+            .services,
+            .products,
+            .location { padding: 80px 30px; }
+            
+            .footer-content { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader-content">
+            <div class="loader-eye"></div>
+            <p style="color: var(--accent); font-weight: 600; letter-spacing: 3px; text-transform: uppercase;">Loading Experience</p>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img src="" alt="" class="lightbox-img" id="lightbox-img">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+        <div class="lightbox-nav lightbox-prev" onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i></div>
+        <div class="lightbox-nav lightbox-next" onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-glasses"></i>
+            <span>Al-Huda Optics</span>
+        </a>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+        <div class="mobile-menu" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="badge">Est. 2009 • Faisal, Giza</div>
+            <h1>
+                Vision Is Not A Luxury
+                <span>It is your right to see the world with clarity</span>
+            </h1>
+            <p class="hero-subtitle">Get a free vision check and professional consultation. We'll help you choose the perfect eyewear for your needs.</p>
+            <a href="#location" class="cta-button">Book Appointment</a>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="15">0</span>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5000">0</span>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">0</span>
+                    <div class="stat-label">% Quality Guarantee</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header fade-in">
+            <h2>Three Pillars of Perfect Vision</h2>
+            <p>We use the latest technology to provide the best care for your eyes</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in" onclick="openLightbox(0)">
+                <div class="service-image-container">
+                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800" 
+                         alt="Macro Precision" 
+                         class="service-image"
+                         data-caption="Laser-etched lenses with nanometer accuracy">
+                    <div class="service-overlay">
+                        <div class="view-icon"><i class="fas fa-expand"></i></div>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <div class="service-number">01</div>
+                    <h3>Macro Precision</h3>
+                    <p>Laser-etched lenses with nanometer accuracy for your unique vision. We use the latest German equipment for high-precision measurements.</p>
+                </div>
+            </div>
+
+            <div class="service-card fade-in" onclick="openLightbox(1)">
+                <div class="service-image-container">
+                    <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800" 
+                         alt="Night Clarity" 
+                         class="service-image"
+                         data-caption="Anti-glare technology for safe night driving">
+                    <div class="service-overlay">
+                        <div class="view-icon"><i class="fas fa-expand"></i></div>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <div class="service-number">02</div>
+                    <h3>Night Clarity</h3>
+                    <p>Anti-glare technology eliminating 85% of headlight glare during night driving for safe and comfortable vision.</p>
+                </div>
+            </div>
+
+            <div class="service-card fade-in" onclick="openLightbox(2)">
+                <div class="service-image-container">
+                    <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=800" 
+                         alt="Digital Protection" 
+                         class="service-image"
+                         data-caption="Blue light blocking technology">
+                    <div class="service-overlay">
+                        <div class="view-icon"><i class="fas fa-expand"></i></div>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <div class="service-number">03</div>
+                    <h3>Digital Protection</h3>
+                    <p>Block 40% of harmful blue light from screens, reducing eye strain by 60%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section - 60+ Products -->
+    <section class="products" id="products">
+        <div class="section-header fade-in">
+            <h2>Our Collection</h2>
+            <p>Over 60 premium eyewear products</p>
+        </div>
+
+        <div class="products-filter fade-in">
+            <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+            <button class="filter-btn" onclick="filterProducts('sunglasses')">Sunglasses</button>
+            <button class="filter-btn" onclick="filterProducts('optical')">Optical</button>
+            <button class="filter-btn" onclick="filterProducts('lenses')">Contact Lenses</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be generated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="location-container">
+            <div class="location-info fade-in">
+                <h2>Visit Our Store in Faisal, Giza</h2>
+                <p>Get a free vision check and professional consultation. We'll help you choose the perfect eyewear for your needs.</p>
+                
+                <div class="location-details">
+                    <div class="location-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Faisal Main Street, Next to Cairo Bank</span>
+                    </div>
+                    <div class="location-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Open Daily: 12:00 PM - 1:00 AM</span>
+                    </div>
+                    <div class="location-item">
+                        <i class="fas fa-phone"></i>
+                        <span>01111171350</span>
+                    </div>
+                    <div class="location-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@alhuda-optics.com</span>
+                    </div>
+                </div>
+
+                <a href="tel:01111171350" class="cta-button" style="margin-top: 20px;">
+                    <i class="fas fa-phone" style="margin-right: 10px;"></i> Call Now
+                </a>
+            </div>
+            
+            <div class="map-container fade-in">
+                <iframe 
+                    class="map-iframe"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.789!2d31.1234!3d29.9876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDU5JzE1LjQiTiAzMcKwMDcnMjQuMiJF!5e0!3m2!1sen!2seg!4v1234567890"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Al-Huda Optics</h3>
+                <p>Providing premium optical services since 2009. Your trust is the secret of our success.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#products">Products</a>
+                <a href="#location">Location</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="#">Vision Test</a>
+                <a href="#">Optical Glasses</a>
+                <a href="#">Sunglasses</a>
+                <a href="#">Contact Lenses</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone" style="margin-right: 10px; color: var(--accent);"></i> 01111171350</p>
+                <p><i class="fas fa-envelope" style="margin-right: 10px; color: var(--accent);"></i> info@alhuda-optics.com</p>
+                <p><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--accent);"></i> Faisal, Giza, Egypt</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Al-Huda Optics. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = document.getElementById('scrollTop');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                scrollTop.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                scrollTop.classList.remove('visible');
+            }
+            
+            // Fade in animation
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+
+        // Animated counters
+        const animateValue = (obj, start, end, duration) => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        };
+
+        const observerOptions = { threshold: 0.5 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    animateValue(entry.target, 0, target, 2000);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            observer.observe(stat);
+        });
+
+        // Lightbox functionality
+        let currentImageIndex = 0;
+        const galleryImages = [
+            { src: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=1200', caption: 'Macro Precision - Laser-etched lenses with nanometer accuracy' },
+            { src: 'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=1200', caption: 'Night Clarity - Anti-glare technology for safe driving' },
+            { src: 'https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=1200', caption: 'Digital Protection - Blue light blocking technology' }
+        ];
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightbox();
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
+            if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const img = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            img.src = galleryImages[currentImageIndex].src;
+            caption.textContent = galleryImages[currentImageIndex].caption;
+        }
+
+        // Close lightbox on outside click
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') closeLightbox();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') changeImage(-1);
+            if (e.key === 'ArrowRight') changeImage(1);
+        });
+
+        // Generate 60+ Products
+        const products = [
+            // Sunglasses (20)
+            ...Array(20).fill(null).map((_, i) => ({
+                name: `Premium Sunglasses ${i + 1}`,
+                category: 'sunglasses',
+                price: 450 + (i * 50),
+                image: `https://images.unsplash.com/photo-${1511499767150-a48a237f0083 + i}?w=400`,
+                badge: i < 5 ? 'New' : (i < 10 ? 'Sale' : '')
+            })),
+            // Optical Glasses (25)
+            ...Array(25).fill(null).map((_, i) => ({
+                name: `Designer Optical Frame ${i + 1}`,
+                category: 'optical',
+                price: 350 + (i * 40),
+                image: `https://images.unsplash.com/photo-${1574258495973-f010dfbb5371 + i}?w=400`,
+                badge: i === 0 ? 'Best Seller' : ''
+            })),
+            // Contact Lenses (15)
+            ...Array(15).fill(null).map((_, i) => ({
+                name: `Contact Lenses Pack ${i + 1}`,
+                category: 'lenses',
+                price: 200 + (i * 30),
+                image: `https://images.unsplash.com/photo-${1591076482161-42ce6da69f67 + i}?w=400`,
+                badge: i < 3 ? 'Popular' : ''
+            }))
+        ];
+
+        // Better product images using specific eyewear URLs
+        const productImages = [
+            'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400',
+            'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400',
+            'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=400',
+            'https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=400',
+            'https://images.unsplash.com/photo-1577803645773-f96470509666?w=400',
+            'https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400',
+            'https://images.unsplash.com/photo-1483127140828-af66a3429184?w=400',
+            'https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=400',
+            'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=400',
+            'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=400'
+        ];
+
+        function generateProducts() {
+            const grid = document.getElementById('productsGrid');
+            const categories = ['sunglasses', 'optical', 'lenses'];
+            const names = {
+                sunglasses: ['Aviator Classic', 'Wayfarer Style', 'Round Metal', 'Clubmaster', 'Cat Eye', 'Oversized', 'Sport Wrap', 'Retro Square', 'Pilot', 'Butterfly'],
+                optical: ['Titanium Frame', 'Acetate Classic', 'Rimless', 'Semi-Rimless', 'Round Vintage', 'Square Modern', 'Rectangle Slim', 'Geometric', 'Cat Eye Optical', 'Browline'],
+                lenses: ['Daily Disposable', 'Monthly Soft', 'Toric Astigmatism', 'Multifocal', 'Colored Lenses', 'Silicone Hydrogel', 'Extended Wear', 'UV Protection']
+            };
+
+            let html = '';
+            
+            // Generate 60 products
+            for (let i = 0; i < 60; i++) {
+                const category = categories[i % 3];
+                const categoryNames = names[category];
+                const name = categoryNames[i % categoryNames.length] + ' ' + Math.floor(i / 3 + 1);
+                const price = category === 'sunglasses' ? 450 + (i * 25) : (category === 'optical' ? 350 + (i * 20) : 200 + (i * 15));
+                const image = productImages[i % productImages.length] + '&random=' + i;
+                const badge = i < 10 ? (i < 5 ? 'New' : 'Sale') : (i === 15 ? 'Best Seller' : '');
+                
+                html += `
+                    <div class="product-card" data-category="${category}" onclick="openProductLightbox(${i})">
+                        <div class="product-image-container">
+                            <img src="${image}" alt="${name}" class="product-image">
+                            ${badge ? `<span class="product-badge">${badge}</span>` : ''}
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${category}</div>
+                            <div class="product-name">${name}</div>
+                            <div class="product-price">EGP ${price}</div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            grid.innerHTML = html;
+        }
+
+        function filterProducts(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach((card, index) => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        function openProductLightbox(index) {
+            const cards = document.querySelectorAll('.product-card');
+            const img = cards[index].querySelector('img');
+            const name = cards[index].querySelector('.product-name').textContent;
+            const price = cards[index].querySelector('.product-price').textContent;
+            
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox-caption').textContent = `${name} - ${price}`;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        // Initialize products
+        generateProducts();
+
+        // Mobile menu
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
