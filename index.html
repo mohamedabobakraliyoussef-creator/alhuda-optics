@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Huda Optics | الهدى للبصريات</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Al-Huda Optics | Premium Eyewear Since 2009</title>
     <style>
         * {
             margin: 0;
@@ -13,59 +11,41 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --gold: #D4AF37;
-            --gold-light: #F4E8C1;
-            --dark: #0a0a0a;
-            --dark-light: #1a1a1a;
-            --white: #ffffff;
-            --gray: #888888;
-        }
-
         body {
-            font-family: 'Tajawal', 'Inter', sans-serif;
-            background-color: var(--dark);
-            color: var(--white);
-            overflow-x: hidden;
-        }
-
-        body.ltr {
-            direction: ltr;
-            font-family: 'Inter', 'Tajawal', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
         }
 
         /* Loading Screen */
-        .loader {
+        #loader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--dark);
+            background: #fff;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 9999;
             transition: opacity 0.5s;
         }
 
-        .loader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
         .loader-content {
             text-align: center;
         }
 
-        .loader-ring {
-            width: 80px;
-            height: 80px;
-            border: 4px solid var(--gold-light);
-            border-top: 4px solid var(--gold);
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #2c5aa0;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
+            margin-bottom: 20px;
         }
 
         @keyframes spin {
@@ -73,1412 +53,518 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Language Switcher */
-        .lang-switch {
-            position: fixed;
-            top: 100px;
-            left: 20px;
-            z-index: 999;
-            background: var(--gold);
-            color: var(--dark);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 700;
-            font-family: inherit;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
-
-        body.ltr .lang-switch {
-            left: auto;
-            right: 20px;
-        }
-
-        .lang-switch:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-        }
-
         /* Header */
         header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
             position: fixed;
-            top: 0;
             width: 100%;
-            padding: 20px 5%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
+            top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .logo {
             font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--gold);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        nav ul {
+        .nav-links {
             display: flex;
+            gap: 2rem;
             list-style: none;
-            gap: 30px;
         }
 
-        nav a {
-            color: var(--white);
+        .nav-links a {
+            color: white;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
+            transition: opacity 0.3s;
         }
 
-        nav a:hover {
-            color: var(--gold);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-            font-size: 1.3rem;
-            color: var(--white);
-            transition: color 0.3s;
-        }
-
-        .cart-icon:hover {
-            color: var(--gold);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--gold);
-            color: var(--dark);
-            font-size: 0.75rem;
-            font-weight: 700;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .nav-links a:hover {
+            opacity: 0.8;
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            margin-top: 80px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1200');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
-            background: linear-gradient(135deg, rgba(10,10,10,0.9), rgba(26,26,26,0.8)), url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1920') center/cover;
-            margin-top: 80px;
+            color: white;
         }
 
         .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: var(--gold);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s forwards;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero-content p {
             font-size: 1.5rem;
-            color: var(--gray);
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s 0.3s forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            margin-bottom: 2rem;
         }
 
         .cta-button {
             display: inline-block;
             padding: 15px 40px;
-            background: var(--gold);
-            color: var(--dark);
+            background: #e74c3c;
+            color: white;
             text-decoration: none;
-            font-weight: 700;
             border-radius: 50px;
-            transition: all 0.3s;
-            opacity: 0;
-            animation: fadeInUp 1s 0.6s forwards;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         /* Stats Section */
         .stats {
+            background: white;
+            padding: 4rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            padding: 80px 5%;
-            background: var(--dark-light);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
         }
 
         .stat-item {
-            text-align: center;
-            padding: 30px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 15px;
-            transition: transform 0.3s;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
+            padding: 2rem;
         }
 
         .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--gold);
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #2c5aa0;
             display: block;
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            color: var(--gray);
-            margin-top: 10px;
+            color: #666;
             font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Products Section */
-        .products {
-            padding: 100px 5%;
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: #f8f9fa;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--gold);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray);
-            margin-bottom: 50px;
-            font-size: 1.1rem;
-        }
-
-        .products-filter {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 10px 25px;
-            background: transparent;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: var(--white);
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: inherit;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--gold);
-            color: var(--dark);
-            border-color: var(--gold);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .product-card {
-            background: var(--dark-light);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover .product-image {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-category {
-            font-size: 0.85rem;
-            color: var(--gold);
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .product-title {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: var(--white);
-            height: 50px;
-            overflow: hidden;
-        }
-
-        .product-price {
-            font-size: 1.3rem;
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .add-to-cart {
-            width: 100%;
-            padding: 12px;
-            background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            font-family: inherit;
-            font-weight: 700;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .add-to-cart:hover {
-            background: var(--gold);
-            color: var(--dark);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 100px 5%;
-            background: var(--dark-light);
+            margin-bottom: 3rem;
+            color: #1e3c72;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
 
         .feature-card {
-            text-align: center;
-            padding: 40px;
-            position: relative;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .feature-content {
+            padding: 2rem;
         }
 
         .feature-number {
-            font-size: 4rem;
-            font-weight: 800;
-            color: rgba(212, 175, 55, 0.2);
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        body.ltr .feature-number {
-            right: auto;
-            left: 20px;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 20px;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #2c5aa0;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 1rem;
         }
 
         .feature-title {
             font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--white);
+            margin-bottom: 1rem;
+            color: #1e3c72;
         }
 
-        .feature-desc {
-            color: var(--gray);
+        .feature-description {
+            color: #666;
             line-height: 1.8;
         }
 
-        /* Location Section */
-        .location {
-            padding: 100px 5%;
-            text-align: center;
+        /* Store Section */
+        .store {
+            padding: 5rem 0;
+            background: white;
         }
 
-        .location-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .location h2 {
-            font-size: 2.5rem;
-            color: var(--gold);
-            margin-bottom: 30px;
-        }
-
-        .location p {
-            color: var(--gray);
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-        }
-
-        .location-info {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-
-        .info-item i {
-            color: var(--gold);
-            font-size: 1.3rem;
-        }
-
-        /* Cart Sidebar */
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -450px;
-            width: 450px;
-            height: 100vh;
-            background: var(--dark-light);
-            z-index: 2000;
-            transition: right 0.3s;
-            box-shadow: -5px 0 30px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
-        }
-
-        body.ltr .cart-sidebar {
-            right: auto;
-            left: -450px;
-            box-shadow: 5px 0 30px rgba(0,0,0,0.5);
-        }
-
-        .cart-sidebar.open {
-            right: 0;
-        }
-
-        body.ltr .cart-sidebar.open {
-            left: 0;
-            right: auto;
-        }
-
-        .cart-header {
-            padding: 30px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cart-title {
-            font-size: 1.5rem;
-            color: var(--gold);
-        }
-
-        .close-cart {
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close-cart:hover {
-            color: var(--gold);
-        }
-
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .cart-item {
-            display: flex;
-            gap: 15px;
-            padding: 15px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 10px;
-            margin-bottom: 15px;
-            align-items: center;
-        }
-
-        .cart-item-image {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .cart-item-details {
-            flex: 1;
-        }
-
-        .cart-item-title {
-            font-weight: 700;
-            margin-bottom: 5px;
-            font-size: 0.95rem;
-        }
-
-        .cart-item-price {
-            color: var(--gold);
-        }
-
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .qty-btn {
-            width: 25px;
-            height: 25px;
-            border: 1px solid var(--gold);
-            background: transparent;
-            color: var(--gold);
-            cursor: pointer;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .remove-item {
-            color: #ff4444;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: transform 0.2s;
-        }
-
-        .remove-item:hover {
-            transform: scale(1.2);
-        }
-
-        .cart-footer {
-            padding: 30px;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            background: var(--dark);
-        }
-
-        .cart-total {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-        }
-
-        .total-price {
-            color: var(--gold);
-            font-weight: 700;
-        }
-
-        .checkout-btn {
-            width: 100%;
-            padding: 15px;
-            background: var(--gold);
-            color: var(--dark);
-            border: none;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-
-        .checkout-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 1500;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Checkout Modal */
-        .checkout-modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.9);
-            background: var(--dark-light);
-            padding: 40px;
-            border-radius: 20px;
-            z-index: 3000;
-            width: 90%;
-            max-width: 600px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .checkout-modal.open {
-            opacity: 1;
-            visibility: visible;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .checkout-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .checkout-title {
-            font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 10px;
-        }
-
-        .payment-methods {
-            display: grid;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .payment-method {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 20px;
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .payment-method:hover,
-        .payment-method.selected {
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.1);
-        }
-
-        .payment-method i {
-            font-size: 1.5rem;
-            color: var(--gold);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--gray);
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            color: var(--white);
-            border-radius: 8px;
-            font-family: inherit;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-
-        .form-row {
+        .store-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .pay-button {
-            width: 100%;
-            padding: 15px;
-            background: var(--gold);
-            color: var(--dark);
-            border: none;
-            font-family: inherit;
-            font-weight: 700;
+        .store-info h2 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+        }
+
+        .store-info p {
+            color: #666;
             font-size: 1.1rem;
-            cursor: pointer;
-            border-radius: 8px;
-            margin-top: 20px;
-            transition: all 0.3s;
+            line-height: 1.8;
+            margin-bottom: 2rem;
         }
 
-        .pay-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        .store-features {
+            list-style: none;
+            margin-bottom: 2rem;
         }
 
-        .close-checkout {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        body.ltr .close-checkout {
-            right: auto;
-            left: 20px;
-        }
-
-        /* Success Message */
-        .success-message {
-            position: fixed;
-            top: 100px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-20px);
-            background: #28a745;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            z-index: 4000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            font-weight: 700;
+        .store-features li {
+            padding: 0.5rem 0;
+            color: #555;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .success-message.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
+        .store-features li:before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .store-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .store-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Footer */
         footer {
-            background: var(--dark);
-            padding: 40px 5%;
+            background: #1e3c72;
+            color: white;
+            padding: 3rem 0;
             text-align: center;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .footer-content {
-            color: var(--gray);
-        }
-
-        .footer-links {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
+            justify-content: space-around;
             flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .footer-links a {
-            color: var(--gray);
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #bdc3c7;
             text-decoration: none;
-            transition: color 0.3s;
+            line-height: 1.8;
         }
 
-        .footer-links a:hover {
-            color: var(--gold);
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            color: #95a5a6;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
-            nav {
+            .store-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
                 display: none;
             }
-            
-            .cart-sidebar {
-                width: 100%;
-                right: -100%;
-            }
-            
-            body.ltr .cart-sidebar {
-                left: -100%;
-            }
-            
-            .checkout-modal {
-                width: 95%;
-                padding: 20px;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-        }
-
-        /* Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--dark);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #b8962e;
         }
     </style>
 </head>
 <body>
     <!-- Loading Screen -->
-    <div class="loader" id="loader">
+    <div id="loader">
         <div class="loader-content">
-            <div class="loader-ring"></div>
-            <p data-ar="جاري التحميل..." data-en="Loading...">جاري التحميل...</p>
+            <div class="spinner"></div>
+            <h2>Al-Huda Optics</h2>
+            <p>Loading Experience...</p>
         </div>
     </div>
 
-    <!-- Language Switcher -->
-    <button class="lang-switch" onclick="toggleLanguage()">
-        <span id="langText">English</span>
-    </button>
-
     <!-- Header -->
     <header>
-        <a href="#" class="logo">
-            <i class="fas fa-glasses"></i>
-            <span data-ar="الهدى للبصريات" data-en="Al-Huda Optics">الهدى للبصريات</span>
-        </a>
-        
-        <nav>
-            <ul>
-                <li><a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
-                <li><a href="#products" data-ar="المنتجات" data-en="Products">المنتجات</a></li>
-                <li><a href="#features" data-ar="خدماتنا" data-en="Services">خدماتنا</a></li>
-                <li><a href="#location" data-ar="موقعنا" data-en="Location">موقعنا</a></li>
-            </ul>
-        </nav>
-        
-        <div class="header-actions">
-            <div class="cart-icon" onclick="toggleCart()">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="cartCount">0</span>
-            </div>
+        <div class="container">
+            <nav>
+                <div class="logo">Al-Huda Optics</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Services</a></li>
+                    <li><a href="#store">Our Store</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1 data-ar="الرؤية ليست رفاهية" data-en="Vision Is Not A Luxury">الرؤية ليست رفاهية</h1>
-            <p data-ar="إنها حقك في رؤية العالم بوضوح ودقة" data-en="It's your right to see the world with clarity and precision">إنها حقك في رؤية العالم بوضوح ودقة</p>
-            <a href="#products" class="cta-button" data-ar="تصفح المنتجات" data-en="Browse Products">تصفح المنتجات</a>
+            <h1>Vision Is Not A Luxury</h1>
+            <p>It is your right to see the world with clarity and precision</p>
+            <a href="#store" class="cta-button">Book Free Consultation</a>
         </div>
     </section>
 
     <!-- Stats Section -->
     <section class="stats">
-        <div class="stat-item">
-            <span class="stat-number" data-target="15">0</span>
-            <div class="stat-label" data-ar="سنة خبرة" data-en="Years Experience">سنة خبرة</div>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number" data-target="5000">0</span>
-            <div class="stat-label" data-ar="عميل سعيد" data-en="Happy Clients">عميل سعيد</div>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number" data-target="100">0</span>
-            <div class="stat-label" data-ar="ضمان الجودة %" data-en="Quality Guarantee %">ضمان الجودة %</div>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number" data-target="60">0</span>
-            <div class="stat-label" data-ar="منتج متنوع" data-en="Products">منتج متنوع</div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products" id="products">
-        <h2 class="section-title" data-ar="منتجاتنا المميزة" data-en="Our Featured Products">منتجاتنا المميزة</h2>
-        <p class="section-subtitle" data-ar="اكتشف تشكيلتنا الواسعة من النظارات والعدسات" data-en="Discover our wide range of glasses and lenses">اكتشف تشكيلتنا الواسعة من النظارات والعدسات</p>
-        
-        <div class="products-filter">
-            <button class="filter-btn active" onclick="filterProducts('all')" data-ar="الكل" data-en="All">الكل</button>
-            <button class="filter-btn" onclick="filterProducts('medical')" data-ar="نظارات طبية" data-en="Medical Glasses">نظارات طبية</button>
-            <button class="filter-btn" onclick="filterProducts('sunglasses')" data-ar="نظارات شمسية" data-en="Sunglasses">نظارات شمسية</button>
-            <button class="filter-btn" onclick="filterProducts('lenses')" data-ar="عدسات لاصقة" data-en="Contact Lenses">عدسات لاصقة</button>
-            <button class="filter-btn" onclick="filterProducts('blue')" data-ar="حماية شاشات" data-en="Blue Light">حماية شاشات</button>
-        </div>
-
-        <div class="products-grid" id="productsGrid">
-            <!-- Products will be inserted here by JavaScript -->
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="15">0</span>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5000">0</span>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">0</span>
+                    <div class="stat-label">% Quality Guarantee</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
-        <h2 class="section-title" data-ar="ثلاثة أعمدة للرؤية المثالية" data-en="Three Pillars of Perfect Vision">ثلاثة أعمدة للرؤية المثالية</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-number">01</span>
-                <i class="fas fa-microscope feature-icon"></i>
-                <h3 class="feature-title" data-ar="الدقة المتناهية" data-en="Macro Precision">الدقة المتناهية</h3>
-                <p class="feature-desc" data-ar="عدسات محفورة بالليزر بدقة النانومتر لرؤيتك الفريدة" data-en="Laser-etched lenses with nanometer accuracy for your unique vision">عدسات محفورة بالليزر بدقة النانومتر لرؤيتك الفريدة</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-number">02</span>
-                <i class="fas fa-moon feature-icon"></i>
-                <h3 class="feature-title" data-ar="وضوح الليل" data-en="Night Clarity">وضوح الليل</h3>
-                <p class="feature-desc" data-ar="تقنية مكافحة الوهج تزيل 85% من وهج الأنوار" data-en="Anti-glare technology eliminating 85% of headlight glare">تقنية مكافحة الوهج تزيل 85% من وهج الأنوار</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-number">03</span>
-                <i class="fas fa-shield-alt feature-icon"></i>
-                <h3 class="feature-title" data-ar="الحماية الرقمية" data-en="Digital Protection">الحماية الرقمية</h3>
-                <p class="feature-desc" data-ar="تصفية 40% من الضوء الأزرق الضار، تقليل إجهاد العين 60%" data-en="Block 40% of harmful blue light, reducing eye strain by 60%">تصفية 40% من الضوء الأزرق الضار، تقليل إجهاد العين 60%</p>
+        <div class="container">
+            <h2 class="section-title">Three Pillars of Perfect Vision</h2>
+            <div class="features-grid">
+                
+                <!-- Feature 1: Macro Precision -->
+                <div class="feature-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.a-optowave.com/fa2159be08bd2bd013681d1d39c0675e2b817915.jpg" 
+                         alt="Precision Laser Cutting for Glasses" 
+                         class="feature-image">
+                    <div class="feature-content">
+                        <span class="feature-number">01</span>
+                        <h3 class="feature-title">Macro Precision</h3>
+                        <p class="feature-description">
+                            Laser-etched lenses with nanometer accuracy for your unique vision. 
+                            Our advanced manufacturing process ensures each lens meets the highest 
+                            optical standards.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Night Clarity -->
+                <div class="feature-card">
+                    <img src="https://kimi-web-img.moonshot.cn/img/dj3im2gm3txew.cloudfront.net/a4f070fd2615a27e7bf7b7511d4cb9144f2888b3.jpg" 
+                         alt="Anti-Glare Night Driving Glasses" 
+                         class="feature-image">
+                    <div class="feature-content">
+                        <span class="feature-number">02</span>
+                        <h3 class="feature-title">Night Clarity</h3>
+                        <p class="feature-description">
+                            Anti-glare technology eliminating 85% of headlight glare. 
+                            Drive safely at night with enhanced contrast and reduced eye strain.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Digital Protection -->
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=800" 
+                         alt="Blue Light Blocking Glasses" 
+                         class="feature-image">
+                    <div class="feature-content">
+                        <span class="feature-number">03</span>
+                        <h3 class="feature-title">Digital Protection</h3>
+                        <p class="feature-description">
+                            Block 40% of harmful blue light, reducing eye strain by 60%. 
+                            Perfect for professionals who spend hours in front of screens.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Location Section -->
-    <section class="location" id="location">
-        <div class="location-content">
-            <h2 data-ar="زور محلنا في فيصل، الجيزة" data-en="Visit Our Store in Faisal, Giza">زور محلنا في فيصل، الجيزة</h2>
-            <p data-ar="احصل على فحص نظر مجاني واستشارة احترافية. نساعدك في اختيار النظارة المثالية لاحتياجاتك." data-en="Get a free vision check and professional consultation. We'll help you choose the perfect eyewear for your needs.">احصل على فحص نظر مجاني واستشارة احترافية. نساعدك في اختيار النظارة المثالية لاحتياجاتك.</p>
-            <div class="location-info">
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span data-ar="فيصل، الجيزة، مصر" data-en="Faisal, Giza, Egypt">فيصل، الجيزة، مصر</span>
+    <!-- Store Section -->
+    <section class="store" id="store">
+        <div class="container">
+            <div class="store-content">
+                <div class="store-info">
+                    <h2>Visit Our Store in Faisal, Giza</h2>
+                    <p>
+                        Get a free vision check and professional consultation. 
+                        We'll help you choose the perfect eyewear for your needs.
+                    </p>
+                    <ul class="store-features">
+                        <li>Free Vision Testing</li>
+                        <li>Professional Optometrists</li>
+                        <li>Latest Frame Collections</li>
+                        <li>Same-Day Service Available</li>
+                        <li>Warranty on All Products</li>
+                    </ul>
+                    <a href="tel:+201234567890" class="cta-button">Call Now</a>
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-phone"></i>
-                    <span>01111171350</span>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-clock"></i>
-                    <span data-ar="12 ظهراً - 1 صباحاً" data-en="12 PM - 1 AM">12 ظهراً - 1 صباحاً</span>
+                <div class="store-image">
+                    <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800" 
+                         alt="Al-Huda Optics Store">
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Cart Sidebar -->
-    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3 class="cart-title" data-ar="سلة المشتريات" data-en="Shopping Cart">سلة المشتريات</h3>
-            <button class="close-cart" onclick="toggleCart()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <!-- Cart items will be inserted here -->
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span data-ar="الإجمالي:" data-en="Total:">الإجمالي:</span>
-                <span class="total-price" id="totalPrice">0 ج.م</span>
-            </div>
-            <button class="checkout-btn" onclick="openCheckout()">
-                <i class="fas fa-credit-card"></i> 
-                <span data-ar="إتمام الشراء" data-en="Checkout">إتمام الشراء</span>
-            </button>
-        </div>
-    </div>
-
-    <!-- Checkout Modal -->
-    <div class="overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
-    <div class="checkout-modal" id="checkoutModal">
-        <button class="close-checkout" onclick="closeCheckout()">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="checkout-header">
-            <h2 class="checkout-title" data-ar="إتمام الدفع" data-en="Complete Payment">إتمام الدفع</h2>
-            <p data-ar="اختر طريقة الدفع المناسبة" data-en="Choose your payment method">اختر طريقة الدفع المناسبة</p>
-        </div>
-        
-        <div class="payment-methods">
-            <div class="payment-method selected" onclick="selectPayment(this, 'card')">
-                <i class="fas fa-credit-card"></i>
-                <div>
-                    <div style="font-weight: 700;" data-ar="بطاقة ائتمان" data-en="Credit Card">بطاقة ائتمان</div>
-                    <div style="font-size: 0.9rem; color: var(--gray);">Visa / MasterCard</div>
-                </div>
-            </div>
-            <div class="payment-method" onclick="selectPayment(this, 'cash')">
-                <i class="fas fa-money-bill-wave"></i>
-                <div>
-                    <div style="font-weight: 700;" data-ar="الدفع عند الاستلام" data-en="Cash on Delivery">الدفع عند الاستلام</div>
-                    <div style="font-size: 0.9rem; color: var(--gray);" data-ar="دفع نقدي عند استلام المنتج" data-en="Pay cash when receiving product">دفع نقدي عند استلام المنتج</div>
-                </div>
-            </div>
-            <div class="payment-method" onclick="selectPayment(this, 'vodafone')">
-                <i class="fas fa-mobile-alt"></i>
-                <div>
-                    <div style="font-weight: 700;" data-ar="فودافون كاش" data-en="Vodafone Cash">فودافون كاش</div>
-                    <div style="font-size: 0.9rem; color: var(--gray);" data-ar="تحويل عبر محفظة فودافون" data-en="Transfer via Vodafone Wallet">تحويل عبر محفظة فودافون</div>
-                </div>
-            </div>
-        </div>
-
-        <form id="paymentForm">
-            <div class="form-group">
-                <label data-ar="الاسم بالكامل" data-en="Full Name">الاسم بالكامل</label>
-                <input type="text" placeholder="Mohamed Ahmed" required>
-            </div>
-            <div class="form-group">
-                <label data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
-                <input type="tel" placeholder="01111171350" required>
-            </div>
-            <div class="form-group">
-                <label data-ar="العنوان" data-en="Address">العنوان</label>
-                <input type="text" placeholder="Faisal Street, Giza" required>
-            </div>
-            
-            <div id="cardFields">
-                <div class="form-group">
-                    <label data-ar="رقم البطاقة" data-en="Card Number">رقم البطاقة</label>
-                    <input type="text" placeholder="xxxx xxxx xxxx xxxx">
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label data-ar="تاريخ الانتهاء" data-en="Expiry Date">تاريخ الانتهاء</label>
-                        <input type="text" placeholder="MM/YY">
-                    </div>
-                    <div class="form-group">
-                        <label>CVV</label>
-                        <input type="text" placeholder="123">
-                    </div>
-                </div>
-            </div>
-
-            <button type="submit" class="pay-button">
-                <i class="fas fa-lock"></i> 
-                <span data-ar="دفع" data-en="Pay">دفع</span>
-                <span id="payAmount">0</span> 
-                <span data-ar="ج.م" data-en="EGP">ج.م</span>
-            </button>
-        </form>
-    </div>
-
-    <!-- Success Message -->
-    <div class="success-message" id="successMessage">
-        <i class="fas fa-check-circle"></i>
-        <span data-ar="تمت الإضافة إلى السلة بنجاح!" data-en="Added to cart successfully!">تمت الإضافة إلى السلة بنجاح!</span>
-    </div>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-links">
-            <a href="#" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a>
-            <a href="#" data-ar="الشروط والأحكام" data-en="Terms & Conditions">الشروط والأحكام</a>
-            <a href="#" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
-        </div>
-        <div class="footer-content">
-            <p>&copy; 2024 <span data-ar="الهدى للبصريات" data-en="Al-Huda Optics">الهدى للبصريات</span>. <span data-ar="جميع الحقوق محفوظة." data-en="All rights reserved.">جميع الحقوق محفوظة.</span></p>
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Al-Huda Optics</h3>
+                    <p>Established 2009<br>
+                    Faisal, Giza, Egypt</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Phone: +20 123 456 7890<br>
+                    Email: info@alhuda-optics.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Hours</h3>
+                    <p>Sat-Thu: 10:00 AM - 10:00 PM<br>
+                    Friday: 2:00 PM - 10:00 PM</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Al-Huda Optics. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Products Data - 60 Products
-        const products = [
-            // Medical Glasses (25 products)
-            { id: 1, name: "نظارة طبية كلاسيكية سوداء", nameEn: "Classic Black Medical Glasses", price: 850, image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=500", category: "medical" },
-            { id: 2, name: "نظارة طبية تيتانيوم ذهبي", nameEn: "Gold Titanium Medical Glasses", price: 1500, image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=500", category: "medical" },
-            { id: 3, name: "نظارة طبية شفافة عصرية", nameEn: "Modern Transparent Medical Glasses", price: 950, image: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=500", category: "medical" },
-            { id: 4, name: "نظارة طبية بني كلاسيكي", nameEn: "Classic Brown Medical Glasses", price: 800, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500", category: "medical" },
-            { id: 5, name: "نظارة طبية رمادي فاخر", nameEn: "Luxury Gray Medical Glasses", price: 1200, image: "https://images.unsplash.com/photo-1596568359553-a56de6970068?w=500", category: "medical" },
-            { id: 6, name: "نظارة طبية مربعة سوداء", nameEn: "Black Square Medical Glasses", price: 900, image: "https://images.unsplash.com/photo-1603573355706-3f16d89bce51?w=500", category: "medical" },
-            { id: 7, name: "نظارة طبية دائرية ريترو", nameEn: "Round Retro Medical Glasses", price: 750, image: "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=500", category: "medical" },
-            { id: 8, name: "نظارة طبية نسائية أنيقة", nameEn: "Elegant Women Medical Glasses", price: 1100, image: "https://images.unsplash.com/photo-1596568359553-a56de6970068?w=500", category: "medical" },
-            { id: 9, name: "نظارة طبية رجالي تيتانيوم", nameEn: "Men Titanium Medical Glasses", price: 1400, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500", category: "medical" },
-            { id: 10, name: "نظارة طبية أطفال ملونة", nameEn: "Kids Colorful Medical Glasses", price: 600, image: "https://images.unsplash.com/photo-1596568359553-a56de6970068?w=500", category: "medical" },
-            { id: 11, name: "نظارة طبية نصف إطار", nameEn: "Half Frame Medical Glasses", price: 850, image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=500", category: "medical" },
-            { id: 12, name: "نظارة طبية رياضية خفيفة", nameEn: "Lightweight Sports Medical Glasses", price: 1000, image: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=500", category: "medical" },
-            { id: 13, name: "نظارة طبية كبيرة الحجم", nameEn: "Oversized Medical Glasses", price: 950, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500", category: "medical" },
-            { id: 14, name: "نظارة طبية مشبكية", nameEn: "Rimless Medical Glasses", price: 1300, image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=500", category: "medical" },
-            { id: 15, name: "نظارة طبية جلدية فاخرة", nameEn: "Luxury Leather Medical Glasses", price: 1600, image: "https://images.unsplash.com/photo-1603573355706-3f16d89bce51?w=500", category: "medical" },
-            { id: 16, name: "نظارة طبية كربون فيبر", nameEn: "Carbon Fiber Medical Glasses", price: 1800, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500", category: "medical" },
-            { id: 17, name: "نظارة طبية ذكية", nameEn: "Smart Medical Glasses", price: 2500, image: "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=500", category: "medical" },
-            { id: 18, name: "نظارة طبية ثنائية البؤرة", nameEn: "Bifocal Medical Glasses", price: 1200, image: "https://images.unsplash.com/photo-1596568359553-a56de6970068?w=500", category: "medical" },
-            { id: 19, name: "نظارة طبية متعددة البؤر", nameEn: "Progressive Medical Glasses", price: 2000, image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=500", category: "medical" },
-            { id: 20, name: "نظارة طبية مضادة للانعكاس", nameEn: "Anti-Reflective Medical Glasses", price: 1100, image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=500", category: "medical" },
-            { id: 21, name: "نظارة طبية فوتوكروميك", nameEn: "Photochromic Medical Glasses", price: 1400, image: "https://images.unsplash.com/photo-1603573355706-3f16d89bce51?w=500", category: "medical" },
-            { id: 22, name: "نظارة طبية بولارايزد", nameEn: "Polarized Medical Glasses", price: 1300, image: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=500", category: "medical" },
-            { id: 23, name: "نظارة طبية للقراءة +1.5", nameEn: "Reading Glasses +1.5", price: 450, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500", category: "medical" },
-            { id: 24, name: "نظارة طبية للقراءة +2.5", nameEn: "Reading Glasses +2.5", price: 450, image: "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=500", category: "medical" },
-            { id: 25, name: "نظارة طبية للقراءة +3.0", nameEn: "Reading Glasses +3.0", price: 450, image: "https://images.unsplash.com/photo-1596568359553-a56de6970068?w=500", category: "medical" },
-
-            // Sunglasses (20 products)
-            { id: 26, name: "نظارة شمسية أفياتور كلاسيكية", nameEn: "Classic Aviator Sunglasses", price: 1200, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500", category: "sunglasses" },
-            { id: 27, name: "نظارة شمسية واي فيرر سوداء", nameEn: "Black Wayfarer Sunglasses", price: 950, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500", category: "sunglasses" },
-            { id: 28, name: "نظارة شمسية رياضية بولارايزد", nameEn: "Polarized Sports Sunglasses", price: 1100, image: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=500", category: "sunglasses" },
-            { id: 29, name: "نظارة شمسية فينتاج دائرية", nameEn: "Round Vintage Sunglasses", price: 850, image: "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=500", category: "sunglasses" },
-            { id: 30, name: "نظارة شمسية كات آي فاخرة", nameEn: "Luxury Cat Eye Sunglasses", price: 1400, image: "https://images.unsplash.com/photo-1596568359553-a56de6970068?w=500", category: "sunglasses" },
-            { id: 31, name: "نظارة شمسية رجالي تيتانيوم", nameEn: "Men Titanium Sunglasses", price: 1600, image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=500", category: "sunglasses" },
-            { id: 32, name: "نظارة شمسية نسائية كبيرة", nameEn: "Women Oversized Sunglasses", price: 1300, image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=500", category: "sunglasses" },
-            { id: 33, name: "نظارة شمسية أطفال آمنة", nameEn: "Kids Safe Sunglasses", price: 550, image: "https://images.unsplash.com/photo-1603573355706-3f16d89bce51?w=500", category: "sunglasses" },
-            { id: 34, name: "نظارة شمسية قيادة ليلية", nameEn: "Night Driving Sunglasses", price: 900, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500", category: "sunglasses" },
-            { id: 35, name: "نظارة شمسية تزلج جبال", nameEn: "Ski Mountain Sunglasses", price: 1800, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500", category: "sunglasses" },
-            { id: 36, name: "نظارة شمسية سباحة مائية", nameEn: "Swimming Water Sunglasses", price: 750, image: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=500", category: "sunglasses" },
-            { id: 37, name: "نظارة شمسية عاكسة مرايا", nameEn: "Mirrored Sunglasses", price: 1000, image: "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=500", category: "sunglasses" },
-            { id: 38, name: "نظارة شمسية شفافة ملونة", nameEn: "Colored Transparent Sunglasses", price: 850, image: "https://images.unsplash.com/photo-1596568359553-a56de6970068?w=500", category: "sunglasses" },
-            { id: 39, name: "نظارة شمسية خشبية طبيعية", nameEn: "Natural Wood Sunglasses", price: 1500, image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=500", category: "sunglasses" },
-            { id: 40, name: "نظارة شمسية قابلة للطي", nameEn: "Foldable Sunglasses", price: 700, image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=500", category: "sunglasses" },
-            { id: 41, name: "نظارة شمسية طبية شمسية", nameEn: "Photochromic Sunglasses", price: 1700, image: "https://images.unsplash.com/photo-1603573355706-3f16d89bce51?w=500", category: "sunglasses" },
-            { id: 42, name: "نظارة شمسية دراجات هوائية", nameEn: "Cycling Sunglasses", price: 1200, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500", category: "sunglasses" },
-            { id: 43, name: "نظارة شمسية جري رياضية", nameEn: "Running Sports Sunglasses", price: 950, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500", category: "sunglasses" },
-            { id: 44, name: "نظارة شمسية صيد سمك", nameEn: "Fishing Polarized Sunglasses", price: 1100, image: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=500", category: "sunglasses" },
-            { id: 45, name: "نظارة شمسية جولف فاخرة", nameEn: "Luxury Golf Sunglasses", price: 2000, image: "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=500", category: "sunglasses" },
-
-            // Contact Lenses (10 products)
-            { id: 46, name: "عدسات لاصقة يومية أكيوفيو", nameEn: "Acuvue Daily Contact Lenses", price: 350, image: "https://images.unsplash.com/photo-1582142839970-2b9e04b60f65?w=500", category: "lenses" },
-            { id: 47, name: "عدسات لاصقة شهرية بيضاء", nameEn: "Monthly Clear Contact Lenses", price: 250, image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500", category: "lenses" },
-            { id: 48, name: "عدسات لاصقة ملونة زرقاء", nameEn: "Blue Colored Contact Lenses", price: 400, image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=500", category: "lenses" },
-            { id: 49, name: "عدسات لاصقة ملونة عسلي", nameEn: "Honey Colored Contact Lenses", price: 400, image: "https://images.unsplash.com/photo-1603573355706-3f16d89bce51?w=500", category: "lenses" },
-            { id: 50, name: "عدسات لاصقة ملونة رمادي", nameEn: "Gray Colored Contact Lenses", price: 400, image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=500", category: "lenses" },
-            { id: 51, name: "عدسات لاصقة ملونة أخضر", nameEn: "Green Colored Contact Lenses", price: 400, image: "https://images.unsplash.com/photo-1596568359553-a56de6970068?w=500", category: "lenses" },
-            { id: 52, name: "عدسات لاصقة طبية أستجماتيزم", nameEn: "Astigmatism Toric Lenses", price: 600, image: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=500", category: "lenses" },
-            { id: 53, name: "عدسات لاصقة متعددة البؤر", nameEn: "Multifocal Contact Lenses", price: 550, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500", category: "lenses" },
-            { id: 54, name: "عدسات لاصقة سيليكون هايدروجيل", nameEn: "Silicone Hydrogel Lenses", price: 450, image: "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=500", category: "lenses" },
-            { id: 55, name: "عدسات لاصقة زينة كوسبلاي", nameEn: "Cosplay Costume Lenses", price: 500, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500", category: "lenses" },
-
-            // Blue Light Glasses (5 products)
-            { id: 56, name: "نظارة حماية شاشات كلاسيكية", nameEn: "Classic Blue Light Glasses", price: 750, image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=500", category: "blue" },
-            { id: 57, name: "نظارة حماية شاشات تيتانيوم", nameEn: "Titanium Blue Light Glasses", price: 1100, image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=500", category: "blue" },
-            { id: 58, name: "نظارة حماية شاشات ألعاب", nameEn: "Gaming Blue Light Glasses", price: 900, image: "https://images.unsplash.com/photo-1603573355706-3f16d89bce51?w=500", category: "blue" },
-            { id: 59, name: "نظارة حماية شاشات أطفال", nameEn: "Kids Blue Light Glasses", price: 600, image: "https://images.unsplash.com/photo-1596568359553-a56de6970068?w=500", category: "blue" },
-            { id: 60, name: "نظارة حماية شاشات برو", nameEn: "Pro Blue Light Blocking Glasses", price: 1300, image: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=500", category: "blue" }
-        ];
-
-        // Cart State
-        let cart = [];
-        let currentLang = 'ar';
-
-        // Initialize
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
+        // Remove loader when page loads
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loader').style.display = 'none';
+                }, 500);
             }, 1000);
-            
-            renderProducts('all');
-            animateStats();
         });
 
-        // Language Toggle
-        function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            document.body.classList.toggle('ltr');
-            document.body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            
-            // Update all elements with data attributes
-            document.querySelectorAll('[data-ar][data-en]').forEach(el => {
-                if (el.tagName === 'INPUT') {
-                    el.placeholder = el.getAttribute(`data-${currentLang}`);
+        // Animated Counters
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200;
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(animateCounters, 20);
                 } else {
-                    el.textContent = el.getAttribute(`data-${currentLang}`);
+                    counter.innerText = target;
+                    // Add + symbol for clients, % for quality
+                    if(target === 5000) counter.innerText += '+';
+                    if(target === 100) counter.innerText += '%';
                 }
             });
-            
-            document.getElementById('langText').textContent = currentLang === 'ar' ? 'English' : 'العربية';
-            
-            // Re-render products to update names
-            renderProducts(document.querySelector('.filter-btn.active').getAttribute('onclick').match(/'(.*)'/)[1]);
-        }
+        };
 
-        // Filter Products
-        function filterProducts(category) {
-            // Update active button
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('onclick').includes(category)) {
-                    btn.classList.add('active');
+        // Trigger counters when stats section is in view
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
                 }
             });
-            
-            renderProducts(category);
-        }
+        }, observerOptions);
 
-        // Render Products
-        function renderProducts(category) {
-            const grid = document.getElementById('productsGrid');
-            const filtered = category === 'all' ? products : products.filter(p => p.category === category);
-            
-            grid.innerHTML = filtered.map(product => `
-                <div class="product-card">
-                    <img src="${product.image}" alt="${currentLang === 'ar' ? product.name : product.nameEn}" class="product-image" onerror="this.src='https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=500'">
-                    <div class="product-info">
-                        <div class="product-category">${product.category}</div>
-                        <h3 class="product-title">${currentLang === 'ar' ? product.name : product.nameEn}</h3>
-                        <div class="product-price">${product.price} ${currentLang === 'ar' ? 'ج.م' : 'EGP'}</div>
-                        <button class="add-to-cart" onclick="addToCart(${product.id})">
-                            <i class="fas fa-cart-plus"></i> 
-                            <span data-ar="أضف إلى السلة" data-en="Add to Cart">${currentLang === 'ar' ? 'أضف إلى السلة' : 'Add to Cart'}</span>
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-        }
+        observer.observe(document.querySelector('.stats'));
 
-        // Add to Cart
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            const existingItem = cart.find(item => item.id === productId);
-            
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-            
-            updateCart();
-            showSuccessMessage();
-        }
-
-        // Update Cart UI
-        function updateCart() {
-            const cartCount = document.getElementById('cartCount');
-            const cartItems = document.getElementById('cartItems');
-            const totalPrice = document.getElementById('totalPrice');
-            const payAmount = document.getElementById('payAmount');
-            
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
-            cartCount.textContent = totalItems;
-            totalPrice.textContent = total + (currentLang === 'ar' ? ' ج.م' : ' EGP');
-            payAmount.textContent = total;
-            
-            if (cart.length === 0) {
-                cartItems.innerHTML = `<div style="text-align: center; color: var(--gray); padding: 40px;" data-ar="السلة فارغة" data-en="Cart is empty">${currentLang === 'ar' ? 'السلة فارغة' : 'Cart is empty'}</div>`;
-            } else {
-                cartItems.innerHTML = cart.map(item => `
-                    <div class="cart-item">
-                        <img src="${item.image}" alt="${currentLang === 'ar' ? item.name : item.nameEn}" class="cart-item-image" onerror="this.src='https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=500'">
-                        <div class="cart-item-details">
-                            <div class="cart-item-title">${currentLang === 'ar' ? item.name : item.nameEn}</div>
-                            <div class="cart-item-price">${item.price} ${currentLang === 'ar' ? 'ج.م' : 'EGP'}</div>
-                            <div class="quantity-control">
-                                <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
-                                <span>${item.quantity}</span>
-                                <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
-                            </div>
-                        </div>
-                        <i class="fas fa-trash remove-item" onclick="removeFromCart(${item.id})"></i>
-                    </div>
-                `).join('');
-            }
-        }
-
-        // Update Quantity
-        function updateQuantity(productId, change) {
-            const item = cart.find(item => item.id === productId);
-            if (item) {
-                item.quantity += change;
-                if (item.quantity <= 0) {
-                    removeFromCart(productId);
-                } else {
-                    updateCart();
-                }
-            }
-        }
-
-        // Remove from Cart
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            updateCart();
-        }
-
-        // Toggle Cart
-        function toggleCart() {
-            const sidebar = document.getElementById('cartSidebar');
-            const overlay = document.getElementById('overlay');
-            sidebar.classList.toggle('open');
-            overlay.classList.toggle('active');
-        }
-
-        // Show Success Message
-        function showSuccessMessage() {
-            const msg = document.getElementById('successMessage');
-            msg.classList.add('show');
-            setTimeout(() => msg.classList.remove('show'), 2000);
-        }
-
-        // Checkout Functions
-        function openCheckout() {
-            if (cart.length === 0) {
-                alert(currentLang === 'ar' ? 'السلة فارغة!' : 'Cart is empty!');
-                return;
-            }
-            document.getElementById('checkoutModal').classList.add('open');
-            document.getElementById('checkoutOverlay').classList.add('active');
-            toggleCart();
-        }
-
-        function closeCheckout() {
-            document.getElementById('checkoutModal').classList.remove('open');
-            document.getElementById('checkoutOverlay').classList.remove('active');
-        }
-
-        function selectPayment(element, method) {
-            document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected'));
-            element.classList.add('selected');
-            
-            const cardFields = document.getElementById('cardFields');
-            if (method === 'card') {
-                cardFields.style.display = 'block';
-            } else {
-                cardFields.style.display = 'none';
-            }
-        }
-
-        // Payment Form Submit
-        document.getElementById('paymentForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const btn = e.target.querySelector('.pay-button');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (currentLang === 'ar' ? 'جاري المعالجة...' : 'Processing...');
-            btn.disabled = true;
-            
-            setTimeout(() => {
-                alert(currentLang === 'ar' ? 'تم الطلب بنجاح! سنتواصل معك قريباً.' : 'Order placed successfully! We will contact you soon.');
-                cart = [];
-                updateCart();
-                closeCheckout();
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            }, 2000);
-        });
-
-        // Animate Stats
-        function animateStats() {
-            const stats = document.querySelectorAll('.stat-number');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = parseInt(entry.target.getAttribute('data-target'));
-                        animateNumber(entry.target, target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            });
-            
-            stats.forEach(stat => observer.observe(stat));
-        }
-
-        function animateNumber(element, target) {
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target + (target === 100 ? '%' : '+');
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current);
-                }
-            }, 30);
-        }
-
-        // Smooth Scroll
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
